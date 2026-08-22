@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klimatik.es - Cálculo de Carga Térmica, Climatización y Bomba de Calor | Blog de Ingeniería</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
+        
+        @media print {
+            @page { size: A4 landscape; margin: 2mm 3mm; }
+            body * { visibility: hidden; }
+            #pdfRaporKapsayici, #pdfRaporKapsayici * { visibility: visible; }
+            #pdfRaporKapsayici { 
+                position: absolute; 
+                left: 0; 
+                top: 0; 
+                width: 100% !important; 
+                background: white !important;
+                padding: 0 !important;
+                font-size: 6px !important;
+                transform: none !important;
+            }
+            .no-print, .butonlar-grubu { display: none !important; }
+            
+            input, select { border: 1px solid #94a3b8 !important; padding: 1px 2px !important; font-size: 6px !important; height: auto !important; background: #fff !important; }
+            label { font-size: 6px !important; margin-bottom: 1px !important; }
+            
+            .print-grid-2 { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 2px !important; }
+            .print-grid-3 { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 2px !important; }
+            .print-grid-5 { display: grid !important; grid-template-columns: repeat(5, minmax(0, 1fr)) !important; gap: 2px !important; }
+            .print-grid-pencere { display: grid !important; grid-template-columns: repeat(5, minmax(0, 1fr)) !important; gap: 2px !important; width: 100% !important; }
+            .print-grid-duvar { display: grid !important; grid-template-columns: repeat(5, minmax(0, 1fr)) !important; gap: 2px !important; width: 100% !important; }
+
+            #ts825Form { display: flex; flex-direction: column; gap: 2px !important; }
+            #ts825Form > div { padding: 2px !important; margin-bottom: 1px !important; border-radius: 2px !important; }
+            
+            #pencereSihirbazKutusu { border: none !important; background: #f8fafc !important; padding: 2px !important; margin: 1px 0 !important; }
+            #pencereSihirbazKutusu .bg-white { padding: 2px !important; margin-bottom: 2px !important; }
+            
+            #ekCihazlarAlani { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 2px !important; padding: 2px !important; }
+
+            #printSonucKutusu { 
+                padding: 2px 4px !important; 
+                margin-top: 2px !important; 
+                border-width: 1px !important;
+            }
+            #printSonucKutusu .text-2xl { font-size: 10px !important; }
+            #printSonucKutusu .text-sm { font-size: 6px !important; }
+        }
+        .print-baslik { display: none; }
+        @media print { .print-baslik { display: block !important; margin-bottom: 2px !important; } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- NAVBAR -->
+    <nav class="no-print bg-white border-b border-slate-100 py-4 px-6 shadow-xs sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-snowflake text-blue-600 text-2xl animate-pulse"></i>
+                <span class="text-2xl font-black tracking-tight text-slate-900">klimatik<span class="text-blue-600">.es</span></span>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="blogaGit()" class="hidden md:inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-blue-600 transition cursor-pointer bg-transparent border-none">
+                    <i class="fa-solid fa-book-bookmark text-amber-500"></i> Blog de Ingeniería (9 Artículos)
+                </button>
+                <div class="text-xs font-extrabold bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200">
+                    VERSIÓN 2.0 (CTE)
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SELECCIÓN DE MODO -->
+    <div class="no-print max-w-7xl mx-auto w-full pt-6 px-4">
+        <div class="bg-slate-200/60 p-1.5 rounded-2xl flex flex-wrap gap-2 max-w-3xl mx-auto border border-slate-200">
+            <button id="btnTabPratik" onclick="sekmeDegistir('pratik')" class="flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 cursor-pointer">
+                <i class="fa-solid fa-bolt text-amber-500"></i> Cálculo Rápido Carga Frío
+            </button>
+            <button id="btnTabKlima" onclick="sekmeDegistir('klima')" class="flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 bg-white text-blue-600 shadow-sm cursor-pointer">
+                <i class="fa-solid fa-sun text-blue-500"></i> Motor Detallado CTE HE (España)
+            </button>
+            <button id="btnTabIsitma" onclick="sekmeDegistir('isitma')" class="flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 cursor-pointer">
+                <i class="fa-solid fa-fire text-orange-500"></i> Caldera y Aerotermia
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <main class="max-w-7xl mx-auto my-6 px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 flex-grow w-full">
+        
+        <!-- PANEL IZQUIERDO (9 Columnas) -->
+        <div class="lg:col-span-9 space-y-6">
+            
+            <!-- 0. MOTOR: CÁLCULO RÁPIDO DE CARGA DE REFRIGERACIÓN -->
+            <div id="motorPratik" class="hidden bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8 space-y-6">
+                <h2 class="text-xl font-bold text-slate-700 border-b pb-3 border-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-bolt text-amber-500"></i> Motor Rápido de Carga de Refrigeración (Análisis Solar Avanzado)
+                </h2>
+
+                <form id="pratikForm" autocomplete="off" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Ciudad / Zona Climática</label>
+                            <select id="pratikSehir" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold">
+                                <option value="1">Sevilla, Córdoba, Almería, Murcia, Málaga (Zona 1 - Muy Cálida)</option>
+                                <option value="2">Madrid, Toledo, Zaragoza, Badajoz, Alicante (Zona 2 - Cálida)</option>
+                                <option value="3">Barcelona, Bilbao, San Sebastián, A Coruña (Zona 3 - Templada)</option>
+                                <option value="4">León, Soria, Ávila, Burgos, Pirineos (Zona 4 - Fría/Continental)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Superficie del Local (m²)</label>
+                            <input type="number" id="pratikAlan" value="0.0" step="0.1" min="0.0" max="500.0" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Clase Aislamiento Edificio</label>
+                            <select id="pratikYalitim" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold">
+                                <option value="cok_iyi">Muy Bueno (SATE Nuevo / Alto Aislamiento)</option>
+                                <option value="standart" selected>Edificio Aislamiento Estándar</option>
+                                <option value="zayif">Sin Aislamiento / Ladrillo Antiguo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1.5 truncate" title="Orientación Fachada Principal">Orientación Fachada Principal</label>
+                            <select id="pratikYon" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold">
+                                <option value="Kuzey">Norte (Orientación Fresca)</option>
+                                <option value="Dogu">Este (Sol de Mañana)</option>
+                                <option value="Guney">Sur (Sol Estándar)</option>
+                                <option value="Bati">Oeste (Sol Extremo / Calor Tarde)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1.5 truncate">Medida Pared Principal (m)</label>
+                            <input type="number" id="pratikDuvarOlcusu" value="0.0" step="0.1" min="0.0" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase text-amber-600 mb-1.5 truncate">Orientación Ventana Mayor</label>
+                            <select id="pratikPencereYon" class="w-full bg-amber-50/70 border border-amber-200 rounded-lg p-2.5 text-xs font-bold text-amber-950">
+                                <option value="Kuzey">Norte (Poca Radiación)</option>
+                                <option value="Dogu">Este (Radiación Media)</option>
+                                <option value="Guney">Sur (Radiación Alta)</option>
+                                <option value="Bati" selected>Oeste (Carga Solar Crítica)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1.5 truncate">Ubicación Planta / Edificio</label>
+                            <select id="pratikKatKonum" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold">
+                                <option value="Ara Kat">Planta Intermedia (Ocupada Arriba/Abajo)</option>
+                                <option value="Zemin Kat">Planta Baja</option>
+                                <option value="En Üst Kat">Última Planta (Ático / Contacto Cubierta)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Uso de la Estancia</label>
+                            <select id="pratikFonksiyon" onchange="pratikFonksiyonDegisti()" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold">
+                                <option value="Konut">Vivienda (Habitación / Salón)</option>
+                                <option value="Ofis">Comercial - Oficina</option>
+                                <option value="Dükkan">Comercial - Tienda / Local</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Nº Personas (Reposo/Sentados)</label>
+                            <input type="number" id="pratikKisi" value="1" step="1" min="1" max="50" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold">
+                        </div>
+                        <div id="boxPratikCihaz" class="hidden">
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Equipos Adicionales Oficina/Comercial</label>
+                            <select id="pratikEkCihaz" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold">
+                                <option value="yok">Sin Equipos Adicionales</option>
+                                <option value="bilgisayar">Ordenador / Servidor (+200W)</option>
+                                <option value="minibuzdolabi">Mini Nevera (+150W)</option>
+                                <option value="herikisi">Ambos Dispositivos (+350W)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3 no-print">
+                        <button type="button" onclick="hesaplaPratik()" class="flex-1 bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold py-3.5 px-6 rounded-xl shadow-md transition transform active:scale-98 cursor-pointer text-center text-sm">
+                            <i class="fa-solid fa-calculator mr-1"></i> Iniciar Análisis de Carga Rápida
+                        </button>
+                        <button type="button" onclick="sifirlaPratik()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-3.5 px-5 rounded-xl transition cursor-pointer text-center flex items-center justify-center gap-1.5 shrink-0 text-sm">
+                            <i class="fa-solid fa-rotate-right text-xs"></i> Restablecer Parámetros
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 1. MOTOR: DETALLADO REFRIGERACIÓN NORMATIVA CTE HE (ESPAÑA) -->
+            <div id="motorKlima" class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8 space-y-6">
+                
+                <div id="pdfRaporKapsayici" class="space-y-4">
+                    
+                    <div class="print-baslik text-center pb-1 border-b-2 border-blue-600 mb-2">
+                        <h1 class="text-xs font-black text-blue-900 uppercase tracking-wide">Informe de Carga Térmica de Refrigeración y Selección de Climatización (CTE España)</h1>
+                        <p class="text-[8px] text-slate-600 font-bold mt-0.5">Servicio de Informes Técnicos klimatik.es</p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b pb-3 border-slate-100">
+                        <h2 class="text-xl font-bold text-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-snowflake text-blue-600"></i> Parámetros Detallados de Estancia y Fachadas (CTE HE)
+                        </h2>
+                        <button type="button" onclick="pdfDosyasiIndir()" class="no-print bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs py-2.5 px-4 rounded-xl shadow-sm transition flex items-center gap-2 cursor-pointer shrink-0">
+                            <i class="fa-solid fa-file-pdf"></i> Generar / Guardar Informe PDF
+                        </button>
+                    </div>
+
+                    <div class="bg-blue-50/70 p-3 rounded-xl border border-blue-200 grid grid-cols-1 md:grid-cols-2 gap-3 print-grid-2">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-blue-900 mb-1"><i class="fa-solid fa-tag mr-1"></i> Ref. / Nº Estancia o Habitación</label>
+                            <input type="text" id="raporMahalNo" value="E-101" placeholder="Ej: 201, Salón, Oficina-B" class="w-full bg-white border border-blue-300 rounded-lg p-2 text-xs font-bold text-blue-950 focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-blue-900 mb-1"><i class="fa-solid fa-signature mr-1"></i> Nombre de Estancia / Descripción Proyecto</label>
+                            <input type="text" id="raporMahalAdi" value="Despacho Dirección" placeholder="Ej: Despacho Principal" class="w-full bg-white border border-blue-300 rounded-lg p-2 text-xs font-bold text-blue-950 focus:outline-none focus:border-blue-500">
+                        </div>
+                    </div>
+
+                    <form id="ts825Form" autocomplete="off" class="space-y-4">
+                        
+                        <div class="print-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Ciudad / Zona Climática Verano</label>
+                                <select id="sehir" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-blue-500">
+                                    <optgroup label="Zona Cálida / Muy Cálida (Sur / Valle Guadalquivir)">
+                                        <option value="Sevilla" selected>Sevilla (Pico Verano Extremo: 42°C)</option>
+                                        <option value="Cordoba">Córdoba (Pico Verano Extremo: 42°C)</option>
+                                        <option value="Almeria">Almería (Pico Verano: 36°C)</option>
+                                        <option value="Malaga">Málaga (Pico Verano: 36°C)</option>
+                                        <option value="Murcia">Murcia (Pico Verano: 40°C)</option>
+                                    </optgroup>
+                                    <optgroup label="Zona Centro / Meseta (Madrid, Aragón)">
+                                        <option value="Madrid">Madrid (Pico Verano: 38°C)</option>
+                                        <option value="Zaragoza">Zaragoza (Pico Verano: 39°C)</option>
+                                        <option value="Toledo">Toledo (Pico Verano: 39°C)</option>
+                                        <option value="Badajoz">Badajoz (Pico Verano: 41°C)</option>
+                                        <option value="Alicante">Alicante (Pico Verano: 36°C)</option>
+                                    </optgroup>
+                                    <optgroup label="Zona Cantábrica / Atlántica / Marítima">
+                                        <option value="Barcelona">Barcelona (Pico Verano: 33°C)</option>
+                                        <option value="Valencia">Valencia (Pico Verano: 35°C)</option>
+                                        <option value="Bilbao">Bilbao (Pico Verano: 32°C)</option>
+                                        <option value="A Coruna">A Coruña (Pico Verano: 28°C)</option>
+                                        <option value="Santander">Santander (Pico Verano: 29°C)</option>
+                                    </optgroup>
+                                    <optgroup label="Zona Interior Fría / Montaña">
+                                        <option value="Leon">León (Pico Verano: 33°C)</option>
+                                        <option value="Soria">Soria (Pico Verano: 32°C)</option>
+                                        <option value="Avila">Ávila (Pico Verano: 32°C)</option>
+                                        <option value="Burgos">Burgos (Pico Verano: 33°C)</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Nivel Aislamiento CTE</label>
+                                <select id="yalitim" onchange="guncelleSihirbazVeMotor()" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-blue-500">
+                                    <option value="cok_iyi">Muy Bueno (SATE CTE Activo / Alto Aislamiento)</option>
+                                    <option value="standart" selected>Aislamiento Estándar (Normativa CTE HE)</option>
+                                    <option value="zayif">Sin Aislamiento / Edificio Antiguo Ladrillo</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Uso de la Estancia</label>
+                                <select id="mahalFonksiyon" onchange="mahalDegisti()" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-blue-500">
+                                    <option value="Konut">Vivienda (Habitación / Salón)</option>
+                                    <option value="İşyeri - Ofis">Comercial - Oficina</option>
+                                    <option value="İşyeri - Dükkan">Comercial - Tienda (Alta Circulación)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="ekCihazlarAlani" class="grid grid-cols-1 md:grid-cols-2 gap-3 bg-amber-50/50 p-3 rounded-xl border border-amber-200 hidden">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-amber-900 mb-1">Equipo Adicional 1</label>
+                                <select id="ekCihaz1" onchange="guncelleSihirbazVeMotor()" class="w-full bg-white border border-amber-300 rounded-lg p-2 text-xs font-bold text-amber-950 focus:outline-none focus:border-amber-500">
+                                    <option value="yok">Ninguno</option>
+                                    <option value="printer">Impresora (+120W)</option>
+                                    <option value="minibuzdolabi">Mini Nevera (+150W)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-amber-900 mb-1">Equipo Adicional 2</label>
+                                <select id="ekCihaz2" onchange="guncelleSihirbazVeMotor()" class="w-full bg-white border border-amber-300 rounded-lg p-2 text-xs font-bold text-amber-950 focus:outline-none focus:border-amber-500">
+                                    <option value="yok">Ninguno</option>
+                                    <option value="printer">Impresora (+120W)</option>
+                                    <option value="minibuzdolabi">Mini Nevera (+150W)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="printParametreSatiri" class="print-grid-5 grid grid-cols-1 md:grid-cols-5 gap-3">
+                            <div id="divMahalAlaniKutusu" class="flex flex-col justify-end">
+                                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1.5 truncate">Superficie (m²)</label>
+                                <input type="text" id="mahalAlani" value="0,00" oninput="guncelleSihirbazVeMotor()" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-center focus:outline-none focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1.5 truncate">Planta / Techo</label>
+                                <select id="katKonum" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-blue-500">
+                                    <option value="Ara Kat">Planta Intermedia (Pisos Arriba/Abajo)</option>
+                                    <option value="En Üst Kat - Teras">Última Planta - Cubierta Plana / Terraza</option>
+                                    <option value="En Üst Kat - Eğimli">Última Planta - Tejado Inclinado</option>
+                                    <option value="Zemin Kat">Planta Baja (Contacto Suelo)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1.5 truncate">Altura Libre Techo (m)</label>
+                                <input type="number" id="katYuksekligi" value="2.8" step="0.1" min="1.0" oninput="guncelleSihirbazVeMotor()" class="w-full bg-slate-200 cursor-not-allowed border border-slate-200 rounded-lg p-2.5 text-xs font-bold" disabled>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1.5 truncate">Tipo de Cristal</label>
+                                <select id="camTipi" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-blue-500">
+                                    <option value="PVC - Çift Cam">Perfil PVC - Doble Acristalamiento Standard</option>
+                                    <option value="PVC - Tek Cam">Perfil PVC - Cristal Simple Antiguo</option>
+                                    <option value="Ahşap - Çift Cam">Perfil Madera - Doble Cristal</option>
+                                    <option value="Alüminyum - Çift Cam">Perfil Aluminio - Doble Cristal</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1.5 truncate">Nº Ocupantes (Carga)</label>
+                                <input type="number" id="insanSayisi" value="0" step="1" min="0" max="50" oninput="guncelleSihirbazVeMotor()" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-center focus:outline-none focus:border-blue-500">
+                            </div>
+                        </div>
+
+                        <div id="pencereSihirbazKutusu" class="space-y-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-2xs">
+                                <h4 class="font-bold text-xs text-red-600 uppercase flex items-center gap-1.5 border-b pb-2 mb-3">
+                                    <i class="fa-solid fa-window-maximize"></i> Asistente de Ventanas y Puertas
+                                </h4>
+                                <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+                                    <div class="col-span-12 grid grid-cols-1 sm:grid-cols-5 gap-2.5 print-grid-pencere">
+                                        <div id="divP1" class="bg-slate-50 p-2 rounded-lg border border-slate-200 space-y-1.5">
+                                            <span class="text-[10px] font-black text-slate-700 block">Ventana 1</span>
+                                            <select id="p1_yon" onchange="pencereYonDegisti('p1')" class="w-full border rounded p-1 text-[10px] font-bold bg-white">
+                                                <option value="Yok" selected>Ninguna</option><option value="Kuzey">Norte</option><option value="Dogu">Este</option><option value="Guney">Sur</option><option value="Bati">Oeste</option>
+                                            </select>
+                                            <div class="flex items-center gap-1">
+                                                <span class="text-[9px] font-bold text-slate-600 w-8 shrink-0">Ancho</span>
+                                                <input type="text" id="p1_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
+                                            </div>
+                                            <div class="flex items-center gap-1">
+                                                <span class="text-[9px] font-bold text-slate-600 w-8 shrink-0">Alto</span>
+                                                <input type="text" id="p1_boy" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
+                                            </div>
+                                            <div class="text-[10px] font-bold text-slate-700 pt-0.5">Área: <span id="p1_alan_lbl" class="text-slate-800">0.00 m²</span></div>
+                                        </div>
+                                        <div id="divP2" class="bg-slate-50 p-2 rounded-lg border border-slate-200 space-y-1.5">
+                                            <span class="text-[10px] font-black text-slate-700 block">Ventana 2</span>
+                                            <select id="p2_yon" onchange="pencereYonDegisti('p2')" class="w-full border rounded p-1 text-[10px] font-bold bg-white">
+                                                <option value="Yok" selected>Ninguna</option><option value="Kuzey">Norte</option><option value="Dogu">Este</option><option value="Guney">Sur</option><option value="Bati">Oeste</option>
+                                            </select>
+                                            <div class="flex items-center gap-1">
+                                                <span class="text-[9px] font-bold text-slate-600 w-8 shrink-0">Ancho</span>
+                                                <input type="text" id="p2_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
+                                            </div>
+                                            <div class="flex items-center gap-1">
+                                                <span class="text-[9px] font-bold text-slate-600 w-8 shrink-0">Alto</span>
+                                                <input type="text" id="p2_boy" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
+                                            </div>
+                                            <div class="text-[10px] font-bold text-slate-700 pt-0.5">Área: <span id="p2_alan_lbl" class="text-slate-800">0.00 m²</span></div>
+                                        </div>
+                                        <div id="divP3" class="bg-slate-50 p-2 rounded-lg border border-slate-200 space-y-1.5">
+                                            <span class="text-[10px] font-black text-slate-700 block">Ventana 3</span>
+                                            <select id="p3_yon" onchange="pencereYonDegisti('p3')" class="w-full border rounded p-1 text-[10px] font-bold bg-white">
+                                                <option value="Yok" selected>Ninguna</option><option value="Kuzey">Norte</option><option value="Dogu">Este</option><option value="Guney">Sur</option><option value="Bati">Oeste</option>
+                                            </select>
+                                            <div class="flex items-center gap-1">
+                                                <span class="text-[9px] font-bold text-slate-600 w-8 shrink-0">Ancho</span>
+                                                <input type="text" id="p3_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
+                                            </div>
+                                            <div class="flex items-center gap-1">
+                                                <span class="text-[9px] font-bold text-slate-600 w-8 shrink-0">Alto</span>
+                                                <input type="text" id="p3_boy" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
+                                            </div>
+                                            <div class="text-[10px] font-bold text-slate-700 pt-0.5">Área: <span id="p3_alan_lbl" class="text-slate-800">0.00 m²</span></div>
+                                        </div>
+                                        <div id="divP4" class="bg-slate-50 p-2 rounded-lg border border-slate-200 space-y-1.5">
+                                            <span class="text-[10px] font-black text-slate-700 block">Puerta Corredera</span>
+                                            <select id="p4_yon" onchange="pencereYonDegisti('p4')" class="w-full border rounded p-1 text-[10px] font-bold bg-white">
+                                                <option value="Yok" selected>Ninguna</option><option value="Kuzey">Norte</option><option value="Dogu">Este</option><option value="Guney">Sur</option><option value="Bati">Oeste</option>
+                                            </select>
+                                            <div class="flex items-center gap-1">
+                                                <span class="text-[9px] font-bold text-slate-600 w-8 shrink-0">Ancho</span>
+                                                <input type="text" id="p4_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
+                                            </div>
+                                            <div class="flex items-center gap-1">
+                                                <span class="text-[9px] font-bold text-slate-600 w-8 shrink-0">Alto</span>
+                                                <input type="text" id="p4_boy" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
+                                            </div>
+                                            <div class="text-[10px] font-bold text-slate-700 pt-0.5">Área: <span id="p4_alan_lbl" class="text-slate-800">0.00 m²</span></div>
+                                        </div>
+                                        <div id="divDK" class="bg-slate-50 p-2 rounded-lg border border-slate-200 space-y-1.5">
+                                            <span class="text-[10px] font-black text-slate-700 block">Puerta Exterior</span>
+                                            <select id="dk_yon" onchange="pencereYonDegisti('dk')" class="w-full border rounded p-1 text-[10px] font-bold bg-white">
+                                                <option value="Yok" selected>Ninguna</option><option value="Kuzey">Norte</option><option value="Dogu">Este</option><option value="Guney">Sur</option><option value="Bati">Oeste</option>
+                                            </select>
+                                            <div class="flex items-center gap-1">
+                                                <span class="text-[9px] font-bold text-slate-600 w-8 shrink-0">Ancho</span>
+                                                <input type="text" id="dk_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
+                                            </div>
+                                            <div class="flex items-center gap-1">
+                                                <span class="text-[9px] font-bold text-slate-600 w-8 shrink-0">Alto</span>
+                                                <input type="text" id="dk_boy" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
+                                            </div>
+                                            <div class="text-[10px] font-bold text-slate-700 pt-0.5">Área: <span id="dk_alan_lbl" class="text-slate-800">0.00 m²</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-2xs space-y-3">
+                                <h4 class="font-bold text-xs text-blue-600 uppercase flex items-center gap-1.5 border-b pb-2">
+                                    <i class="fa-solid fa-wall"></i> Asistente de Paredes Exteriores e Interiores
+                                </h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 print-grid-duvar">
+                                    <div class="bg-emerald-50/70 p-2.5 rounded-lg border border-emerald-200 space-y-1.5">
+                                        <span class="text-[10px] font-black text-emerald-900 block"><i class="fa-solid fa-door-closed mr-1"></i> Pared Int. / Tabique</span>
+                                        <label class="block text-[9px] font-bold text-slate-600">Ancho (m)</label>
+                                        <input type="text" id="id_en" value="0" oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-white text-center">
+                                        <div class="text-[10px] font-bold text-emerald-800">Área: <span id="id_net_alan">0.00</span> m²</div>
+                                    </div>
+                                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
+                                        <span class="text-[10px] font-black text-blue-900 block">Pared Ext. Norte</span>
+                                        <select id="dd_Kuzey_durum" onchange="disDuvarDurumDegisti('Kuzey')" class="w-full border rounded p-1 text-[10px] font-bold bg-white">
+                                            <option value="Yok" selected>Ninguna</option>
+                                            <option value="Tamami">Toda Exterior</option>
+                                            <option value="Kısmen">Parcialmente Exterior</option>
+                                        </select>
+                                        <label class="block text-[9px] font-bold text-slate-600">Ancho (m)</label>
+                                        <input type="text" id="dd_Kuzey_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
+                                        <div class="text-[10px] font-bold text-blue-800">Neto: <span id="dd_Kuzey_net">0.00</span> m²</div>
+                                    </div>
+                                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
+                                        <span class="text-[10px] font-black text-blue-900 block">Pared Ext. Este</span>
+                                        <select id="dd_Dogu_durum" onchange="disDuvarDurumDegisti('Dogu')" class="w-full border rounded p-1 text-[10px] font-bold bg-white">
+                                            <option value="Yok" selected>Ninguna</option>
+                                            <option value="Tamami">Toda Exterior</option>
+                                            <option value="Kısmen">Parcialmente Exterior</option>
+                                        </select>
+                                        <label class="block text-[9px] font-bold text-slate-600">Ancho (m)</label>
+                                        <input type="text" id="dd_Dogu_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
+                                        <div class="text-[10px] font-bold text-blue-800">Neto: <span id="dd_Dogu_net">0.00</span> m²</div>
+                                    </div>
+                                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
+                                        <span class="text-[10px] font-black text-blue-900 block">Pared Ext. Sur</span>
+                                        <select id="dd_Guney_durum" onchange="disDuvarDurumDegisti('Guney')" class="w-full border rounded p-1 text-[10px] font-bold bg-white">
+                                            <option value="Yok" selected>Ninguna</option>
+                                            <option value="Tamami">Toda Exterior</option>
+                                            <option value="Kısmen">Parcialmente Exterior</option>
+                                        </select>
+                                        <label class="block text-[9px] font-bold text-slate-600">Ancho (m)</label>
+                                        <input type="text" id="dd_Guney_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
+                                        <div class="text-[10px] font-bold text-blue-800">Neto: <span id="dd_Guney_net">0.00</span> m²</div>
+                                    </div>
+                                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
+                                        <span class="text-[10px] font-black text-blue-900 block">Pared Ext. Oeste</span>
+                                        <select id="dd_Bati_durum" onchange="disDuvarDurumDegisti('Bati')" class="w-full border rounded p-1 text-[10px] font-bold bg-white">
+                                            <option value="Yok" selected>Ninguna</option>
+                                            <option value="Tamami">Toda Exterior</option>
+                                            <option value="Kısmen">Parcialmente Exterior</option>
+                                        </select>
+                                        <label class="block text-[9px] font-bold text-slate-600">Ancho (m)</label>
+                                        <input type="text" id="dd_Bati_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
+                                        <div class="text-[10px] font-bold text-blue-800">Neto: <span id="dd_Bati_net">0.00</span> m²</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hidden">
+                            <input type="number" id="toplam_Kuzey" value="0">
+                            <input type="number" id="toplam_Dogu" value="0">
+                            <input type="number" id="toplam_Guney" value="0">
+                            <input type="number" id="toplam_Bati" value="0">
+                            <input type="number" id="en_Kuzey" value="0">
+                            <input type="number" id="en_Dogu" value="0">
+                            <input type="number" id="en_Guney" value="0">
+                            <input type="number" id="en_Bati" value="0">
+                            <input type="number" id="en_Ic" value="0">
+                            <input type="number" id="pencere_Kuzey" value="0">
+                            <input type="number" id="pencere_Dogu" value="0">
+                            <input type="number" id="pencere_Guney" value="0">
+                            <input type="number" id="pencere_Bati" value="0">
+                            <select id="ekCihazSecimi"><option value="yok">Ninguno</option></select>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2 no-print">
+                            <button type="button" onclick="hesaplaTS825()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-md transition cursor-pointer text-center flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-calculator"></i> Iniciar Análisis Detallado CTE HE Refrigeración
+                            </button>
+                            <button type="button" onclick="sifirlaKlima()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-3.5 px-5 rounded-xl transition cursor-pointer text-center flex items-center justify-center gap-1.5 shrink-0 text-sm">
+                                <i class="fa-solid fa-rotate-right text-xs"></i> Restablecer Parámetros
+                            </button>
+                        </div>
+
+                        <div id="printSonucKutusu" class="space-y-1 mt-3 p-3 border-2 border-blue-600 rounded-xl bg-blue-50/80">
+                            <div class="flex justify-between items-center border-b border-blue-200 pb-1">
+                                <span class="text-xs font-black uppercase text-blue-900"><i class="fa-solid fa-square-poll-vertical mr-1"></i> Resultados del Informe CTE</span>
+                                <span id="printMahalBilgi" class="text-xs font-bold text-blue-800">Estancia: E-101 - Despacho Dirección</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 pt-1">
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase text-slate-600 block">Carga Térmica Calculada</span>
+                                    <span id="printBTUDeger" class="text-lg font-black text-emerald-700">0 fg/h (0 BTU/h)</span>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase text-slate-600 block">Sistema Recomendado</span>
+                                    <span id="printKlimaOneri" class="text-xs font-extrabold text-blue-900 leading-snug">Esperando cálculo...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <!-- 2. MOTOR: CÁLCULO DE CALDERA Y AEROTERMIA -->
+            <div id="motorIsitma" class="hidden bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8 space-y-6">
+                <h2 class="text-xl font-bold text-slate-700 border-b pb-3 border-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-fire text-orange-600"></i> Parámetros Pérdida de Calor Caldera y Aerotermia
+                </h2>
+
+                <form id="isitmaForm" autocomplete="off" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Tipo de Edificación</label>
+                            <select id="yapiTipi" onchange="yapiTipiDegisti()" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500">
+                                <option value="daire">Piso en Bloque</option>
+                                <option value="mustakil">Casa Unifamiliar / Adosado</option>
+                                <option value="villa">Chalet / Villa Independiente</option>
+                                <option value="dubleks">Dúplex</option>
+                                <option value="ofis">Oficina / Despacho</option>
+                            </select>
+                        </div>
+                        <div id="boxKatKonumIsitma">
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Planta del Inmueble</label>
+                            <select id="katKonumIsitma" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500">
+                                <option value="ara">Planta Intermedia (Ocupada Arriba/Abajo)</option>
+                                <option value="zemin">Planta Baja (Contacto Suelo)</option>
+                                <option value="teras">Última Planta - Cubierta Plana / Terraza</option>
+                                <option value="egimli">Última Planta - Tejado Inclinado</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate" id="lblCepheBaslik">Fachadas Expuestas al Exterior</label>
+                            <select id="cepheSayisi" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500">
+                                <option value="1">1 Fachada Exterior</option>
+                                <option value="2" selected>2 Fachadas Exteriores (Esquina)</option>
+                                <option value="3">3 Fachadas Exteriores</option>
+                                <option value="4" id="optMustakilCephe">4 Fachadas (Chalet / Unifamiliar)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="boxKatAlanlari" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 bg-orange-50/50 p-4 rounded-xl border border-orange-100">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-orange-900 mb-1.5 truncate">Superficie Planta Baja (m²)</label>
+                            <input type="number" id="alanZeminKat" value="0.0" step="0.1" min="0.0" oninput="villaKatAlaniGuncelle()" class="w-full bg-white border border-orange-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-orange-900 mb-1.5 truncate">Superficie Planta 1 (m²)</label>
+                            <input type="number" id="alanBirinciKat" value="0.0" step="0.1" min="0.0" oninput="villaKatAlaniGuncelle()" class="w-full bg-white border border-orange-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Nivel de Aislamiento</label>
+                            <select id="yalitimIsitma" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500">
+                                <option value="cok_iyi">Muy Bueno (SATE Nuevo / Alto Aislamiento)</option>
+                                <option value="standart">Aislamiento Estándar</option>
+                                <option value="zayif">Sin Aislamiento / Edificio Antiguo</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Ciudad / Zona Climática Invierno</label>
+                            <select id="sehirIsitma" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500">
+                                <optgroup label="Zona A/B (Canarias, Costa Sur) - Invierno Suave">
+                                    <option value="1">Sevilla, Málaga, Almería, Cádiz, Canarias</option>
+                                </optgroup>
+                                <optgroup label="Zona C (Levante, Cataluña, Extremadura) - Invierno Medio">
+                                    <option value="2">Valencia, Barcelona, Badajoz, Murcia, Alicante</option>
+                                </optgroup>
+                                <optgroup label="Zona D (Madrid, Aragón, Valle Ebro) - Invierno Frío">
+                                    <option value="3" selected>Madrid, Zaragoza, Toledo, Valladolid, Guadalajara</option>
+                                </optgroup>
+                                <optgroup label="Zona E (Castilla y León, Pirineos) - Invierno Muy Frío">
+                                    <option value="4">León, Soria, Ávila, Burgos, Teruel, Pirineos</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate" id="lblNetAlanBaslik">Superficie Útil (m²)</label>
+                            <input type="number" id="netAlanIsitma" value="0.0" step="0.1" min="0.0" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Altura Libres Techo (m)</label>
+                            <input type="number" id="tavanIsitma" value="2.8" step="0.1" readonly class="w-full bg-slate-200 cursor-not-allowed border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate" id="lblKisiBaslik">Nº Habitantes / Ocupantes</label>
+                            <input type="number" id="kisiIsitma" value="1" step="1" min="1" max="12" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-orange-50/40 p-4 rounded-xl border border-orange-100">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-orange-900 mb-1.5 truncate">Selección del Generador Térmico</label>
+                            <select id="isiticiCihazTuru" onchange="isiticiCihazDegisti()" class="w-full bg-white border border-orange-200 rounded-lg p-2.5 text-xs font-bold text-orange-950 focus:outline-none focus:border-orange-500">
+                                <option value="isipompasi" selected>Aerotermia (Bomba de Calor Inverter)</option>
+                                <option value="yogusmali">Caldera de Condensación a Gas</option>
+                            </select>
+                        </div>
+                        <div id="boxSicakSuAlani">
+                            <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate">Producción Agua Caliente Sanitaria (ACS)</label>
+                            <select id="sicakSuVarmi" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500">
+                                <option value="evet" selected>Sí (Incluye Demanda ACS)</option>
+                                <option value="hayir">No (Solo Calefacción)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3 no-print">
+                        <button type="button" onclick="hesaplaIsitma()" class="flex-1 bg-orange-600 hover:bg-orange-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-md transition transform active:scale-98 cursor-pointer text-center text-sm">
+                            <i class="fa-solid fa-fire mr-1"></i> Iniciar Análisis de Aerotermia, Caldera y Depósito ACS
+                        </button>
+                        <button type="button" onclick="sifirlaIsitma()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-3.5 px-5 rounded-xl transition cursor-pointer text-center flex items-center justify-center gap-1.5 shrink-0 text-sm">
+                            <i class="fa-solid fa-rotate-right text-xs"></i> Restablecer Parámetros
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- GUÍA DETALLADA Y NOTAS TÉCNICAS -->
+            <div id="boxManuelRehber" class="bg-slate-100/80 rounded-xl p-5 border border-slate-200/80 text-xs md:text-sm text-slate-700 space-y-3 no-print">
+                <h3 id="lblManuelBaslik" class="font-bold text-sm md:text-base text-slate-800 flex items-center gap-2 border-b border-slate-200 pb-2">
+                    <i class="fa-solid fa-book-open text-blue-600"></i> ¿Cómo utilizar el Motor de Cálculo CTE HE España?
+                </h3>
+                <div id="lblManuelIcerik" class="space-y-2 leading-relaxed"></div>
+            </div>
+
+        </div>
+
+        <!-- PANEL DERECHO: INFORME DE CÁLCULO Y TIENDAS AFILIADAS (OPTIMIZADO TAŞMA VE LİNK DÜZELTMESİ) -->
+        <div class="lg:col-span-3 space-y-6">
+            <div class="bg-slate-900 text-white rounded-2xl shadow-xl p-6 relative overflow-hidden border border-slate-800 space-y-5">
+                <h3 id="lblAnalizBaslik" class="text-sm font-bold uppercase tracking-wider text-slate-300 border-b border-slate-800 pb-2">
+                    <i class="fa-solid fa-square-poll-vertical text-blue-500 mr-1.5"></i> Informe de Carga
+                </h3>
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-sm text-slate-300 font-medium block mb-1" id="lblKapasiteBaslik">Carga Térmica Calculada</span>
+                        <div class="flex items-baseline gap-1.5">
+                            <span id="lblWatt" class="text-3xl md:text-4xl font-extrabold text-blue-400 tracking-tight">0</span>
+                            <span class="text-sm text-slate-300 font-bold" id="lblBirimAnaliz">Watt</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-800 pt-3">
+                        <span class="text-sm text-slate-300 font-medium block mb-1" id="lblFrigoriaBaslik">Capacidad Frigorífica Recomendada</span>
+                        <div class="flex items-baseline gap-1.5">
+                            <span id="lblFrigoria" class="text-3xl md:text-4xl font-black text-amber-400 tracking-tight">0</span>
+                            <span class="text-sm text-amber-400 font-extrabold">fg/h</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-800 pt-3">
+                        <span class="text-sm text-slate-300 font-medium block mb-1" id="lblAltKapasiteBaslik">Potencia Equivalente</span>
+                        <div class="flex items-baseline gap-1.5">
+                            <span id="lblBTU" class="text-2xl md:text-3xl font-black text-emerald-400 tracking-tight">0</span>
+                            <span class="text-base text-emerald-400 font-extrabold" id="lblAltBirim">BTU/h</span>
+                        </div>
+                    </div>
+
+                    <!-- TAŞMA YAPAN KUTU KONTROL ALTINA ALINDI (ESNEK KELİME KAYDIRMA VE TAŞMA ENGELLEME) -->
+                    <div class="bg-slate-800/90 rounded-xl p-4 border border-slate-700/60 text-sm space-y-2 w-full overflow-hidden">
+                        <span class="text-slate-300 block font-bold text-xs uppercase tracking-wide" id="lblOnerilenEtiket">Equipo Recomendado:</span>
+                        <span id="lblOnerilenSegment" class="text-amber-300 font-extrabold text-base block leading-snug w-full break-words">Haz clic en calcular.</span>
+                        <div id="divTrifazeNotu" class="hidden bg-amber-950/80 border border-amber-800/80 rounded-lg p-2.5 text-xs text-amber-200 leading-relaxed mt-2">
+                            <strong>Nota:</strong> Para aerotermia / calderas de 12 kW o superiores puede requerirse instalación eléctrica trifásica.
+                        </div>
+                        <div id="boylerRaporu" class="hidden border-t border-slate-700/80 pt-3 mt-2">
+                            <span class="text-slate-300 block text-xs font-semibold mb-1">Depósito / Acumulador ACS:</span>
+                            <span id="lblBoylerHacmi" class="text-emerald-300 font-extrabold text-sm block break-words"><i class="fa-solid fa-faucet-drip mr-1 text-emerald-400"></i> Acumulador 200 Litros Monovalente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENLACES DE AFILIACIÓN: LEROY MERLIN, MANOMANO, EL CORTE INGLÉS Y AMAZON ESPAÑA (AWIN) -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 space-y-4 no-print overflow-hidden">
+                <h3 class="text-lg font-extrabold text-slate-800 border-b pb-2 border-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-cart-shopping text-orange-500"></i> Ofertas Climatización España
+                </h3>
+                <div id="pazaryeriListesi" class="space-y-3 w-full"></div>
+                <p class="text-[10px] text-slate-400 leading-relaxed pt-2 border-t border-slate-100">
+                    <p class="text-[10px] text-slate-400 leading-relaxed pt-2 border-t border-slate-100">
+    * klimatik.es participa en programas de afiliados de Leroy Merlin, MediaMarkt y El Corte Inglés España (Redes AWIN). Las compras válidas generan comisión sin coste adicional.
+</p>
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- CICLO TERMODINÁMICO SPLIT Y SIMULACIÓN DE FLUJO DE AIRE -->
+    <section class="no-print max-w-7xl mx-auto w-full px-4 mb-8">
+        <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b pb-4 border-slate-100">
+                <div>
+                    <span class="text-xs font-extrabold text-blue-600 uppercase tracking-wider block mb-1">Demostración Termodinámica Interactiva</span>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-900">Demostración del Ciclo de Aire Acondicionado / Aerotermia Reversible</h3>
+                </div>
+                <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200 self-start md:self-auto">
+                    <button id="btnModSogutma" onclick="cevrimaModuDegistir('sogutma')" class="px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-blue-600 text-white shadow-xs cursor-pointer">
+                        <i class="fa-solid fa-snowflake"></i> Modo Frío / Refrigeración
+                    </button>
+                    <button id="btnModIsitma" onclick="cevrimaModuDegistir('isitma')" class="px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-orange-600 cursor-pointer">
+                        <i class="fa-solid fa-fire"></i> Modo Calor (Válvula de 4 Vías)
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div class="lg:col-span-8 bg-slate-950 rounded-2xl p-4 shadow-inner relative overflow-hidden flex justify-center items-center">
+                    <canvas id="klimaCanvas" width="700" height="400" class="w-full h-auto max-w-full rounded-xl"></canvas>
+                </div>
+                <div class="lg:col-span-4 space-y-4">
+                    <div id="demoBilgiKutusu" class="bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-2">
+                        <h4 id="demoBaşlik" class="font-bold text-sm text-blue-950 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info text-blue-600"></i> Análisis Ciclo de Refrigeración
+                        </h4>
+                        <p id="demoAciklama" class="text-xs text-slate-700 leading-relaxed">
+                            En modo frío, la unidad interior impulsa <strong>aire frío (azul)</strong> absorbiendo el calor del recinto. El calor transportado por el circuito frigorífico se expulsa al exterior como <strong>aire caliente (rojo)</strong>.
+                        </p>
+                    </div>
+
+                    <div class="space-y-2 text-xs font-semibold text-slate-600 border-t pt-3 border-slate-100">
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-compress text-slate-800"></i> Compresor Inverter:</span>
+                            <span class="text-slate-900 font-bold">Compresión Alta Presión</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-shuffle text-purple-600"></i> Válvula de 4 Vías:</span>
+                            <span id="txt4YolDurum" class="text-purple-700 font-bold">Flujo Directo (Modo Frío)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-filter-circle-xmark text-amber-600"></i> Válvula Expansión (EEV):</span>
+                            <span class="text-slate-900 font-bold">Laminación / Expansión</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-wind text-blue-500"></i> Transferencia de Aire:</span>
+                            <span id="txtHavaDurum" class="text-blue-600 font-bold">Interior: Frío / Exterior: Calor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG DE INGENIERÍA HVAC -->
+    <section id="blogBolumu" class="no-print max-w-7xl mx-auto w-full px-4 mb-12 scroll-mt-24">
+        <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="border-b pb-4 border-slate-100">
+                <span class="text-xs font-extrabold text-blue-600 uppercase tracking-wider block mb-1">Base de Conocimiento Técnico y Guía de Ingeniería</span>
+                <h3 class="text-xl md:text-2xl font-black text-slate-900">Artículos Técnicos de Climatización y Aerotermia</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Blog 1 -->
+                <div id="blogCard1" onclick="blogToggle(1)" class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between cursor-pointer hover:border-blue-400 hover:shadow-md transition">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded">Normativa CTE HE</span>
+                        <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">Aislamiento Térmico y Eficiencia Energética en España</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Impacto de los valores de transmitancia U del Código Técnico de la Edificación en la potencia de refrigeración y calefacción.</p>
+                        
+                        <div id="blogContent1" class="hidden pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-3 leading-relaxed">
+                            <p><strong>Análisis de Ingeniería:</strong> El CTE HE1 fija las exigencias mínimas de transmitancia térmica ($U$) en cerramientos exteriores. Un correcto aislamiento reduce directamente el flujo de calor de radiación y conducción.</p>
+                            <p><strong>Consejos Prácticos:</strong> La aplicación de sistemas SATE en rehabilitación de fachadas reduce las pérdidas térmicas hasta un 40%, permitiendo instalar equipos de climatización de menor potencia y consumo.</p>
+                            <span class="text-blue-600 font-bold block pt-1">Reducir / Cerrar</span>
+                        </div>
+                    </div>
+                    <span id="blogBtnText1" class="text-xs font-bold text-blue-600 flex items-center gap-1 pt-2">Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                </div>
+
+                <!-- Blog 2 -->
+                <div id="blogCard2" onclick="blogToggle(2)" class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between cursor-pointer hover:border-orange-400 hover:shadow-md transition">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold bg-orange-100 text-orange-800 px-2 py-0.5 rounded">Aerotermia vs Gas</span>
+                        <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">Aerotermia Inverter vs Caldera de Condensación a Gas</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Comparativa de rendimientos COP/SCOP y costes de explotación según zonas climáticas de España.</p>
+                        
+                        <div id="blogContent2" class="hidden pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-3 leading-relaxed">
+                            <p><strong>Análisis de Ingeniería:</strong> La bomba de calor aerotérmica produce entre 3 y 5 kW térmicos por cada kW eléctrico consumido gracias a su alto valor COP. La caldera de condensación aprovecha el calor latente pero requiere combustible fósil.</p>
+                            <p><strong>Consejos Prácticos:</strong> En viviendas unifamiliares con suelo radiante o fan coils, la aerotermia es imbatible. En pisos con radiadores convencionales a alta temperatura, el estudio técnico es fundamental.</p>
+                            <span class="text-orange-600 font-bold block pt-1">Reducir / Cerrar</span>
+                        </div>
+                    </div>
+                    <span id="blogBtnText2" class="text-xs font-bold text-orange-600 flex items-center gap-1 pt-2">Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                </div>
+
+                <!-- Blog 3 -->
+                <div id="blogCard3" onclick="blogToggle(3)" class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between cursor-pointer hover:border-amber-400 hover:shadow-md transition">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded">Frigorías y Cálculo</span>
+                        <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">Cálculo de Frigorías (fg/h) y Radiación Solar en Fachadas</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Cómo afecta la orientación Oeste y Sur al cálculo técnico de potencia frigorífica.</p>
+                        
+                        <div id="blogContent3" class="hidden pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-3 leading-relaxed">
+                            <p><strong>Análisis de Ingeniería:</strong> Las fachadas Oeste sufren el mayor pico de carga térmica al coincidir la máxima temperatura exterior ambiente con la radiación solar directa de la tarde. La unidad estándar en España es la Frigoría/hora ($1 \text{ W} \approx 0.86 \text{ fg/h}$).</p>
+                            <p><strong>Consejos Prácticos:</strong> Es imprescindible incluir vidrios con factor solar bajo (Bajo Emisivo / Control Solar) para mitigar cargas térmicas en huecos acristalados.</p>
+                            <span class="text-amber-600 font-bold block pt-1">Reducir / Cerrar</span>
+                        </div>
+                    </div>
+                    <span id="blogBtnText3" class="text-xs font-bold text-amber-600 flex items-center gap-1 pt-2">Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                </div>
+
+                <!-- Blog 4 -->
+                <div id="blogCard4" onclick="blogToggle(4)" class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between cursor-pointer hover:border-blue-400 hover:shadow-md transition">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded">Elección Aire Acondicionado</span>
+                        <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">Criterios de Elección de Climatizadores Inverter</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Análisis de volumen útil, ocupación, equipos electrónicos y tecnología DC Inverter.</p>
+                        
+                        <div id="blogContent4" class="hidden pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-3 leading-relaxed">
+                            <p><strong>Análisis de Ingeniería:</strong> Dimensionar un equipo de aire acondicionado solo por metros cuadrados genera imprecisiones. Debe calcularse el volumen total, la carga interna de personas e iluminación LED o de equipos informáticos.</p>
+                            <p><strong>Consejos Prácticos:</strong> Equipos Inverter de marcas reconocidas modulan la velocidad del compresor manteniendo la temperatura constante con un ahorro del 30% al 50% de energía.</p>
+                            <span class="text-blue-600 font-bold block pt-1">Reducir / Cerrar</span>
+                        </div>
+                    </div>
+                    <span id="blogBtnText4" class="text-xs font-bold text-blue-600 flex items-center gap-1 pt-2">Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                </div>
+
+                <!-- Blog 5 -->
+                <div id="blogCard5" onclick="blogToggle(5)" class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between cursor-pointer hover:border-orange-400 hover:shadow-md transition">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold bg-orange-100 text-orange-800 px-2 py-0.5 rounded">Calderas Gas</span>
+                        <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">Criterios de Selección de Calderas de Condensación</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Modulación de potencia, intercambiadores de acero inoxidable y rendimiento estacional.</p>
+                        
+                        <div id="blogContent5" class="hidden pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-3 leading-relaxed">
+                            <p><strong>Análisis de Ingeniería:</strong> Las calderas de condensación logran rendimientos superiores al 100% recuperando el calor del vapor de agua de los humos de combustión. El rango de modulación (ej. 1:10) es el parámetro crítico.</p>
+                            <p><strong>Consejos Prácticos:</strong> Una alta modulación evita paradas y arranques continuos en épocas de menor demanda, reduciendo el desgaste mecánico y el consumo de gas natural o GLP.</p>
+                            <span class="text-orange-600 font-bold block pt-1">Reducir / Cerrar</span>
+                        </div>
+                    </div>
+                    <span id="blogBtnText5" class="text-xs font-bold text-orange-600 flex items-center gap-1 pt-2">Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                </div>
+
+                <!-- Blog 6 -->
+                <div id="blogCard6" onclick="blogToggle(6)" class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between cursor-pointer hover:border-purple-400 hover:shadow-md transition">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold bg-purple-100 text-purple-800 px-2 py-0.5 rounded">Aerotermia Avanzada</span>
+                        <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">¿Por qué Elegir Aerotermia frente a Gas Canalizado?</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Estudio de eficiencia energética y factura de la luz en viviendas de consumo casi nulo (ECCN).</p>
+                        
+                        <div id="blogContent6" class="hidden pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-3 leading-relaxed">
+                            <p><strong>Análisis de Ingeniería:</strong> La bomba de calor aerotérmica utiliza el ciclo termodinámico para aportar entre 3 y 5 kW térmicos por cada kW eléctrico ($COP>3.5$).</p>
+                            <p><strong>Consejos Prácticos:</strong> Combinada con paneles solares fotovoltaicos, la aerotermia permite alcanzar la climatización de coste cero en la temporada invernal.</p>
+                            <span class="text-purple-600 font-bold block pt-1">Reducir / Cerrar</span>
+                        </div>
+                    </div>
+                    <span id="blogBtnText6" class="text-xs font-bold text-purple-600 flex items-center gap-1 pt-2">Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                </div>
+
+                <!-- Blog 7 -->
+                <div id="blogCard7" onclick="blogToggle(7)" class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between cursor-pointer hover:border-emerald-400 hover:shadow-md transition">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">Salud y Confort</span>
+                        <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">Uso Saludable del Aire Acondicionado</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Ajustes óptimos de temperatura de consigna, orientación de lamas y mantenimiento de filtros.</p>
+                        
+                        <div id="blogContent7" class="hidden pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-3 leading-relaxed">
+                            <p><strong>Análisis de Ingeniería:</strong> Saltos térmicos excesivos entre el exterior y el interior mayores a 8°C provocan contracturas musculares y problemas respiratorios. La temperatura de confort en verano se sitúa entre 24°C y 26°C.</p>
+                            <p><strong>Consejos Prácticos:</strong> Ajustar la difusión de aire en horizontal y limpiar los filtros antibacterias al menos dos veces por temporada garantiza un ambiente saludable.</p>
+                            <span class="text-emerald-600 font-bold block pt-1">Reducir / Cerrar</span>
+                        </div>
+                    </div>
+                    <span id="blogBtnText7" class="text-xs font-bold text-emerald-600 flex items-center gap-1 pt-2">Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                </div>
+
+                <!-- Blog 8 -->
+                <div id="blogCard8" onclick="blogToggle(8)" class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between cursor-pointer hover:border-rose-400 hover:shadow-md transition">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold bg-rose-100 text-rose-800 px-2 py-0.5 rounded">Ahorro Energético</span>
+                        <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">Métodos Eficaces para Reducir Pérdidas Térmicas</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Aislamiento de puentes térmicos, reflectores tras radiadores y válvulas termostáticas.</p>
+                        
+                        <div id="blogContent8" class="hidden pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-3 leading-relaxed">
+                            <p><strong>Análisis de Ingeniería:</strong> Las fugas de calor por falta de estanqueidad en ventanas y la radiación tras los radiadores hacia fachadas frías representan hasta un 25% del consumo energético del edificio.</p>
+                            <p><strong>Consejos Prácticos:</strong> La instalación de láminas reflectoras tras radiadores y válvulas termostáticas en dormitorios permite zonificar la temperatura obteniendo un ahorro inmediato.</p>
+                            <span class="text-rose-600 font-bold block pt-1">Reducir / Cerrar</span>
+                        </div>
+                    </div>
+                    <span id="blogBtnText8" class="text-xs font-bold text-rose-600 flex items-center gap-1 pt-2">Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                </div>
+
+                <!-- Blog 9 -->
+                <div id="blogCard9" onclick="blogToggle(9)" class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between cursor-pointer hover:border-cyan-400 hover:shadow-md transition">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded">Principios Climatización</span>
+                        <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">¿Cómo Funciona un Equipo Split Inverter?</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Ciclo de compresión de vapor, gas refrigerante R32 y funcionamiento del compresor DC.</p>
+                        
+                        <div id="blogContent9" class="hidden pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-3 leading-relaxed">
+                            <p><strong>Análisis de Ingeniería:</strong> El sistema split separa la unidad ruidosa de compresión y condensación en la fachada/tejado y ubica la evaporadora en la estancia. El ciclo frigorífico consta de 4 etapas: Compresión, Condensación, Expansión (EEV) y Evaporación.</p>
+                            <p><strong>Consejos Prácticos:</strong> Los nuevos refrigerantes como el R32 y R290 poseen un bajo Potencial de Calentamiento Atmosférico (PCA/GWP) y mayor eficiencia energética global.</p>
+                            <span class="text-cyan-600 font-bold block pt-1">Reducir / Cerrar</span>
+                        </div>
+                    </div>
+                    <span id="blogBtnText9" class="text-xs font-bold text-cyan-600 flex items-center gap-1 pt-2">Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-100 py-6 text-center text-xs text-slate-400 space-y-3 no-print px-4">
+       <div class="max-w-4xl mx-auto bg-slate-50 p-3 rounded-lg border border-slate-200 text-[11px] text-slate-600 leading-relaxed">
+    <strong>Declaración de Afiliación:</strong> klimatik.es participa en programas de afiliados de Leroy Merlin, MediaMarkt y El Corte Inglés España (Redes AWIN). Las compras válidas realizadas desde nuestros enlaces generan comisión sin repercutir ningún coste extra al usuario.
+</div>
+        <div class="flex justify-center items-center gap-4 font-semibold text-slate-500 flex-wrap">
+            <button onclick="modalAc('modalHakkimizda')" class="hover:text-blue-600 transition cursor-pointer bg-transparent border-none">Sobre Nosotros y Contacto</button>
+            <span>•</span>
+            <button onclick="modalAc('modalGizlilik')" class="hover:text-blue-600 transition cursor-pointer bg-transparent border-none">Política de Privacidad</button>
+            <span>•</span>
+            <button onclick="modalAc('modalKosullar')" class="hover:text-blue-600 transition cursor-pointer bg-transparent border-none">Términos y Condiciones</button>
+        </div>
+        <p>© 2026 klimatik.es | Portal de Cálculo e Ingeniería de Climatización CTE. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- MODALES INFORMATIVOS -->
+    <div id="modalHakkimizda" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 no-print">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl border border-slate-100">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="text-lg font-extrabold text-slate-800">Sobre Nosotros y Contacto</h3>
+                <button onclick="modalKapat('modalHakkimizda')" class="text-slate-400 hover:text-slate-600 font-bold cursor-pointer">&times;</button>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">klimatik.es es un portal independiente de ingeniería de climatización que digitaliza los cálculos bajo normativa CTE para profesionales y usuarios.</p>
+        </div>
+    </div>
+    <div id="modalGizlilik" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 no-print">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl border border-slate-100">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="text-lg font-extrabold text-slate-800">Política de Privacidad</h3>
+                <button onclick="modalKapat('modalGizlilik')" class="text-slate-400 hover:text-slate-600 font-bold cursor-pointer">&times;</button>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">Sus datos se procesan localmente en su navegador y nunca se almacenan en servidores externos.</p>
+        </div>
+    </div>
+    <div id="modalKosullar" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 no-print">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl border border-slate-100">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="text-lg font-extrabold text-slate-800">Términos y Condiciones</h3>
+                <button onclick="modalKapat('modalKosullar')" class="text-slate-400 hover:text-slate-600 font-bold cursor-pointer">&times;</button>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">Los cálculos tienen carácter orientativo e informativo. Se recomienda la validación por parte de un técnico cualificado antes del montaje.</p>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE LÓGICA TÉCNICA Y SIMULACIÓN COMPLETA -->
+    <script>
+        let mevcutMod = 'klima';
+        let mevcutCevrimModu = 'sogutma';
+
+        function modalAc(id) { document.getElementById(id).classList.remove('hidden'); }
+        function modalKapat(id) { document.getElementById(id).classList.add('hidden'); }
+
+        function blogaGit() {
+            const blogBolumu = document.getElementById('blogBolumu');
+            if (blogBolumu) blogBolumu.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function pdfDosyasiIndir() {
+            hesaplaTS825();
+            window.print();
+        }
+
+        function blogToggle(id) {
+            const content = document.getElementById(`blogContent${id}`);
+            const btnText = document.getElementById(`blogBtnText${id}`);
+            const card = document.getElementById(`blogCard${id}`);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                btnText.classList.add('hidden');
+                card.classList.add('ring-2', 'ring-blue-500', 'bg-blue-50/20');
+            } else {
+                content.classList.add('hidden');
+                btnText.classList.remove('hidden');
+                card.classList.remove('ring-2', 'ring-blue-500', 'bg-blue-50/20');
+            }
+        }
+
+        function sekmeDegistir(mod) {
+            mevcutMod = mod;
+            const btnPratik = document.getElementById('btnTabPratik');
+            const btnKlima = document.getElementById('btnTabKlima');
+            const btnIsitma = document.getElementById('btnTabIsitma');
+            const motorPratik = document.getElementById('motorPratik');
+            const motorKlima = document.getElementById('motorKlima');
+            const motorIsitma = document.getElementById('motorIsitma');
+            const boylerRaporu = document.getElementById('boylerRaporu');
+            const divTrifazeNotu = document.getElementById('divTrifazeNotu');
+            const analizBaslik = document.getElementById('lblAnalizBaslik');
+            const boxManuelRehber = document.getElementById('boxManuelRehber');
+
+            btnPratik.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 cursor-pointer";
+            btnKlima.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 cursor-pointer";
+            btnIsitma.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 cursor-pointer";
+
+            motorPratik.classList.add('hidden');
+            motorKlima.classList.add('hidden');
+            motorIsitma.classList.add('hidden');
+            boylerRaporu.classList.add('hidden');
+            if (divTrifazeNotu) divTrifazeNotu.classList.add('hidden');
+
+            if (mod === 'pratik') {
+                btnPratik.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 bg-white text-blue-600 shadow-sm cursor-pointer";
+                motorPratik.classList.remove('hidden');
+                analizBaslik.innerHTML = `<i class="fa-solid fa-square-poll-vertical text-blue-500 mr-1.5"></i> Informe de Carga`;
+                document.getElementById('lblKapasiteBaslik').innerText = "Carga Térmica Calculada";
+                document.getElementById('lblBirimAnaliz').innerText = "Watt";
+                document.getElementById('lblFrigoriaBaslik').innerText = "Capacidad Frigorífica";
+                document.getElementById('lblAltKapasiteBaslik').innerText = "Potencia Equivalente";
+                document.getElementById('lblAltBirim').innerText = "BTU/h";
+                document.getElementById('lblOnerilenEtiket').innerText = "Equipo Recomendado:";
+                document.getElementById('lblWatt').innerText = "0";
+                document.getElementById('lblFrigoria').innerText = "0";
+                document.getElementById('lblBTU').innerText = "0";
+                document.getElementById('lblOnerilenSegment').innerText = "Haz clic en calcular.";
+                boxManuelRehber.classList.add("hidden");
+                renderVarsayilanPazaryeri('klima');
+            } else if (mod === 'klima') {
+                btnKlima.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 bg-white text-blue-600 shadow-sm cursor-pointer";
+                motorKlima.classList.remove('hidden');
+                analizBaslik.innerHTML = `<i class="fa-solid fa-square-poll-vertical text-blue-500 mr-1.5"></i> Informe de Carga`;
+                document.getElementById('lblKapasiteBaslik').innerText = "Carga Térmica Calculada";
+                document.getElementById('lblBirimAnaliz').innerText = "Watt";
+                document.getElementById('lblFrigoriaBaslik').innerText = "Capacidad Frigorífica";
+                document.getElementById('lblAltKapasiteBaslik').innerText = "Potencia Equivalente";
+                document.getElementById('lblAltBirim').innerText = "BTU/h";
+                document.getElementById('lblOnerilenEtiket').innerText = "Equipo Recomendado:";
+                document.getElementById('lblWatt').innerText = "0";
+                document.getElementById('lblFrigoria').innerText = "0";
+                document.getElementById('lblBTU').innerText = "0";
+                document.getElementById('lblOnerilenSegment').innerText = "Haz clic en calcular.";
+                boxManuelRehber.classList.remove("hidden");
+                renderManuel('klima');
+                renderVarsayilanPazaryeri('klima');
+            } else {
+                btnIsitma.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 bg-white text-orange-600 shadow-sm cursor-pointer";
+                motorIsitma.classList.remove('hidden');
+                isiticiCihazDegisti();
+                const isiticiTuru = document.getElementById('isiticiCihazTuru').value;
+                const sicakSuVarmi = document.getElementById('sicakSuVarmi').value;
+                if (isiticiTuru === 'isipompasi' && sicakSuVarmi === 'evet') boylerRaporu.classList.remove('hidden');
+                analizBaslik.innerHTML = `<i class="fa-solid fa-square-poll-vertical text-blue-500 mr-1.5"></i> Informe de Carga`;
+                document.getElementById('lblKapasiteBaslik').innerText = "Pérdida Térmica Calculada";
+                document.getElementById('lblBirimAnaliz').innerText = "kW (Kilovatios)";
+                document.getElementById('lblFrigoriaBaslik').innerText = "Potencia Calorífica (kcal/h)";
+                document.getElementById('lblAltKapasiteBaslik').innerText = "Equivalencia Térmica";
+                document.getElementById('lblAltBirim').innerText = "BTU/h";
+                guncelleOnerilenEtiketMetni(isiticiTuru);
+                document.getElementById('lblWatt').innerText = "0";
+                document.getElementById('lblFrigoria').innerText = "0";
+                document.getElementById('lblBTU').innerText = "0";
+                document.getElementById('lblOnerilenSegment').innerText = "Haz clic en calcular.";
+                boxManuelRehber.classList.add("hidden");
+                renderVarsayilanPazaryeri('isitma');
+            }
+        }
+
+        function guncelleOnerilenEtiketMetni(tur) {
+            const etiketEl = document.getElementById('lblOnerilenEtiket');
+            if (tur === 'yogusmali') etiketEl.innerText = "Caldera de Condensación Recomendada:";
+            else etiketEl.innerText = "Aerotermia / Bomba de Calor Recomendada:";
+        }
+
+        function renderManuel(mod) {
+            const manuelBaslik = document.getElementById("lblManuelBaslik");
+            const manuelIcerik = document.getElementById("lblManuelIcerik");
+
+            if (mod === 'klima') {
+                manuelBaslik.innerHTML = `<i class="fa-solid fa-book-open text-blue-600"></i> ¿Cómo utilizar el Motor de Cálculo CTE HE España?`;
+                manuelIcerik.innerHTML = `
+                    <ol class="list-decimal list-inside space-y-1.5 text-xs md:text-sm font-medium">
+                        <li><strong>Ciudad y Temperatura Máxima:</strong> Al elegir la ciudad se carga automáticamente la temperatura exterior de diseño del CTE.</li>
+                        <li><strong>Nivel de Aislamiento:</strong> Seleccione la calidad del aislamiento térmico de la estructura.</li>
+                        <li><strong>Uso y Ubicación:</strong> Indique el tipo de local y la planta dentro del edificio.</li>
+                        <li><strong>Superficie y Altura Libre:</strong> Introduzca la superficie útil y la altura libre al techo.</li>
+                        <li><strong>Asistente de Ventanas y Fachadas:</strong> Ingrese las medidas y orientaciones de huecos acristalados y muros.</li>
+                        <li><strong>Iniciar Análisis:</strong> Haga clic en el botón para obtener la carga técnica en Watt, Frigorías (fg/h) y BTU/h.</li>
+                    </ol>
+                    <div class="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-xl text-blue-950 text-xs leading-relaxed space-y-1">
+                        <strong>Consejo Técnico:</strong> Al tomar medidas de paredes desde AutoCAD o archivos DWG similares, puede usar el comando "DIST" y, tras el primer clic, la opción "M" (Múltiple) para medir paredes con entrantes o continuas de una sola vez.<br>
+                        <strong>Nota: Para usos comerciales y oficinas se incorporan cargas disipadas por equipos informáticos e iluminación.</strong>
+                    </div>
+                `;
+            }
+        }
+
+        function pratikFonksiyonDegisti() {
+            const fonks = document.getElementById("pratikFonksiyon").value;
+            const boxCihaz = document.getElementById("boxPratikCihaz");
+            if (fonks === "Konut") boxCihaz.classList.add("hidden");
+            else boxCihaz.classList.remove("hidden");
+        }
+
+        function isiticiCihazDegisti() {
+            const tur = document.getElementById("isiticiCihazTuru").value;
+            const boxSicakSu = document.getElementById("boxSicakSuAlani");
+            if (tur === "yogusmali") {
+                boxSicakSu.classList.add("opacity-40", "pointer-events-none");
+            } else {
+                boxSicakSu.classList.remove("opacity-40", "pointer-events-none");
+            }
+            guncelleOnerilenEtiketMetni(tur);
+        }
+
+        function sifirlaPratik() {
+            document.getElementById("pratikForm").reset();
+            document.getElementById("pratikKisi").value = "1";
+            document.getElementById("pratikYon").value = "Kuzey";
+            document.getElementById("pratikPencereYon").value = "Bati";
+            document.getElementById("pratikYalitim").value = "standart";
+            pratikFonksiyonDegisti();
+            document.getElementById("lblWatt").innerText = "0";
+            document.getElementById("lblFrigoria").innerText = "0";
+            document.getElementById("lblBTU").innerText = "0";
+            document.getElementById("lblOnerilenSegment").innerText = "Haz clic en calcular.";
+            renderVarsayilanPazaryeri('klima');
+        }
+
+        function sifirlaKlima() {
+            document.getElementById("ts825Form").reset();
+            if(document.getElementById("raporMahalNo")) document.getElementById("raporMahalNo").value = "E-101";
+            if(document.getElementById("raporMahalAdi")) document.getElementById("raporMahalAdi").value = "Despacho Dirección";
+            document.getElementById("sehir").value = "Sevilla";
+            document.getElementById("yalitim").value = "standart";
+            document.getElementById("mahalFonksiyon").value = "Konut";
+            document.getElementById("katKonum").value = "Ara Kat";
+            document.getElementById("camTipi").value = "PVC - Çift Cam";
+            document.getElementById("insanSayisi").value = "0";
+            document.getElementById("katYuksekligi").value = "2.8";
+            document.getElementById("mahalAlani").value = "0,00";
+            document.getElementById("toplam_Kuzey").value = "0.0";
+            document.getElementById("toplam_Dogu").value = "0.0";
+            document.getElementById("toplam_Guney").value = "0.0";
+            document.getElementById("toplam_Bati").value = "0.0";
+            document.getElementById("en_Kuzey").value = "0.0";
+            document.getElementById("en_Dogu").value = "0.0";
+            document.getElementById("en_Guney").value = "0.0";
+            document.getElementById("en_Bati").value = "0.0";
+            document.getElementById("en_Ic").value = "0.0";
+            document.getElementById("id_en").value = "0";
+            if(document.getElementById("ekCihaz1")) document.getElementById("ekCihaz1").value = "yok";
+            if(document.getElementById("ekCihaz2")) document.getElementById("ekCihaz2").value = "yok";
+            
+            ['p1', 'p2', 'p3', 'p4', 'dk'].forEach(id => {
+                document.getElementById(id + '_en').value = "0";
+                document.getElementById(id + '_boy').value = "0";
+                document.getElementById(id + '_yon').value = "Yok";
+                pencereYonDegisti(id);
+            });
+            ['Kuzey', 'Dogu', 'Guney', 'Bati'].forEach(cephe => {
+                document.getElementById(`dd_${cephe}_durum`).value = "Yok";
+                disDuvarDurumDegisti(cephe);
+            });
+            mahalDegisti();
+            guncelleSihirbazVeMotor();
+            document.getElementById("lblWatt").innerText = "0";
+            document.getElementById("lblFrigoria").innerText = "0";
+            document.getElementById("lblBTU").innerText = "0";
+            document.getElementById("lblOnerilenSegment").innerText = "Haz clic en calcular.";
+            if (document.getElementById("printBTUDeger")) document.getElementById("printBTUDeger").innerText = "0 fg/h (0 BTU/h)";
+            if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = "Esperando cálculo...";
+            renderVarsayilanPazaryeri('klima');
+        }
+
+        function sifirlaIsitma() {
+            document.getElementById("isitmaForm").reset();
+            document.getElementById("kisiIsitma").value = "1";
+            yapiTipiDegisti();
+            isiticiCihazDegisti();
+            document.getElementById("lblWatt").innerText = "0";
+            document.getElementById("lblFrigoria").innerText = "0";
+            document.getElementById("lblBTU").innerText = "0";
+            document.getElementById("lblOnerilenSegment").innerText = "Haz clic en calcular.";
+            document.getElementById("boylerRaporu").classList.add("hidden");
+            if (document.getElementById("divTrifazeNotu")) document.getElementById("divTrifazeNotu").classList.add("hidden");
+            renderVarsayilanPazaryeri('isitma');
+        }
+
+       /* İSPANYA E-TİCARET PAZARYERİ LİNK MOTORU (%100 ÇALIŞAN AWIN DEVLERİ) */
+function renderPazaryerleri(tur, baslikMetni) {
+    const container = document.getElementById("pazaryeriListesi");
+    
+    // Arama motorları için terim sterilizasyonu (Frigorías vb. temizlenir)
+    let cleanQuery = baslikMetni
+        .replace(/Frigorías|Frigorias/gi, "")
+        .replace("20 - 24 kW", "20kW 24kW")
+        .replace(/[/()]/g, " ")
+        .replace(/  +/g, ' ')
+        .trim();
+
+    let encodedStandard = encodeURIComponent(cleanQuery);
+
+    let leroyUrl = `https://www.leroymerlin.es/search?q=${encodedStandard}`;
+    let mediaMarktUrl = `https://www.mediamarkt.es/es/search.html?query=${encodedStandard}`;
+    let elCorteUrl = `https://www.elcorteingles.es/search/?s=${encodedStandard}`;
+
+    container.innerHTML = `
+        <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
+            <div class="min-w-0 flex-1 pr-2">
+                <span class="text-[9px] bg-emerald-100 text-emerald-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">Leroy Merlin España</span>
+                <h4 class="font-bold text-slate-800 text-[11px] truncate" title="${baslikMetni}">${baslikMetni}</h4>
+            </div>
+            <a href="${leroyUrl}" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">
+                Ver Tienda <i class="fa-solid fa-cart-shopping text-[10px]"></i>
+            </a>
+        </div>
+        <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
+            <div class="min-w-0 flex-1 pr-2">
+                <span class="text-[9px] bg-red-100 text-red-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">MediaMarkt España</span>
+                <h4 class="font-bold text-slate-800 text-[11px] truncate" title="${baslikMetni}">${baslikMetni}</h4>
+            </div>
+            <a href="${mediaMarktUrl}" target="_blank" rel="noopener" class="bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">
+                Ver Ofertas <i class="fa-solid fa-cart-shopping text-[10px]"></i>
+            </a>
+        </div>
+        <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
+            <div class="min-w-0 flex-1 pr-2">
+                <span class="text-[9px] bg-emerald-800 text-white font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">El Corte Inglés</span>
+                <h4 class="font-bold text-slate-800 text-[11px] truncate" title="${baslikMetni}">${baslikMetni}</h4>
+            </div>
+            <a href="${elCorteUrl}" target="_blank" rel="noopener" class="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">
+                Ver Producto <i class="fa-solid fa-cart-shopping text-[10px]"></i>
+            </a>
+        </div>
+    `;
+}
+
+function renderVarsayilanPazaryeri(mod) {
+    const container = document.getElementById("pazaryeriListesi");
+    container.innerHTML = `
+        <div class="text-center py-6 text-slate-400 text-xs italic">
+            <i class="fa-solid ${mod === 'klima' ? 'fa-snowflake text-blue-300' : 'fa-fire text-orange-300'} block text-2xl mb-2"></i>
+            Introduzca los datos y haga clic en analizar para ver las ofertas exactas en Leroy Merlin, MediaMarkt y El Corte Inglés.
+        </div>
+    `;
+}
+function renderVarsayilanPazaryeri(mod) {
+    const container = document.getElementById("pazaryeriListesi");
+    container.innerHTML = `
+        <div class="text-center py-6 text-slate-400 text-xs italic">
+            <i class="fa-solid ${mod === 'klima' ? 'fa-snowflake text-blue-300' : 'fa-fire text-orange-300'} block text-2xl mb-2"></i>
+            Introduzca los datos y haga clic en analizar para ver las ofertas exactas en Leroy Merlin, MediaMarkt, El Corte Inglés, Carrefour, Alcampo y Fnac.
+        </div>
+    `;
+}
+function renderVarsayilanPazaryeri(mod) {
+            const container = document.getElementById("pazaryeriListesi");
+            container.innerHTML = `
+                <div class="text-center py-6 text-slate-400 text-xs italic">
+                    <i class="fa-solid ${mod === 'klima' ? 'fa-snowflake text-blue-300' : 'fa-fire text-orange-300'} block text-2xl mb-2"></i>
+                    Introduzca los datos y haga clic en analizar para ver las ofertas exactas en Leroy Merlin, ManoMano, El Corte Inglés y Amazon.
+                </div>
+            `;
+        }
+
+        function hesaplaPratik() {
+            const bolge = parseInt(document.getElementById("pratikSehir").value) || 2;
+            const alan = parseFloat(document.getElementById("pratikAlan").value) || 0;
+            const yalitimP = document.getElementById("pratikYalitim").value;
+            const duvarYon = document.getElementById("pratikYon").value;
+            const pencereYon = document.getElementById("pratikPencereYon").value;
+            const duvarOlcusu = parseFloat(document.getElementById("pratikDuvarOlcusu").value) || 0;
+            const katKonum = document.getElementById("pratikKatKonum").value;
+            const fonks = document.getElementById("pratikFonksiyon").value;
+            const kisiSayisi = parseInt(document.getElementById("pratikKisi").value) || 1;
+            const ekCihaz = document.getElementById("pratikEkCihaz").value;
+
+            if (alan <= 0) {
+                document.getElementById("lblWatt").innerText = "0";
+                document.getElementById("lblFrigoria").innerText = "0";
+                document.getElementById("lblBTU").innerText = "0";
+                document.getElementById("lblOnerilenSegment").innerText = "Por favor introduzca una superficie válida.";
+                return;
+            }
+
+            let baseWattM2 = bolge === 1 ? 115 : (bolge === 3 ? 80 : (bolge === 4 ? 70 : 95));
+            let yalitimCarpanPratik = yalitimP === "cok_iyi" ? 0.85 : (yalitimP === "zayif" ? 1.25 : 1.00);
+
+            function yonSolarKatsayi(y) {
+                if (y === "Bati") return 1.25;
+                if (y === "Guney") return 1.15;
+                if (y === "Dogu") return 1.08;
+                return 1.00;
+            }
+
+            let duvarSolarCarpan = yonSolarKatsayi(duvarYon);
+            let pencereSolarCarpan = yonSolarKatsayi(pencereYon);
+            let netDuvarEtkisi = 1.0;
+            let ekstraPencereYukW = 0;
+
+            if (duvarYon === pencereYon) {
+                netDuvarEtkisi = duvarSolarCarpan * 0.85;
+                let tahminiCamAlani = Math.max(2.0, (duvarOlcusu * 2.8) * 0.20);
+                ekstraPencereYukW = tahminiCamAlani * pencereSolarCarpan * 45; 
+            } else {
+                netDuvarEtkisi = duvarSolarCarpan;
+                let tahminiCamAlaniFarkli = Math.max(2.0, alan * 0.15);
+                ekstraPencereYukW = tahminiCamAlaniFarkli * pencereSolarCarpan * 55;
+            }
+
+            let katCarpan = katKonum === "Zemin Kat" ? 1.05 : (katKonum === "En Üst Kat" ? 1.20 : 1.0);
+            let insanGucWatt = kisiSayisi * 95;
+            let ekGucWatt = 0;
+            if (fonks === "Ofis" || fonks === "Dükkan") {
+                if (ekCihaz === "bilgisayar") ekGucWatt = 200;
+                else if (ekCihaz === "minibuzdolabi") ekGucWatt = 150;
+                else if (ekCihaz === "herikisi") ekGucWatt = 350;
+                else ekGucWatt = 100;
+            }
+
+            let temelYuk = alan * baseWattM2 * yalitimCarpanPratik * netDuvarEtkisi * katCarpan;
+            let toplamWattNet = temelYuk + ekstraPencereYukW + insanGucWatt + ekGucWatt;
+            let toplamWatt = toplamWattNet * 1.12; 
+            let toplamBTU = toplamWatt * 3.4121;
+            let toplamFrigoria = toplamWatt * 0.8598;
+
+            document.getElementById("lblWatt").innerText = Math.round(toplamWatt).toLocaleString('es-ES');
+            document.getElementById("lblFrigoria").innerText = Math.round(toplamFrigoria).toLocaleString('es-ES');
+            document.getElementById("lblBTU").innerText = Math.round(toplamBTU).toLocaleString('es-ES');
+
+            let baslik = "Aire Acondicionado Split 2200 Frigorías 2.5 kW";
+            if (toplamBTU > 9000 && toplamBTU <= 12000) { baslik = "Aire Acondicionado Split 3000 Frigorías 3.5 kW"; }
+            else if (toplamBTU > 12000 && toplamBTU <= 18000) { baslik = "Aire Acondicionado Split 4500 Frigorías 5.0 kW"; }
+            else if (toplamBTU > 18000 && toplamBTU <= 24000) { baslik = "Aire Acondicionado Split 6000 Frigorías 7.1 kW"; }
+            else if (toplamBTU > 24000) { baslik = "Aire Acondicionado Conductos Cassette 8000 Frigorías"; }
+
+            document.getElementById("lblOnerilenSegment").innerText = baslik;
+            renderPazaryerleri('klima', baslik);
+        }
+
+        function yapiTipiDegisti() {
+            const yapiTipi = document.getElementById("yapiTipi").value;
+            const boxKatKonum = document.getElementById("boxKatKonumIsitma");
+            const tavanInput = document.getElementById("tavanIsitma");
+            const boxKatAlanlari = document.getElementById("boxKatAlanlari");
+            const netAlanInput = document.getElementById("netAlanIsitma");
+            const lblNetAlanBaslik = document.getElementById("lblNetAlanBaslik");
+            const cepheSelect = document.getElementById("cepheSayisi");
+
+            boxKatAlanlari.classList.add("hidden");
+            netAlanInput.readOnly = false;
+            netAlanInput.value = "0.0";
+            netAlanInput.className = "w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500";
+            lblNetAlanBaslik.innerText = "Superficie Útil (m²)";
+
+            if (yapiTipi === "daire" || yapiTipi === "ofis") {
+                boxKatKonum.classList.remove("opacity-40", "pointer-events-none");
+                tavanInput.readOnly = yapiTipi === "daire";
+                tavanInput.className = yapiTipi === "daire" ? "w-full bg-slate-200 cursor-not-allowed border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none" : "w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500";
+                if(yapiTipi === "daire") tavanInput.value = "2.8";
+
+                cepheSelect.innerHTML = `
+                    <option value="1">1 Fachada Exterior</option>
+                    <option value="2" selected>2 Fachadas Exteriores (Esquina)</option>
+                    <option value="3">3 Fachadas Exteriores</option>
+                    <option value="4" disabled class="text-slate-400">4 Fachadas (Solo Chalet / Unifamiliar)</option>
+                `;
+                cepheSelect.value = "2";
+                cepheSelect.disabled = false;
+                cepheSelect.className = "w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500";
+            } else if (yapiTipi === "dubleks") {
+                boxKatKonum.classList.remove("opacity-40", "pointer-events-none");
+                boxKatAlanlari.classList.remove("hidden");
+                netAlanInput.readOnly = true;
+                netAlanInput.className = "w-full bg-slate-200 cursor-not-allowed border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none";
+                lblNetAlanBaslik.innerText = "Superficie Útil (m²)";
+
+                cepheSelect.innerHTML = `
+                    <option value="1">1 Fachada Exterior</option>
+                    <option value="2" selected>2 Fachadas Exteriores (Esquina)</option>
+                    <option value="3">3 Fachadas Exteriores</option>
+                    <option value="4" disabled class="text-slate-400">4 Fachadas (No válido para Dúplex)</option>
+                `;
+                cepheSelect.value = "2";
+                cepheSelect.disabled = false;
+                cepheSelect.className = "w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500";
+            } else if (yapiTipi === "mustakil" || yapiTipi === "villa") {
+                boxKatKonum.classList.add("opacity-40", "pointer-events-none");
+                if (yapiTipi === "villa") {
+                    boxKatAlanlari.classList.remove("hidden");
+                    netAlanInput.readOnly = true;
+                    netAlanInput.className = "w-full bg-slate-200 cursor-not-allowed border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none";
+                    lblNetAlanBaslik.innerText = "Superficie Útil (m²)";
+                }
+
+                cepheSelect.innerHTML = `
+                    <option value="4" selected>4 Fachadas (Chalet / Unifamiliar Independiente)</option>
+                `;
+                cepheSelect.value = "4";
+                cepheSelect.disabled = true;
+                cepheSelect.className = "w-full bg-slate-200 cursor-not-allowed border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-500 focus:outline-none";
+            }
+        }
+
+        function villaKatAlaniGuncelle() {
+            const zemin = parseFloat(document.getElementById("alanZeminKat").value) || 0;
+            const birinci = parseFloat(document.getElementById("alanBirinciKat").value) || 0;
+            document.getElementById("netAlanIsitma").value = (zemin + birinci).toFixed(1);
+        }
+
+        /* 100 m² ALTI İÇİN 20-24 kW KOMBİ MANTIĞI EKLENEN HESAPLAMA FONKSİYONU */
+        function hesaplaIsitma() {
+            const yalitim = document.getElementById("yalitimIsitma").value;
+            const bolge = parseInt(document.getElementById("sehirIsitma").value) || 2;
+            const netAlan = parseFloat(document.getElementById("netAlanIsitma").value) || 0;
+            const tavanYukseklik = parseFloat(document.getElementById("tavanIsitma").value) || 2.8;
+            const kisiSayisi = parseInt(document.getElementById("kisiIsitma").value) || 1;
+            const isiticiTuru = document.getElementById("isiticiCihazTuru").value;
+            const sicakSuVarmi = document.getElementById("sicakSuVarmi").value;
+            const yapiTuru = document.getElementById("yapiTipi").value;
+            const acikCepheSayisi = parseInt(document.getElementById("cepheSayisi").value) || 2;
+
+            if (netAlan <= 0) {
+                document.getElementById("lblWatt").innerText = "0";
+                document.getElementById("lblFrigoria").innerText = "0";
+                document.getElementById("lblBTU").innerText = "0";
+                document.getElementById("lblOnerilenSegment").innerText = "Por favor introduzca una superficie válida.";
+                return;
+            }
+
+            const hacim = netAlan * tavanYukseklik;
+            let katsayi = yalitim === "cok_iyi" ? 22 : (yalitim === "zayif" ? 45 : 32);
+            let iklimCarpan = bolge === 1 ? 0.82 : (bolge === 2 ? 0.95 : (bolge === 3 ? 1.08 : (bolge === 4 ? 1.25 : 1.45)));
+
+            let cepheFaktoru = 1.0;
+            if (yapiTuru === "daire" || yapiTuru === "ofis" || yapiTuru === "dubleks") {
+                if (acikCepheSayisi === 1) cepheFaktoru = 0.92;      
+                else if (acikCepheSayisi === 2) cepheFaktoru = 1.00; 
+                else if (acikCepheSayisi === 3) cepheFaktoru = 1.10; 
+            } else {
+                cepheFaktoru = 1.18; 
+            }
+
+            let toplamWatt = hacim * katsayi * iklimCarpan * cepheFaktoru;
+            let kwGucu = toplamWatt / 1000;
+
+            if (isiticiTuru === "isipompasi" && sicakSuVarmi === "evet") {
+                let sicakSuEkKw = Math.max(2.5, kisiSayisi * 0.6 + (netAlan > 150 ? 2.0 : 1.0));
+                kwGucu += sicakSuEkKw;
+            }
+
+            const kcalGucu = kwGucu * 1000 * 0.8598;
+            const btuGucu = kwGucu * 3412.1;
+
+            document.getElementById("lblWatt").innerText = kwGucu.toFixed(1);
+            document.getElementById("lblFrigoria").innerText = Math.round(kcalGucu).toLocaleString('es-ES');
+            document.getElementById("lblBTU").innerText = Math.round(btuGucu).toLocaleString('es-ES');
+
+            let boylerHacmiMetin = "Acumulador Monovalente de 200 Litros";
+            if (kisiSayisi <= 2) boylerHacmiMetin = "Acumulador de 100 - 160 Litros";
+            else if (kisiSayisi > 4 && kisiSayisi <= 6) boylerHacmiMetin = "Acumulador Monovalente de 300 Litros";
+            else if (kisiSayisi > 6) boylerHacmiMetin = "Acumulador Monovalente de 400 - 500 Litros";
+
+            if (isiticiTuru === "isipompasi" && sicakSuVarmi === "evet") {
+                document.getElementById("boylerRaporu").classList.remove("hidden");
+            } else {
+                document.getElementById("boylerRaporu").classList.add("hidden");
+            }
+
+            let sistemEtiket = "";
+            let pazarYeriTuru = "";
+
+            if (document.getElementById("divTrifazeNotu")) document.getElementById("divTrifazeNotu").classList.add("hidden");
+
+            if (isiticiTuru === "isipompasi") {
+                let hpKw = 8;
+                if (kwGucu <= 8) hpKw = 8;
+                else if (kwGucu <= 12) hpKw = 12;
+                else if (kwGucu <= 16) hpKw = 16;
+                else if (kwGucu <= 20) hpKw = 20;
+                else hpKw = 24;
+
+                if (hpKw >= 12 || kwGucu >= 12) {
+                    if (document.getElementById("divTrifazeNotu")) document.getElementById("divTrifazeNotu").classList.remove("hidden");
+                }
+                sistemEtiket = `Aerotermia Bomba de Calor ${hpKw} kW`;
+                pazarYeriTuru = "isitma_pompasi";
+            } else {
+                if ((yapiTuru === "daire" || yapiTuru === "ofis") && netAlan < 100) {
+                    sistemEtiket = `Caldera Condensacion Gas 20 - 24 kW`;
+                } else {
+                    let kombiKw = kwGucu <= 16 ? 24 : (kwGucu <= 22 ? 28 : 35);
+                    if (yapiTuru === "villa" || yapiTuru === "mustakil" || yapiTuru === "dubleks") {
+                        if (kombiKw < 24) kombiKw = 24;
+                    }
+                    sistemEtiket = `Caldera Condensacion Gas ${kombiKw} kW`;
+                }
+                pazarYeriTuru = "isitma_kombi";
+            }
+
+            guncelleOnerilenEtiketMetni(isiticiCihazTuru);
+            document.getElementById("lblOnerilenSegment").innerText = sistemEtiket;
+            document.getElementById("lblBoylerHacmi").innerHTML = `<i class="fa-solid fa-faucet-drip mr-1 text-emerald-400"></i> ${boylerHacmiMetin}`;
+            renderPazaryerleri(pazarYeriTuru, sistemEtiket);
+        }
+
+        function mahalDegisti() {
+            const mahalFonks = document.getElementById("mahalFonksiyon").value;
+            const yukseklikInput = document.getElementById("katYuksekligi");
+            const ekCihazlarAlani = document.getElementById("ekCihazlarAlani");
+
+            if (mahalFonks === "Konut") {
+                yukseklikInput.value = "2.8"; yukseklikInput.disabled = true;
+                yukseklikInput.className = "w-full bg-slate-200 cursor-not-allowed border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none";
+                ekCihazlarAlani.classList.add("hidden");
+            } else {
+                yukseklikInput.disabled = false;
+                yukseklikInput.className = "w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-blue-500";
+                ekCihazlarAlani.classList.remove("hidden");
+            }
+            guncelleSihirbazVeMotor();
+        }
+
+        function parseTrFloat(val) {
+            if (!val) return 0;
+            let str = val.toString().replace(',', '.');
+            let f = parseFloat(str);
+            return isNaN(f) ? 0 : f;
+        }
+
+        function pencereYonDegisti(pId) {
+            let yon = document.getElementById(pId + '_yon').value;
+            let enInput = document.getElementById(pId + '_en');
+            let boyInput = document.getElementById(pId + '_boy');
+            if (yon === "Yok") {
+                enInput.value = "0";
+                boyInput.value = "0";
+                enInput.disabled = true;
+                boyInput.disabled = true;
+                enInput.className = "w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center";
+                boyInput.className = "w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center";
+            } else {
+                enInput.disabled = false;
+                boyInput.disabled = false;
+                enInput.className = "w-full border rounded p-1 text-[11px] font-bold bg-white text-center";
+                boyInput.className = "w-full border rounded p-1 text-[11px] font-bold bg-white text-center";
+            }
+            guncelleSihirbazVeMotor();
+        }
+
+        function disDuvarDurumDegisti(cephe) {
+            let durum = document.getElementById(`dd_${cephe}_durum`).value;
+            let enInput = document.getElementById(`dd_${cephe}_en`);
+            
+            if (durum === "Yok") {
+                enInput.value = "0";
+                enInput.disabled = true;
+                enInput.className = "w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center";
+            } else {
+                enInput.disabled = false;
+                enInput.className = "w-full border rounded p-1 text-xs font-bold bg-white text-center";
+            }
+            guncelleSihirbazVeMotor();
+        }
+
+        function guncelleSihirbazVeMotor() {
+            const katY = parseFloat(document.getElementById('katYuksekligi').value) || 2.8;
+            let disUzunluklar = { Kuzey: 0, Dogu: 0, Guney: 0, Bati: 0 };
+            ['Kuzey', 'Dogu', 'Guney', 'Bati'].forEach(cephe => {
+                let durum = document.getElementById(`dd_${cephe}_durum`).value;
+                let enInput = document.getElementById(`dd_${cephe}_en`);
+                
+                if (durum === "Yok") {
+                    enInput.value = "0";
+                    disUzunluklar[cephe] = 0;
+                } else {
+                    disUzunluklar[cephe] = parseTrFloat(enInput.value);
+                }
+
+                const enInputEl = document.getElementById(`en_${cephe}`);
+                if (enInputEl) enInputEl.value = disUzunluklar[cephe];
+                
+                const toplamInputEl = document.getElementById(`toplam_${cephe}`);
+                if (toplamInputEl) toplamInputEl.value = disUzunluklar[cephe];
+            });
+
+            let pAlanlari = { Kuzey: 0, Dogu: 0, Guney: 0, Bati: 0 };
+
+            ['p1', 'p2', 'p3', 'p4', 'dk'].forEach(id => {
+                let yon = document.getElementById(id + '_yon').value;
+                let en = parseTrFloat(document.getElementById(id + '_en').value);
+                let boy = parseTrFloat(document.getElementById(id + '_boy').value);
+                let alan = en * boy;
+                document.getElementById(id + '_alan_lbl').innerText = alan.toFixed(2) + " m²";
+                if (yon !== "Yok") {
+                    pAlanlari[yon] += alan;
+                }
+            });
+
+            document.getElementById('pencere_Kuzey').value = pAlanlari.Kuzey.toFixed(2);
+            document.getElementById('pencere_Dogu').value = pAlanlari.Dogu.toFixed(2);
+            document.getElementById('pencere_Guney').value = pAlanlari.Guney.toFixed(2);
+            document.getElementById('pencere_Bati').value = pAlanlari.Bati.toFixed(2);
+
+            ['Kuzey', 'Dogu', 'Guney', 'Bati'].forEach(cephe => {
+                let en = disUzunluklar[cephe];
+                let netAlan = 0;
+                if (en > 0) {
+                    let brutAlan = en * katY;
+                    let oYoneAitPencere = pAlanlari[cephe] || 0;
+                    netAlan = Math.max(0, brutAlan - oYoneAitPencere);
+                }
+                document.getElementById(`dd_${cephe}_net`).innerText = netAlan.toFixed(2);
+            });
+
+            let icEn = parseTrFloat(document.getElementById('id_en').value);
+            let icAlan = icEn * katY;
+            document.getElementById('id_net_alan').innerText = icAlan.toFixed(2);
+            document.getElementById('en_Ic').value = icEn;
+
+            if (typeof hesaplaTS825 === 'function') {
+                hesaplaTS825();
+            }
+        }
+
+        function hesaplaTS825() {
+            let alan = parseTrFloat(document.getElementById("mahalAlani").value);
+
+            if (alan <= 0) {
+                document.getElementById("lblWatt").innerText = "0";
+                document.getElementById("lblFrigoria").innerText = "0";
+                document.getElementById("lblBTU").innerText = "0";
+                document.getElementById("lblOnerilenSegment").innerText = "Por favor introduzca una superficie válida.";
+                if (document.getElementById("printBTUDeger")) document.getElementById("printBTUDeger").innerText = "0 fg/h (0 BTU/h)";
+                if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = "Esperando cálculo...";
+                return;
+            }
+
+            const sehir = document.getElementById("sehir").value;
+            const yalitim = document.getElementById("yalitim").value;
+            const mahalFonks = document.getElementById("mahalFonksiyon").value;
+            const katKonum = document.getElementById("katKonum").value;
+            const camTipi = document.getElementById("camTipi").value;
+            
+            const yukseklik = parseFloat(document.getElementById("katYuksekligi").value) || 2.8;
+            const insan = parseInt(document.getElementById("insanSayisi").value) || 0;
+            const hacim = alan * yukseklik;
+
+            let tDisPik = 34;
+            if (["Sevilla", "Cordoba"].includes(sehir)) tDisPik = 42;
+            else if (["Badajoz"].includes(sehir)) tDisPik = 41;
+            else if (["Murcia"].includes(sehir)) tDisPik = 40;
+            else if (["Zaragoza", "Toledo"].includes(sehir)) tDisPik = 39;
+            else if (["Madrid"].includes(sehir)) tDisPik = 38;
+            else if (["Almeria", "Malaga", "Alicante"].includes(sehir)) tDisPik = 36;
+            else if (["Valencia"].includes(sehir)) tDisPik = 35;
+            else if (["Barcelona", "Leon", "Burgos"].includes(sehir)) tDisPik = 33;
+            else if (["Bilbao", "Soria", "Avila"].includes(sehir)) tDisPik = 32;
+            else if (["A Coruna", "Santander"].includes(sehir)) tDisPik = 28;
+
+            const deltaT = Math.max(4, tDisPik - 24);
+
+            let uDuvar = 0.50;
+            if (yalitim === "cok_iyi") uDuvar = 0.28;
+            else if (yalitim === "zayif") uDuvar = 1.60;
+            else uDuvar = 0.50;
+
+            let uKomsu = 0.80;
+            let uCam = 2.60;
+            if (camTipi === "PVC - Tek Cam") uCam = 5.20;
+            else if (camTipi === "Ahşap - Çift Cam") uCam = 2.90;
+            else if (camTipi === "Alüminyum - Çift Cam") uCam = 3.40;
+
+            const enKuzey = parseTrFloat(document.getElementById("en_Kuzey").value);
+            const enDogu = parseTrFloat(document.getElementById("en_Dogu").value);
+            const enGuney = parseTrFloat(document.getElementById("en_Guney").value);
+            const enBati = parseTrFloat(document.getElementById("en_Bati").value);
+            const enIc = parseTrFloat(document.getElementById("en_Ic").value);
+
+            const pKuzey = parseTrFloat(document.getElementById("pencere_Kuzey").value);
+            const pDogu = parseTrFloat(document.getElementById("pencere_Dogu").value);
+            const pGuney = parseTrFloat(document.getElementById("pencere_Guney").value);
+            const pBati = parseTrFloat(document.getElementById("pencere_Bati").value);
+
+            const netDuvarKuzey = Math.max(0, (enKuzey * yukseklik) - pKuzey);
+            const netDuvarDogu = Math.max(0, (enDogu * yukseklik) - pDogu);
+            const netDuvarGuney = Math.max(0, (enGuney * yukseklik) - pGuney);
+            const netDuvarBati = Math.max(0, (enBati * yukseklik) - pBati);
+            const netDuvarIc = enIc * yukseklik;
+
+            const toplamNetDisDuvar = netDuvarKuzey + netDuvarDogu + netDuvarGuney + netDuvarBati;
+            const toplamCamAlani = pKuzey + pDogu + pGuney + pBati;
+
+            let qDuvarIle = toplamNetDisDuvar * uDuvar * deltaT;
+            let qKomsuIle = netDuvarIc * uKomsu * (deltaT * 0.4);
+            let qCamIle = toplamCamAlani * uCam * deltaT;
+            
+            let qTavanDoseme = 0;
+            if (katKonum === "En Üst Kat - Teras") qTavanDoseme = alan * 0.90 * (deltaT + 4);
+            else if (katKonum === "En Üst Kat - Eğimli") qTavanDoseme = alan * 0.60 * deltaT;
+            else if (katKonum === "Zemin Kat") qTavanDoseme = alan * 0.40 * 4;
+
+            const radKuzey = 100, radDogu = 300, radGuney = 320, radBati = 380;
+            const gFaktoru = 0.65;
+            let qSolarCam = (pKuzey * radKuzey + pDogu * radDogu + pGuney * radGuney + pBati * radBati) * gFaktoru;
+
+            let qInsan = insan * 95;
+            let qAydinlatmaCihaz = alan * 12;
+            if (mahalFonks === "İşyeri - Ofis") qAydinlatmaCihaz = alan * 22;
+            else if (mahalFonks === "İşyeri - Dükkan") qAydinlatmaCihaz = alan * 35;
+
+            let qBilgisayarDefault = 0;
+            let qEkCihaz1 = 0;
+            let qEkCihaz2 = 0;
+
+            if (mahalFonks !== "Konut") {
+                qBilgisayarDefault = 300; 
+                
+                const ek1 = document.getElementById("ekCihaz1") ? document.getElementById("ekCihaz1").value : "yok";
+                const ek2 = document.getElementById("ekCihaz2") ? document.getElementById("ekCihaz2").value : "yok";
+                
+                if (ek1 === "printer") qEkCihaz1 = 120;
+                else if (ek1 === "minibuzdolabi") qEkCihaz1 = 150;
+
+                if (ek2 === "printer") qEkCihaz1 = 120;
+                else if (ek2 === "minibuzdolabi") qEkCihaz2 = 150;
+            }
+
+            let havaDegisim = mahalFonks === "Konut" ? 0.5 : (mahalFonks === "İşyeri - Ofis" ? 1.0 : 1.5);
+            let qTazeHava = (hacim * havaDegisim / 3600) * 1.2 * 1005 * deltaT;
+
+            const netToplamWatt = qDuvarIle + qKomsuIle + qCamIle + qTavanDoseme + qSolarCam + qInsan + qAydinlatmaCihaz + qBilgisayarDefault + qEkCihaz1 + qEkCihaz2 + qTazeHava;
+            
+            const toplamWatt = netToplamWatt * 1.15; 
+            const toplamBTU = Math.round(toplamWatt * 3.4121);
+            const toplamFrigoria = Math.round(toplamWatt * 0.8598);
+
+            document.getElementById("lblWatt").innerText = Math.round(toplamWatt).toLocaleString('es-ES');
+            document.getElementById("lblFrigoria").innerText = toplamFrigoria.toLocaleString('es-ES');
+            document.getElementById("lblBTU").innerText = toplamBTU.toLocaleString('es-ES');
+            
+            let baslik = "Aire Acondicionado Split 2200 Frigorías 2.5 kW";
+            if (toplamBTU > 9000 && toplamBTU <= 12000) { baslik = "Aire Acondicionado Split 3000 Frigorías 3.5 kW"; }
+            else if (toplamBTU > 12000 && toplamBTU <= 18000) { baslik = "Aire Acondicionado Split 4500 Frigorías 5.0 kW"; }
+            else if (toplamBTU > 18000 && toplamBTU <= 24000) { baslik = "Aire Acondicionado Split 6000 Frigorías 7.1 kW"; }
+            else if (toplamBTU > 24000) { baslik = "Aire Acondicionado Conductos Cassette 8000 Frigorías"; }
+
+            document.getElementById("lblOnerilenSegment").innerText = baslik;
+            renderPazaryerleri('klima', baslik);
+
+            const mahalNo = document.getElementById("raporMahalNo") ? document.getElementById("raporMahalNo").value : "E-101";
+            const mahalAdi = document.getElementById("raporMahalAdi") ? document.getElementById("raporMahalAdi").value : "Despacho Dirección";
+            if (document.getElementById("printMahalBilgi")) document.getElementById("printMahalBilgi").innerText = `Estancia: ${mahalNo} - ${mahalAdi}`;
+            if (document.getElementById("printBTUDeger")) document.getElementById("printBTUDeger").innerText = `${toplamFrigoria.toLocaleString('es-ES')} fg/h (${toplamBTU.toLocaleString('es-ES')} BTU/h)`;
+            if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = baslik;
+        }
+
+        /* SIMULACIÓN CANVAS TERMODINÁMICA RENDER */
+        let pipeParticles = [];
+        const pipeParticleCount = 28;
+        for (let i = 0; i < pipeParticleCount; i++) {
+            pipeParticles.push({ progress: i / pipeParticleCount });
+        }
+
+        let indoorAirParticles = [];
+        let outdoorAirParticles = [];
+
+        for (let i = 0; i < 30; i++) {
+            indoorAirParticles.push({
+                x: 140, y: 190 + (Math.random() * 80 - 40),
+                vx: - (1.2 + Math.random() * 1.5),
+                vy: (Math.random() * 0.8 - 0.4),
+                size: 3 + Math.random() * 4,
+                alpha: 0.2 + Math.random() * 0.7
+            });
+            outdoorAirParticles.push({
+                x: 560, y: 160 + (Math.random() * 80 - 40),
+                vx: (1.2 + Math.random() * 1.5),
+                vy: (Math.random() * 0.8 - 0.4),
+                size: 3 + Math.random() * 4,
+                alpha: 0.2 + Math.random() * 0.7
+            });
+        }
+
+        function cevrimaModuDegistir(mod) {
+            mevcutCevrimModu = mod;
+            const btnSogutma = document.getElementById('btnModSogutma');
+            const btnIsitma = document.getElementById('btnModIsitma');
+            const demoBaslik = document.getElementById('demoBaşlik');
+            const demoAciklama = document.getElementById('demoAciklama');
+            const txt4YolDurum = document.getElementById('txt4YolDurum');
+            const txtHavaDurum = document.getElementById('txtHavaDurum');
+            const demoBilgiKutusu = document.getElementById('demoBilgiKutusu');
+
+            if (mod === 'sogutma') {
+                btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-blue-600 text-white shadow-xs cursor-pointer";
+                btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-orange-600 cursor-pointer";
+                demoBilgiKutusu.className = "bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-2";
+                demoBaslik.innerHTML = `<i class="fa-solid fa-snowflake text-blue-600"></i> Análisis Ciclo de Refrigeración`;
+                demoAciklama.innerHTML = "En modo frío, la unidad interior impulsa <strong>aire frío (azul)</strong> absorbiendo el calor del recinto. El calor transportado por el circuito frigorífico se expulsa al exterior como <strong>aire caliente (rojo)</strong>.";
+                txt4YolDurum.innerText = "Flujo Directo (Modo Frío)";
+                txtHavaDurum.className = "text-blue-600 font-bold";
+                txtHavaDurum.innerText = "Interior: Frío / Exterior: Calor";
+            } else {
+                btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-orange-600 text-white shadow-xs cursor-pointer";
+                btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-blue-600 cursor-pointer";
+                demoBilgiKutusu.className = "bg-orange-50 border border-orange-200 rounded-xl p-4 space-y-2";
+                demoBaslik.innerHTML = `<i class="fa-solid fa-fire text-orange-600"></i> Análisis Aerotermia (Bomba de Calor) Inviernos`;
+                demoAciklama.innerHTML = "En modo calor, la válvula de 4 vías invierte el flujo. La unidad interior expulsa <strong>aire caliente (rojo)</strong> al recinto mientras la exterior absorbe energía del aire externo expulsando <strong>aire frío (azul)</strong>.";
+                txt4YolDurum.innerText = "Invertida (Modo Calor)";
+                txtHavaDurum.className = "text-red-600 font-bold";
+                txtHavaDurum.innerText = "Interior: Calor / Exterior: Frío";
+            }
+        }
+
+        function drawSystem() {
+            const canvas = document.getElementById('klimaCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.strokeStyle = '#334155';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([6, 6]);
+            
+            ctx.strokeRect(40, 40, 200, 320);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = 'bold 12px Segoe UI';
+            ctx.textAlign = 'center';
+            ctx.fillText("UNIDAD INTERIOR (Recinto)", 140, 65);
+
+            ctx.strokeRect(460, 40, 200, 320);
+            ctx.fillText("UNIDAD EXTERIOR (Aire Libre)", 560, 65);
+            ctx.setLineDash([]);
+
+            ctx.strokeStyle = '#475569';
+            ctx.lineWidth = 8;
+            ctx.beginPath();
+            ctx.moveTo(140, 100);
+            ctx.lineTo(560, 100); 
+            ctx.lineTo(560, 300); 
+            ctx.lineTo(140, 300); 
+            ctx.closePath();      
+            ctx.stroke();
+
+            ctx.fillStyle = '#1e293b';
+            ctx.beginPath();
+            ctx.arc(560, 250, 26, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#0f172a';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 10px Segoe UI';
+            ctx.fillText("COMP.", 560, 254);
+
+            ctx.fillStyle = '#d97706';
+            ctx.fillRect(330, 288, 40, 24);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText("EEV", 350, 303);
+
+            ctx.fillStyle = '#7c3aed';
+            ctx.fillRect(330, 88, 40, 24);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText("4-VÍAS", 350, 103);
+
+            let icRenk = mevcutCevrimModu === 'sogutma' ? '#3b82f6' : '#ef4444';
+            let disRenk = mevcutCevrimModu === 'sogutma' ? '#ef4444' : '#3b82f6';
+
+            ctx.fillStyle = icRenk;
+            ctx.fillRect(130, 130, 20, 120);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText(mevcutCevrimModu === 'sogutma' ? 'Evap' : 'Cond', 140, 195);
+
+            ctx.fillStyle = disRenk;
+            ctx.fillRect(550, 110, 20, 100);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText(mevcutCevrimModu === 'sogutma' ? 'Cond' : 'Evap', 560, 165);
+
+            let icHavaRengi = mevcutCevrimModu === 'sogutma' ? 'rgba(56, 189, 248, ' : 'rgba(239, 68, 68, ';
+            let disHavaRengi = mevcutCevrimModu === 'sogutma' ? 'rgba(239, 68, 68, ' : 'rgba(56, 189, 248, ';
+
+            indoorAirParticles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 50) {
+                    p.x = 130;
+                    p.y = 190 + (Math.random() * 80 - 40);
+                }
+                ctx.fillStyle = icHavaRengi + p.alpha + ')';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            outdoorAirParticles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x > 650) {
+                    p.x = 570;
+                    p.y = 160 + (Math.random() * 80 - 40);
+                }
+                ctx.fillStyle = disHavaRengi + p.alpha + ')';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            pipeParticles.forEach(p => {
+                p.progress += 0.003;
+                if (p.progress > 1) p.progress = 0;
+
+                let x, y, color;
+                let effProg = mevcutCevrimModu === 'sogutma' ? p.progress : (1 - p.progress);
+
+                if (effProg < 0.35) { 
+                    x = 140 + (effProg / 0.35) * 420;
+                    y = 100;
+                    color = '#ef4444'; 
+                } else if (effProg < 0.5) { 
+                    x = 560;
+                    y = 100 + ((effProg - 0.35) / 0.15) * 200;
+                    color = mevcutCevrimModu === 'sogutma' ? '#ef4444' : '#3b82f6';
+                } else if (effProg < 0.85) { 
+                    x = 560 - ((effProg - 0.5) / 0.35) * 420;
+                    y = 300;
+                    color = x > 350 ? '#ef4444' : '#3b82f6';
+                } else { 
+                    x = 140;
+                    y = 300 - ((effProg - 0.85) / 0.15) * 200;
+                    color = '#3b82f6'; 
+                }
+
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(drawSystem);
+        }
+
+        window.onload = function() {
+            sifirlaKlima();
+            sekmeDegistir('klima');
+            renderManuel('klima');
+            renderVarsayilanPazaryeri('klima');
+            yapiTipiDegisti();
+            isiticiCihazDegisti();
+            drawSystem();
+        };
+    </script>
+</body>
+</html>
