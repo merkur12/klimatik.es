@@ -637,30 +637,32 @@
 
     <!-- MODALES -->
     <div id="modalHakkimizda" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 no-print">
-        <div class="bg-white rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl border border-slate-100">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b pb-3">
                 <h3 id="modalTitleAbout" class="text-lg font-extrabold text-slate-800">Sobre Nosotros y Contacto</h3>
                 <button onclick="modalKapat('modalHakkimizda')" class="text-slate-400 hover:text-slate-600 font-bold cursor-pointer">&times;</button>
             </div>
-            <p id="modalBodyAbout" class="text-xs text-slate-600 leading-relaxed"></p>
+            <div id="modalBodyAbout" class="text-xs text-slate-600 leading-relaxed"></div>
         </div>
     </div>
+    
     <div id="modalGizlilik" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 no-print">
-        <div class="bg-white rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl border border-slate-100">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b pb-3">
                 <h3 id="modalTitlePrivacy" class="text-lg font-extrabold text-slate-800">Política de Privacidad</h3>
                 <button onclick="modalKapat('modalGizlilik')" class="text-slate-400 hover:text-slate-600 font-bold cursor-pointer">&times;</button>
             </div>
-            <p id="modalBodyPrivacy" class="text-xs text-slate-600 leading-relaxed"></p>
+            <div id="modalBodyPrivacy" class="text-xs text-slate-600 leading-relaxed"></div>
         </div>
     </div>
+    
     <div id="modalKosullar" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 no-print">
-        <div class="bg-white rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl border border-slate-100">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b pb-3">
                 <h3 id="modalTitleTerms" class="text-lg font-extrabold text-slate-800">Términos y Condiciones</h3>
                 <button onclick="modalKapat('modalKosullar')" class="text-slate-400 hover:text-slate-600 font-bold cursor-pointer">&times;</button>
             </div>
-            <p id="modalBodyTerms" class="text-xs text-slate-600 leading-relaxed"></p>
+            <div id="modalBodyTerms" class="text-xs text-slate-600 leading-relaxed"></div>
         </div>
     </div>
 
@@ -743,16 +745,37 @@
                 lblTransfAire: '<i class="fa-solid fa-wind text-blue-500"></i> Transferencia de Aire:',
                 lblBlogSubTitle: 'Base de Conocimiento Técnico y Guía de Ingeniería',
                 lblBlogMainTitle: 'Artículos Técnicos de Climatización y Aerotermia',
-                btnFooterAbout: 'Sobre Nosotros y Contacto',
+                btnFooterAbout: 'Contacto y Sobre Nosotros',
                 btnFooterPrivacy: 'Política de Privacidad',
                 btnFooterTerms: 'Términos y Condiciones',
                 lblCopyright: '© 2026 | Portal de Cálculo e Ingeniería de Climatización CTE. Todos los derechos reservados.',
-                modalTitleAbout: 'Sobre Nosotros y Contacto',
-                modalBodyAbout: 'Portal independiente de ingeniería de climatización que digitaliza los cálculos bajo normativa CTE para profesionales y usuarios.',
-                modalTitlePrivacy: 'Política de Privacidad',
-                modalBodyPrivacy: 'Sus datos se procesan localmente en su navegador y nunca se almacenan en servidores externos.',
-                modalTitleTerms: 'Términos y Condiciones',
-                modalBodyTerms: 'Los cálculos tienen carácter orientativo e informativo. Se recomienda la validación por parte de un técnico cualificado antes del montaje.',
+                modalTitleAbout: 'Contacto y Sobre Nosotros',
+                modalBodyAbout: `
+                    <div class="space-y-3">
+                        <p><strong>ClimaticApp</strong> es una plataforma de herramientas de cálculo de ingeniería térmica y climatización orientada a profesionales, ingenieros y usuarios finales.</p>
+                        <p><strong>Contacto:</strong> Para consultas técnicas, sugerencias de mejora o soporte técnico, puede ponerse en contacto directamente a través del siguiente e-mail:</p>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 font-bold text-slate-800">
+                            <i class="fa-solid fa-envelope text-blue-600 mr-2"></i> Email Directo: <a href="mailto:merkur12@gmail.com" class="text-blue-600 underline">merkur12@gmail.com</a>
+                        </div>
+                    </div>`,
+                modalTitlePrivacy: 'Política de Privacidad y Cookies',
+                modalBodyPrivacy: `
+                    <div class="space-y-3">
+                        <p>Esta Política de Privacidad describe cómo se recopila, utiliza y comparte su información al visitar nuestro sitio web.</p>
+                        <h5 class="font-bold text-slate-800">Uso de Cookies y Publicidad de Google AdSense</h5>
+                        <p>Este sitio utiliza cookies para personalizar el contenido, analizar el tráfico y mostrar anuncios relevantes. Proveedores terceros, incluido Google, utilizan cookies para mostrar anuncios basados en las visitas anteriores del usuario a este u otros sitios web.</p>
+                        <p>Los usuarios pueden inhabilitar la publicidad personalizada dirigiéndose a la <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener" class="text-blue-600 underline">Configuración de anuncios de Google</a>.</p>
+                        <h5 class="font-bold text-slate-800">Tratamiento de Datos Locales</h5>
+                        <p>Los datos introducidos en los motores de cálculo se procesan exclusivamente en su navegador y no se almacenan en servidores externos.</p>
+                    </div>`,
+                modalTitleTerms: 'Términos de Servicio y Exención de Responsabilidad',
+                modalBodyTerms: `
+                    <div class="space-y-3">
+                        <p>Al utilizar este sitio web, usted acepta los siguientes términos de servicio:</p>
+                        <h5 class="font-bold text-slate-800">Aviso Legal y Carácter Estimativo</h5>
+                        <p>Los resultados, cálculos de carga térmica y recomendaciones de equipos proporcionados por esta herramienta tienen un <strong>carácter puramente estimativo y orientativo</strong> basado en simplificaciones técnicas de normativas de climatización (CTE / UNI EN).</p>
+                        <p>No constituyen un proyecto de ejecución formal ni reemplazan el estudio técnico ni el firmado de un proyecto técnico por parte de un ingeniero o instalador autorizado. El sitio web no se hace responsable de decisiones comerciales o montajes realizados sin validación técnica profesional.</p>
+                    </div>`,
                 lblPratikSehir: 'Ciudad / Zona Climática',
                 lblPratikAlan: 'Superficie del Local (m²)',
                 lblPratikYalitim: 'Clase Aislamiento Edificio',
@@ -1009,16 +1032,37 @@
                 lblTransfAire: '<i class="fa-solid fa-wind text-blue-500"></i> Trasferimento D’Aria:',
                 lblBlogSubTitle: 'Base di Conoscenza Tecnica e Guida di Ingegneria',
                 lblBlogMainTitle: 'Articoli Tecnici su Climatizzazione e Aerotermia',
-                btnFooterAbout: 'Chi Siamo e Contatti',
+                btnFooterAbout: 'Contatti e Chi Siamo',
                 btnFooterPrivacy: 'Informativa sulla Privacy',
                 btnFooterTerms: 'Termini e Condizioni',
                 lblCopyright: '© 2026 | Portale di Calcolo e Ingegneria Climatica. Tutti i diritti riservati.',
-                modalTitleAbout: 'Chi Siamo e Contatti',
-                modalBodyAbout: 'Portale indipendente di ingegneria climatica che digitalizza i calcoli secondo le normative UNI EN per professionisti e utenti.',
-                modalTitlePrivacy: 'Informativa sulla Privacy',
-                modalBodyPrivacy: 'I tuoi dati vengono elaborati localmente nel browser e non vengono mai salvati su server esterni.',
-                modalTitleTerms: 'Termini e Condizioni',
-                modalBodyTerms: 'I calcoli hanno carattere orientativo ed informativo. Si raccomanda la verifica da parte di un tecnico qualificato prima dell’installazione.',
+                modalTitleAbout: 'Contatti e Chi Siamo',
+                modalBodyAbout: `
+                    <div class="space-y-3">
+                        <p><strong>ClimaticApp</strong> è una piattaforma di strumenti di calcolo di ingegneria termica e climatizzazione orientata a professionisti, ingegneri e utenti finali.</p>
+                        <p><strong>Contatti:</strong> Per domande tecniche, suggerimenti di miglioramento o supporto tecnico, puoi contattarci direttamente tramite la seguente e-mail:</p>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 font-bold text-slate-800">
+                            <i class="fa-solid fa-envelope text-blue-600 mr-2"></i> Email Diretta: <a href="mailto:merkur12@gmail.com" class="text-blue-600 underline">merkur12@gmail.com</a>
+                        </div>
+                    </div>`,
+                modalTitlePrivacy: 'Informativa sulla Privacy e Cookie',
+                modalBodyPrivacy: `
+                    <div class="space-y-3">
+                        <p>Questa Informativa sulla Privacy descrive come vengono raccolte, utilizzate e condivise le tue informazioni quando visiti il nostro sito web.</p>
+                        <h5 class="font-bold text-slate-800">Uso dei Cookie e Pubblicità Google AdSense</h5>
+                        <p>Questo sito utilizza i cookie per personalizzare i contenuti, analizzare il traffico e mostrare annunci pertinenti. Fornitori terzi, tra cui Google, utilizzano i cookie per pubblicare annunci sulla base delle precedenti visite dell'utente a questo o ad altri siti web.</p>
+                        <p>Gli utenti possono disattivare la pubblicità personalizzata visitando le <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener" class="text-blue-600 underline">Impostazioni annunci di Google</a>.</p>
+                        <h5 class="font-bold text-slate-800">Trattamento Dati Locale</h5>
+                        <p>I dati inseriti nei motori di calcolo vengono elaborati esclusivamente nel browser e non vengono memorizzati sui nostri server.</p>
+                    </div>`,
+                modalTitleTerms: 'Termini di Servizio ed Esclusione di Responsabilità',
+                modalBodyTerms: `
+                    <div class="space-y-3">
+                        <p>Utilizzando questo sito web, accetti i seguenti termini di servizio:</p>
+                        <h5 class="font-bold text-slate-800">Avviso Legale e Natura Stimata</h5>
+                        <p>I risultati, i calcoli del carico termico e le raccomandazioni sulle apparecchiature fornite da questo strumento hanno una <strong>natura puramente stimata e orientativa</strong> basata su semplificazioni tecniche delle normative climatiche (UNI EN / CTE).</p>
+                        <p>Non costituiscono un progetto esecutivo formale né sostituiscono uno studio tecnico o la firma di un progetto da parte di un ingegnere o installatore abilitato. Il sito web non è responsabile per decisioni commerciali o installazioni effettuate senza una verifica tecnica professionale.</p>
+                    </div>`,
                 lblPratikSehir: 'Città / Zona Climatica',
                 lblPratikAlan: 'Superficie del Locale (m²)',
                 lblPratikYalitim: 'Classe Isolamento Edificio',
@@ -1295,11 +1339,11 @@
             document.getElementById('btnFooterTerms').innerText = t.btnFooterTerms;
             document.getElementById('lblCopyright').innerText = t.lblCopyright;
             document.getElementById('modalTitleAbout').innerText = t.modalTitleAbout;
-            document.getElementById('modalBodyAbout').innerText = t.modalBodyAbout;
+            document.getElementById('modalBodyAbout').innerHTML = t.modalBodyAbout;
             document.getElementById('modalTitlePrivacy').innerText = t.modalTitlePrivacy;
-            document.getElementById('modalBodyPrivacy').innerText = t.modalBodyPrivacy;
+            document.getElementById('modalBodyPrivacy').innerHTML = t.modalBodyPrivacy;
             document.getElementById('modalTitleTerms').innerText = t.modalTitleTerms;
-            document.getElementById('modalBodyTerms').innerText = t.modalBodyTerms;
+            document.getElementById('modalBodyTerms').innerHTML = t.modalBodyTerms;
 
             // Form Labels
             document.getElementById('lblPratikSehir').innerText = t.lblPratikSehir;
@@ -1559,7 +1603,6 @@
             }
         }
 
-                      /* PAZARYERİ SORGULAMA ENGINE */
         /* PAZARYERİ SORGULAMA ENGINE */
         function renderPazaryerleri(kategoriTuru, baslikMetni) {
             const container = document.getElementById("pazaryeriListesi");
