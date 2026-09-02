@@ -1,30 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Ana Sayfa -->
+  <!-- Ana Sayfa (İspanya / İtalya Bölümü) -->
   <url>
     <loc>https://www.klimatikapp.com/es/</loc>
     <lastmod>2026-09-02</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.00</priority>
   </url>
 
-  <!-- Makaleleriniz ve Diğer Sayfalarınız (Kendi dosya adlarınıza göre düzenleyin) -->
+  <!-- 1. Makale: Normativa CTE HE -->
   <url>
-    <loc>https://www.klimatikapp.com/es/makale-1.html</loc>
+    <loc>https://www.klimatikapp.com/es/#blogCard1</loc>
     <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
 
+  <!-- 2. Makale: Aerotermia vs Gas -->
   <url>
-    <loc>https://www.klimatikapp.com/es/makale-2.html</loc>
+    <loc>https://www.klimatikapp.com/es/#blogCard2</loc>
     <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
 
-  <!-- Gizlilik Politikası / İletişim / Hakkımızda -->
+  <!-- 3. Makale: Frigorías y Cálculo -->
   <url>
-    <loc>https://www.klimatikapp.com/es/privacy.html</loc>
+    <loc>https://www.klimatikapp.com/es/#blogCard3</loc>
     <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 4. Makale: Elección Aire Acondicionado -->
+  <url>
+    <loc>https://www.klimatikapp.com/es/#blogCard4</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 5. Makale: Calderas Gas -->
+  <url>
+    <loc>https://www.klimatikapp.com/es/#blogCard5</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 6. Makale: Aerotermia Avanzada -->
+  <url>
+    <loc>https://www.klimatikapp.com/es/#blogCard6</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 7. Makale: Salud y Confort -->
+  <url>
+    <loc>https://www.klimatikapp.com/es/#blogCard7</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 8. Makale: Ahorro Energético -->
+  <url>
+    <loc>https://www.klimatikapp.com/es/#blogCard8</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 9. Makale: Principios Climatización -->
+  <url>
+    <loc>https://www.klimatikapp.com/es/#blogCard9</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Kurumsal Sayfalar / Modallar -->
+  <url>
+    <loc>https://www.klimatikapp.com/es/#modalHakkimizda</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.klimatikapp.com/es/#modalGizlilik</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.klimatikapp.com/es/#modalKosullar</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.50</priority>
   </url>
 
