@@ -80,7 +80,12 @@
             </div>
         </div>
     </nav>
-
+<!-- SLOGAN ALANI -->
+    <div class="no-print max-w-7xl mx-auto w-full pt-4 px-4 text-center">
+        <p id="lblSlogan" class="text-base md:text-lg italic font-semibold text-slate-600 tracking-wide">
+            "Especialista en Cálculo de Climatización, Calderas y Aerotermia"
+        </p>
+    </div>
     <!-- SELECCIÓN DE MODO -->
     <div class="no-print max-w-7xl mx-auto w-full pt-6 px-4">
         <div class="bg-slate-200/60 p-1.5 rounded-2xl flex flex-wrap gap-2 max-w-3xl mx-auto border border-slate-200">
@@ -681,6 +686,7 @@
 
         const i18n = {
             es: {
+                lblSlogan: '"Especialista en Cálculo de Climatización, Calderas y Aerotermia"',
                 version: 'VERSIÓN 2.0 (CTE)',
                 pageTitle: 'Cálculo de Carga Térmica, Climatización y Aerotermia Monobloc | Blog de Ingeniería',
                 tabPratik: 'Cálculo Rápido Carga Frío',
@@ -968,6 +974,7 @@
                     </div>`
             },
             it: {
+                lblSlogan: '"Specialista nel Calcolo di Climatizzazione, Caldaie e Pompa di Calore"',
                 version: 'VERSIONE 2.0 (UNI EN 12831)',
                 pageTitle: 'Calcolo Carico Termico, Climatizzazione e Pompa di Calore Monoblocco | Blog Tecnico',
                 tabPratik: 'Calcolo Rapido Carico Freddo',
@@ -1274,6 +1281,7 @@
             mevcudDil = lang;
             const t = i18n[lang];
 
+            document.getElementById('lblSlogan').innerText = t.lblSlogan;
             document.getElementById('htmlTag').lang = lang;
             document.title = t.pageTitle;
             document.getElementById('versiyonRozeti').innerText = t.version;
