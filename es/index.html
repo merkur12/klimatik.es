@@ -2,12 +2,12 @@
 <html lang="es" id="htmlTag">
 <head>
     <meta charset="UTF-8">
-   <meta name="google-site-verification" content="Yi4SznAdW2LcSY9xdgJ3T6GfmkvtdAm5aRpOE-CPIes" />
+    <meta name="google-site-verification" content="Yi4SznAdW2LcSY9xdgJ3T6GfmkvtdAm5aRpOE-CPIes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle">Calcolo Carico Termico, Climatizzazione e Pompa di Calore Monoblocco | Blog</title>
-    <!-- Favicon (Sekme Logosu) -->
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -58,9 +58,9 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             
             <div class="flex items-center gap-2">
-    <i class="fa-solid fa-snowflake text-blue-600 text-2xl animate-pulse"></i>
-    <span class="text-2xl font-black tracking-tight text-slate-900">klimatik<span class="text-blue-600">app.com</span></span>
-</div>
+                <i class="fa-solid fa-snowflake text-blue-600 text-2xl animate-pulse"></i>
+                <span class="text-2xl font-black tracking-tight text-slate-900">klimatik<span class="text-blue-600">app.com</span></span>
+            </div>
             
             <div class="flex items-center gap-4">
                 <div class="flex items-center bg-slate-200/80 p-1 rounded-xl border border-slate-300/60 shadow-inner gap-1.5">
@@ -83,12 +83,14 @@
             </div>
         </div>
     </nav>
-<!-- SLOGAN ALANI -->
+
+    <!-- SLOGAN ALANI -->
     <div class="no-print max-w-7xl mx-auto w-full pt-4 px-4 text-center">
         <p id="lblSlogan" class="text-base md:text-lg italic font-semibold text-slate-600 tracking-wide">
             "Especialista en Cálculo de Climatización, Calderas y Aerotermia"
         </p>
     </div>
+
     <!-- SELECCIÓN DE MODO -->
     <div class="no-print max-w-7xl mx-auto w-full pt-6 px-4">
         <div class="bg-slate-200/60 p-1.5 rounded-2xl flex flex-wrap gap-2 max-w-3xl mx-auto border border-slate-200">
@@ -346,42 +348,48 @@
                                         <input type="text" id="id_en" value="0" oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-white text-center">
                                         <div class="text-[10px] font-bold text-emerald-800"><span class="lblArea">Área</span>: <span id="id_net_alan">0.00</span> m²</div>
                                     </div>
+
+                                    <!-- DUVAR 1 (8 YÖNLÜ) -->
                                     <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
-                                        <span id="lblParedNorte" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. Norte</span>
-                                        <select id="dd_Kuzey_durum" onchange="disDuvarDurumDegisti('Kuzey')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
+                                        <span id="lblPared1" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. 1</span>
+                                        <select id="dd_1_yon" onchange="disDuvarYonDegisti('1')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
                                         <label class="lblAncho block text-[9px] font-bold text-slate-600">Ancho (m)</label>
-                                        <input type="text" id="dd_Kuzey_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
-                                        <div class="text-[10px] font-bold text-blue-800"><span class="lblNeto">Neto</span>: <span id="dd_Kuzey_net">0.00</span> m²</div>
+                                        <input type="text" id="dd_1_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
+                                        <div class="text-[10px] font-bold text-blue-800"><span class="lblNeto">Neto</span>: <span id="dd_1_net">0.00</span> m²</div>
                                     </div>
+
+                                    <!-- DUVAR 2 (8 YÖNLÜ) -->
                                     <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
-                                        <span id="lblParedEste" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. Este</span>
-                                        <select id="dd_Dogu_durum" onchange="disDuvarDurumDegisti('Dogu')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
+                                        <span id="lblPared2" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. 2</span>
+                                        <select id="dd_2_yon" onchange="disDuvarYonDegisti('2')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
                                         <label class="lblAncho block text-[9px] font-bold text-slate-600">Ancho (m)</label>
-                                        <input type="text" id="dd_Dogu_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
-                                        <div class="text-[10px] font-bold text-blue-800"><span class="lblNeto">Neto</span>: <span id="dd_Dogu_net">0.00</span> m²</div>
+                                        <input type="text" id="dd_2_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
+                                        <div class="text-[10px] font-bold text-blue-800"><span class="lblNeto">Neto</span>: <span id="dd_2_net">0.00</span> m²</div>
                                     </div>
+
+                                    <!-- DUVAR 3 (8 YÖNLÜ) -->
                                     <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
-                                        <span id="lblParedSur" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. Sur</span>
-                                        <select id="dd_Guney_durum" onchange="disDuvarDurumDegisti('Guney')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
+                                        <span id="lblPared3" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. 3</span>
+                                        <select id="dd_3_yon" onchange="disDuvarYonDegisti('3')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
                                         <label class="lblAncho block text-[9px] font-bold text-slate-600">Ancho (m)</label>
-                                        <input type="text" id="dd_Guney_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
-                                        <div class="text-[10px] font-bold text-blue-800"><span class="lblNeto">Neto</span>: <span id="dd_Guney_net">0.00</span> m²</div>
+                                        <input type="text" id="dd_3_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
+                                        <div class="text-[10px] font-bold text-blue-800"><span class="lblNeto">Neto</span>: <span id="dd_3_net">0.00</span> m²</div>
                                     </div>
+
+                                    <!-- DUVAR 4 (8 YÖNLÜ) -->
                                     <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
-                                        <span id="lblParedOeste" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. Oeste</span>
-                                        <select id="dd_Bati_durum" onchange="disDuvarDurumDegisti('Bati')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
+                                        <span id="lblPared4" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. 4</span>
+                                        <select id="dd_4_yon" onchange="disDuvarYonDegisti('4')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
                                         <label class="lblAncho block text-[9px] font-bold text-slate-600">Ancho (m)</label>
-                                        <input type="text" id="dd_Bati_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
-                                        <div class="text-[10px] font-bold text-blue-800"><span class="lblNeto">Neto</span>: <span id="dd_Bati_net">0.00</span> m²</div>
+                                        <input type="text" id="dd_4_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center">
+                                        <div class="text-[10px] font-bold text-blue-800"><span class="lblNeto">Neto</span>: <span id="dd_4_net">0.00</span> m²</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="hidden">
-                            <input type="number" id="toplam_Kuzey" value="0"><input type="number" id="toplam_Dogu" value="0"><input type="number" id="toplam_Guney" value="0"><input type="number" id="toplam_Bati" value="0">
-                            <input type="number" id="en_Kuzey" value="0"><input type="number" id="en_Dogu" value="0"><input type="number" id="en_Guney" value="0"><input type="number" id="en_Bati" value="0"><input type="number" id="en_Ic" value="0">
-                            <input type="number" id="pencere_Kuzey" value="0"><input type="number" id="pencere_Dogu" value="0"><input type="number" id="pencere_Guney" value="0"><input type="number" id="pencere_Bati" value="0">
+                            <input type="number" id="en_Ic" value="0">
                             <select id="ekCihazSecimi"><option value="yok">Ninguno</option></select>
                         </div>
 
@@ -521,7 +529,6 @@
                         </div>
                     </div>
 
-                    <!-- ES DİLİNDE FRİGORİAS, IT DİLİNDE KW / BTU KUTUSU -->
                     <div id="boxKapasiteOrta" class="border-t border-slate-800 pt-3">
                         <span class="text-sm text-slate-300 font-medium block mb-1" id="lblFrigoriaBaslik">Capacidad Frigorífica Recomendada</span>
                         <div class="flex items-baseline gap-1.5">
@@ -728,10 +735,10 @@
                 lblSihirbazVentanaTitle: '<i class="fa-solid fa-window-maximize"></i> Asistente de Ventanas y Puertas',
                 lblSihirbazParedTitle: '<i class="fa-solid fa-wall"></i> Asistente de Paredes Exteriores e Interiores',
                 lblParedIntTitle: '<i class="fa-solid fa-door-closed mr-1"></i> Pared Int. / Tabique',
-                lblParedNorte: 'Pared Ext. Norte',
-                lblParedEste: 'Pared Ext. Este',
-                lblParedSur: 'Pared Ext. Sur',
-                lblParedOeste: 'Pared Ext. Oeste',
+                lblPared1: 'Pared Ext. 1',
+                lblPared2: 'Pared Ext. 2',
+                lblPared3: 'Pared Ext. 3',
+                lblPared4: 'Pared Ext. 4',
                 lblAncho: 'Ancho (m)',
                 lblAlto: 'Alto (m)',
                 lblArea: 'Área',
@@ -890,15 +897,23 @@
                     <option value="standart">Aislamiento Estándar</option>
                     <option value="zayif">Sin Aislamiento / Edificio Antiguo</option>`,
                 yonOptions: `
-                    <option value="Kuzey">Norte (Orientación Fresca)</option>
-                    <option value="Dogu">Este (Sol de Mañana)</option>
-                    <option value="Guney">Sur (Sol Estándar)</option>
-                    <option value="Bati">Oeste (Sol Extremo / Calor Tarde)</option>`,
+                    <option value="Kuzey">Norte (Sombra)</option>
+                    <option value="Kuzeydogu">Noreste</option>
+                    <option value="Dogu">Este (Sol de mañana)</option>
+                    <option value="Guneydogu">Sureste</option>
+                    <option value="Guney">Sur (Cálido)</option>
+                    <option value="Guneybati">Suroeste (Cálido e intenso)</option>
+                    <option value="Bati" selected>Oeste (Sol de tarde / Crítico)</option>
+                    <option value="Kuzeybati">Noroeste</option>`,
                 pencereYonOptions: `
                     <option value="Kuzey">Norte (Poca Radiación)</option>
+                    <option value="Kuzeydogu">Noreste</option>
                     <option value="Dogu">Este (Radiación Media)</option>
+                    <option value="Guneydogu">Sureste</option>
                     <option value="Guney">Sur (Radiación Alta)</option>
-                    <option value="Bati" selected>Oeste (Carga Solar Crítica)</option>`,
+                    <option value="Guneybati">Suroeste</option>
+                    <option value="Bati" selected>Oeste (Carga Solar Crítica)</option>
+                    <option value="Kuzeybati">Noroeste</option>`,
                 katKonumPratikOptions: `
                     <option value="Ara Kat">Planta Intermedia (Ocupada Arriba/Abajo)</option>
                     <option value="Zemin Kat">Planta Baja</option>
@@ -953,15 +968,15 @@
                     <option value="evet" selected>Sí (Incluye Demanda ACS)</option>
                     <option value="hayir">No (Solo Calefacción)</option>`,
                 sihirbazYonOptions: `
-                    <option value="Yok" selected>Ninguna</option>
+                    <option value="Yok" selected>Ninguno</option>
                     <option value="Kuzey">Norte</option>
+                    <option value="Kuzeydogu">Noreste</option>
                     <option value="Dogu">Este</option>
+                    <option value="Guneydogu">Sureste</option>
                     <option value="Guney">Sur</option>
-                    <option value="Bati">Oeste</option>`,
-                sihirbazDurumOptions: `
-                    <option value="Yok" selected>Ninguna</option>
-                    <option value="Tamami">Toda Exterior</option>
-                    <option value="Kısmen">Parcialmente Exterior</option>`,
+                    <option value="Guneybati">Suroeste</option>
+                    <option value="Bati">Oeste</option>
+                    <option value="Kuzeybati">Noroeste</option>`,
                 manualKlimaText: `
                     <ol class="list-decimal list-inside space-y-1.5 text-xs md:text-sm font-medium">
                         <li><strong>Ciudad y Temperatura Máxima:</strong> Al elegir la ciudad se carga automáticamente la temperatura exterior de diseño.</li>
@@ -1016,10 +1031,10 @@
                 lblSihirbazVentanaTitle: '<i class="fa-solid fa-window-maximize"></i> Assistente Finestre e Porte',
                 lblSihirbazParedTitle: '<i class="fa-solid fa-wall"></i> Assistente Pareti Esterne ed Interne',
                 lblParedIntTitle: '<i class="fa-solid fa-door-closed mr-1"></i> Parete Int. / Tramezzo',
-                lblParedNorte: 'Parete Est. Nord',
-                lblParedEste: 'Parete Est. Est',
-                lblParedSur: 'Parete Est. Sud',
-                lblParedOeste: 'Parete Est. Ovest',
+                lblPared1: 'Parete Est. 1',
+                lblPared2: 'Parete Est. 2',
+                lblPared3: 'Parete Est. 3',
+                lblPared4: 'Parete Est. 4',
                 lblAncho: 'Larghezza (m)',
                 lblAlto: 'Altezza (m)',
                 lblArea: 'Area',
@@ -1167,15 +1182,23 @@
                     <option value="standart">Isolamento Standard</option>
                     <option value="zayif">Senza Isolamento / Edificio Vecchio</option>`,
                 yonOptions: `
-                    <option value="Kuzey">Nord (Esposizione Fresca)</option>
-                    <option value="Dogu">Est (Sole del Mattino)</option>
-                    <option value="Guney">Sud (Sole Standard)</option>
-                    <option value="Bati">Ovest (Sole Estremo / Calore Pomeridiano)</option>`,
+                    <option value="Kuzey">Nord (Ombra)</option>
+                    <option value="Kuzeydogu">Nord-est</option>
+                    <option value="Dogu">Est (Sole del mattino)</option>
+                    <option value="Guneydogu">Sud-est</option>
+                    <option value="Guney">Sud (Caldo)</option>
+                    <option value="Guneybati">Sud-ovest (Sole intenso)</option>
+                    <option value="Bati" selected>Ovest (Sole del pomeriggio)</option>
+                    <option value="Kuzeybati">Nord-ovest</option>`,
                 pencereYonOptions: `
                     <option value="Kuzey">Nord (Poca Radiazione)</option>
+                    <option value="Kuzeydogu">Nord-est</option>
                     <option value="Dogu">Est (Radiazione Media)</option>
+                    <option value="Guneydogu">Sud-est</option>
                     <option value="Guney">Sud (Radiazione Alta)</option>
-                    <option value="Bati" selected>Ovest (Carico Solare Critico)</option>`,
+                    <option value="Guneybati">Sud-ovest</option>
+                    <option value="Bati" selected>Ovest (Carico Solare Critico)</option>
+                    <option value="Kuzeybati">Nord-ovest</option>`,
                 katKonumPratikOptions: `
                     <option value="Ara Kat">Piano Intermedio (Abitato Sopra/Sotto)</option>
                     <option value="Zemin Kat">Piano Terra</option>
@@ -1230,15 +1253,15 @@
                     <option value="evet" selected>Sì (Incluso Fabbisogno ACS)</option>
                     <option value="hayir">No (Solo Riscaldamento)</option>`,
                 sihirbazYonOptions: `
-                    <option value="Yok" selected>Nessuna</option>
+                    <option value="Yok" selected>Nessuno</option>
                     <option value="Kuzey">Nord</option>
+                    <option value="Kuzeydogu">Nord-est</option>
                     <option value="Dogu">Est</option>
+                    <option value="Guneydogu">Sud-est</option>
                     <option value="Guney">Sud</option>
-                    <option value="Bati">Ovest</option>`,
-                sihirbazDurumOptions: `
-                    <option value="Yok" selected>Nessuna</option>
-                    <option value="Tamami">Interamente Esterna</option>
-                    <option value="Kısmen">Parzialmente Esterna</option>`,
+                    <option value="Guneybati">Sud-ovest</option>
+                    <option value="Bati">Ovest</option>
+                    <option value="Kuzeybati">Nord-ovest</option>`,
                 manualKlimaText: `
                     <ol class="list-decimal list-inside space-y-1.5 text-xs md:text-sm font-medium">
                         <li><strong>Città e Temperatura Massima:</strong> Selezionando la città viene caricata automaticamente la temperatura esterna di progetto.</li>
@@ -1301,7 +1324,6 @@
             document.getElementById('lblPratikBaslik').innerHTML = t.lblPratikBaslik;
             document.getElementById('lblIsitmaBaslik').innerHTML = t.lblIsitmaBaslik;
             
-            // DİNAMİK SAĞ PANEL BAŞLIĞI
             document.getElementById('lblAnalizBaslik').innerHTML = `<i class="fa-solid fa-square-poll-vertical text-blue-500 mr-1.5"></i> ${t.lblAnalizBaslikText}`;
 
             document.getElementById('lblBirimAnaliz').innerText = t.lblWattBirim;
@@ -1319,10 +1341,10 @@
             document.getElementById('lblSihirbazVentanaTitle').innerHTML = t.lblSihirbazVentanaTitle;
             document.getElementById('lblSihirbazParedTitle').innerHTML = t.lblSihirbazParedTitle;
             document.getElementById('lblParedIntTitle').innerHTML = t.lblParedIntTitle;
-            document.getElementById('lblParedNorte').innerText = t.lblParedNorte;
-            document.getElementById('lblParedEste').innerText = t.lblParedEste;
-            document.getElementById('lblParedSur').innerText = t.lblParedSur;
-            document.getElementById('lblParedOeste').innerText = t.lblParedOeste;
+            document.getElementById('lblPared1').innerText = t.lblPared1;
+            document.getElementById('lblPared2').innerText = t.lblPared2;
+            document.getElementById('lblPared3').innerText = t.lblPared3;
+            document.getElementById('lblPared4').innerText = t.lblPared4;
             document.querySelectorAll('.lblAncho').forEach(el => el.innerText = t.lblAncho);
             document.querySelectorAll('.lblAlto').forEach(el => el.innerText = t.lblAlto);
             document.querySelectorAll('.lblArea').forEach(el => el.innerText = t.lblArea);
@@ -1424,8 +1446,8 @@
             ['p1', 'p2', 'p3', 'p4', 'dk'].forEach(id => {
                 document.getElementById(id + '_yon').innerHTML = t.sihirbazYonOptions;
             });
-            ['Kuzey', 'Dogu', 'Guney', 'Bati'].forEach(cephe => {
-                document.getElementById(`dd_${cephe}_durum`).innerHTML = t.sihirbazDurumOptions;
+            ['1', '2', '3', '4'].forEach(id => {
+                document.getElementById(`dd_${id}_yon`).innerHTML = t.sihirbazYonOptions;
             });
 
             // Dil Butonları
@@ -1441,7 +1463,6 @@
                 btnES.className = baseClass + " text-slate-600 hover:text-slate-900 hover:bg-slate-300/50";
             }
 
-            // Print ve Rapor Kutusu Varsayılan Metinleri Dili
             if (document.getElementById("raporMahalNo")) document.getElementById("raporMahalNo").value = t.defMahalNo;
             if (document.getElementById("raporMahalAdi")) document.getElementById("raporMahalAdi").value = t.defMahalAdi;
 
@@ -1450,7 +1471,6 @@
             renderVarsayilanPazaryeri(mevcutMod);
             cevrimaModuDegistir(mevcutCevrimModu);
             
-            // Mevcut veriyi güncel dil formatında tekrar hesapla
             if (mevcutMod === 'pratik') hesaplaPratik();
             else if (mevcutMod === 'klima') hesaplaTS825();
             else hesaplaIsitma();
@@ -1706,8 +1726,6 @@
                 let leroyItUrl = `https://www.leroymerlin.it/ricerca?q=${encodedStandard}`;
                 let mediaWorldItUrl = `https://www.mediaworld.it/it/search.html?query=${encodedStandard}`;
                 let ebayItUrl = `https://www.ebay.it/sch/i.html?_nkw=${encodedStandard}`;
-                
-                // Climamarket Shopify Arama Yapısı (Gerçek URL + Affiliate Uyumlu)
                 let climamarketItUrl = `https://www.climamarket.it/search?q=${encodedStandard}`;
 
                 if (kategoriTuru === 'klima') {
@@ -1822,14 +1840,6 @@
             if(document.getElementById("raporMahalAdi")) document.getElementById("raporMahalAdi").value = t.defMahalAdi;
             document.getElementById("katYuksekligi").value = "2.8";
             document.getElementById("mahalAlani").value = "0,00";
-            document.getElementById("toplam_Kuzey").value = "0.0";
-            document.getElementById("toplam_Dogu").value = "0.0";
-            document.getElementById("toplam_Guney").value = "0.0";
-            document.getElementById("toplam_Bati").value = "0.0";
-            document.getElementById("en_Kuzey").value = "0.0";
-            document.getElementById("en_Dogu").value = "0.0";
-            document.getElementById("en_Guney").value = "0.0";
-            document.getElementById("en_Bati").value = "0.0";
             document.getElementById("en_Ic").value = "0.0";
             document.getElementById("id_en").value = "0";
             document.getElementById("id_net_alan").innerText = "0.00";
@@ -1843,10 +1853,10 @@
                 document.getElementById(id + '_alan_lbl').innerText = "0.00 m²";
                 pencereYonDegisti(id);
             });
-            ['Kuzey', 'Dogu', 'Guney', 'Bati'].forEach(cephe => {
-                document.getElementById(`dd_${cephe}_durum`).value = "Yok";
-                document.getElementById(`dd_${cephe}_net`).innerText = "0.00";
-                disDuvarDurumDegisti(cephe);
+            ['1', '2', '3', '4'].forEach(id => {
+                document.getElementById(`dd_${id}_yon`).value = "Yok";
+                document.getElementById(`dd_${id}_net`).innerText = "0.00";
+                disDuvarYonDegisti(id);
             });
             mahalDegisti();
             guncelleSihirbazVeMotor();
@@ -1876,6 +1886,17 @@
             renderVarsayilanPazaryeri('isitma');
         }
 
+        function yonSolarKatsayi(y) {
+            if (y === "Bati") return 1.25;
+            if (y === "Guneybati") return 1.28;
+            if (y === "Guney") return 1.15;
+            if (y === "Guneydogu") return 1.12;
+            if (y === "Dogu") return 1.08;
+            if (y === "Kuzeydogu") return 1.04;
+            if (y === "Kuzeybati") return 1.10;
+            return 1.00; // Kuzey (Norte / Nord)
+        }
+
         function hesaplaPratik() {
             const bolge = parseInt(document.getElementById("pratikSehir").value) || 2;
             const alan = parseFloat(document.getElementById("pratikAlan").value) || 0;
@@ -1898,13 +1919,6 @@
 
             let baseWattM2 = bolge === 1 ? 115 : (bolge === 3 ? 80 : (bolge === 4 ? 70 : 95));
             let yalitimCarpanPratik = yalitimP === "cok_iyi" ? 0.85 : (yalitimP === "zayif" ? 1.25 : 1.00);
-
-            function yonSolarKatsayi(y) {
-                if (y === "Bati") return 1.25;
-                if (y === "Guney") return 1.15;
-                if (y === "Dogu") return 1.08;
-                return 1.00;
-            }
 
             let duvarSolarCarpan = yonSolarKatsayi(duvarYon);
             let pencereSolarCarpan = yonSolarKatsayi(pencereYon);
@@ -2183,11 +2197,11 @@
             guncelleSihirbazVeMotor();
         }
 
-        function disDuvarDurumDegisti(cephe) {
-            let durum = document.getElementById(`dd_${cephe}_durum`).value;
-            let enInput = document.getElementById(`dd_${cephe}_en`);
+        function disDuvarYonDegisti(id) {
+            let yon = document.getElementById(`dd_${id}_yon`).value;
+            let enInput = document.getElementById(`dd_${id}_en`);
             
-            if (durum === "Yok") {
+            if (yon === "Yok") {
                 enInput.value = "0"; enInput.disabled = true;
                 enInput.className = "w-full border rounded p-1 text-xs font-bold bg-slate-200 cursor-not-allowed text-center";
             } else {
@@ -2199,49 +2213,30 @@
 
         function guncelleSihirbazVeMotor() {
             const katY = parseFloat(document.getElementById('katYuksekligi').value) || 2.8;
-            let disUzunluklar = { Kuzey: 0, Dogu: 0, Guney: 0, Bati: 0 };
-            ['Kuzey', 'Dogu', 'Guney', 'Bati'].forEach(cephe => {
-                let durum = document.getElementById(`dd_${cephe}_durum`).value;
-                let enInput = document.getElementById(`dd_${cephe}_en`);
-                
-                if (durum === "Yok") {
-                    enInput.value = "0"; disUzunluklar[cephe] = 0;
-                } else {
-                    disUzunluklar[cephe] = parseTrFloat(enInput.value);
-                }
 
-                const enInputEl = document.getElementById(`en_${cephe}`);
-                if (enInputEl) enInputEl.value = disUzunluklar[cephe];
-                
-                const toplamInputEl = document.getElementById(`toplam_${cephe}`);
-                if (toplamInputEl) toplamInputEl.value = disUzunluklar[cephe];
-            });
-
-            let pAlanlari = { Kuzey: 0, Dogu: 0, Guney: 0, Bati: 0 };
-
+            let pAlanlari = { Kuzey: 0, Kuzeydogu: 0, Dogu: 0, Guneydogu: 0, Guney: 0, Guneybati: 0, Bati: 0, Kuzeybati: 0 };
             ['p1', 'p2', 'p3', 'p4', 'dk'].forEach(id => {
                 let yon = document.getElementById(id + '_yon').value;
                 let en = parseTrFloat(document.getElementById(id + '_en').value);
                 let boy = parseTrFloat(document.getElementById(id + '_boy').value);
                 let alan = en * boy;
                 document.getElementById(id + '_alan_lbl').innerText = alan.toFixed(2) + " m²";
-                if (yon !== "Yok") pAlanlari[yon] += alan;
+                if (yon !== "Yok") {
+                    pAlanlari[yon] = (pAlanlari[yon] || 0) + alan;
+                }
             });
 
-            document.getElementById('pencere_Kuzey').value = pAlanlari.Kuzey.toFixed(2);
-            document.getElementById('pencere_Dogu').value = pAlanlari.Dogu.toFixed(2);
-            document.getElementById('pencere_Guney').value = pAlanlari.Guney.toFixed(2);
-            document.getElementById('pencere_Bati').value = pAlanlari.Bati.toFixed(2);
-
-            ['Kuzey', 'Dogu', 'Guney', 'Bati'].forEach(cephe => {
-                let en = disUzunluklar[cephe];
+            ['1', '2', '3', '4'].forEach(id => {
+                let yon = document.getElementById(`dd_${id}_yon`).value;
+                let en = parseTrFloat(document.getElementById(`dd_${id}_en`).value);
                 let netAlan = 0;
-                if (en > 0) {
+                
+                if (yon !== "Yok" && en > 0) {
                     let brutAlan = en * katY;
-                    let oYoneAitPencere = pAlanlari[cephe] || 0;
+                    let oYoneAitPencere = pAlanlari[yon] || 0;
                     netAlan = Math.max(0, brutAlan - oYoneAitPencere);
                 }
-                document.getElementById(`dd_${cephe}_net`).innerText = netAlan.toFixed(2);
+                document.getElementById(`dd_${id}_net`).innerText = netAlan.toFixed(2);
             });
 
             let icEn = parseTrFloat(document.getElementById('id_en').value);
@@ -2299,25 +2294,34 @@
             else if (camTipi === "Ahşap - Çift Cam") uCam = 2.90;
             else if (camTipi === "Alüminyum - Çift Cam") uCam = 3.40;
 
-            const enKuzey = parseTrFloat(document.getElementById("en_Kuzey").value);
-            const enDogu = parseTrFloat(document.getElementById("en_Dogu").value);
-            const enGuney = parseTrFloat(document.getElementById("en_Guney").value);
-            const enBati = parseTrFloat(document.getElementById("en_Bati").value);
             const enIc = parseTrFloat(document.getElementById("en_Ic").value);
 
-            const pKuzey = parseTrFloat(document.getElementById("pencere_Kuzey").value);
-            const pDogu = parseTrFloat(document.getElementById("pencere_Dogu").value);
-            const pGuney = parseTrFloat(document.getElementById("pencere_Guney").value);
-            const pBati = parseTrFloat(document.getElementById("pencere_Bati").value);
+            let pAlanlari = { Kuzey: 0, Kuzeydogu: 0, Dogu: 0, Guneydogu: 0, Guney: 0, Guneybati: 0, Bati: 0, Kuzeybati: 0 };
+            ['p1', 'p2', 'p3', 'p4', 'dk'].forEach(id => {
+                let yon = document.getElementById(id + '_yon').value;
+                let en = parseTrFloat(document.getElementById(id + '_en').value);
+                let boy = parseTrFloat(document.getElementById(id + '_boy').value);
+                if (yon !== "Yok") pAlanlari[yon] = (pAlanlari[yon] || 0) + (en * boy);
+            });
 
-            const netDuvarKuzey = Math.max(0, (enKuzey * yukseklik) - pKuzey);
-            const netDuvarDogu = Math.max(0, (enDogu * yukseklik) - pDogu);
-            const netDuvarGuney = Math.max(0, (enGuney * yukseklik) - pGuney);
-            const netDuvarBati = Math.max(0, (enBati * yukseklik) - pBati);
+            let dNetAlanlari = { Kuzey: 0, Kuzeydogu: 0, Dogu: 0, Guneydogu: 0, Guney: 0, Guneybati: 0, Bati: 0, Kuzeybati: 0 };
+            ['1', '2', '3', '4'].forEach(id => {
+                let yon = document.getElementById(`dd_${id}_yon`).value;
+                let en = parseTrFloat(document.getElementById(`dd_${id}_en`).value);
+                if (yon !== "Yok" && en > 0) {
+                    let brut = en * yukseklik;
+                    let pencere = pAlanlari[yon] || 0;
+                    dNetAlanlari[yon] = (dNetAlanlari[yon] || 0) + Math.max(0, brut - pencere);
+                }
+            });
+
+            let toplamNetDisDuvar = 0;
+            Object.keys(dNetAlanlari).forEach(k => toplamNetDisDuvar += dNetAlanlari[k]);
+
             const netDuvarIc = enIc * yukseklik;
 
-            const toplamNetDisDuvar = netDuvarKuzey + netDuvarDogu + netDuvarGuney + netDuvarBati;
-            const toplamCamAlani = pKuzey + pDogu + pGuney + pBati;
+            let toplamCamAlani = 0;
+            Object.keys(pAlanlari).forEach(k => toplamCamAlani += pAlanlari[k]);
 
             let qDuvarIle = toplamNetDisDuvar * uDuvar * deltaT;
             let qKomsuIle = netDuvarIc * uKomsu * (deltaT * 0.4);
@@ -2328,9 +2332,21 @@
             else if (katKonum === "En Üst Kat - Eğimli") qTavanDoseme = alan * 0.60 * deltaT;
             else if (katKonum === "Zemin Kat") qTavanDoseme = alan * 0.40 * 4;
 
-            const radKuzey = 100, radDogu = 300, radGuney = 320, radBati = 380;
+            const rad = {
+                Kuzey: 100,
+                Kuzeydogu: 210,
+                Dogu: 300,
+                Guneydogu: 315,
+                Guney: 320,
+                Guneybati: 350,
+                Bati: 380,
+                Kuzeybati: 240
+            };
             const gFaktoru = 0.65;
-            let qSolarCam = (pKuzey * radKuzey + pDogu * radDogu + pGuney * radGuney + pBati * radBati) * gFaktoru;
+            let qSolarCam = 0;
+            Object.keys(pAlanlari).forEach(k => {
+                qSolarCam += pAlanlari[k] * rad[k] * gFaktoru;
+            });
 
             let qInsan = insan * 95;
             let qAydinlatmaCihaz = alan * 12;
