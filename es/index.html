@@ -2,27 +2,6 @@
 <html lang="es" id="htmlTag">
 <head>
     <meta charset="UTF-8">
-    <!-- SEO & Hreflang Etiketleri -->
-<link rel="alternate" hreflang="es" href="https://klimatikapp.com/" />
-<link rel="alternate" hreflang="it" href="https://klimatikapp.com/" />
-<link rel="alternate" hreflang="x-default" href="https://klimatikapp.com/" />
-
-<!-- Structured Data (JSON-LD Schema) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Klimatikapp - Calculadora de Climatización",
-  "url": "https://klimatikapp.com/",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "All",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR"
-  }
-}
-</script>
     <meta name="google-site-verification" content="Yi4SznAdW2LcSY9xdgJ3T6GfmkvtdAm5aRpOE-CPIes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle">Calcolo Carico Termico, Climatizzazione e Pompa di Calore Monoblocco | Blog</title>
@@ -1938,25 +1917,29 @@
                 return;
             }
 
-            let baseWattM2 = bolge === 1 ? 115 : (bolge === 3 ? 80 : (bolge === 4 ? 70 : 95));
-            let yalitimCarpanPratik = yalitimP === "cok_iyi" ? 0.85 : (yalitimP === "zayif" ? 1.25 : 1.00);
+            // 2) Çözüm: Bölge 2 için baz değer 95 W/m² yerine 78 W/m² olarak güncellendi.
+            let baseWattM2 = bolge === 1 ? 105 : (bolge === 3 ? 70 : (bolge === 4 ? 65 : 78));
+            
+            // 2) Çözüm: Sabit %12 çarpanı kaldırılıp zayıf yalıtımlı binalara özel katsayıya dönüştürüldü.
+            let yalitimCarpanPratik = yalitimP === "cok_iyi" ? 0.85 : (yalitimP === "zayif" ? 1.12 : 1.00);
 
             let duvarSolarCarpan = yonSolarKatsayi(duvarYon);
             let pencereSolarCarpan = yonSolarKatsayi(pencereYon);
-            let netDuvarEtkisi = 1.0;
+            
+            // 3) Çözüm: Yön çarpanı (1.25 vb.) oda alanının tamamını çarpmıyor, küçük bir duvar/pencere ek yüküne dönüştürüldü.
+            let netDuvarEtkisi = 1.0 + (duvarSolarCarpan - 1.0) * 0.20; 
             let ekstraPencereYukW = 0;
 
+            // 1) Çözüm: Varsayılan pencere oranı %11 (%10-12 bandı) olarak güncellendi ve mükerrer solar çarpanlar yumuşatıldı.
             if (duvarYon === pencereYon) {
-                netDuvarEtkisi = duvarSolarCarpan * 0.85;
-                let tahminiCamAlani = Math.max(2.0, (duvarOlcusu * 2.8) * 0.20);
-                ekstraPencereYukW = tahminiCamAlani * pencereSolarCarpan * 45; 
+                let tahminiCamAlani = Math.max(1.5, (duvarOlcusu > 0 ? duvarOlcusu * 2.8 : alan * 0.35) * 0.11);
+                ekstraPencereYukW = tahminiCamAlani * pencereSolarCarpan * 30; 
             } else {
-                netDuvarEtkisi = duvarSolarCarpan;
-                let tahminiCamAlaniFarkli = Math.max(2.0, alan * 0.15);
-                ekstraPencereYukW = tahminiCamAlaniFarkli * pencereSolarCarpan * 55;
+                let tahminiCamAlaniFarkli = Math.max(1.5, alan * 0.11);
+                ekstraPencereYukW = tahminiCamAlaniFarkli * pencereSolarCarpan * 35;
             }
 
-            let katCarpan = katKonum === "Zemin Kat" ? 1.05 : (katKonum === "En Üst Kat" ? 1.20 : 1.0);
+            let katCarpan = katKonum === "Zemin Kat" ? 1.05 : (katKonum === "En Üst Kat" ? 1.15 : 1.0);
             let insanGucWatt = kisiSayisi * 95;
             let ekGucWatt = 0;
             if (fonks === "Ofis" || fonks === "Dükkan") {
@@ -1967,8 +1950,7 @@
             }
 
             let temelYuk = alan * baseWattM2 * yalitimCarpanPratik * netDuvarEtkisi * katCarpan;
-            let toplamWattNet = temelYuk + ekstraPencereYukW + insanGucWatt + ekGucWatt;
-            let toplamWatt = toplamWattNet * 1.12; 
+            let toplamWatt = temelYuk + ekstraPencereYukW + insanGucWatt + ekGucWatt; 
             let toplamBTU = toplamWatt * 3.4121;
             let toplamFrigoria = toplamWatt * 0.8598;
             let toplamKw = toplamWatt / 1000;
