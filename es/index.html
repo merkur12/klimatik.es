@@ -2248,170 +2248,172 @@
             document.getElementById('en_Ic').value = icEn;
         }
 
-        function hesaplaTS825() {
-            let alan = parseTrFloat(document.getElementById("mahalAlani").value);
-            const t = i18n[mevcudDil];
+     /* KALİBRE EDİLMİŞ DETAYLI TS 825 / CTE HE HESAP MOTORU */
+function hesaplaTS825() {
+    let alan = parseTrFloat(document.getElementById("mahalAlani").value);
+    const t = i18n[mevcudDil];
 
-            if (alan <= 0) {
-                document.getElementById("lblWatt").innerText = "0";
-                document.getElementById("lblFrigoria").innerText = "0";
-                document.getElementById("lblBTU").innerText = "0";
-                document.getElementById("lblOnerilenSegment").innerText = mevcudDil === 'es' ? "Por favor introduzca una superficie válida." : "Si prega di inserire una superficie valida.";
-                if (document.getElementById("printBTUDeger")) document.getElementById("printBTUDeger").innerText = mevcudDil === 'es' ? "0 fg/h (0 BTU/h)" : "0.0 kW (0 BTU/h)";
-                if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = t.txtPrintBekleniyor;
-                return;
-            }
+    if (alan <= 0) {
+        document.getElementById("lblWatt").innerText = "0";
+        document.getElementById("lblFrigoria").innerText = "0";
+        document.getElementById("lblBTU").innerText = "0";
+        document.getElementById("lblOnerilenSegment").innerText = mevcudDil === 'es' ? "Por favor introduzca una superficie válida." : "Si prega di inserire una superficie valida.";
+        if (document.getElementById("printBTUDeger")) document.getElementById("printBTUDeger").innerText = mevcudDil === 'es' ? "0 fg/h (0 BTU/h)" : "0.0 kW (0 BTU/h)";
+        if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = t.txtPrintBekleniyor;
+        return;
+    }
 
-            const sehir = document.getElementById("sehir").value;
-            const yalitim = document.getElementById("yalitim").value;
-            const mahalFonks = document.getElementById("mahalFonksiyon").value;
-            const katKonum = document.getElementById("katKonum").value;
-            const camTipi = document.getElementById("camTipi").value;
-            
-            const yukseklik = parseFloat(document.getElementById("katYuksekligi").value) || 2.8;
-            const insan = parseInt(document.getElementById("insanSayisi").value) || 0;
-            const hacim = alan * yukseklik;
+    const sehir = document.getElementById("sehir").value;
+    const yalitim = document.getElementById("yalitim").value;
+    const mahalFonks = document.getElementById("mahalFonksiyon").value;
+    const katKonum = document.getElementById("katKonum").value;
+    const camTipi = document.getElementById("camTipi").value;
+    
+    const yukseklik = parseFloat(document.getElementById("katYuksekligi").value) || 2.8;
+    const insan = parseInt(document.getElementById("insanSayisi").value) || 0;
+    const hacim = alan * yukseklik;
 
-            let tDisPik = 34;
-            if (["Sevilla", "Cordoba", "Palermo"].includes(sehir)) tDisPik = 42;
-            else if (["Badajoz"].includes(sehir)) tDisPik = 41;
-            else if (["Murcia"].includes(sehir)) tDisPik = 40;
-            else if (["Zaragoza", "Toledo", "Firenze"].includes(sehir)) tDisPik = 39;
-            else if (["Madrid", "Roma", "Cagliari"].includes(sehir)) tDisPik = 38;
-            else if (["Almeria", "Malaga", "Alicante", "Milano", "Napoli"].includes(sehir)) tDisPik = 36;
-            else if (["Valencia", "Torino", "Bologna", "Ancona"].includes(sehir)) tDisPik = 35;
-            else if (["Barcelona", "Leon", "Burgos", "Venezia"].includes(sehir)) tDisPik = 33;
-            else if (["Bilbao", "Soria", "Avila"].includes(sehir)) tDisPik = 32;
-            else if (["A Coruna", "Santander"].includes(sehir)) tDisPik = 28;
+    let tDisPik = 38;
+    if (["Sevilla", "Cordoba", "Palermo"].includes(sehir)) tDisPik = 42;
+    else if (["Badajoz"].includes(sehir)) tDisPik = 41;
+    else if (["Murcia"].includes(sehir)) tDisPik = 40;
+    else if (["Zaragoza", "Toledo", "Firenze"].includes(sehir)) tDisPik = 39;
+    else if (["Madrid", "Roma", "Cagliari", "Adana"].includes(sehir)) tDisPik = 38;
+    else if (["Almeria", "Malaga", "Alicante", "Milano", "Napoli"].includes(sehir)) tDisPik = 36;
+    else if (["Valencia", "Torino", "Bologna", "Ancona"].includes(sehir)) tDisPik = 35;
+    else if (["Barcelona", "Leon", "Burgos", "Venezia"].includes(sehir)) tDisPik = 33;
+    else if (["Bilbao", "Soria", "Avila"].includes(sehir)) tDisPik = 32;
+    else if (["A Coruna", "Santander"].includes(sehir)) tDisPik = 28;
 
-            const deltaT = Math.max(4, tDisPik - 24);
+    const deltaT = Math.max(6, tDisPik - 24);
 
-            let uDuvar = 0.50;
-            if (yalitim === "cok_iyi") uDuvar = 0.28;
-            else if (yalitim === "zayif") uDuvar = 1.60;
-            else uDuvar = 0.50;
+    let uDuvar = 0.50;
+    if (yalitim === "cok_iyi") uDuvar = 0.28;
+    else if (yalitim === "zayif") uDuvar = 1.60;
+    else uDuvar = 0.50;
 
-            let uKomsu = 0.80;
-            let uCam = 2.60;
-            if (camTipi === "PVC - Tek Cam") uCam = 5.20;
-            else if (camTipi === "Ahşap - Çift Cam") uCam = 2.90;
-            else if (camTipi === "Alüminyum - Çift Cam") uCam = 3.40;
+    let uKomsu = 0.80;
+    let uCam = 2.60;
+    if (camTipi === "PVC - Tek Cam") uCam = 5.20;
+    else if (camTipi === "Ahşap - Çift Cam") uCam = 2.90;
+    else if (camTipi === "Alüminyum - Çift Cam") uCam = 3.40;
 
-            const enIc = parseTrFloat(document.getElementById("en_Ic").value);
+    const enIc = parseTrFloat(document.getElementById("en_Ic").value);
 
-            let pAlanlari = { Kuzey: 0, Kuzeydogu: 0, Dogu: 0, Guneydogu: 0, Guney: 0, Guneybati: 0, Bati: 0, Kuzeybati: 0 };
-            ['p1', 'p2', 'p3', 'p4', 'dk'].forEach(id => {
-                let yon = document.getElementById(id + '_yon').value;
-                let en = parseTrFloat(document.getElementById(id + '_en').value);
-                let boy = parseTrFloat(document.getElementById(id + '_boy').value);
-                if (yon !== "Yok") pAlanlari[yon] = (pAlanlari[yon] || 0) + (en * boy);
-            });
+    let pAlanlari = { Kuzey: 0, Kuzeydogu: 0, Dogu: 0, Guneydogu: 0, Guney: 0, Guneybati: 0, Bati: 0, Kuzeybati: 0 };
+    ['p1', 'p2', 'p3', 'p4', 'dk'].forEach(id => {
+        let yon = document.getElementById(id + '_yon').value;
+        let en = parseTrFloat(document.getElementById(id + '_en').value);
+        let boy = parseTrFloat(document.getElementById(id + '_boy').value);
+        if (yon !== "Yok") pAlanlari[yon] = (pAlanlari[yon] || 0) + (en * boy);
+    });
 
-            let dNetAlanlari = { Kuzey: 0, Kuzeydogu: 0, Dogu: 0, Guneydogu: 0, Guney: 0, Guneybati: 0, Bati: 0, Kuzeybati: 0 };
-            ['1', '2', '3', '4'].forEach(id => {
-                let yon = document.getElementById(`dd_${id}_yon`).value;
-                let en = parseTrFloat(document.getElementById(`dd_${id}_en`).value);
-                if (yon !== "Yok" && en > 0) {
-                    let brut = en * yukseklik;
-                    let pencere = pAlanlari[yon] || 0;
-                    dNetAlanlari[yon] = (dNetAlanlari[yon] || 0) + Math.max(0, brut - pencere);
-                }
-            });
-
-            let toplamNetDisDuvar = 0;
-            Object.keys(dNetAlanlari).forEach(k => toplamNetDisDuvar += dNetAlanlari[k]);
-
-            const netDuvarIc = enIc * yukseklik;
-
-            let toplamCamAlani = 0;
-            Object.keys(pAlanlari).forEach(k => toplamCamAlani += pAlanlari[k]);
-
-            let qDuvarIle = toplamNetDisDuvar * uDuvar * deltaT;
-            let qKomsuIle = netDuvarIc * uKomsu * (deltaT * 0.4);
-            let qCamIle = toplamCamAlani * uCam * deltaT;
-            
-            let qTavanDoseme = 0;
-            if (katKonum === "En Üst Kat - Teras") qTavanDoseme = alan * 0.90 * (deltaT + 4);
-            else if (katKonum === "En Üst Kat - Eğimli") qTavanDoseme = alan * 0.60 * deltaT;
-            else if (katKonum === "Zemin Kat") qTavanDoseme = alan * 0.40 * 4;
-
-            const rad = {
-                Kuzey: 100,
-                Kuzeydogu: 210,
-                Dogu: 300,
-                Guneydogu: 315,
-                Guney: 320,
-                Guneybati: 350,
-                Bati: 380,
-                Kuzeybati: 240
-            };
-            const gFaktoru = 0.65;
-            let qSolarCam = 0;
-            Object.keys(pAlanlari).forEach(k => {
-                qSolarCam += pAlanlari[k] * rad[k] * gFaktoru;
-            });
-
-            let qInsan = insan * 95;
-            let qAydinlatmaCihaz = alan * 12;
-            if (mahalFonks === "İşyeri - Ofis") qAydinlatmaCihaz = alan * 22;
-            else if (mahalFonks === "İşyeri - Dükkan") qAydinlatmaCihaz = alan * 35;
-
-            let qBilgisayarDefault = 0;
-            let qEkCihaz1 = 0;
-            let qEkCihaz2 = 0;
-
-            if (mahalFonks !== "Konut") {
-                qBilgisayarDefault = 300; 
-                
-                const ek1 = document.getElementById("ekCihaz1") ? document.getElementById("ekCihaz1").value : "yok";
-                const ek2 = document.getElementById("ekCihaz2") ? document.getElementById("ekCihaz2").value : "yok";
-                
-                if (ek1 === "printer") qEkCihaz1 = 120;
-                else if (ek1 === "minibuzdolabi") qEkCihaz1 = 150;
-
-                if (ek2 === "printer") qEkCihaz1 = 120;
-                else if (ek2 === "minibuzdolabi") qEkCihaz2 = 150;
-            }
-
-            let havaDegisim = mahalFonks === "Konut" ? 0.5 : (mahalFonks === "İşyeri - Ofis" ? 1.0 : 1.5);
-            let qTazeHavaSensible = (hacim * havaDegisim / 3600) * 1.2 * 1005 * deltaT;
-            let qTazeHava = qTazeHavaSensible * 1.35; 
-
-            const netToplamWatt = qDuvarIle + qKomsuIle + qCamIle + qTavanDoseme + qSolarCam + qInsan + qAydinlatmaCihaz + qBilgisayarDefault + qEkCihaz1 + qEkCihaz2 + qTazeHava;
-            
-            const toplamWatt = netToplamWatt * 1.12; 
-            const toplamBTU = Math.round(toplamWatt * 3.4121);
-            const toplamFrigoria = Math.round(toplamWatt * 0.8598);
-            const toplamKw = toplamWatt / 1000;
-
-            document.getElementById("lblWatt").innerText = Math.round(toplamWatt).toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
-            
-            if (mevcudDil === 'es') {
-                document.getElementById("lblFrigoria").innerText = toplamFrigoria.toLocaleString('es-ES');
-            } else {
-                document.getElementById("lblFrigoria").innerText = toplamKw.toFixed(2).replace('.', ',');
-            }
-
-            document.getElementById("lblBTU").innerText = toplamBTU.toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
-            
-            let baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 2200 Frigorías 2.5 kW" : "Climatizzatore Split 2.5 kW (9000 BTU)";
-            if (toplamBTU > 9000 && toplamBTU <= 12000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 3000 Frigorías 3.5 kW" : "Climatizzatore Split 3.5 kW (12000 BTU)"; }
-            else if (toplamBTU > 12000 && toplamBTU <= 18000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 4500 Frigorías 5.0 kW" : "Climatizzatore Split 5.0 kW (18000 BTU)"; }
-            else if (toplamBTU > 18000 && toplamBTU <= 24000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 6000 Frigorías 7.1 kW" : "Climatizzatore Split 7.1 kW (24000 BTU)"; }
-            else if (toplamBTU > 24000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Conductos Cassette 8000 Frigorías" : "Climatizzatore Canalizzato Cassetta 8.0 kW (30000 BTU)"; }
-
-            document.getElementById("lblOnerilenSegment").innerText = baslik;
-            renderPazaryerleri('klima', baslik);
-
-            const mahalNo = document.getElementById("raporMahalNo") ? document.getElementById("raporMahalNo").value : t.defMahalNo;
-            const mahalAdi = document.getElementById("raporMahalAdi") ? document.getElementById("raporMahalAdi").value : t.defMahalAdi;
-            if (document.getElementById("printMahalBilgi")) document.getElementById("printMahalBilgi").innerText = mevcudDil === 'es' ? `Estancia: ${mahalNo} - ${mahalAdi}` : `Stanza: ${mahalNo} - ${mahalAdi}`;
-            
-            if (document.getElementById("printBTUDeger")) {
-                document.getElementById("printBTUDeger").innerText = mevcudDil === 'es' ? `${toplamFrigoria.toLocaleString('es-ES')} fg/h (${toplamBTU.toLocaleString('es-ES')} BTU/h)` : `${toplamKw.toFixed(2).replace('.', ',')} kW (${toplamBTU.toLocaleString('it-IT')} BTU/h)`;
-            }
-            if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = baslik;
+    let dNetAlanlari = { Kuzey: 0, Kuzeydogu: 0, Dogu: 0, Guneydogu: 0, Guney: 0, Guneybati: 0, Bati: 0, Kuzeybati: 0 };
+    ['1', '2', '3', '4'].forEach(id => {
+        let yon = document.getElementById(`dd_${id}_yon`).value;
+        let en = parseTrFloat(document.getElementById(`dd_${id}_en`).value);
+        if (yon !== "Yok" && en > 0) {
+            let brut = en * yukseklik;
+            let pencere = pAlanlari[yon] || 0;
+            dNetAlanlari[yon] = (dNetAlanlari[yon] || 0) + Math.max(0, brut - pencere);
         }
+    });
+
+    let toplamNetDisDuvar = 0;
+    Object.keys(dNetAlanlari).forEach(k => toplamNetDisDuvar += dNetAlanlari[k]);
+
+    const netDuvarIc = enIc * yukseklik;
+
+    let toplamCamAlani = 0;
+    Object.keys(pAlanlari).forEach(k => toplamCamAlani += pAlanlari[k]);
+
+    let qDuvarIle = toplamNetDisDuvar * uDuvar * deltaT;
+    let qKomsuIle = netDuvarIc * uKomsu * (deltaT * 0.4);
+    let qCamIle = toplamCamAlani * uCam * deltaT;
+    
+    let qTavanDoseme = 0;
+    if (katKonum === "En Üst Kat - Teras") qTavanDoseme = alan * 0.90 * (deltaT + 4);
+    else if (katKonum === "En Üst Kat - Eğimli") qTavanDoseme = alan * 0.60 * deltaT;
+    else if (katKonum === "Zemin Kat") qTavanDoseme = alan * 0.40 * 4;
+
+    const rad = {
+        Kuzey: 120,
+        Kuzeydogu: 230,
+        Dogu: 340,
+        Guneydogu: 360,
+        Guney: 380,
+        Guneybati: 420,
+        Bati: 450,
+        Kuzeybati: 280
+    };
+    const gFaktoru = 0.65;
+    let qSolarCam = 0;
+    Object.keys(pAlanlari).forEach(k => {
+        qSolarCam += pAlanlari[k] * rad[k] * gFaktoru;
+    });
+
+    let qInsan = insan * 110; 
+    let qAydinlatmaCihaz = alan * 18; 
+    if (mahalFonks === "İşyeri - Ofis") qAydinlatmaCihaz = alan * 28;
+    else if (mahalFonks === "İşyeri - Dükkan") qAydinlatmaCihaz = alan * 40;
+
+    let qBilgisayarDefault = 0;
+    let qEkCihaz1 = 0;
+    let qEkCihaz2 = 0;
+
+    if (mahalFonks !== "Konut") {
+        qBilgisayarDefault = 300; 
+        
+        const ek1 = document.getElementById("ekCihaz1") ? document.getElementById("ekCihaz1").value : "yok";
+        const ek2 = document.getElementById("ekCihaz2") ? document.getElementById("ekCihaz2").value : "yok";
+        
+        if (ek1 === "printer") qEkCihaz1 = 120;
+        else if (ek1 === "minibuzdolabi") qEkCihaz1 = 150;
+
+        if (ek2 === "printer") qEkCihaz1 = 120;
+        else if (ek2 === "minibuzdolabi") qEkCihaz2 = 150;
+    }
+
+    let havaDegisim = mahalFonks === "Konut" ? 0.8 : (mahalFonks === "İşyeri - Ofis" ? 1.2 : 1.5);
+    let qTazeHavaSensible = (hacim * havaDegisim / 3600) * 1.2 * 1005 * deltaT;
+    let qTazeHava = qTazeHavaSensible * 1.40; 
+
+    const netToplamWatt = qDuvarIle + qKomsuIle + qCamIle + qTavanDoseme + qSolarCam + qInsan + qAydinlatmaCihaz + qBilgisayarDefault + qEkCihaz1 + qEkCihaz2 + qTazeHava;
+    
+    // Gerçekçi pik ve emniyet faktörü (%22)
+    const toplamWatt = netToplamWatt * 1.22; 
+    const toplamBTU = Math.round(toplamWatt * 3.4121);
+    const toplamFrigoria = Math.round(toplamWatt * 0.8598);
+    const toplamKw = toplamWatt / 1000;
+
+    document.getElementById("lblWatt").innerText = Math.round(toplamWatt).toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
+    
+    if (mevcudDil === 'es') {
+        document.getElementById("lblFrigoria").innerText = toplamFrigoria.toLocaleString('es-ES');
+    } else {
+        document.getElementById("lblFrigoria").innerText = toplamKw.toFixed(2).replace('.', ',');
+    }
+
+    document.getElementById("lblBTU").innerText = toplamBTU.toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
+    
+    let baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 2200 Frigorías 2.5 kW" : "Climatizzatore Split 2.5 kW (9000 BTU)";
+    if (toplamBTU > 9000 && toplamBTU <= 12800) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 3000 Frigorías 3.5 kW" : "Climatizzatore Split 3.5 kW (12000 BTU)"; }
+    else if (toplamBTU > 12800 && toplamBTU <= 18000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 4500 Frigorías 5.0 kW" : "Climatizzatore Split 5.0 kW (18000 BTU)"; }
+    else if (toplamBTU > 18000 && toplamBTU <= 24000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 6000 Frigorías 7.1 kW" : "Climatizzatore Split 7.1 kW (24000 BTU)"; }
+    else if (toplamBTU > 24000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Conductos Cassette 8000 Frigorías" : "Climatizzatore Canalizzato Cassetta 8.0 kW (30000 BTU)"; }
+
+    document.getElementById("lblOnerilenSegment").innerText = baslik;
+    renderPazaryerleri('klima', baslik);
+
+    const mahalNo = document.getElementById("raporMahalNo") ? document.getElementById("raporMahalNo").value : t.defMahalNo;
+    const mahalAdi = document.getElementById("raporMahalAdi") ? document.getElementById("raporMahalAdi").value : t.defMahalAdi;
+    if (document.getElementById("printMahalBilgi")) document.getElementById("printMahalBilgi").innerText = mevcudDil === 'es' ? `Estancia: ${mahalNo} - ${mahalAdi}` : `Stanza: ${mahalNo} - ${mahalAdi}`;
+    
+    if (document.getElementById("printBTUDeger")) {
+        document.getElementById("printBTUDeger").innerText = mevcudDil === 'es' ? `${toplamFrigoria.toLocaleString('es-ES')} fg/h (${toplamBTU.toLocaleString('es-ES')} BTU/h)` : `${toplamKw.toFixed(2).replace('.', ',')} kW (${toplamBTU.toLocaleString('it-IT')} BTU/h)`;
+    }
+    if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = baslik;
+}
 
         /* CANVAS TERMODINÁMICO */
         let pipeParticles = [];
