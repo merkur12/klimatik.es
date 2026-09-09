@@ -78,7 +78,7 @@
                     <i class="fa-solid fa-book-bookmark text-amber-500"></i> <span id="txtBlogBtnNav">Blog (9 Artículos)</span>
                 </button>
                 <div id="versiyonRozeti" class="text-xs font-extrabold bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full border border-blue-200 shadow-2xs">
-                    VERSIÓN 2.0 (CTE)
+                    VERSIÓN 2.0 (ANÁLISIS DETALLADO)
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
                 <i class="fa-solid fa-bolt text-amber-500"></i> <span id="txtTabPratik">Cálculo Rápido Carga Frío</span>
             </button>
             <button id="btnTabKlima" onclick="sekmeDegistir('klima')" class="flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 bg-white text-blue-600 shadow-sm cursor-pointer">
-                <i class="fa-solid fa-sun text-blue-500"></i> <span id="txtTabKlima">Motor Detallado CTE HE (España)</span>
+                <i class="fa-solid fa-sun text-blue-500"></i> <span id="txtTabKlima">Motor Detallado de Climatización</span>
             </button>
             <button id="btnTabIsitma" onclick="sekmeDegistir('isitma')" class="flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 cursor-pointer">
                 <i class="fa-solid fa-fire text-orange-500"></i> <span id="txtTabIsitma">Caldera y Aerotermia</span>
@@ -185,7 +185,7 @@
                 <div id="pdfRaporKapsayici" class="space-y-4">
                     
                     <div class="print-baslik text-center pb-1 border-b-2 border-blue-600 mb-2">
-                        <h1 id="printReportTitle" class="text-xs font-black text-blue-900 uppercase tracking-wide">Informe de Carga Térmica de Refrigeración y Selección de Climatización</h1>
+                        <h1 id="printReportTitle" class="text-xs font-black text-blue-900 uppercase tracking-wide">Informe Térmico de Refrigeración y Selección de Climatización</h1>
                         <p id="printReportSub" class="text-[8px] text-slate-600 font-bold mt-0.5">Servicio de Informes Técnicos klimatik</p>
                     </div>
 
@@ -395,7 +395,7 @@
 
                         <div class="flex flex-col sm:flex-row gap-3 pt-2 no-print">
                             <button type="button" onclick="hesaplaTS825()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-md transition cursor-pointer text-center flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-calculator"></i> <span id="btnTxtKlimaHesap">Iniciar Análisis Detallado CTE HE Refrigeración</span>
+                                <i class="fa-solid fa-calculator"></i> <span id="btnTxtKlimaHesap">Iniciar Análisis Detallado de Refrigeración</span>
                             </button>
                             <button type="button" onclick="sifirlaKlima()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-3.5 px-5 rounded-xl transition cursor-pointer text-center flex items-center justify-center gap-1.5 shrink-0 text-sm">
                                 <i class="fa-solid fa-rotate-right text-xs"></i> <span id="btnTxtKlimaSifir">Restablecer Parámetros</span>
@@ -404,7 +404,7 @@
 
                         <div id="printSonucKutusu" class="space-y-1 mt-3 p-3 border-2 border-blue-600 rounded-xl bg-blue-50/80">
                             <div class="flex justify-between items-center border-b border-blue-200 pb-1">
-                                <span id="lblPrintTitle" class="text-xs font-black uppercase text-blue-900"><i class="fa-solid fa-square-poll-vertical mr-1"></i> Resultados del Informe</span>
+                                <span id="lblPrintTitle" class="text-xs font-black uppercase text-blue-900"><i class="fa-solid fa-square-poll-vertical mr-1"></i> Resultados del Informe Técnico</span>
                                 <span id="printMahalBilgi" class="text-xs font-bold text-blue-800">Estancia: E-101 - Despacho Dirección</span>
                             </div>
                             <div class="grid grid-cols-2 gap-2 pt-1">
@@ -697,18 +697,18 @@
         const i18n = {
             es: {
                 lblSlogan: '"Especialista en Cálculo de Climatización, Calderas y Aerotermia"',
-                version: 'VERSIÓN 2.0 (CTE)',
+                version: 'VERSIÓN 2.0 (ANÁLISIS DETALLADO)',
                 pageTitle: 'Cálculo de Carga Térmica, Climatización y Aerotermia Monobloc | Blog de Ingeniería',
                 tabPratik: 'Cálculo Rápido Carga Frío',
-                tabKlima: 'Motor Detallado CTE HE (España)',
+                tabKlima: 'Motor Detallado de Climatización',
                 tabIsitma: 'Caldera y Aerotermia',
                 affiliateNota: '* Participamos en programas de afiliados de Leroy Merlin, MediaMarkt, El Corte Inglés y eBay (Redes AWIN / Partner Networks). Las compras válidas generan comisión sin coste adicional.',
                 footerDisclaimer: '<strong>Declaración de Afiliación:</strong> Participamos en programas de afiliados de Leroy Merlin, MediaMarkt, El Corte Inglés y eBay. Las compras válidas realizadas desde nuestros enlaces generan comisión sin repercutir ningún coste extra al usuario.',
                 ofertasBaslik: 'Ofertas Climatización España',
                 btnBlogNav: 'Blog de Ingeniería (9 Artículos)',
-                printReportTitle: 'Informe de Carga Térmica de Refrigeración y Selección de Climatización (CTE España)',
+                printReportTitle: 'Informe Térmico de Refrigeración y Selección de Climatización',
                 printReportSub: 'Servicio de Informes Técnicos',
-                lblKlimaBaslik: '<i class="fa-solid fa-snowflake text-blue-600"></i> Parámetros Detallados de Estancia y Fachadas (CTE HE)',
+                lblKlimaBaslik: '<i class="fa-solid fa-snowflake text-blue-600"></i> Parámetros Detallados de Estancia y Fachadas',
                 lblPratikBaslik: '<i class="fa-solid fa-bolt text-amber-500"></i> Motor Rápido de Carga de Refrigeración (Análisis Solar Avanzado)',
                 lblIsitmaBaslik: '<i class="fa-solid fa-fire text-orange-600"></i> Parámetros Pérdida de Calor Caldera y Aerotermia',
                 lblWattBirim: 'Watt',
@@ -728,7 +728,7 @@
                 btnTxtPdf: 'Generar / Guardar Informe PDF',
                 btnTxtPratikHesap: 'Iniciar Análisis de Carga Rápida',
                 btnTxtPratikSifir: 'Restablecer Parámetros',
-                btnTxtKlimaHesap: 'Iniciar Análisis Detallado CTE HE Refrigeración',
+                btnTxtKlimaHesap: 'Iniciar Análisis Detallado de Refrigeración',
                 btnTxtKlimaSifir: 'Restablecer Parámetros',
                 btnTxtIsitmaHesap: 'Iniciar Análisis de Aerotermia, Caldera y Depósito ACS',
                 btnTxtIsitmaSifir: 'Restablecer Parámetros',
@@ -743,7 +743,7 @@
                 lblAlto: 'Alto (m)',
                 lblArea: 'Área',
                 lblNeto: 'Neto',
-                lblPrintTitle: 'Resultados del Informe CTE',
+                lblPrintTitle: 'Resultados del Informe Técnico',
                 lblPrintCargaTitle: 'Carga Térmica Calculada',
                 lblPrintEquipTitle: 'Sistema Recomendado',
                 lblPlantaBajaArea: 'Superficie Planta Baja (m²)',
@@ -768,7 +768,7 @@
                 btnFooterAbout: 'Contacto y Sobre Nosotros',
                 btnFooterPrivacy: 'Política de Privacidad',
                 btnFooterTerms: 'Términos y Condiciones',
-                lblCopyright: '© 2026 | Portal de Cálculo e Ingeniería de Climatización CTE. Todos los derechos reservados.',
+                lblCopyright: '© 2026 | Portal de Cálculo e Ingeniería de Climatización. Todos los derechos reservados.',
                 modalTitleAbout: 'Contacto y Sobre Nosotros',
                 modalBodyAbout: `
                     <div class="space-y-3">
@@ -793,7 +793,7 @@
                     <div class="space-y-3">
                         <p>Al utilizar este sitio web, usted acepta los siguientes términos de servicio:</p>
                         <h5 class="font-bold text-slate-800">Aviso Legal y Carácter Estimativo</h5>
-                        <p>Los resultados, cálculos de carga térmica y recomendaciones de equipos proporcionados por esta herramienta tienen un <strong>carácter puramente estimativo y orientativo</strong> basado en simplificaciones técnicas de normativas de climatización (CTE / UNI EN).</p>
+                        <p>Los resultados, cálculos de carga térmica y recomendaciones de equipos proporcionados por esta herramienta tienen un <strong>carácter puramente estimativo y orientativo</strong> basado en simplificaciones técnicas de normativas de climatización.</p>
                         <p>No constituyen un proyecto de ejecución formal ni reemplazan el estudio técnico ni el firmado de un proyecto técnico por parte de un ingeniero o instalador autorizado. El sitio web no se hace responsable de decisiones comerciales o montajes realizados sin validación técnica profesional.</p>
                     </div>`,
                 lblPratikSehir: 'Ciudad / Zona Climática',
@@ -889,8 +889,8 @@
                     <option value="standart" selected>Edificio Aislamiento Estándar</option>
                     <option value="zayif">Sin Aislamiento / Ladrillo Antiguo</option>`,
                 yalitimOptionsKlima: `
-                    <option value="cok_iyi">Muy Bueno (SATE CTE Activo / Alto Aislamiento)</option>
-                    <option value="standart" selected>Aislamiento Estándar (Normativa CTE HE)</option>
+                    <option value="cok_iyi">Muy Bueno (SATE Activo / Alto Aislamiento)</option>
+                    <option value="standart" selected>Aislamiento Estándar</option>
                     <option value="zayif">Sin Aislamiento / Edificio Antiguo Ladrillo</option>`,
                 yalitimOptionsIsitma: `
                     <option value="cok_iyi">Muy Bueno (SATE Nuevo / Alto Aislamiento)</option>
@@ -915,9 +915,10 @@
                     <option value="Bati" selected>Oeste (Carga Solar Crítica)</option>
                     <option value="Kuzeybati">Noroeste</option>`,
                 katKonumPratikOptions: `
-                    <option value="Ara Kat">Planta Intermedia (Ocupada Arriba/Abajo)</option>
-                    <option value="Zemin Kat">Planta Baja</option>
-                    <option value="En Üst Kat">Última Planta (Ático / Contacto Cubierta)</option>`,
+                    <option value="Ara Kat">Planta Intermedia (Pisos Arriba/Abajo)</option>
+                    <option value="En Üst Kat - Teras">Última Planta - Cubierta Plana / Terraza</option>
+                    <option value="En Üst Kat - Eğimli">Última Planta - Tejado Inclinado</option>
+                    <option value="Zemin Kat">Planta Baja (Contacto Suelo)</option>`,
                 katKonumKlimaOptions: `
                     <option value="Ara Kat">Planta Intermedia (Pisos Arriba/Abajo)</option>
                     <option value="En Üst Kat - Teras">Última Planta - Cubierta Plana / Terraza</option>
@@ -993,18 +994,18 @@
             },
             it: {
                 lblSlogan: '"Specialista nel Calcolo di Climatizzazione, Caldaie e Pompa di Calore"',
-                version: 'VERSIONE 2.0 (UNI EN 12831)',
+                version: 'VERSIONE 2.0 (ANALISI DETTAGLIATA)',
                 pageTitle: 'Calcolo Carico Termico, Climatizzazione e Pompa di Calore Monoblocco | Blog Tecnico',
                 tabPratik: 'Calcolo Rapido Carico Freddo',
-                tabKlima: 'Motore Dettagliato UNI EN (Italia)',
+                tabKlima: 'Motore Dettagliato Climatizzazione',
                 tabIsitma: 'Caldaia e Aerotermia',
                 affiliateNota: '* Partecipiamo ai programmi di affiliazione Leroy Merlin Italia, MediaWorld, Climamarket ed eBay Italia (Reti Awin / Partner Networks). Gli acquisti idonei generano commissioni senza costi aggiuntivi.',
                 footerDisclaimer: '<strong>Dichiarazione di Affiliazione:</strong> Partecipiamo ai programmi di affiliazione di Leroy Merlin Italia, MediaWorld, Climamarket ed eBay. Gli acquisti idonei generano commissioni senza alcun costo aggiuntivo per l’utente.',
                 ofertasBaslik: 'Offerte Climatizzazione Italia',
                 btnBlogNav: 'Blog Tecnico (9 Articoli)',
-                printReportTitle: 'Rapporto di Carico Termico di Refrigerazione e Selezione Climatizzatore (UNI EN Italia)',
+                printReportTitle: 'Rapporto di Carico Termico di Refrigerazione e Selezione Climatizzatore',
                 printReportSub: 'Servizio di Report Tecnici',
-                lblKlimaBaslik: '<i class="fa-solid fa-snowflake text-blue-600"></i> Parametri Dettagliati Stanza e Facciate (UNI EN 12831)',
+                lblKlimaBaslik: '<i class="fa-solid fa-snowflake text-blue-600"></i> Parametri Dettagliati Stanza e Facciate',
                 lblPratikBaslik: '<i class="fa-solid fa-bolt text-amber-500"></i> Motore Rapido Carico Freddo (Analisi Solare Avanzata)',
                 lblIsitmaBaslik: '<i class="fa-solid fa-fire text-orange-600"></i> Parametri Perdita di Calore Caldaia e Aerotermia',
                 lblWattBirim: 'Watt',
@@ -1024,7 +1025,7 @@
                 btnTxtPdf: 'Genera / Salva Report PDF',
                 btnTxtPratikHesap: 'Avvia Analisi Rapida Carico',
                 btnTxtPratikSifir: 'Ripristina Parametri',
-                btnTxtKlimaHesap: 'Avvia Analisi Dettagliata UNI EN Refrigerazione',
+                btnTxtKlimaHesap: 'Avvia Analisi Dettagliata Refrigerazione',
                 btnTxtKlimaSifir: 'Ripristina Parametri',
                 btnTxtIsitmaHesap: 'Avvia Analisi Pompe di Calore, Caldaia e Accumulo ACS',
                 btnTxtIsitmaSifir: 'Ripristina Parametri',
@@ -1039,7 +1040,7 @@
                 lblAlto: 'Altezza (m)',
                 lblArea: 'Area',
                 lblNeto: 'Netto',
-                lblPrintTitle: 'Risultati Report UNI EN',
+                lblPrintTitle: 'Risultati Report Tecnico',
                 lblPrintCargaTitle: 'Carico Termico Calcolato',
                 lblPrintEquipTitle: 'Sistema Consigliato',
                 lblPlantaBajaArea: 'Superficie Piano Terra (m²)',
@@ -1089,8 +1090,8 @@
                     <div class="space-y-3">
                         <p>Utilizzando questo sito web, accetti i seguenti termini di servizio:</p>
                         <h5 class="font-bold text-slate-800">Avviso Legale e Natura Stimata</h5>
-                        <p>I risultati, i calcoli del carico termico e le raccomandazioni sulle apparecchiature fornite da questo strumento hanno una <strong>natura puramente stimata e orientativa</strong> basata su semplificazioni tecniche delle normative climatiche (UNI EN / CTE).</p>
-                        <p>Non costituiscono un progetto esecutivo formale né sostituiscono uno studio tecnico o la firma di un progetto da parte di un ingegnere o installatore abilitato. Il sito web non è responsabile per decisioni commerciali o installazioni effettuate senza una verifica tecnica professionale.</p>
+                        <p>I risultati, i calcoli del carico termico e le raccomandazioni sulle apparecchiature fornite da questo strumento hanno una <strong>natura puramente stimata e orientativa</strong> basata su semplificazioni tecniche delle normative climatiche.</p>
+                        <p>Non costituiscono un progetto esecutivo formale né sostituiscono uno studio tecnico o la firma di un progetto da parte di un ingegnere o installatore abilitato. Il sito web no è responsabile per decisioni commerciali o installazioni effettuate senza una verifica tecnica professionale.</p>
                     </div>`,
                 lblPratikSehir: 'Città / Zona Climatica',
                 lblPratikAlan: 'Superficie del Locale (m²)',
@@ -1175,7 +1176,7 @@
                     <option value="zayif">Senza Isolamento / Muratura Vecchia</option>`,
                 yalitimOptionsKlima: `
                     <option value="cok_iyi">Ottimo (Cappotto Termico Attivo / Alto Isolamento)</option>
-                    <option value="standart" selected>Isolamento Standard (Normativa UNI EN)</option>
+                    <option value="standart" selected>Isolamento Standard</option>
                     <option value="zayif">Senza Isolamento / Edificio Vecchio in Mattoni</option>`,
                 yalitimOptionsIsitma: `
                     <option value="cok_iyi">Ottimo (Cappotto Termico Nuovo / Alto Isolamento)</option>
@@ -1200,9 +1201,10 @@
                     <option value="Bati" selected>Ovest (Carico Solare Critico)</option>
                     <option value="Kuzeybati">Nord-ovest</option>`,
                 katKonumPratikOptions: `
-                    <option value="Ara Kat">Piano Intermedio (Abitato Sopra/Sotto)</option>
-                    <option value="Zemin Kat">Piano Terra</option>
-                    <option value="En Üst Kat">Ultimo Piano (Attico / Contatto Copertura)</option>`,
+                    <option value="Ara Kat">Piano Intermedio (Piani Sopra/Sotto)</option>
+                    <option value="En Üst Kat - Teras">Ultimo Piano - Copertura Piana / Terrazza</option>
+                    <option value="En Üst Kat - Eğimli">Ultimo Piano - Tetto Inclinato</option>
+                    <option value="Zemin Kat">Piano Terra (Contatto Terreno)</option>`,
                 katKonumKlimaOptions: `
                     <option value="Ara Kat">Piano Intermedio (Piani Sopra/Sotto)</option>
                     <option value="En Üst Kat - Teras">Ultimo Piano - Copertura Piana / Terrazza</option>
@@ -1260,7 +1262,7 @@
                     <option value="Guneydogu">Sud-est</option>
                     <option value="Guney">Sud</option>
                     <option value="Guneybati">Sud-ovest</option>
-                    <option value="Bati">Ovest</option>
+                    <option value="Bati">Oeste</option>
                     <option value="Kuzeybati">Nord-ovest</option>`,
                 manualKlimaText: `
                     <ol class="list-decimal list-inside space-y-1.5 text-xs md:text-sm font-medium">
@@ -1269,7 +1271,7 @@
                         <li><strong>Uso e Posizione:</strong> Indica il tipo di locale e il piano all'interno dell'edificio.</li>
                         <li><strong>Superficie ed Altezza Libera:</strong> Inserisci la superficie utile e l'altezza fino al soffitto.</li>
                         <li><strong>Assistente Finestre e Facciate:</strong> Inserisci le dimensioni e le esposizioni di finestre e pareti.</li>
-                        <li><strong>Avvia Analisi:</strong> Clicca sul pulsante per ottenere il carico tecnico in Watt, kW e BTU/h.</li>
+                        <li><strong>Avvia Analisi:</strong> Clicca sul pulsante per ottenere il carico termico in Watt, kW e BTU/h.</li>
                     </ol>
                     <div class="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-xl text-blue-950 text-xs leading-relaxed space-y-1">
                         <strong>Consiglio Tecnico:</strong> Quando prendi le misure delle pareti da AutoCAD o file DWG simili, puoi usare il comando "DIST" e l'opzione "M" per misurare pareti continue in una sola volta.<br>
@@ -1280,7 +1282,7 @@
 
         const blogArticlesData = {
             es: [
-                { id: 1, tag: "Normativa CTE HE", tagColor: "blue", title: "Aislamiento Térmico y Eficiencia Energética en España", desc: "Impacto de los valores de transmitancia U del Código Técnico de la Edificación en la potencia de refrigeración y calefacción.", content1: "<strong>Análisis de Ingeniería:</strong> El CTE HE1 fija las exigencias mínimas de transmitancia térmica ($U$) en cerramientos exteriores. Un correcto aislamiento reduce directamente el flujo de calor de radiación y conducción.", content2: "<strong>Consejos Prácticos:</strong> La aplicación de sistemas SATE en rehabilitación de fachadas reduce las pérdidas térmicas hasta un 40%, permitiendo instalar equipos de climatización de menor potencia y consumo." },
+                { id: 1, tag: "Normativa Térmica", tagColor: "blue", title: "Aislamiento Térmico y Eficiencia Energética en España", desc: "Impacto de los valores de transmitancia U del Código Técnico de la Edificación en la potencia de refrigeración y calefacción.", content1: "<strong>Análisis de Ingeniería:</strong> Las exigencias de transmitancia térmica ($U$) fijan los límites en cerramientos exteriores. Un correcto aislamiento reduce directamente el flujo de calor de radiación y conducción.", content2: "<strong>Consejos Prácticos:</strong> La aplicación de sistemas SATE en rehabilitación de fachadas reduce las pérdidas térmicas hasta un 40%, permitiendo instalar equipos de climatización de menor potencia y consumo." },
                 { id: 2, tag: "Aerotermia vs Gas", tagColor: "orange", title: "Aerotermia Inverter vs Caldera de Condensación a Gas", desc: "Comparativa de rendimientos COP/SCOP y costes de explotación según zonas climáticas de España.", content1: "<strong>Análisis de Ingeniería:</strong> La bomba de calor aerotérmica produce entre 3 y 5 kW térmicos por cada kW eléctrico consumido gracias a su alto valor COP. La caldera de condensación aprovecha el calor latente pero requiere combustible fósil.", content2: "<strong>Consejos Prácticos:</strong> En viviendas unifamiliares con suelo radiante o fan coils, la aerotermia es imbatible. En pisos con radiadores convencionales a alta temperatura, el estudio técnico es fundamental." },
                 { id: 3, tag: "Frigorías y Cálculo", tagColor: "amber", title: "Cálculo de Frigorías (fg/h) y Radiación Solar en Fachadas", desc: "Cómo afecta la orientación Oeste y Sur al cálculo técnico de potencia frigorífica.", content1: "<strong>Análisis de Ingeniería:</strong> Las fachadas Oeste sufren el mayor pico de carga térmica al coincidir la máxima temperatura exterior ambiente con la radiación solar directa de la tarde. La unidad estándar en España es la Frigoría/hora ($1 \\text{ W} \\approx 0.86 \\text{ fg/h}$).", content2: "<strong>Consejos Prácticos:</strong> Es imprescindible incluir vidrios con factor solar bajo (Bajo Emisivo / Control Solar) para mitigar cargas térmicas en huecos acristalados." },
                 { id: 4, tag: "Elección Aire Acondicionado", tagColor: "blue", title: "Criterios de Elección de Climatizadores Inverter", desc: "Análisis de volumen útil, ocupación, equipos electrónicos y tecnología DC Inverter.", content1: "<strong>Análisis de Ingeniería:</strong> Dimensionar un equipo de aire acondicionado solo por metros cuadrados genera imprecisiones. Debe calcularse el volumen total, la carga interna de personas e iluminación LED o de equipos informáticos.", content2: "<strong>Consejos Prácticos:</strong> Equipos Inverter de marcas reconocidas modulan la velocidad del compresor manteniendo la temperatura constante con un ahorro del 30% al 50% de energía." },
@@ -1291,7 +1293,7 @@
                 { id: 9, tag: "Principios Climatización", tagColor: "cyan", title: "¿Cómo Funciona un Equipo Split Inverter?", desc: "Ciclo de compresión de vapor, gas refrigerante R32 y funcionamiento del compresor DC.", content1: "<strong>Análisis de Ingeniería:</strong> El sistema split separa la unidad ruidosa de compresión y condensación en la fachada/tejado y ubica la evaporadora en la estancia. El ciclo frigorífico consta de 4 etapas: Compresión, Condensación, Expansión (EEV) y Evaporación.", content2: "<strong>Consejos Prácticos:</strong> Los nuevos refrigerantes como el R32 y R290 poseen un bajo Potencial de Calentamiento Atmosférico (PCA/GWP) y mayor eficiencia energética global." }
             ],
             it: [
-                { id: 1, tag: "Normativa UNI EN", tagColor: "blue", title: "Isolamento Termico ed Efficienza Energetica in Italia", desc: "Impatto dei valori di trasmittanza U delle norme UNI EN sulla potenza di raffrescamento e riscaldamento.", content1: "<strong>Analisi di Ingegneria:</strong> Le norme UNI EN fissano i requisiti minimi di trasmittanza termica ($U$) negli involucri edilizi. Un corretto isolamento riduce direttamente il flusso di calore per irraggiamento e conduzione.", content2: "<strong>Consigli Pratici:</strong> L'applicazione del cappotto termico (SATE) riduce le dispersioni fino al 40%, consentendo l'installazione di climatizzatori di potenza e consumo inferiori." },
+                { id: 1, tag: "Isolamento Termico", tagColor: "blue", title: "Isolamento Termico ed Efficienza Energetica in Italia", desc: "Impatto dei valori di trasmittanza U sulla potenza di raffrescamento e riscaldamento.", content1: "<strong>Analisi di Ingegneria:</strong> Le normative sull'efficienza fissano i requisiti minimi di trasmittanza termica ($U$) negli involucri edilizi. Un corretto isolamento riduce direttamente il flusso di calore per irraggiamento e conduzione.", content2: "<strong>Consigli Pratici:</strong> L'applicazione del cappotto termico (SATE) riduce le dispersioni fino al 40%, consentendo l'installazione di climatizzatori di potenza e consumo inferiori." },
                 { id: 2, tag: "Pompa di Calore vs Gas", tagColor: "orange", title: "Pompa di Calore Aerotermica vs Caldaia a Condensazione", desc: "Confronto delle prestazioni COP/SCOP e costi di gestione nelle diverse zone climatiche italiane.", content1: "<strong>Analisi di Ingegneria:</strong> La pompa di calore produce da 3 a 5 kW termici per ogni kW elettrico consumato grazie all'elevato COP. La caldaia sfrutta il calore latente ma richiede combustibile fossile.", content2: "<strong>Consigli Pratici:</strong> Nelle villette con riscaldamento a pavimento o ventilconvettori la pompa di calore è imbattibile. Nei condomini con radiatori tradizionali serve un'attenta analisi tecnica." },
                 { id: 3, tag: "Potenza e Calcolo", tagColor: "amber", title: "Calcolo della Potenza Termica (kW / BTU) e Irraggiamento Solare", desc: "Come influisce l'esposizione Ovest e Sud sul calcolo tecnico della potenza frigorifera.", content1: "<strong>Analisi di Ingegneria:</strong> Le facciate Ovest subiscono il picco massimo di carico termico poiché la temperatura ambiente si somma all'irraggiamento pomeridiano. Le unità standard in Italia sono kW e BTU/h.", content2: "<strong>Consigli Pratici:</strong> È indispensabile installare vetri a basso emissivo o controllo solare per mitigare i carichi termici sulle finestre." },
                 { id: 4, tag: "Scelta Climatizzatore", tagColor: "blue", title: "Criteri di Scelta dei Climatizzatori Inverter", desc: "Analisi di volume utile, affluenza, dispositivi elettronici e tecnologia DC Inverter.", content1: "<strong>Analisi di Ingegneria:</strong> Dimensionare un climatizzatore solo in base ai metri quadri causa imprecisioni. Bisogna calcolare il volume totale, l'affollamento e i carichi interni da illuminazione o PC.", content2: "<strong>Consigli Pratici:</strong> I condizionatori Inverter modulano la velocità del compressore mantenendo costante la temperatura con un risparmio dal 30% al 50% di energia." },
@@ -1467,13 +1469,9 @@
             if (document.getElementById("raporMahalAdi")) document.getElementById("raporMahalAdi").value = t.defMahalAdi;
 
             renderBlogArticles();
-            renderManuel(mevcutMod);
-            renderVarsayilanPazaryeri(mevcutMod);
             cevrimaModuDegistir(mevcutCevrimModu);
             
-            if (mevcutMod === 'pratik') hesaplaPratik();
-            else if (mevcutMod === 'klima') hesaplaTS825();
-            else hesaplaIsitma();
+            sekmeDegistir(mevcutMod);
         }
 
         function blogaGit() {
@@ -1491,23 +1489,27 @@
             const btnPratik = document.getElementById('btnTabPratik');
             const btnKlima = document.getElementById('btnTabKlima');
             const btnIsitma = document.getElementById('btnTabIsitma');
+            
             const motorPratik = document.getElementById('motorPratik');
             const motorKlima = document.getElementById('motorKlima');
             const motorIsitma = document.getElementById('motorIsitma');
+            
             const boylerRaporu = document.getElementById('boylerRaporu');
             const divTrifazeNotu = document.getElementById('divTrifazeNotu');
             const divMonoblocNotu = document.getElementById('divMonoblocNotu');
-            const analizBaslik = document.getElementById('lblAnalizBaslik');
             const boxManuelRehber = document.getElementById('boxManuelRehber');
+            const analizBaslik = document.getElementById('lblAnalizBaslik');
 
-            btnPratik.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 cursor-pointer";
-            btnKlima.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 cursor-pointer";
-            btnIsitma.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 cursor-pointer";
+            const baseBtnClass = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 cursor-pointer";
+            btnPratik.className = baseBtnClass;
+            btnKlima.className = baseBtnClass;
+            btnIsitma.className = baseBtnClass;
 
             motorPratik.classList.add('hidden');
             motorKlima.classList.add('hidden');
             motorIsitma.classList.add('hidden');
-            boylerRaporu.classList.add('hidden');
+            
+            if (boylerRaporu) boylerRaporu.classList.add('hidden');
             if (divTrifazeNotu) divTrifazeNotu.classList.add('hidden');
             if (divMonoblocNotu) divMonoblocNotu.classList.add('hidden');
 
@@ -1516,6 +1518,7 @@
             if (mod === 'pratik') {
                 btnPratik.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 bg-white text-blue-600 shadow-sm cursor-pointer";
                 motorPratik.classList.remove('hidden');
+                
                 analizBaslik.innerHTML = `<i class="fa-solid fa-square-poll-vertical text-blue-500 mr-1.5"></i> ${t.lblAnalizBaslikText}`;
                 document.getElementById('lblKapasiteBaslik').innerText = t.lblKapasiteBaslik;
                 document.getElementById('lblBirimAnaliz').innerText = t.lblWattBirim;
@@ -1523,15 +1526,15 @@
                 document.getElementById('lblAltKapasiteBaslik').innerText = t.lblAltKapasiteBaslik;
                 document.getElementById('lblAltBirim').innerText = t.lblAltBirim;
                 document.getElementById('lblOnerilenEtiket').innerText = t.lblOnerilenEtiketKlima;
-                document.getElementById('lblWatt').innerText = "0";
-                document.getElementById('lblFrigoria').innerText = "0";
-                document.getElementById('lblBTU').innerText = "0";
-                document.getElementById('lblOnerilenSegment').innerText = t.txtOnerilenHesapla;
+                
                 boxManuelRehber.classList.add("hidden");
                 renderVarsayilanPazaryeri('klima');
+                hesaplaPratik();
+
             } else if (mod === 'klima') {
                 btnKlima.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 bg-white text-blue-600 shadow-sm cursor-pointer";
                 motorKlima.classList.remove('hidden');
+                
                 analizBaslik.innerHTML = `<i class="fa-solid fa-square-poll-vertical text-blue-500 mr-1.5"></i> ${t.lblAnalizBaslikText}`;
                 document.getElementById('lblKapasiteBaslik').innerText = t.lblKapasiteBaslik;
                 document.getElementById('lblBirimAnaliz').innerText = t.lblWattBirim;
@@ -1539,42 +1542,42 @@
                 document.getElementById('lblAltKapasiteBaslik').innerText = t.lblAltKapasiteBaslik;
                 document.getElementById('lblAltBirim').innerText = t.lblAltBirim;
                 document.getElementById('lblOnerilenEtiket').innerText = t.lblOnerilenEtiketKlima;
-                document.getElementById('lblWatt').innerText = "0";
-                document.getElementById('lblFrigoria').innerText = "0";
-                document.getElementById('lblBTU').innerText = "0";
-                document.getElementById('lblOnerilenSegment').innerText = t.txtOnerilenHesapla;
+                
                 boxManuelRehber.classList.remove("hidden");
                 renderManuel('klima');
                 renderVarsayilanPazaryeri('klima');
-            } else {
+                hesaplaTS825();
+
+            } else if (mod === 'isitma') {
                 btnIsitma.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 bg-white text-orange-600 shadow-sm cursor-pointer";
                 motorIsitma.classList.remove('hidden');
-                isiticiCihazDegisti();
-                const isiticiTuru = document.getElementById('isiticiCihazTuru').value;
-                const sicakSuVarmi = document.getElementById('sicakSuVarmi').value;
-                if ((isiticiTuru === 'isipompasi_monobloc' || isiticiTuru === 'isipompasi_split') && sicakSuVarmi === 'evet') boylerRaporu.classList.remove('hidden');
+                
                 analizBaslik.innerHTML = `<i class="fa-solid fa-square-poll-vertical text-blue-500 mr-1.5"></i> ${t.lblAnalizBaslikText}`;
                 document.getElementById('lblKapasiteBaslik').innerText = t.lblKapasiteIsitmaBaslik;
                 document.getElementById('lblBirimAnaliz').innerText = t.lblWattIsitmaBirim;
                 document.getElementById('lblFrigoriaBaslik').innerText = t.lblCalorificaBaslik;
                 document.getElementById('lblAltKapasiteBaslik').innerText = t.lblEquivTermicaBaslik;
                 document.getElementById('lblAltBirim').innerText = t.lblAltBirim;
+                
+                const isiticiTuru = document.getElementById('isiticiCihazTuru').value;
                 guncelleOnerilenEtiketMetni(isiticiTuru);
-                document.getElementById('lblWatt').innerText = "0";
-                document.getElementById('lblFrigoria').innerText = "0";
-                document.getElementById('lblBTU').innerText = "0";
-                document.getElementById('lblOnerilenSegment').innerText = t.txtOnerilenHesapla;
+                
                 boxManuelRehber.classList.add("hidden");
                 renderVarsayilanPazaryeri('isitma');
+                hesaplaIsitma();
             }
         }
 
         function guncelleOnerilenEtiketMetni(tur) {
             const etiketEl = document.getElementById('lblOnerilenEtiket');
             const t = i18n[mevcudDil];
-            if (tur === 'yogusmali') etiketEl.innerText = t.lblOnerilenEtiketKombi;
-            else if (tur === 'isipompasi_monobloc') etiketEl.innerText = t.lblOnerilenEtiketMonobloc;
-            else etiketEl.innerText = t.lblOnerilenEtiketIsipompasi;
+            if (mevcutMod === 'klima' || mevcutMod === 'pratik') {
+                etiketEl.innerText = t.lblOnerilenEtiketKlima;
+            } else {
+                if (tur === 'yogusmali') etiketEl.innerText = t.lblOnerilenEtiketKombi;
+                else if (tur === 'isipompasi_monobloc') etiketEl.innerText = t.lblOnerilenEtiketMonobloc;
+                else etiketEl.innerText = t.lblOnerilenEtiketIsipompasi;
+            }
         }
 
         function renderManuel(mod) {
@@ -1583,7 +1586,7 @@
             const t = i18n[mevcudDil];
 
             if (mod === 'klima') {
-                manuelBaslik.innerHTML = `<i class="fa-solid fa-book-open text-blue-600"></i> ${mevcudDil === 'es' ? '¿Cómo utilizar el Motor de Cálculo CTE HE España?' : 'Come utilizzare il Motore di Calcolo UNI EN Italia?'}`;
+                manuelBaslik.innerHTML = `<i class="fa-solid fa-book-open text-blue-600"></i> ${mevcudDil === 'es' ? '¿Cómo utilizar el Motor de Cálculo?' : 'Come utilizzare il Motore di Calcolo?'}`;
                 manuelIcerik.innerHTML = t.manualKlimaText;
             }
         }
@@ -1647,8 +1650,8 @@
                 if (kategoriTuru === 'klima') {
                     let fgMatch = baslikMetni.match(/(\d+)\s*Frigorías/i);
                     let fgStr = fgMatch ? fgMatch[1] : "3000";
-                    let isConductos = baslikMetni.toLowerCase().includes("conductos");
-                    cleanQuery = isConductos ? `Conductos ${fgStr} frigorias` : `Split ${fgStr} frigorias`;
+                    let isConductos = baslikMetni.toLowerCase().includes("conductos") || baslikMetni.toLowerCase().includes("cassette");
+                    cleanQuery = isConductos ? `Aire acondicionado ${fgStr} frigorias` : `Split ${fgStr} frigorias`;
                 } else {
                     let kwMatch = baslikMetni.match(/(\d+(\.\d+)?\s*kW)/i);
                     let kwStr = kwMatch ? kwMatch[1] : "";
@@ -1660,8 +1663,8 @@
                 if (kategoriTuru === 'klima') {
                     let btuMatch = baslikMetni.match(/(\d+)\s*BTU/i);
                     let btuStr = btuMatch ? btuMatch[1] : "12000";
-                    let isCanalizzato = baslikMetni.toLowerCase().includes("canalizzato");
-                    cleanQuery = isCanalizzato ? `Canalizzato ${btuStr}` : `Mono split ${btuStr}`;
+                    let isCanalizzato = baslikMetni.toLowerCase().includes("canalizzato") || baslikMetni.toLowerCase().includes("cassetta");
+                    cleanQuery = isCanalizzato ? `Climatizzatore ${btuStr}` : `Mono split ${btuStr}`;
                 } else {
                     let kwMatch = baslikMetni.match(/(\d+(\.\d+)?\s*kW)/i);
                     let kwStr = kwMatch ? kwMatch[1] : "";
@@ -1679,7 +1682,7 @@
             if (mevcudDil === 'es') {
                 let leroyEsUrl = `https://www.leroymerlin.es/search?q=${encodedStandard}`;
                 let mediaMarktEsUrl = `https://www.mediamarkt.es/es/search.html?query=${encodedStandard}`;
-                let elCorteEsUrl = 'https://sovrn.co/1qq6t2e';
+                let elCorteEsUrl = `https://www.elcorteingles.es/search/?s=${encodedStandard}`;
 
                 if (kategoriTuru === 'klima') {
                     html = `
@@ -1894,7 +1897,7 @@
             if (y === "Dogu") return 1.08;
             if (y === "Kuzeydogu") return 1.04;
             if (y === "Kuzeybati") return 1.10;
-            return 1.00; // Kuzey (Norte / Nord)
+            return 1.00;
         }
 
         function hesaplaPratik() {
@@ -1917,20 +1920,15 @@
                 return;
             }
 
-            // 2) Çözüm: Bölge 2 için baz değer 95 W/m² yerine 78 W/m² olarak güncellendi.
-            let baseWattM2 = bolge === 1 ? 105 : (bolge === 3 ? 70 : (bolge === 4 ? 65 : 78));
-            
-            // 2) Çözüm: Sabit %12 çarpanı kaldırılıp zayıf yalıtımlı binalara özel katsayıya dönüştürüldü.
+            let baseWattM2 = bolge === 1 ? 115 : (bolge === 2 ? 90 : (bolge === 3 ? 80 : 75));
             let yalitimCarpanPratik = yalitimP === "cok_iyi" ? 0.85 : (yalitimP === "zayif" ? 1.12 : 1.00);
 
             let duvarSolarCarpan = yonSolarKatsayi(duvarYon);
             let pencereSolarCarpan = yonSolarKatsayi(pencereYon);
             
-            // 3) Çözüm: Yön çarpanı (1.25 vb.) oda alanının tamamını çarpmıyor, küçük bir duvar/pencere ek yüküne dönüştürüldü.
             let netDuvarEtkisi = 1.0 + (duvarSolarCarpan - 1.0) * 0.20; 
             let ekstraPencereYukW = 0;
 
-            // 1) Çözüm: Varsayılan pencere oranı %11 (%10-12 bandı) olarak güncellendi ve mükerrer solar çarpanlar yumuşatıldı.
             if (duvarYon === pencereYon) {
                 let tahminiCamAlani = Math.max(1.5, (duvarOlcusu > 0 ? duvarOlcusu * 2.8 : alan * 0.35) * 0.11);
                 ekstraPencereYukW = tahminiCamAlani * pencereSolarCarpan * 30; 
@@ -1939,7 +1937,12 @@
                 ekstraPencereYukW = tahminiCamAlaniFarkli * pencereSolarCarpan * 35;
             }
 
-            let katCarpan = katKonum === "Zemin Kat" ? 1.05 : (katKonum === "En Üst Kat" ? 1.15 : 1.0);
+            let katCarpan = 1.0;
+            if (katKonum === "Zemin Kat") katCarpan = 1.05;
+            else if (katKonum === "En Üst Kat - Teras") katCarpan = 1.45;
+            else if (katKonum === "En Üst Kat - Eğimli") katCarpan = 1.30;
+            else if (katKonum === "En Üst Kat") katCarpan = 1.15;
+
             let insanGucWatt = kisiSayisi * 95;
             let ekGucWatt = 0;
             if (fonks === "Ofis" || fonks === "Dükkan") {
@@ -1966,11 +1969,21 @@
             document.getElementById("lblBTU").innerText = Math.round(toplamBTU).toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
 
             let baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 2200 Frigorías 2.5 kW" : "Climatizzatore Split 2.5 kW (9000 BTU)";
-            if (toplamBTU > 9000 && toplamBTU <= 12000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 3000 Frigorías 3.5 kW" : "Climatizzatore Split 3.5 kW (12000 BTU)"; }
-            else if (toplamBTU > 12000 && toplamBTU <= 18000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 4500 Frigorías 5.0 kW" : "Climatizzatore Split 5.0 kW (18000 BTU)"; }
-            else if (toplamBTU > 18000 && toplamBTU <= 24000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 6000 Frigorías 7.1 kW" : "Climatizzatore Split 7.1 kW (24000 BTU)"; }
-            else if (toplamBTU > 24000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Conductos Cassette 8000 Frigorías" : "Climatizzatore Canalizzato Cassetta 8.0 kW (30000 BTU)"; }
+            if (toplamBTU > 9000 && toplamBTU <= 12000) { 
+                baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 3000 Frigorías 3.5 kW" : "Climatizzatore Split 3.5 kW (12000 BTU)"; 
+            } else if (toplamBTU > 12000 && toplamBTU <= 18000) { 
+                baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 4500 Frigorías 5.0 kW" : "Climatizzatore Split 5.0 kW (18000 BTU)"; 
+            } else if (toplamBTU > 18000 && toplamBTU <= 24000) { 
+                baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 6000 Frigorías 7.1 kW" : "Climatizzatore Split 7.1 kW (24000 BTU)"; 
+            } else if (toplamBTU > 24000) { 
+                if (fonks === "Ofis" || fonks === "Dükkan") {
+                    baslik = mevcudDil === 'es' ? "Aire Acondicionado Conductos / Cassette / Columna 8000 Frigorías" : "Climatizzatore Canalizzato / Cassetta / Colonna 8.0 kW (30000 BTU)";
+                } else {
+                    baslik = mevcudDil === 'es' ? "Aire Acondicionado Conductos / Cassette 8000 Frigorías" : "Climatizzatore Canalizzato / Cassetta 8.0 kW (30000 BTU)"; 
+                }
+            }
 
+            guncelleOnerilenEtiketMetni();
             document.getElementById("lblOnerilenSegment").innerText = baslik;
             renderPazaryerleri('klima', baslik);
         }
@@ -2248,172 +2261,184 @@
             document.getElementById('en_Ic').value = icEn;
         }
 
-     /* KALİBRE EDİLMİŞ DETAYLI TS 825 / CTE HE HESAP MOTORU */
-function hesaplaTS825() {
-    let alan = parseTrFloat(document.getElementById("mahalAlani").value);
-    const t = i18n[mevcudDil];
+        function hesaplaTS825() {
+            let alan = parseTrFloat(document.getElementById("mahalAlani").value);
+            const t = i18n[mevcudDil];
 
-    if (alan <= 0) {
-        document.getElementById("lblWatt").innerText = "0";
-        document.getElementById("lblFrigoria").innerText = "0";
-        document.getElementById("lblBTU").innerText = "0";
-        document.getElementById("lblOnerilenSegment").innerText = mevcudDil === 'es' ? "Por favor introduzca una superficie válida." : "Si prega di inserire una superficie valida.";
-        if (document.getElementById("printBTUDeger")) document.getElementById("printBTUDeger").innerText = mevcudDil === 'es' ? "0 fg/h (0 BTU/h)" : "0.0 kW (0 BTU/h)";
-        if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = t.txtPrintBekleniyor;
-        return;
-    }
+            if (alan <= 0) {
+                document.getElementById("lblWatt").innerText = "0";
+                document.getElementById("lblFrigoria").innerText = "0";
+                document.getElementById("lblBTU").innerText = "0";
+                document.getElementById("lblOnerilenSegment").innerText = mevcudDil === 'es' ? "Por favor introduzca una superficie válida." : "Si prega di inserire una superficie valida.";
+                if (document.getElementById("printBTUDeger")) document.getElementById("printBTUDeger").innerText = mevcudDil === 'es' ? "0 fg/h (0 BTU/h)" : "0.0 kW (0 BTU/h)";
+                if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = t.txtPrintBekleniyor;
+                return;
+            }
 
-    const sehir = document.getElementById("sehir").value;
-    const yalitim = document.getElementById("yalitim").value;
-    const mahalFonks = document.getElementById("mahalFonksiyon").value;
-    const katKonum = document.getElementById("katKonum").value;
-    const camTipi = document.getElementById("camTipi").value;
-    
-    const yukseklik = parseFloat(document.getElementById("katYuksekligi").value) || 2.8;
-    const insan = parseInt(document.getElementById("insanSayisi").value) || 0;
-    const hacim = alan * yukseklik;
+            const sehir = document.getElementById("sehir").value;
+            const yalitim = document.getElementById("yalitim").value;
+            const mahalFonks = document.getElementById("mahalFonksiyon").value;
+            const katKonum = document.getElementById("katKonum").value;
+            const camTipi = document.getElementById("camTipi").value;
+            
+            const yukseklik = parseFloat(document.getElementById("katYuksekligi").value) || 2.8;
+            const insan = parseInt(document.getElementById("insanSayisi").value) || 0;
 
-    let tDisPik = 38;
-    if (["Sevilla", "Cordoba", "Palermo"].includes(sehir)) tDisPik = 42;
-    else if (["Badajoz"].includes(sehir)) tDisPik = 41;
-    else if (["Murcia"].includes(sehir)) tDisPik = 40;
-    else if (["Zaragoza", "Toledo", "Firenze"].includes(sehir)) tDisPik = 39;
-    else if (["Madrid", "Roma", "Cagliari", "Adana"].includes(sehir)) tDisPik = 38;
-    else if (["Almeria", "Malaga", "Alicante", "Milano", "Napoli"].includes(sehir)) tDisPik = 36;
-    else if (["Valencia", "Torino", "Bologna", "Ancona"].includes(sehir)) tDisPik = 35;
-    else if (["Barcelona", "Leon", "Burgos", "Venezia"].includes(sehir)) tDisPik = 33;
-    else if (["Bilbao", "Soria", "Avila"].includes(sehir)) tDisPik = 32;
-    else if (["A Coruna", "Santander"].includes(sehir)) tDisPik = 28;
+            let tDisPik = 38;
+            if (["Sevilla", "Cordoba", "Palermo"].includes(sehir)) tDisPik = 42;
+            else if (["Badajoz"].includes(sehir)) tDisPik = 41;
+            else if (["Murcia"].includes(sehir)) tDisPik = 40;
+            else if (["Zaragoza", "Toledo", "Firenze"].includes(sehir)) tDisPik = 39;
+            else if (["Madrid", "Roma", "Cagliari"].includes(sehir)) tDisPik = 38;
+            else if (["Almeria", "Malaga", "Alicante", "Milano", "Napoli"].includes(sehir)) tDisPik = 36;
+            else if (["Valencia", "Torino", "Bologna", "Ancona"].includes(sehir)) tDisPik = 35;
+            else if (["Barcelona", "Leon", "Burgos", "Venezia"].includes(sehir)) tDisPik = 33;
+            else if (["Bilbao", "Soria", "Avila"].includes(sehir)) tDisPik = 32;
+            else if (["A Coruna", "Santander"].includes(sehir)) tDisPik = 28;
 
-    const deltaT = Math.max(6, tDisPik - 24);
+            const deltaT = Math.max(6, tDisPik - 24);
 
-    let uDuvar = 0.50;
-    if (yalitim === "cok_iyi") uDuvar = 0.28;
-    else if (yalitim === "zayif") uDuvar = 1.60;
-    else uDuvar = 0.50;
+            let uDuvar = 0.50;
+            if (yalitim === "cok_iyi") uDuvar = 0.28;
+            else if (yalitim === "zayif") uDuvar = 1.60;
 
-    let uKomsu = 0.80;
-    let uCam = 2.60;
-    if (camTipi === "PVC - Tek Cam") uCam = 5.20;
-    else if (camTipi === "Ahşap - Çift Cam") uCam = 2.90;
-    else if (camTipi === "Alüminyum - Çift Cam") uCam = 3.40;
+            let uKomsu = 0.80;
+            let uCam = 2.60;
+            if (camTipi === "PVC - Tek Cam") uCam = 5.20;
+            else if (camTipi === "Ahşap - Çift Cam") uCam = 2.90;
+            else if (camTipi === "Alüminyum - Çift Cam") uCam = 3.40;
 
-    const enIc = parseTrFloat(document.getElementById("en_Ic").value);
+            const enIc = parseTrFloat(document.getElementById("en_Ic").value);
 
-    let pAlanlari = { Kuzey: 0, Kuzeydogu: 0, Dogu: 0, Guneydogu: 0, Guney: 0, Guneybati: 0, Bati: 0, Kuzeybati: 0 };
-    ['p1', 'p2', 'p3', 'p4', 'dk'].forEach(id => {
-        let yon = document.getElementById(id + '_yon').value;
-        let en = parseTrFloat(document.getElementById(id + '_en').value);
-        let boy = parseTrFloat(document.getElementById(id + '_boy').value);
-        if (yon !== "Yok") pAlanlari[yon] = (pAlanlari[yon] || 0) + (en * boy);
-    });
+            let pAlanlari = { Kuzey: 0, Kuzeydogu: 0, Dogu: 0, Guneydogu: 0, Guney: 0, Guneybati: 0, Bati: 0, Kuzeybati: 0 };
+            ['p1', 'p2', 'p3', 'p4', 'dk'].forEach(id => {
+                let yon = document.getElementById(id + '_yon').value;
+                let en = parseTrFloat(document.getElementById(id + '_en').value);
+                let boy = parseTrFloat(document.getElementById(id + '_boy').value);
+                if (yon !== "Yok") pAlanlari[yon] = (pAlanlari[yon] || 0) + (en * boy);
+            });
 
-    let dNetAlanlari = { Kuzey: 0, Kuzeydogu: 0, Dogu: 0, Guneydogu: 0, Guney: 0, Guneybati: 0, Bati: 0, Kuzeybati: 0 };
-    ['1', '2', '3', '4'].forEach(id => {
-        let yon = document.getElementById(`dd_${id}_yon`).value;
-        let en = parseTrFloat(document.getElementById(`dd_${id}_en`).value);
-        if (yon !== "Yok" && en > 0) {
-            let brut = en * yukseklik;
-            let pencere = pAlanlari[yon] || 0;
-            dNetAlanlari[yon] = (dNetAlanlari[yon] || 0) + Math.max(0, brut - pencere);
+            let dNetAlanlari = { Kuzey: 0, Kuzeydogu: 0, Dogu: 0, Guneydogu: 0, Guney: 0, Guneybati: 0, Bati: 0, Kuzeybati: 0 };
+            ['1', '2', '3', '4'].forEach(id => {
+                let yon = document.getElementById(`dd_${id}_yon`).value;
+                let en = parseTrFloat(document.getElementById(`dd_${id}_en`).value);
+                if (yon !== "Yok" && en > 0) {
+                    let brut = en * yukseklik;
+                    let pencere = pAlanlari[yon] || 0;
+                    dNetAlanlari[yon] = (dNetAlanlari[yon] || 0) + Math.max(0, brut - pencere);
+                }
+            });
+
+            let toplamNetDisDuvar = 0;
+            Object.keys(dNetAlanlari).forEach(k => toplamNetDisDuvar += dNetAlanlari[k]);
+
+            let toplamCamAlani = 0;
+            Object.keys(pAlanlari).forEach(k => toplamCamAlani += pAlanlari[k]);
+
+            const rad = { Kuzey: 120, Kuzeydogu: 230, Dogu: 340, Guneydogu: 360, Guney: 380, Guneybati: 420, Bati: 450, Kuzeybati: 280 };
+            const gFaktoru = 0.65;
+            let qSolarCam = 0;
+
+            if (toplamCamAlani === 0) {
+                toplamCamAlani = alan * 0.12; 
+                qSolarCam = toplamCamAlani * rad.Bati * gFaktoru; 
+            } else {
+                Object.keys(pAlanlari).forEach(k => {
+                    qSolarCam += pAlanlari[k] * rad[k] * gFaktoru;
+                });
+            }
+
+            let qDuvarIle = toplamNetDisDuvar * uDuvar * deltaT;
+            let qKomsuIle = (enIc * yukseklik) * uKomsu * (deltaT * 0.4);
+            let qCamIle = toplamCamAlani * uCam * deltaT;
+            
+            let qTavanDoseme = 0;
+            if (katKonum === "En Üst Kat - Teras") qTavanDoseme = alan * 1.45 * (deltaT + 4);
+            else if (katKonum === "En Üst Kat - Eğimli") qTavanDoseme = alan * 1.30 * deltaT;
+            else if (katKonum === "Zemin Kat") qTavanDoseme = alan * 0.40 * 4;
+
+            let qInsan = insan * 110; 
+            let qAydinlatmaCihaz = alan * 18; 
+            if (mahalFonks === "İşyeri - Ofis") qAydinlatmaCihaz = alan * 28;
+            else if (mahalFonks === "İşyeri - Dükkan") qAydinlatmaCihaz = alan * 40;
+
+            let qEkCihaz = 0;
+            if (mahalFonks !== "Konut") {
+                qEkCihaz += 200;
+                const ek1 = document.getElementById("ekCihaz1") ? document.getElementById("ekCihaz1").value : "yok";
+                const ek2 = document.getElementById("ekCihaz2") ? document.getElementById("ekCihaz2").value : "yok";
+                if (ek1 === "printer") qEkCihaz += 120;
+                if (ek1 === "minibuzdolabi") qEkCihaz += 150;
+                if (ek2 === "printer") qEkCihaz += 120;
+                if (ek2 === "minibuzdolabi") qEkCihaz += 150;
+            }
+
+            let hacim = alan * yukseklik;
+            let havaDegisim = mahalFonks === "Konut" ? 0.8 : (mahalFonks === "İşyeri - Ofis" ? 1.2 : 1.5);
+            let qTazeHava = ((hacim * havaDegisim / 3600) * 1.2 * 1005 * deltaT) * 1.40;
+
+            const netToplamWatt = qDuvarIle + qKomsuIle + qCamIle + qTavanDoseme + qSolarCam + qInsan + qAydinlatmaCihaz + qEkCihaz + qTazeHava;
+            const toplamWatt = netToplamWatt * 1.22; 
+            const toplamBTU = Math.round(toplamWatt * 3.4121);
+            const toplamFrigoria = Math.round(toplamWatt * 0.8598);
+            const toplamKw = toplamWatt / 1000;
+
+            document.getElementById("lblWatt").innerText = Math.round(toplamWatt).toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
+            if (mevcudDil === 'es') {
+                document.getElementById("lblFrigoria").innerText = toplamFrigoria.toLocaleString('es-ES');
+            } else {
+                document.getElementById("lblFrigoria").innerText = toplamKw.toFixed(2).replace('.', ',');
+            }
+            document.getElementById("lblBTU").innerText = toplamBTU.toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
+            
+            let baslik = "";
+            if (mevcudDil === 'es') {
+                if (toplamBTU <= 9500) {
+                    baslik = "Aire Acondicionado Split 2200 Frigorías 2.5 kW";
+                } else if (toplamBTU > 9500 && toplamBTU <= 12000) {
+                    baslik = "Aire Acondicionado Split 3000 Frigorías 3.5 kW";
+                } else if (toplamBTU > 12000 && toplamBTU <= 18000) {
+                    baslik = "Aire Acondicionado Split 4500 Frigorías 5.0 kW";
+                } else if (toplamBTU > 18000 && toplamBTU <= 24000) {
+                    baslik = "Aire Acondicionado Split 6000 Frigorías 7.1 kW";
+                } else {
+                    if (mahalFonks === "İşyeri - Ofis" || mahalFonks === "İşyeri - Dükkan") {
+                        baslik = "Aire Acondicionado Conductos / Cassette / Columna 8000 Frigorías";
+                    } else {
+                        baslik = "Aire Acondicionado Conductos / Cassette 8000 Frigorías";
+                    }
+                }
+            } else {
+                if (toplamBTU <= 9500) {
+                    baslik = "Climatizzatore Split 2.5 kW (9000 BTU)";
+                } else if (toplamBTU > 9500 && toplamBTU <= 12000) {
+                    baslik = "Climatizzatore Split 3.5 kW (12000 BTU)";
+                } else if (toplamBTU > 12000 && toplamBTU <= 18000) {
+                    baslik = "Climatizzatore Split 5.0 kW (18000 BTU)";
+                } else if (toplamBTU > 18000 && toplamBTU <= 24000) {
+                    baslik = "Climatizzatore Split 7.1 kW (24000 BTU)";
+                } else {
+                    if (mahalFonks === "İşyeri - Ofis" || mahalFonks === "İşyeri - Dükkan") {
+                        baslik = "Climatizzatore Canalizzato / Cassetta / Colonna 8.0 kW (30000 BTU)";
+                    } else {
+                        baslik = "Climatizzatore Canalizzato / Cassetta 8.0 kW (30000 BTU)";
+                    }
+                }
+            }
+
+            guncelleOnerilenEtiketMetni();
+            document.getElementById("lblOnerilenSegment").innerText = baslik;
+            renderPazaryerleri('klima', baslik);
+
+            const mahalNo = document.getElementById("raporMahalNo") ? document.getElementById("raporMahalNo").value : t.defMahalNo;
+            const mahalAdi = document.getElementById("raporMahalAdi") ? document.getElementById("raporMahalAdi").value : t.defMahalAdi;
+            if (document.getElementById("printMahalBilgi")) document.getElementById("printMahalBilgi").innerText = mevcudDil === 'es' ? `Estancia: ${mahalNo} - ${mahalAdi}` : `Stanza: ${mahalNo} - ${mahalAdi}`;
+            
+            if (document.getElementById("printBTUDeger")) {
+                document.getElementById("printBTUDeger").innerText = mevcudDil === 'es' ? `${toplamFrigoria.toLocaleString('es-ES')} fg/h (${toplamBTU.toLocaleString('es-ES')} BTU/h)` : `${toplamKw.toFixed(2).replace('.', ',')} kW (${toplamBTU.toLocaleString('it-IT')} BTU/h)`;
+            }
+            if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = baslik;
         }
-    });
-
-    let toplamNetDisDuvar = 0;
-    Object.keys(dNetAlanlari).forEach(k => toplamNetDisDuvar += dNetAlanlari[k]);
-
-    const netDuvarIc = enIc * yukseklik;
-
-    let toplamCamAlani = 0;
-    Object.keys(pAlanlari).forEach(k => toplamCamAlani += pAlanlari[k]);
-
-    let qDuvarIle = toplamNetDisDuvar * uDuvar * deltaT;
-    let qKomsuIle = netDuvarIc * uKomsu * (deltaT * 0.4);
-    let qCamIle = toplamCamAlani * uCam * deltaT;
-    
-    let qTavanDoseme = 0;
-    if (katKonum === "En Üst Kat - Teras") qTavanDoseme = alan * 0.90 * (deltaT + 4);
-    else if (katKonum === "En Üst Kat - Eğimli") qTavanDoseme = alan * 0.60 * deltaT;
-    else if (katKonum === "Zemin Kat") qTavanDoseme = alan * 0.40 * 4;
-
-    const rad = {
-        Kuzey: 120,
-        Kuzeydogu: 230,
-        Dogu: 340,
-        Guneydogu: 360,
-        Guney: 380,
-        Guneybati: 420,
-        Bati: 450,
-        Kuzeybati: 280
-    };
-    const gFaktoru = 0.65;
-    let qSolarCam = 0;
-    Object.keys(pAlanlari).forEach(k => {
-        qSolarCam += pAlanlari[k] * rad[k] * gFaktoru;
-    });
-
-    let qInsan = insan * 110; 
-    let qAydinlatmaCihaz = alan * 18; 
-    if (mahalFonks === "İşyeri - Ofis") qAydinlatmaCihaz = alan * 28;
-    else if (mahalFonks === "İşyeri - Dükkan") qAydinlatmaCihaz = alan * 40;
-
-    let qBilgisayarDefault = 0;
-    let qEkCihaz1 = 0;
-    let qEkCihaz2 = 0;
-
-    if (mahalFonks !== "Konut") {
-        qBilgisayarDefault = 300; 
-        
-        const ek1 = document.getElementById("ekCihaz1") ? document.getElementById("ekCihaz1").value : "yok";
-        const ek2 = document.getElementById("ekCihaz2") ? document.getElementById("ekCihaz2").value : "yok";
-        
-        if (ek1 === "printer") qEkCihaz1 = 120;
-        else if (ek1 === "minibuzdolabi") qEkCihaz1 = 150;
-
-        if (ek2 === "printer") qEkCihaz1 = 120;
-        else if (ek2 === "minibuzdolabi") qEkCihaz2 = 150;
-    }
-
-    let havaDegisim = mahalFonks === "Konut" ? 0.8 : (mahalFonks === "İşyeri - Ofis" ? 1.2 : 1.5);
-    let qTazeHavaSensible = (hacim * havaDegisim / 3600) * 1.2 * 1005 * deltaT;
-    let qTazeHava = qTazeHavaSensible * 1.40; 
-
-    const netToplamWatt = qDuvarIle + qKomsuIle + qCamIle + qTavanDoseme + qSolarCam + qInsan + qAydinlatmaCihaz + qBilgisayarDefault + qEkCihaz1 + qEkCihaz2 + qTazeHava;
-    
-    // Gerçekçi pik ve emniyet faktörü (%22)
-    const toplamWatt = netToplamWatt * 1.22; 
-    const toplamBTU = Math.round(toplamWatt * 3.4121);
-    const toplamFrigoria = Math.round(toplamWatt * 0.8598);
-    const toplamKw = toplamWatt / 1000;
-
-    document.getElementById("lblWatt").innerText = Math.round(toplamWatt).toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
-    
-    if (mevcudDil === 'es') {
-        document.getElementById("lblFrigoria").innerText = toplamFrigoria.toLocaleString('es-ES');
-    } else {
-        document.getElementById("lblFrigoria").innerText = toplamKw.toFixed(2).replace('.', ',');
-    }
-
-    document.getElementById("lblBTU").innerText = toplamBTU.toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
-    
-    let baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 2200 Frigorías 2.5 kW" : "Climatizzatore Split 2.5 kW (9000 BTU)";
-    if (toplamBTU > 9000 && toplamBTU <= 12800) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 3000 Frigorías 3.5 kW" : "Climatizzatore Split 3.5 kW (12000 BTU)"; }
-    else if (toplamBTU > 12800 && toplamBTU <= 18000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 4500 Frigorías 5.0 kW" : "Climatizzatore Split 5.0 kW (18000 BTU)"; }
-    else if (toplamBTU > 18000 && toplamBTU <= 24000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 6000 Frigorías 7.1 kW" : "Climatizzatore Split 7.1 kW (24000 BTU)"; }
-    else if (toplamBTU > 24000) { baslik = mevcudDil === 'es' ? "Aire Acondicionado Conductos Cassette 8000 Frigorías" : "Climatizzatore Canalizzato Cassetta 8.0 kW (30000 BTU)"; }
-
-    document.getElementById("lblOnerilenSegment").innerText = baslik;
-    renderPazaryerleri('klima', baslik);
-
-    const mahalNo = document.getElementById("raporMahalNo") ? document.getElementById("raporMahalNo").value : t.defMahalNo;
-    const mahalAdi = document.getElementById("raporMahalAdi") ? document.getElementById("raporMahalAdi").value : t.defMahalAdi;
-    if (document.getElementById("printMahalBilgi")) document.getElementById("printMahalBilgi").innerText = mevcudDil === 'es' ? `Estancia: ${mahalNo} - ${mahalAdi}` : `Stanza: ${mahalNo} - ${mahalAdi}`;
-    
-    if (document.getElementById("printBTUDeger")) {
-        document.getElementById("printBTUDeger").innerText = mevcudDil === 'es' ? `${toplamFrigoria.toLocaleString('es-ES')} fg/h (${toplamBTU.toLocaleString('es-ES')} BTU/h)` : `${toplamKw.toFixed(2).replace('.', ',')} kW (${toplamBTU.toLocaleString('it-IT')} BTU/h)`;
-    }
-    if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = baslik;
-}
 
         /* CANVAS TERMODINÁMICO */
         let pipeParticles = [];
@@ -2529,7 +2554,6 @@ function hesaplaTS825() {
 
         window.onload = function() {
             dilDegistir('es');
-            sekmeDegistir('klima');
             yapiTipiDegisti();
             isiticiCihazDegisti();
             drawSystem();
