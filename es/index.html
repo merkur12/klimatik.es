@@ -1302,38 +1302,37 @@
         }
 
         function renderBlogArticles() {
-            const container = document.getElementById("blogGridContainer");
-            const articles = blogArticlesData['es'];
-            let html = "";
+    const container = document.getElementById("blogGridContainer");
+    const articles = blogArticlesData['es'];
+    let html = "";
 
-            articles.forEach(art => {
-                let colorClass = "blue";
-                if (art.tagColor === "orange") colorClass = "orange";
-                else if (art.tagColor === "amber") colorClass = "amber";
-                else if (art.tagColor === "purple") colorClass = "purple";
-                else if (art.tagColor === "emerald") colorClass = "emerald";
-                else if (art.tagColor === "rose") colorClass = "rose";
-                else if (art.tagColor === "cyan") colorClass = "cyan";
+    articles.forEach(art => {
+        let colorClass = "blue";
+        if (art.tagColor === "orange") colorClass = "orange";
+        else if (art.tagColor === "amber") colorClass = "amber";
+        else if (art.tagColor === "purple") colorClass = "purple";
+        else if (art.tagColor === "emerald") colorClass = "emerald";
+        else if (art.tagColor === "rose") colorClass = "rose";
+        else if (art.tagColor === "cyan") colorClass = "cyan";
 
-                html += `
-                <div id="blogCard${art.id}" onclick="blogToggle(${art.id})" class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between cursor-pointer hover:border-${colorClass}-400 hover:shadow-md transition">
-                    <div class="space-y-2">
-                        <span class="text-[10px] font-bold bg-${colorClass}-100 text-${colorClass}-800 px-2 py-0.5 rounded">${art.tag}</span>
-                        <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">${art.title}</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">${art.desc}</p>
-                        
-                        <div id="blogContent${art.id}" class="hidden pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-3 leading-relaxed">
-                            <p>${art.content1}</p>
-                            <p>${art.content2}</p>
-                            <span class="text-${colorClass}-600 font-bold block pt-1">Reducir / Cerrar</span>
-                        </div>
-                    </div>
-                    <span id="blogBtnText${art.id}" class="text-xs font-bold text-${colorClass}-600 flex items-center gap-1 pt-2">Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                </div>`;
-            });
+        // Her makale için es klasöründeki ayrı HTML dosyasına yönlendirme linki (örn: makale-1.html)
+        let dosyaYolu = `makale-${art.id}.html`;
 
-            container.innerHTML = html;
-        }
+        html += `
+        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between hover:border-${colorClass}-400 hover:shadow-md transition">
+            <div class="space-y-2">
+                <span class="text-[10px] font-bold bg-${colorClass}-100 text-${colorClass}-800 px-2 py-0.5 rounded">${art.tag}</span>
+                <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">${art.title}</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">${art.desc}</p>
+            </div>
+            <a href="${dosyaYolu}" class="text-xs font-bold text-${colorClass}-600 flex items-center gap-1 pt-2 cursor-pointer hover:underline">
+                Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+        </div>`;
+    });
+
+    container.innerHTML = html;
+}
 
         function blogToggle(id) {
             const content = document.getElementById(`blogContent${id}`);
