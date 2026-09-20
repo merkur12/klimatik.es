@@ -5,7 +5,21 @@
     <meta name="google-site-verification" content="Yi4SznAdW2LcSY9xdgJ3T6GfmkvtdAm5aRpOE-CPIes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6907551704910400" crossorigin="anonymous"></script>
-    <title id="pageTitle">Calcolo Carico Termico, Climatizzazione e Pompa di Calore Monoblocco | Blog</title>
+    <title id="pageTitle">Cálculo de Carga Térmica, Climatización y Aerotermia Monobloc | Blog</title>
+<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEXSP7F1W1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JEXSP7F1W1');
+    </script>
+    <!-- Google AdSense Kodu -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6907551704910400" crossorigin="anonymous"></script>
+    
+    <!-- Canonical Etiketi -->
+    <link rel="canonical" href="https://klimatikapp.com/makale-1.html">
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -65,18 +79,14 @@
             
             <div class="flex items-center gap-4">
                 <div class="flex items-center bg-slate-200/80 p-1 rounded-xl border border-slate-300/60 shadow-inner gap-1.5">
-                    <button id="btnLangES" onclick="dilDegistir('es')" class="px-3 py-1.5 rounded-lg text-xs font-black transition-all duration-200 flex items-center gap-2 cursor-pointer">
+                    <button id="btnLangES" class="px-3 py-1.5 rounded-lg text-xs font-black transition-all duration-200 flex items-center gap-2 cursor-pointer bg-blue-600 text-white shadow-md ring-2 ring-blue-400">
                         <img src="https://flagcdn.com/w40/es.png" class="w-4 h-auto rounded-xs shadow-2xs" alt="España">
                         <span>ES</span>
-                    </button>
-                    <button id="btnLangIT" onclick="dilDegistir('it')" class="px-3 py-1.5 rounded-lg text-xs font-black transition-all duration-200 flex items-center gap-2 cursor-pointer">
-                        <img src="https://flagcdn.com/w40/it.png" class="w-4 h-auto rounded-xs shadow-2xs" alt="Italia">
-                        <span>IT</span>
                     </button>
                 </div>
 
                 <button onclick="blogaGit()" class="hidden md:inline-flex items-center gap-1.5 text-xs font-extrabold text-slate-700 hover:text-blue-600 transition cursor-pointer bg-slate-100 px-3 py-2 rounded-xl border border-slate-200">
-                    <i class="fa-solid fa-book-bookmark text-amber-500"></i> <span id="txtBlogBtnNav">Blog (9 Artículos)</span>
+                    <i class="fa-solid fa-book-bookmark text-amber-500"></i> <span id="txtBlogBtnNav">Blog (20 Artículos)</span>
                 </button>
                 <div id="versiyonRozeti" class="text-xs font-extrabold bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full border border-blue-200 shadow-2xs">
                     VERSIÓN 2.0 (ANÁLISIS DETALLADO)
@@ -116,7 +126,7 @@
             <!-- 0. MOTOR PRÁTICO -->
             <div id="motorPratik" class="hidden bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8 space-y-6">
                 <h2 id="lblPratikBaslik" class="text-xl font-bold text-slate-700 border-b pb-3 border-slate-100 flex items-center gap-2">
-                    <i class="fa-solid fa-bolt text-amber-500"></i> Motor Rápido de Carga de Refrigeración (Análisis Solar Avanzado)
+                    <i class="fa-solid fa-bolt text-amber-500"></i> Motor Rápido de Carga de Refrigeración 
                 </h2>
 
                 <form id="pratikForm" autocomplete="off" class="space-y-6">
@@ -273,11 +283,11 @@
                                             <span id="lblP1" class="text-[10px] font-black text-slate-700 block truncate">Ventana 1</span>
                                             <select id="p1_yon" onchange="pencereYonDegisti('p1')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
                                             <div class="flex items-center gap-1">
-                                                <span class="lblAncho text-[9px] font-bold text-slate-600 w-12 shrink-0">Ancho</span>
+                                                <span class="lblAncho text-[9px] font-bold text-slate-600 w-12 shrink-0">Ancho (m)</span>
                                                 <input type="text" id="p1_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <span class="lblAlto text-[9px] font-bold text-slate-600 w-12 shrink-0">Alto</span>
+                                                <span class="lblAlto text-[9px] font-bold text-slate-600 w-12 shrink-0">Alto (m)</span>
                                                 <input type="text" id="p1_boy" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
                                             </div>
                                             <div class="text-[10px] font-bold text-slate-700 pt-0.5"><span class="lblArea">Área</span>: <span id="p1_alan_lbl" class="text-slate-800">0.00 m²</span></div>
@@ -286,11 +296,11 @@
                                             <span id="lblP2" class="text-[10px] font-black text-slate-700 block truncate">Ventana 2</span>
                                             <select id="p2_yon" onchange="pencereYonDegisti('p2')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
                                             <div class="flex items-center gap-1">
-                                                <span class="lblAncho text-[9px] font-bold text-slate-600 w-12 shrink-0">Ancho</span>
+                                                <span class="lblAncho text-[9px] font-bold text-slate-600 w-12 shrink-0">Ancho (m)</span>
                                                 <input type="text" id="p2_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <span class="lblAlto text-[9px] font-bold text-slate-600 w-12 shrink-0">Alto</span>
+                                                <span class="lblAlto text-[9px] font-bold text-slate-600 w-12 shrink-0">Alto (m)</span>
                                                 <input type="text" id="p2_boy" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
                                             </div>
                                             <div class="text-[10px] font-bold text-slate-700 pt-0.5"><span class="lblArea">Área</span>: <span id="p2_alan_lbl" class="text-slate-800">0.00 m²</span></div>
@@ -299,11 +309,11 @@
                                             <span id="lblP3" class="text-[10px] font-black text-slate-700 block truncate">Ventana 3</span>
                                             <select id="p3_yon" onchange="pencereYonDegisti('p3')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
                                             <div class="flex items-center gap-1">
-                                                <span class="lblAncho text-[9px] font-bold text-slate-600 w-12 shrink-0">Ancho</span>
+                                                <span class="lblAncho text-[9px] font-bold text-slate-600 w-12 shrink-0">Ancho (m)</span>
                                                 <input type="text" id="p3_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <span class="lblAlto text-[9px] font-bold text-slate-600 w-12 shrink-0">Alto</span>
+                                                <span class="lblAlto text-[9px] font-bold text-slate-600 w-12 shrink-0">Alto (m)</span>
                                                 <input type="text" id="p3_boy" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
                                             </div>
                                             <div class="text-[10px] font-bold text-slate-700 pt-0.5"><span class="lblArea">Área</span>: <span id="p3_alan_lbl" class="text-slate-800">0.00 m²</span></div>
@@ -312,11 +322,11 @@
                                             <span id="lblP4" class="text-[10px] font-black text-slate-700 block truncate" title="Puerta Corredera de Cristal">P. Corredera Cristal</span>
                                             <select id="p4_yon" onchange="pencereYonDegisti('p4')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
                                             <div class="flex items-center gap-1">
-                                                <span class="lblAncho text-[9px] font-bold text-slate-600 w-12 shrink-0">Ancho</span>
+                                                <span class="lblAncho text-[9px] font-bold text-slate-600 w-12 shrink-0">Ancho (m)</span>
                                                 <input type="text" id="p4_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <span class="lblAlto text-[9px] font-bold text-slate-600 w-12 shrink-0">Alto</span>
+                                                <span class="lblAlto text-[9px] font-bold text-slate-600 w-12 shrink-0">Alto (m)</span>
                                                 <input type="text" id="p4_boy" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
                                             </div>
                                             <div class="text-[10px] font-bold text-slate-700 pt-0.5"><span class="lblArea">Área</span>: <span id="p4_alan_lbl" class="text-slate-800">0.00 m²</span></div>
@@ -325,11 +335,11 @@
                                             <span id="lblDK" class="text-[10px] font-black text-slate-700 block truncate" title="Puerta Exterior / Balcón">P. Exterior / Balcón</span>
                                             <select id="dk_yon" onchange="pencereYonDegisti('dk')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
                                             <div class="flex items-center gap-1">
-                                                <span class="lblAncho text-[9px] font-bold text-slate-600 w-12 shrink-0">Ancho</span>
+                                                <span class="lblAncho text-[9px] font-bold text-slate-600 w-12 shrink-0">Ancho (m)</span>
                                                 <input type="text" id="dk_en" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <span class="lblAlto text-[9px] font-bold text-slate-600 w-12 shrink-0">Alto</span>
+                                                <span class="lblAlto text-[9px] font-bold text-slate-600 w-12 shrink-0">Alto (m)</span>
                                                 <input type="text" id="dk_boy" value="0" disabled oninput="guncelleSihirbazVeMotor()" class="w-full border rounded p-1 text-[11px] font-bold bg-slate-200 cursor-not-allowed text-center">
                                             </div>
                                             <div class="text-[10px] font-bold text-slate-700 pt-0.5"><span class="lblArea">Área</span>: <span id="dk_alan_lbl" class="text-slate-800">0.00 m²</span></div>
@@ -350,7 +360,6 @@
                                         <div class="text-[10px] font-bold text-emerald-800"><span class="lblArea">Área</span>: <span id="id_net_alan">0.00</span> m²</div>
                                     </div>
 
-                                    <!-- DUVAR 1 (8 YÖNLÜ) -->
                                     <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
                                         <span id="lblPared1" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. 1</span>
                                         <select id="dd_1_yon" onchange="disDuvarYonDegisti('1')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
@@ -359,7 +368,6 @@
                                         <div class="text-[10px] font-bold text-blue-800"><span class="lblNeto">Neto</span>: <span id="dd_1_net">0.00</span> m²</div>
                                     </div>
 
-                                    <!-- DUVAR 2 (8 YÖNLÜ) -->
                                     <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
                                         <span id="lblPared2" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. 2</span>
                                         <select id="dd_2_yon" onchange="disDuvarYonDegisti('2')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
@@ -368,7 +376,6 @@
                                         <div class="text-[10px] font-bold text-blue-800"><span class="lblNeto">Neto</span>: <span id="dd_2_net">0.00</span> m²</div>
                                     </div>
 
-                                    <!-- DUVAR 3 (8 YÖNLÜ) -->
                                     <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
                                         <span id="lblPared3" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. 3</span>
                                         <select id="dd_3_yon" onchange="disDuvarYonDegisti('3')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
@@ -377,7 +384,6 @@
                                         <div class="text-[10px] font-bold text-blue-800"><span class="lblNeto">Neto</span>: <span id="dd_3_net">0.00</span> m²</div>
                                     </div>
 
-                                    <!-- DUVAR 4 (8 YÖNLÜ) -->
                                     <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 space-y-1.5">
                                         <span id="lblPared4" class="text-[10px] font-black text-blue-900 block truncate">Pared Ext. 4</span>
                                         <select id="dd_4_yon" onchange="disDuvarYonDegisti('4')" class="w-full border rounded p-1 text-[10px] font-bold bg-white"></select>
@@ -442,7 +448,12 @@
                         </div>
                         <div>
                             <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 truncate" id="lblCepheBaslik">Fachadas Expuestas al Exterior</label>
-                            <select id="cepheSayisi" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500"></select>
+                            <select id="cepheSayisi" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500">
+                                <option value="1" id="cepheOpt1">1 Fachada Expuesta (Entre medianeras)</option>
+                                <option value="2" id="cepheOpt2">2 Fachadas Expuestas (Esquina / Piso)</option>
+                                <option value="3" id="cepheOpt3">3 Fachadas Expuestas (Adosado / Unifamiliar)</option>
+                                <option value="4" id="cepheOpt4">4 Fachadas Expuestas (Chalet / Independiente)</option>
+                            </select>
                         </div>
                     </div>
 
@@ -706,11 +717,11 @@
                 affiliateNota: '* Participamos en programas de afiliados de Leroy Merlin, MediaMarkt, El Corte Inglés y eBay (Redes AWIN / Partner Networks). Las compras válidas generan comisión sin coste adicional.',
                 footerDisclaimer: '<strong>Declaración de Afiliación:</strong> Participamos en programas de afiliados de Leroy Merlin, MediaMarkt, El Corte Inglés y eBay. Las compras válidas realizadas desde nuestros enlaces generan comisión sin repercutir ningún coste extra al usuario.',
                 ofertasBaslik: 'Ofertas Climatización España',
-                btnBlogNav: 'Blog de Ingeniería (9 Artículos)',
+                btnBlogNav: 'Blog de Ingeniería (20 Artículos)',
                 printReportTitle: 'Informe Térmico de Refrigeración y Selección de Climatización',
                 printReportSub: 'Servicio de Informes Técnicos',
                 lblKlimaBaslik: '<i class="fa-solid fa-snowflake text-blue-600"></i> Parámetros Detallados de Estancia y Fachadas',
-                lblPratikBaslik: '<i class="fa-solid fa-bolt text-amber-500"></i> Motor Rápido de Carga de Refrigeración (Análisis Solar Avanzado)',
+                lblPratikBaslik: '<i class="fa-solid fa-bolt text-amber-500"></i> Motor Rápido de Carga de Refrigeración',
                 lblIsitmaBaslik: '<i class="fa-solid fa-fire text-orange-600"></i> Parámetros Pérdida de Calor Caldera y Aerotermia',
                 lblWattBirim: 'Watt',
                 lblFrigoriaBirim: 'fg/h',
@@ -992,292 +1003,6 @@
                         <strong>Consejo Técnico:</strong> Al tomar medidas de paredes desde AutoCAD o archivos DWG similares, puede usar el comando "DIST" y la opción "M" para medir paredes de una sola vez.<br>
                         <strong>Nota: Para usos comerciales y oficinas se incorporan cargas disipadas por equipos informáticos e iluminación.</strong>
                     </div>`
-            },
-            it: {
-                lblSlogan: '"Specialista nel Calcolo di Climatizzazione, Caldaie e Pompa di Calore"',
-                version: 'VERSIONE 2.0 (ANALISI DETTAGLIATA)',
-                pageTitle: 'Calcolo Carico Termico, Climatizzazione e Pompa di Calore Monoblocco | Blog Tecnico',
-                tabPratik: 'Calcolo Rapido Carico Freddo',
-                tabKlima: 'Motore Dettagliato Climatizzazione',
-                tabIsitma: 'Caldaia e Aerotermia',
-                affiliateNota: '* Partecipiamo ai programmi di affiliazione Leroy Merlin Italia, MediaWorld, Climamarket ed eBay Italia (Reti Awin / Partner Networks). Gli acquisti idonei generano commissioni senza costi aggiuntivi.',
-                footerDisclaimer: '<strong>Dichiarazione di Affiliazione:</strong> Partecipiamo ai programmi di affiliazione di Leroy Merlin Italia, MediaWorld, Climamarket ed eBay. Gli acquisti idonei generano commissioni senza alcun costo aggiuntivo per l’utente.',
-                ofertasBaslik: 'Offerte Climatizzazione Italia',
-                btnBlogNav: 'Blog Tecnico (9 Articoli)',
-                printReportTitle: 'Rapporto di Carico Termico di Refrigerazione e Selezione Climatizzatore',
-                printReportSub: 'Servizio di Report Tecnici',
-                lblKlimaBaslik: '<i class="fa-solid fa-snowflake text-blue-600"></i> Parametri Dettagliati Stanza e Facciate',
-                lblPratikBaslik: '<i class="fa-solid fa-bolt text-amber-500"></i> Motore Rapido Carico Freddo (Analisi Solare Avanzata)',
-                lblIsitmaBaslik: '<i class="fa-solid fa-fire text-orange-600"></i> Parametri Perdita di Calore Caldaia e Aerotermia',
-                lblWattBirim: 'Watt',
-                lblFrigoriaBirim: 'kW (Chilowatt)',
-                lblAltBirim: 'BTU/h',
-                lblFrigoriaBaslik: 'Potenza Frigorifera (kW)',
-                lblAltKapasiteBaslik: 'Potenza Termica Equivalente',
-                lblKapasiteBaslik: 'Carico Termico Calcolato',
-                lblKapasiteIsitmaBaslik: 'Dispersione Termica Calcolata',
-                lblWattIsitmaBirim: 'kW (Chilowatt)',
-                lblCalorificaBaslik: 'Potenza Calorifica (kcal/h)',
-                lblEquivTermicaBaslik: 'Equivalenza Termica',
-                lblOnerilenEtiketKlima: 'Climatizzatore Consigliato:',
-                lblOnerilenEtiketIsipompasi: 'Pompa di Calore Consigliata:',
-                lblOnerilenEtiketMonobloc: 'Pompa di Calore Monoblocco Consigliata:',
-                lblOnerilenEtiketKombi: 'Caldaia a Condensazione Consigliata:',
-                btnTxtPdf: 'Genera / Salva Report PDF',
-                btnTxtPratikHesap: 'Avvia Analisi Rapida Carico',
-                btnTxtPratikSifir: 'Ripristina Parametri',
-                btnTxtKlimaHesap: 'Avvia Analisi Dettagliata Refrigerazione',
-                btnTxtKlimaSifir: 'Ripristina Parametri',
-                btnTxtIsitmaHesap: 'Avvia Analisi Pompe di Calore, Caldaia e Accumulo ACS',
-                btnTxtIsitmaSifir: 'Ripristina Parametri',
-                lblSihirbazVentanaTitle: '<i class="fa-solid fa-window-maximize"></i> Assistente Finestre e Porte',
-                lblSihirbazParedTitle: '<i class="fa-solid fa-wall"></i> Assistente Pareti Esterne ed Interne',
-                lblParedIntTitle: '<i class="fa-solid fa-door-closed mr-1"></i> Parete Int. / Tramezzo',
-                lblPared1: 'Parete Est. 1',
-                lblPared2: 'Parete Est. 2',
-                lblPared3: 'Parete Est. 3',
-                lblPared4: 'Parete Est. 4',
-                lblAncho: 'Larghezza (m)',
-                lblAlto: 'Altezza (m)',
-                lblArea: 'Area',
-                lblNeto: 'Netto',
-                lblPrintTitle: 'Risultati Report Tecnico',
-                lblPrintCargaTitle: 'Carico Termico Calcolato',
-                lblPrintEquipTitle: 'Sistema Consigliato',
-                lblPlantaBajaArea: 'Superficie Piano Terra (m²)',
-                lblPlanta1Area: 'Superficie Primo Piano (m²)',
-                lblTrifazeTitle: 'Nota:',
-                lblTrifazeText: 'Per pompe di calore da 12 kW o superiores potrebbe essere necessaria un’installazione trifase.',
-                lblMonoblocNoteTitle: 'Installazione Monoblocco:',
-                lblMonoblocNoteText: 'Il circuito refrigerante è ermetico di fabbrica e si collega direttamente alla rete idraulica.',
-                lblAcumuladorTitle: 'Serbatoio / Accumulo ACS:',
-                lblDemoSub: 'Dimostrazione Termodinamica Interattiva',
-                lblDemoMainTitle: 'Dimostrazione del Ciclo di Climatizzazione / Pompa di Calore Reversibile',
-                txtBtnFrio: 'Modalità Freddo / Raffrescamento',
-                txtBtnCalor: 'Modalità Caldo (Valvola a 4 Vie)',
-                lblCompresor: '<i class="fa-solid fa-compress text-slate-800"></i> Compressore Inverter:',
-                lblCompresorVal: 'Compressione Alta Pressione',
-                lblValvula4: '<i class="fa-solid fa-shuffle text-purple-600"></i> Valvola a 4 Vie:',
-                lblEEV: '<i class="fa-solid fa-filter-circle-xmark text-amber-600"></i> Valvola Espansione (EEV):',
-                lblEEVVal: 'Laminazione / Espansione',
-                lblTransfAire: '<i class="fa-solid fa-wind text-blue-500"></i> Trasferimento D’Aria:',
-                lblBlogSubTitle: 'Base di Conoscenza Tecnica e Guida di Ingegneria',
-                lblBlogMainTitle: 'Articoli Tecnici su Climatizzazione e Aerotermia',
-                btnFooterAbout: 'Contatti e Chi Siamo',
-                btnFooterPrivacy: 'Informativa sulla Privacy',
-                btnFooterTerms: 'Termini e Condizioni',
-                lblCopyright: '© 2026 | Portale di Calcolo e Ingegneria Climatica. Tutti i diritti riservati.',
-                modalTitleAbout: 'Contatti e Chi Siamo',
-                modalBodyAbout: `
-                    <div class="space-y-3">
-                        <p><strong>ClimaticApp</strong> è una piattaforma di strumenti di calcolo di ingegneria termica e climatizzazione orientata a professionisti, ingegneri e utenti finali.</p>
-                        <p><strong>Contatti:</strong> Per domande tecniche, suggerimenti di miglioramento o supporto tecnico, puoi contattarci direttamente tramite la seguente e-mail:</p>
-                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 font-bold text-slate-800">
-                            <i class="fa-solid fa-envelope text-blue-600 mr-2"></i> Email Diretta: <a href="mailto:merkur12@gmail.com" class="text-blue-600 underline">merkur12@gmail.com</a>
-                        </div>
-                    </div>`,
-                modalTitlePrivacy: 'Informativa sulla Privacy e Cookie',
-                modalBodyPrivacy: `
-                    <div class="space-y-3">
-                        <p>Questa Informativa sulla Privacy descrive come vengono raccolte, utilizzate e condivise le tue informazioni quando visiti il nostro sito web.</p>
-                        <h5 class="font-bold text-slate-800">Uso dei Cookie e Pubblicità Google AdSense</h5>
-                        <p>Questo sito utilizza i cookie per personalizzare i contenuti, analizzare il traffico e mostrare annunci pertinenti. Fornitori terzi, tra cui Google, utilizzano i cookie per pubblicare annunci sulla base delle precedenti visite dell'utente a questo o ad altri siti web.</p>
-                        <p>Gli utenti possono disattivare la pubblicità personalizzata visitando le <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener" class="text-blue-600 underline">Impostazioni annunci di Google</a>.</p>
-                        <h5 class="font-bold text-slate-800">Trattamento Dati Locale</h5>
-                        <p>I dati inseriti nei motori di calcolo vengono elaborati esclusivamente nel browser e non vengono memorizzati sui nostri server.</p>
-                    </div>`,
-                modalTitleTerms: 'Termini di Servizio ed Esclusione di Responsabilità',
-                modalBodyTerms: `
-                    <div class="space-y-3">
-                        <p>Utilizzando questo sito web, accetti i seguenti termini di servizio:</p>
-                        <h5 class="font-bold text-slate-800">Avviso Legale e Natura Stimata</h5>
-                        <p>I risultati, i calcoli del carico termico e le raccomandazioni sulle apparecchiature fornite da questo strumento hanno una <strong>natura puramente stimata e orientativa</strong> basata su semplificazioni tecniche delle normative climatiche.</p>
-                        <p>Non costituiscono un progetto esecutivo formale né sostituiscono uno studio tecnico o la firma di un progetto da parte di un ingegnere o installatore abilitato. Il sito web no è responsabile per decisioni commerciali o installazioni effettuate senza una verifica tecnica professionale.</p>
-                    </div>`,
-                lblPratikSehir: 'Città / Zona Climatica',
-                lblPratikAlan: 'Superficie del Locale (m²)',
-                lblPratikYalitim: 'Classe Isolamento Edificio',
-                lblPratikYon: 'Esposizione Facciata Principale',
-                lblPratikDuvar: 'Misura Parete Principale (m)',
-                lblPratikPencereYon: 'Esposizione Finestra Maggiore',
-                lblPratikKat: 'Posizione Piano / Edificio',
-                lblPratikUso: 'Destinazione d\'Uso',
-                lblPratikKisi: 'Nº Persone (A Riposo/Sedute)',
-                lblPratikEkCihaz: 'Dispositivi Aggiuntivi Ufficio/Negozio',
-                lblRaporMahalNo: '<i class="fa-solid fa-tag mr-1"></i> Rif. / Nº Stanza o Ambiente',
-                lblRaporMahalAdi: '<i class="fa-solid fa-signature mr-1"></i> Nome Stanza / Descrizione Progetto',
-                lblSehir: 'Città / Zona Climatica Estiva',
-                lblYalitim: 'Livello Isolamento',
-                lblUsoEstancia: 'Destinazione d\'Uso Stanza',
-                lblEkCihaz1: 'Dispositivo Aggiuntivo 1',
-                lblEkCihaz2: 'Dispositivo Aggiuntivo 2',
-                lblSuperficie: 'Superficie (m²)',
-                lblPlanta: 'Piano / Soffitto',
-                lblAltura: 'Altezza Libera Soffitto (m)',
-                lblCristal: 'Tipo di Vetro',
-                lblOcupantes: 'Nº Occupanti (Carico)',
-                lblP1: 'Finestra 1',
-                lblP2: 'Finestra 2',
-                lblP3: 'Finestra 3',
-                lblP4: 'P. Scorrevole Vetro',
-                lblDK: 'P. Esterna / Balcone',
-                lblYapiTipi: 'Tipo di Edificio',
-                lblKatIsitma: 'Piano dell\'Immobile',
-                lblCepheBaslik: 'Facciate Esposte all\'Esterno',
-                lblYalitimIsitma: 'Livello di Isolamento',
-                lblSehirIsitma: 'Città / Zona Climatica Invernale',
-                lblNetAlanBaslik: 'Superficie Utile (m²)',
-                lblTavanIsitma: 'Altezza Libera Soffitto (m)',
-                lblKisiBaslik: 'Nº Abitanti / Occupanti',
-                lblIsiticiTuru: 'Selezione Generatore Termico',
-                lblSicakSu: 'Produzione Acqua Calda Sanitaria (ACS)',
-                lblAnalizBaslikText: 'Report di Carico',
-                defMahalNo: 'E-101',
-                defMahalAdi: 'Ufficio Direzione',
-                txtOnerilenHesapla: 'Clicca su calcola.',
-                txtPrintBekleniyor: 'In attesa del calcolo...',
-                cityOptionsKlimaPratik: `
-                    <option value="1">Palermo, Catania, Cagliari, Napoli (Zona A/B/C - Molto Calda)</option>
-                    <option value="2">Roma, Firenze, Pescara, Ancona (Zona D - Calda)</option>
-                    <option value="3" selected>Milano, Torino, Bologna, Venezia (Zona E - Temperata)</option>
-                    <option value="4">Trento, Bolzano, Aosta, Belluno (Zona F - Alpina/Rigida)</option>`,
-                cityOptionsKlima: `
-                    <optgroup label="Zona Climatica F/E (Nord / Pianura Padana)">
-                        <option value="Milano" selected>Milano (Picco Estivo: 36°C)</option>
-                        <option value="Torino">Torino (Picco Estivo: 35°C)</option>
-                        <option value="Bologna">Bologna (Picco Estivo: 37°C)</option>
-                        <option value="Venezia">Venezia (Picco Estivo: 34°C)</option>
-                    </optgroup>
-                    <optgroup label="Zona Climatica D/C (Centro Italia)">
-                        <option value="Roma">Roma (Picco Estivo: 38°C)</option>
-                        <option value="Firenze">Firenze (Picco Estivo: 39°C)</option>
-                        <option value="Ancona">Ancona (Picco Estivo: 35°C)</option>
-                    </optgroup>
-                    <optgroup label="Zona Climatica B/A (Sud e Isole)">
-                        <option value="Napoli">Napoli (Picco Estivo: 36°C)</option>
-                        <option value="Palermo">Palermo (Picco Estivo: 40°C)</option>
-                        <option value="Cagliari">Cagliari (Picco Estivo: 38°C)</option>
-                    </optgroup>`,
-                cityOptionsIsitma: `
-                    <optgroup label="Zona A/B/C - Inverno Mite">
-                        <option value="1">Palermo, Napoli, Cagliari, Reggio Calabria</option>
-                    </optgroup>
-                    <optgroup label="Zona D - Inverno Medio">
-                        <option value="2">Roma, Firenze, Pescara, Ancona</option>
-                    </optgroup>
-                    <optgroup label="Zona E - Inverno Rigido">
-                        <option value="3" selected>Milano, Torino, Bologna, Venezia</option>
-                    </optgroup>
-                    <optgroup label="Zona F - Inverno Molto Rigido / Alpino">
-                        <option value="4">Trento, Bolzano, Aosta, Belluno</option>
-                    </optgroup>`,
-                yalitimOptionsPratik: `
-                    <option value="cok_iyi">Ottimo (Cappotto Termico SATE / Alto Isolamento)</option>
-                    <option value="standart" selected>Isolamento Standard Edificio</option>
-                    <option value="zayif">Senza Isolamento / Muratura Vecchia</option>`,
-                yalitimOptionsKlima: `
-                    <option value="cok_iyi">Ottimo (Cappotto Termico Attivo / Alto Isolamento)</option>
-                    <option value="standart" selected>Isolamento Standard</option>
-                    <option value="zayif">Senza Isolamento / Edificio Vecchio in Mattoni</option>`,
-                yalitimOptionsIsitma: `
-                    <option value="cok_iyi">Ottimo (Cappotto Termico Nuovo / Alto Isolamento)</option>
-                    <option value="standart">Isolamento Standard</option>
-                    <option value="zayif">Senza Isolamento / Edificio Vecchio</option>`,
-                yonOptions: `
-                    <option value="Kuzey">Nord (Ombra)</option>
-                    <option value="Kuzeydogu">Nord-est</option>
-                    <option value="Dogu">Est (Sole del mattino)</option>
-                    <option value="Guneydogu">Sud-est</option>
-                    <option value="Guney">Sud (Caldo)</option>
-                    <option value="Guneybati">Sud-ovest (Sole intenso)</option>
-                    <option value="Bati" selected>Ovest (Sole del pomeriggio)</option>
-                    <option value="Kuzeybati">Nord-ovest</option>`,
-                pencereYonOptions: `
-                    <option value="Kuzey">Nord (Poca Radiazione)</option>
-                    <option value="Kuzeydogu">Nord-est</option>
-                    <option value="Dogu">Est (Radiazione Media)</option>
-                    <option value="Guneydogu">Sud-est</option>
-                    <option value="Guney">Sud (Radiazione Alta)</option>
-                    <option value="Guneybati">Sud-ovest</option>
-                    <option value="Bati" selected>Ovest (Carico Solare Critico)</option>
-                    <option value="Kuzeybati">Nord-ovest</option>`,
-                katKonumPratikOptions: `
-                    <option value="Ara Kat">Piano Intermedio (Piani Sopra/Sotto)</option>
-                    <option value="En Üst Kat - Teras">Ultimo Piano - Copertura Piana / Terrazza</option>
-                    <option value="En Üst Kat - Eğimli">Ultimo Piano - Tetto Inclinato</option>
-                    <option value="Zemin Kat">Piano Terra (Contatto Terreno)</option>`,
-                katKonumKlimaOptions: `
-                    <option value="Ara Kat">Piano Intermedio (Piani Sopra/Sotto)</option>
-                    <option value="En Üst Kat - Teras">Ultimo Piano - Copertura Piana / Terrazza</option>
-                    <option value="En Üst Kat - Eğimli">Ultimo Piano - Tetto Inclinato</option>
-                    <option value="Zemin Kat">Piano Terra (Contatto Terreno)</option>`,
-                katKonumIsitmaOptions: `
-                    <option value="ara">Piano Intermedio (Abitato Sopra/Sotto)</option>
-                    <option value="zemin">Piano Terra (Contatto Terreno)</option>
-                    <option value="teras">Ultimo Piano - Copertura Piana / Terrazza</option>
-                    <option value="egimli">Ultimo Piano - Tetto Inclinato</option>`,
-                usoOptions: `
-                    <option value="Konut">Abitazione (Camera / Soggiorno)</option>
-                    <option value="Ofis">Commerciale - Ufficio</option>
-                    <option value="Dükkan">Commerciale - Negozio / Locale</option>`,
-                usoKlimaOptions: `
-                    <option value="Konut">Abitazione (Camera / Soggiorno)</option>
-                    <option value="İşyeri - Ofis">Commerciale - Ufficio</option>
-                    <option value="İşyeri - Dükkan">Commerciale - Negozio (Alta Affluenza)</option>`,
-                cristalOptions: `
-                    <option value="PVC - Çift Cam">Profilo PVC - Doppio Vetro Standard</option>
-                    <option value="PVC - Tek Cam">Profilo PVC - Vetro Singolo Vecchio</option>
-                    <option value="Ahşap - Çift Cam">Profilo Legno - Doppio Vetro</option>
-                    <option value="Alüminyum - Çift Cam">Profilo Alluminio - Doppio Vetro</option>`,
-                ekCihazPratikOptions: `
-                    <option value="yok">Nessuna Apparecchiatura</option>
-                    <option value="bilgisayar">Computer / Server (+200W)</option>
-                    <option value="minibuzdolabi">Mini Frigo (+150W)</option>
-                    <option value="herikisi">Entrambi i Dispositivi (+350W)</option>`,
-                ekCihaz1Options: `
-                    <option value="yok">Nessuno</option>
-                    <option value="printer">Stampante (+120W)</option>
-                    <option value="minibuzdolabi">Mini Frigo (+150W)</option>`,
-                ekCihaz2Options: `
-                    <option value="yok">Nessuno</option>
-                    <option value="printer">Stampante (+120W)</option>
-                    <option value="minibuzdolabi">Mini Frigo (+150W)</option>`,
-                yapiTipiOptions: `
-                    <option value="daire">Appartamento in Condominio</option>
-                    <option value="mustakil">Villetta a Schiera</option>
-                    <option value="villa">Villa Indipendente</option>
-                    <option value="dubleks">Appartamento DUPLEX</option>
-                    <option value="ofis">Ufficio / Studio Professionale</option>`,
-                generadorOptions: `
-                    <option value="isipompasi_monobloc" selected>Pompa di Calore Monoblocco</option>
-                    <option value="isipompasi_split">Pompa di Calore Split</option>
-                    <option value="yogusmali">Caldaia a Condensazione a Gas</option>`,
-                acsOptions: `
-                    <option value="evet" selected>Sì (Incluso Fabbisogno ACS)</option>
-                    <option value="hayir">No (Solo Riscaldamento)</option>`,
-                sihirbazYonOptions: `
-                    <option value="Yok" selected>Nessuno</option>
-                    <option value="Kuzey">Nord</option>
-                    <option value="Kuzeydogu">Nord-est</option>
-                    <option value="Dogu">Est</option>
-                    <option value="Guneydogu">Sud-est</option>
-                    <option value="Guney">Sud</option>
-                    <option value="Guneybati">Sud-ovest</option>
-                    <option value="Bati">Oeste</option>
-                    <option value="Kuzeybati">Nord-ovest</option>`,
-                manualKlimaText: `
-                    <ol class="list-decimal list-inside space-y-1.5 text-xs md:text-sm font-medium">
-                        <li><strong>Città e Temperatura Massima:</strong> Selezionando la città viene caricata automaticamente la temperatura esterna di progetto.</li>
-                        <li><strong>Livello di Isolamento:</strong> Seleziona la qualità dell'isolamento termico della struttura.</li>
-                        <li><strong>Uso e Posizione:</strong> Indica il tipo di locale e il piano all'interno dell'edificio.</li>
-                        <li><strong>Superficie ed Altezza Libera:</strong> Inserisci la superficie utile e l'altezza fino al soffitto.</li>
-                        <li><strong>Assistente Finestre e Facciate:</strong> Inserisci le dimensioni e le esposizioni di finestre e pareti.</li>
-                        <li><strong>Avvia Analisi:</strong> Clicca sul pulsante per ottenere il carico termico in Watt, kW e BTU/h.</li>
-                    </ol>
-                    <div class="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-xl text-blue-950 text-xs leading-relaxed space-y-1">
-                        <strong>Consiglio Tecnico:</strong> Quando prendi le misure delle pareti da AutoCAD o file DWG simili, puoi usare il comando "DIST" e l'opzione "M" per misurare pareti continue in una sola volta.<br>
-                        <strong>Nota: Per usi commerciali ed uffici vengono incorporati i carichi dissipati da apparecchiature informatiche ed illuminazione.</strong>
-                    </div>`
             }
         };
 
@@ -1291,27 +1016,27 @@
                 { id: 6, tag: "Aerotermia Avanzada", tagColor: "purple", title: "¿Por qué Elegir Aerotermia frente a Gas Canalizado?", desc: "Estudio de eficiencia energética y factura de la luz en viviendas de consumo casi nulo (ECCN).", content1: "<strong>Análisis de Ingeniería:</strong> La bomba de calor aerotérmica utiliza el ciclo termodinámico para aportar entre 3 y 5 kW térmicos por cada kW eléctrico ($COP>3.5$).", content2: "<strong>Consejos Prácticos:</strong> Combinada con paneles solares fotovoltaicos, la aerotermia permite alcanzar la climatización de coste cero en la temporada invernal." },
                 { id: 7, tag: "Salud y Confort", tagColor: "emerald", title: "Uso Saludable del Aire Acondicionado", desc: "Ajustes óptimos de temperatura de consigna, orientación de lamas y mantenimiento de filtros.", content1: "<strong>Análisis de Ingeniería:</strong> Saltos térmicos excesivos entre el exterior y el interior mayores a 8°C provocan contracturas musculares y problemas respiratorios. La temperatura de confort en verano se sitúa entre 24°C y 26°C.", content2: "<strong>Consejos Prácticos:</strong> Ajustar la difusión de aire en horizontal y limpiar los filtros antibacterias al menos dos veces por temporada garantiza un ambiente saludable." },
                 { id: 8, tag: "Ahorro Energético", tagColor: "rose", title: "Métodos Eficaces para Reducir Pérdidas Térmicas", desc: "Aislamiento de puentes térmicos, reflectores tras radiadores y válvulas termostáticas.", content1: "<strong>Análisis de Ingeniería:</strong> Las fugas de calor por falta de estanqueidad en ventanas y la radiación tras los radiadores hacia fachadas frías representan hasta un 25% del consumo energético del edificio.", content2: "<strong>Consejos Prácticos:</strong> La instalación de láminas reflectoras tras radiadores y válvulas termostáticas en dormitorios permite zonificar la temperatura obteniendo un ahorro inmediato." },
-                { id: 9, tag: "Principios Climatización", tagColor: "cyan", title: "¿Cómo Funciona un Equipo Split Inverter?", desc: "Ciclo de compresión de vapor, gas refrigerante R32 y funcionamiento del compresor DC.", content1: "<strong>Análisis de Ingeniería:</strong> El sistema split separa la unidad ruidosa de compresión y condensación en la fachada/tejado y ubica la evaporadora en la estancia. El ciclo frigorífico consta de 4 etapas: Compresión, Condensación, Expansión (EEV) y Evaporación.", content2: "<strong>Consejos Prácticos:</strong> Los nuevos refrigerantes como el R32 y R290 poseen un bajo Potencial de Calentamiento Atmosférico (PCA/GWP) y mayor eficiencia energética global." }
-            ],
-            it: [
-                { id: 1, tag: "Isolamento Termico", tagColor: "blue", title: "Isolamento Termico ed Efficienza Energetica in Italia", desc: "Impatto dei valori di trasmittanza U sulla potenza di raffrescamento e riscaldamento.", content1: "<strong>Analisi di Ingegneria:</strong> Le normative sull'efficienza fissano i requisiti minimi di trasmittanza termica ($U$) negli involucri edilizi. Un corretto isolamento riduce direttamente il flusso di calore per irraggiamento e conduzione.", content2: "<strong>Consigli Pratici:</strong> L'applicazione del cappotto termico (SATE) riduce le dispersioni fino al 40%, consentendo l'installazione di climatizzatori di potenza e consumo inferiori." },
-                { id: 2, tag: "Pompa di Calore vs Gas", tagColor: "orange", title: "Pompa di Calore Aerotermica vs Caldaia a Condensazione", desc: "Confronto delle prestazioni COP/SCOP e costi di gestione nelle diverse zone climatiche italiane.", content1: "<strong>Analisi di Ingegneria:</strong> La pompa di calore produce da 3 a 5 kW termici per ogni kW elettrico consumato grazie all'elevato COP. La caldaia sfrutta il calore latente ma richiede combustibile fossile.", content2: "<strong>Consigli Pratici:</strong> Nelle villette con riscaldamento a pavimento o ventilconvettori la pompa di calore è imbattibile. Nei condomini con radiatori tradizionali serve un'attenta analisi tecnica." },
-                { id: 3, tag: "Potenza e Calcolo", tagColor: "amber", title: "Calcolo della Potenza Termica (kW / BTU) e Irraggiamento Solare", desc: "Come influisce l'esposizione Ovest e Sud sul calcolo tecnico della potenza frigorifera.", content1: "<strong>Analisi di Ingegneria:</strong> Le facciate Ovest subiscono il picco massimo di carico termico poiché la temperatura ambiente si somma all'irraggiamento pomeridiano. Le unità standard in Italia sono kW e BTU/h.", content2: "<strong>Consigli Pratici:</strong> È indispensabile installare vetri a basso emissivo o controllo solare per mitigare i carichi termici sulle finestre." },
-                { id: 4, tag: "Scelta Climatizzatore", tagColor: "blue", title: "Criteri di Scelta dei Climatizzatori Inverter", desc: "Analisi di volume utile, affluenza, dispositivi elettronici e tecnologia DC Inverter.", content1: "<strong>Analisi di Ingegneria:</strong> Dimensionare un climatizzatore solo in base ai metri quadri causa imprecisioni. Bisogna calcolare il volume totale, l'affollamento e i carichi interni da illuminazione o PC.", content2: "<strong>Consigli Pratici:</strong> I condizionatori Inverter modulano la velocità del compressore mantenendo costante la temperatura con un risparmio dal 30% al 50% di energia." },
-                { id: 5, tag: "Caldaie a Gas", tagColor: "orange", title: "Criteri di Selezione delle Caldaie a Condensazione", desc: "Modulazione di potenza, scambiatori in acciaio inox e rendimento stagionale.", content1: "<strong>Analisi di Ingegneria:</strong> Le caldaie a condensazione raggiungono rendimenti elevatissimi recuperando il calore del vapore dai fumi di combustione. Il campo di modulazione è il parametro fondamentale.", content2: "<strong>Consigli Pratici:</strong> Un'ampia modulazione evita continui riavvii nei periodi di bassa richiesta, riducendo l'usura meccanica ed i consumi di gas." },
-                { id: 6, tag: "Aerotermia Avanzata", tagColor: "purple", title: "Perché Scegliere la Pompa di Calore rispetto al Gas?", desc: "Studio di efficienza energetica e bolletta della luce nelle case a consumo quasi zero (NZEB).", content1: "<strong>Analisi di Ingegneria:</strong> La pompa di calore aerotermica sfrutta il ciclo termodinamico fornendo da 3 a 5 kW termici per ogni kW elettrico ($COP>3.5$).", content2: "<strong>Consigli Pratici:</strong> Abbinata ad un impianto fotovoltaico, la pompa di calore consente di raggiungere la climatizzazione a costo quasi zero." },
-                { id: 7, tag: "Salute e Comfort", tagColor: "emerald", title: "Uso Salutare del Condizionatore", desc: "Impostazioni ottimali della temperatura, orientamento delle alette e pulizia filtri.", content1: "<strong>Analisi di Ingegneria:</strong> Sbalzi termici eccessivi tra esterno ed interno superiori a 8°C provocano contratture e problemi respiratori. La temperatura di comfort estiva si attesta tra 24°C e 26°C.", content2: "<strong>Consigli Pratici:</strong> Regolare l'aria in senso orizzontale e pulire i filtri antibatterici almeno due volte a stagione garantisce un ambiente sano." },
-                { id: 8, tag: "Risparmio Energetico", tagColor: "rose", title: "Metodi Efficaci per Ridurre le Dispersioni Termiche", desc: "Isolamento dei ponti termici, pannelli riflettenti e valvole termostatiche.", content1: "<strong>Analisi di Ingegneria:</strong> Le perdite di calore dagli infissi e l'irraggiamento dei radiatori verso pareti fredde rappresentano fino al 25% dei consumi energetici.", content2: "<strong>Consigli Pratici:</strong> L'installazione di pannelli riflettenti dietro i radiatori e valvole termostatiche permette di parzializzare la temperatura risparmiando subito." },
-                { id: 9, tag: "Principi Climatizzazione", tagColor: "cyan", title: "Come Funziona un Climatizzatore Split Inverter?", desc: "Ciclo di compressione del vapore, gas refrigerante R32 e compressore DC.", content1: "<strong>Analisi di Ingegneria:</strong> Lo split separa l'unità rumorosa di compressione all'esterno ponendo l'evaporatore nell'ambiente. Il ciclo frigorifero comprende 4 fasi: Compressione, Condensazione, Espansione ed Evaporazione.", content2: "<strong>Consigli Pratici:</strong> I nuovi refrigeranti R32 ed R290 hanno un basso potenziale di riscaldamento globale (GWP) ed una maggiore efficienza." }
+                { id: 9, tag: "Principios Climatización", tagColor: "cyan", title: "¿Cómo Funciona un Equipo Split Inverter?", desc: "Ciclo de compresión de vapor, gas refrigerante R32 y funcionamiento del compresor DC.", content1: "<strong>Análisis de Ingeniería:</strong> El sistema split separa la unidad ruidosa de compresión y condensación en la fachada/tejado y ubica la evaporadora en la estancia. El ciclo frigorífico consta de 4 etapas: Compresión, Condensación, Expansión (EEV) y Evaporación.", content2: "<strong>Consejos Prácticos:</strong> Los nuevos refrigerantes como el R32 y R290 poseen un bajo Potencial de Calentamiento Atmosférico (PCA/GWP) y mayor eficiencia energética global." },
+                { id: 10, tag: "Aerotermia y Suelo Radiante", tagColor: "emerald", title: "Aerotermia con Suelo Radiante: Eficiencia y Confort Térmico", desc: "Optimización de temperaturas de impulsión a 35°C para maximizar el COP estacional de la bomba de calor.", content1: "<strong>Análisis de Ingeniería:</strong> El suelo radiante trabaja con temperaturas de agua mucho más bajas (30-35°C en calefacción y 18-20°C en refrescamiento) en comparación con los radiadores convencionales (70-80°C).", content2: "<strong>Consejos Prácticos:</strong> Es fundamental realizar un equilibrado hidráulico de los circuitos y utilizar termostatos inteligentes por estancia para evitar inercias térmicas excesivas." },
+                { id: 11, tag: "Renovación de Aire", tagColor: "blue", title: "Ventilación Mecánica Controlada (VMC) y Recuperación de Calor", desc: "Cumplimiento del DB-HS del Código Técnico y calidad del aire interior en viviendas estancas.", content1: "<strong>Análisis de Ingeniería:</strong> Las viviendas modernas son cada vez más herméticas para cumplir exigencias energéticas, lo que requiere sistemas VMC de doble flujo con intercambiadores de calor de alta eficiencia.", content2: "<strong>Consejos Prácticos:</strong> Un recuperador de calor con rendimiento superior al 80% precalienta el aire de renovación en invierno utilizando la energía del aire extraído de cocinas y baños sin mezclar los flujos." },
+                { id: 12, tag: "Conductos y Zonas", tagColor: "purple", title: "Sistemas de Climatización por Conductos con Zonificación Airzone", desc: "Control independiente de temperatura por habitaciones en sistemas inverter centralizados.", content1: "<strong>Análisis de Ingeniería:</strong> La zonificación de conductos mediante compuertas motorizadas ajusta el caudal de aire y la capacidad del compresor Inverter a la demanda real de cada zona.", content2: "<strong>Consejos Prácticos:</strong> Evita sobrepresiones en el plenum de descarga utilizando rejillas de retorno dimensionadas adecuadamente y retornos centralizados con sección libre suficiente." },
+                { id: 13, tag: "Hidráulica y Bombas", tagColor: "orange", title: "Dimensionamiento de Bombas de Circulación y Acumulación ACS", desc: "Cálculo de caudales, pérdidas de carga en tuberías de polipropileno y vasos de expansión.", content1: "<strong>Análisis de Ingeniería:</strong> El caudal del circuito hidráulico se determina a partir de la potencia térmica y el salto térmico de diseño ($\Delta T = 5°C$ en suelo radiante, $\Delta T = 10°C$ en fancoils).", content2: "<strong>Consejos Prácticos:</strong> Seleccionar bombas circuladoras electrónicas de velocidad variable (PWM) para adaptar el caudal a las demandas parciales y reducir el consumo eléctrico auxiliar." },
+                { id: 14, tag: "Normativa RITE", tagColor: "cyan", title: "Exigencias del RITE en Instalaciones de Climatización", desc: "Reglamento de Instalaciones Térmicas en los Edificios: Mantenimiento, eficiencia y contabilización.", content1: "<strong>Análisis de Ingeniería:</strong> El RITE establece las condiciones de bienestar térmico, calidad del aire, eficiencia energética y obligatoriedad de inspecciones periódicas en instalaciones térmicas.", content2: "<strong>Consejos Prácticos:</strong> Los titulares de instalaciones de potencia superior a 70 kW deben disponer de un libro de mantenimiento actualizado y contratos con empresas mantenedoras autorizadas." },
+                { id: 15, tag: "Energía Solar", tagColor: "amber", title: "Hibridación de Aerotermia con Paneles Fotovoltaicos", desc: "Estrategias de autoconsumo eléctrico para alimentar bombas de calor en horario diurno.", content1: "<strong>Análisis de Ingeniería:</strong> La mayor producción fotovoltaica coincide con las horas de mayor radiación solar, periodo ideal para acumular energía térmica en depósitos de inercia o ACS mediante la aerotermia.", content2: "<strong>Consejos Prácticos:</strong> Programar las consignas de producción de ACS a 55°C entre las 12:00 y las 16:00 horas maximiza el autoconsumo directo y reduce drásticamente la factura eléctrica." },
+                { id: 16, tag: "Acústica y Confort", tagColor: "rose", title: "Control de Ruido y Vibraciones en Unidades Exteriores", desc: "Instalación de bancadas antivibratorias, soportes de goma y distancias a huecos de fachada.", content1: "<strong>Análisis de Ingeniería:</strong> Las unidades exteriores de aerotermia y aire acondicionado generan ondas sonoras y vibraciones estructurales que deben atenuarse mediante elementos elásticos.", content2: "<strong>Consejos Prácticos:</strong> Utilizar silentblocks de caucho o muelles dimensionados al peso del equipo, y evitar orientar el flujo de descarga del ventilador hacia ventanas de dormitorios colindantes." },
+                { id: 17, tag: "Refrigerantes Ecológicos", tagColor: "emerald", title: "Refrigerantes R32 y R290 (Propano) en Aerotermia Moderna", desc: "Análisis termodinámico, normativas de seguridad y bajo potencial de calentamiento atmosférico.", content1: "<strong>Análisis de Ingeniería:</strong> Los nuevos refrigerantes naturales como el R290 (propano) y sintéticos puros como el R32 reducen significativamente el PCA (GWP) cumpliendo la normativa F-Gas.", content2: "<strong>Consejos Prácticos:</strong> Al trabajar con R290 en equipos monobloc exteriores se eliminan riesgos de fuga en el interior de la vivienda, garantizando máxima seguridad y eficiencia." },
+                { id: 18, tag: "Patologías Constructivas", tagColor: "blue", title: "Prevención de Condensaciones en Climatización Invisible", desc: "Punto de rocío en techos refrigerados y aislamiento de tuberías de agua fría.", content1: "<strong>Análisis de Ingeniería:</strong> Durante el modo refrigeración por suelo o techo radiante, la temperatura del agua puede descender por debajo del punto de rocío del ambiente, provocando condensaciones.", content2: "<strong>Consejos Prácticos:</strong> Instalar sondas de humedad relativa conectadas al termostato principal que bloqueen el sistema o eleven la temperatura del agua si la humedad ambiental supera el 60%." },
+                { id: 19, tag: "Mantenimiento Preventivo", tagColor: "orange", title: "Mantenimiento Preventivo en Sistemas de Climatización", desc: "Limpieza de baterías de intercambio, revisión de presiones de gas y purgado de circuitos.", content1: "<strong>Análisis de Ingeniería:</strong> La acumulación de polvo en filtros y serpentines reduce el caudal de aire y el coeficiente de transferencia térmica, disparando el consumo eléctrico del compresor.", content2: "<strong>Consejos Prácticos:</strong> Realizar revisiones anuales antes de las temporadas de verano e invierno para comprobar el subenfriamiento, recalentamiento y apriete de conexiones eléctricas." },
+                { id: 20, tag: "Edificios Inteligentes", tagColor: "purple", title: "Integración de Climatización en Domótica y Smart Homes", desc: "Control via Wi-Fi, pasarelas Modbus y algoritmos de predicción meteorológica.", content1: "<strong>Análisis de Ingeniería:</strong> Los sistemas de control domótico integran sondas de presencia, sensores de CO2 y previsiones meteorológicas para anticiparse a las puntas de carga térmica.", content2: "<strong>Consejos Prácticos:</strong> Configurar geofencing para que el sistema reduzca la climatización cuando los ocupantes salgan de casa y alcance el confort óptimo justo antes de su regreso." }
             ]
         };
 
         function dilDegistir(lang) {
-            mevcudDil = lang;
-            const t = i18n[lang];
+            mevcudDil = 'es';
+            const t = i18n['es'];
 
             document.getElementById('lblSlogan').innerText = t.lblSlogan;
-            document.getElementById('htmlTag').lang = lang;
+            document.getElementById('htmlTag').lang = 'es';
             document.title = t.pageTitle;
             document.getElementById('versiyonRozeti').innerText = t.version;
             document.getElementById('txtTabPratik').innerText = t.tabPratik;
@@ -1385,7 +1110,6 @@
             document.getElementById('modalTitleTerms').innerText = t.modalTitleTerms;
             document.getElementById('modalBodyTerms').innerHTML = t.modalBodyTerms;
 
-            // Form Labels
             document.getElementById('lblPratikSehir').innerText = t.lblPratikSehir;
             document.getElementById('lblPratikAlan').innerText = t.lblPratikAlan;
             document.getElementById('lblPratikYalitim').innerText = t.lblPratikYalitim;
@@ -1424,7 +1148,6 @@
             document.getElementById('lblIsiticiTuru').innerText = t.lblIsiticiTuru;
             document.getElementById('lblSicakSu').innerText = t.lblSicakSu;
 
-            // Form Selects
             document.getElementById('pratikSehir').innerHTML = t.cityOptionsKlimaPratik;
             document.getElementById('sehir').innerHTML = t.cityOptionsKlima;
             document.getElementById('sehirIsitma').innerHTML = t.cityOptionsIsitma;
@@ -1453,25 +1176,11 @@
                 document.getElementById(`dd_${id}_yon`).innerHTML = t.sihirbazYonOptions;
             });
 
-            // Dil Butonları
-            const btnES = document.getElementById('btnLangES');
-            const btnIT = document.getElementById('btnLangIT');
-            const baseClass = "px-3 py-1.5 rounded-lg text-xs font-black transition-all duration-200 flex items-center gap-2 cursor-pointer";
-
-            if (lang === 'es') {
-                btnES.className = baseClass + " bg-blue-600 text-white shadow-md ring-2 ring-blue-400";
-                btnIT.className = baseClass + " text-slate-600 hover:text-slate-900 hover:bg-slate-300/50";
-            } else {
-                btnIT.className = baseClass + " bg-emerald-600 text-white shadow-md ring-2 ring-emerald-400";
-                btnES.className = baseClass + " text-slate-600 hover:text-slate-900 hover:bg-slate-300/50";
-            }
-
             if (document.getElementById("raporMahalNo")) document.getElementById("raporMahalNo").value = t.defMahalNo;
             if (document.getElementById("raporMahalAdi")) document.getElementById("raporMahalAdi").value = t.defMahalAdi;
 
             renderBlogArticles();
             cevrimaModuDegistir(mevcutCevrimModu);
-            
             sekmeDegistir(mevcutMod);
         }
 
@@ -1514,7 +1223,7 @@
             if (divTrifazeNotu) divTrifazeNotu.classList.add('hidden');
             if (divMonoblocNotu) divMonoblocNotu.classList.add('hidden');
 
-            const t = i18n[mevcudDil];
+            const t = i18n['es'];
 
             if (mod === 'pratik') {
                 btnPratik.className = "flex-1 min-w-[200px] py-3 px-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2 bg-white text-blue-600 shadow-sm cursor-pointer";
@@ -1571,7 +1280,7 @@
 
         function guncelleOnerilenEtiketMetni(tur) {
             const etiketEl = document.getElementById('lblOnerilenEtiket');
-            const t = i18n[mevcudDil];
+            const t = i18n['es'];
             if (mevcutMod === 'klima' || mevcutMod === 'pratik') {
                 etiketEl.innerText = t.lblOnerilenEtiketKlima;
             } else {
@@ -1584,17 +1293,17 @@
         function renderManuel(mod) {
             const manuelBaslik = document.getElementById("lblManuelBaslik");
             const manuelIcerik = document.getElementById("lblManuelIcerik");
-            const t = i18n[mevcudDil];
+            const t = i18n['es'];
 
             if (mod === 'klima') {
-                manuelBaslik.innerHTML = `<i class="fa-solid fa-book-open text-blue-600"></i> ${mevcudDil === 'es' ? '¿Cómo utilizar el Motor de Cálculo?' : 'Come utilizzare il Motore di Calcolo?'}`;
+                manuelBaslik.innerHTML = `<i class="fa-solid fa-book-open text-blue-600"></i> ¿Cómo utilizar el Motor de Cálculo?`;
                 manuelIcerik.innerHTML = t.manualKlimaText;
             }
         }
 
         function renderBlogArticles() {
             const container = document.getElementById("blogGridContainer");
-            const articles = blogArticlesData[mevcudDil];
+            const articles = blogArticlesData['es'];
             let html = "";
 
             articles.forEach(art => {
@@ -1616,10 +1325,10 @@
                         <div id="blogContent${art.id}" class="hidden pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-3 leading-relaxed">
                             <p>${art.content1}</p>
                             <p>${art.content2}</p>
-                            <span class="text-${colorClass}-600 font-bold block pt-1">${mevcudDil === 'es' ? 'Reducir / Cerrar' : 'Chiudi / Riduci'}</span>
+                            <span class="text-${colorClass}-600 font-bold block pt-1">Reducir / Cerrar</span>
                         </div>
                     </div>
-                    <span id="blogBtnText${art.id}" class="text-xs font-bold text-${colorClass}-600 flex items-center gap-1 pt-2">${mevcudDil === 'es' ? 'Leer Artículo' : 'Leggi Articolo'} <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                    <span id="blogBtnText${art.id}" class="text-xs font-bold text-${colorClass}-600 flex items-center gap-1 pt-2">Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                 </div>`;
             });
 
@@ -1642,150 +1351,69 @@
             }
         }
 
-        /* PAZARYERİ SORGULAMA ENGINE */
         function renderPazaryerleri(kategoriTuru, baslikMetni) {
             const container = document.getElementById("pazaryeriListesi");
             let cleanQuery = "";
 
-            if (mevcudDil === 'es') {
-                if (kategoriTuru === 'klima') {
-                    let fgMatch = baslikMetni.match(/(\d+)\s*Frigorías/i);
-                    let fgStr = fgMatch ? fgMatch[1] : "3000";
-                    let isConductos = baslikMetni.toLowerCase().includes("conductos") || baslikMetni.toLowerCase().includes("cassette");
-                    cleanQuery = isConductos ? `Aire acondicionado ${fgStr} frigorias` : `Split ${fgStr} frigorias`;
-                } else {
-                    let kwMatch = baslikMetni.match(/(\d+(\.\d+)?\s*kW)/i);
-                    let kwStr = kwMatch ? kwMatch[1] : "";
-                    if (baslikMetni.toLowerCase().includes("monobloc")) cleanQuery = `Aerotermia Monobloc ${kwStr}`.trim();
-                    else if (baslikMetni.toLowerCase().includes("split")) cleanQuery = `Aerotermia Split ${kwStr}`.trim();
-                    else cleanQuery = `Caldera Condensacion ${kwStr}`.trim();
-                }
+            if (kategoriTuru === 'klima') {
+                let fgMatch = baslikMetni.match(/(\d+)\s*Frigorías/i);
+                let fgStr = fgMatch ? fgMatch[1] : "3000";
+                let isConductos = baslikMetni.toLowerCase().includes("conductos") || baslikMetni.toLowerCase().includes("cassette");
+                cleanQuery = isConductos ? `Aire acondicionado ${fgStr} frigorias` : `Split ${fgStr} frigorias`;
             } else {
-                if (kategoriTuru === 'klima') {
-                    let btuMatch = baslikMetni.match(/(\d+)\s*BTU/i);
-                    let btuStr = btuMatch ? btuMatch[1] : "12000";
-                    let isCanalizzato = baslikMetni.toLowerCase().includes("canalizzato") || baslikMetni.toLowerCase().includes("cassetta");
-                    cleanQuery = isCanalizzato ? `Climatizzatore ${btuStr}` : `Mono split ${btuStr}`;
-                } else {
-                    let kwMatch = baslikMetni.match(/(\d+(\.\d+)?\s*kW)/i);
-                    let kwStr = kwMatch ? kwMatch[1] : "";
-                    if (baslikMetni.toLowerCase().includes("caldaia")) {
-                        cleanQuery = `Caldaia ${kwStr}`.trim();
-                    } else {
-                        cleanQuery = `Pompa di calore ${kwStr}`.trim();
-                    }
-                }
+                let kwMatch = baslikMetni.match(/(\d+(\.\d+)?\s*kW)/i);
+                let kwStr = kwMatch ? kwMatch[1] : "";
+                if (baslikMetni.toLowerCase().includes("monobloc")) cleanQuery = `Aerotermia Monobloc ${kwStr}`.trim();
+                else if (baslikMetni.toLowerCase().includes("split")) cleanQuery = `Aerotermia Split ${kwStr}`.trim();
+                else cleanQuery = `Caldera Condensacion ${kwStr}`.trim();
             }
 
             let encodedStandard = encodeURIComponent(cleanQuery);
             let html = "";
 
-            if (mevcudDil === 'es') {
-                let leroyEsUrl = `https://www.leroymerlin.es/search?q=${encodedStandard}`;
-                let mediaMarktEsUrl = `https://www.mediamarkt.es/es/search.html?query=${encodedStandard}`;
-                let elCorteEsUrl = `https://www.elcorteingles.es/search/?s=${encodedStandard}`;
+            let leroyEsUrl = `https://www.leroymerlin.es/search?q=${encodedStandard}`;
+            let mediaMarktEsUrl = `https://www.mediamarkt.es/es/search.html?query=${encodedStandard}`;
+            let elCorteEsUrl = `https://www.elcorteingles.es/search/?s=${encodedStandard}`;
 
-                if (kategoriTuru === 'klima') {
-                    html = `
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-emerald-100 text-emerald-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">Leroy Merlin España</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${leroyEsUrl}" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Ver Tienda <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
+            if (kategoriTuru === 'klima') {
+                html = `
+                <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
+                    <div class="min-w-0 flex-1 pr-2">
+                        <span class="text-[9px] bg-emerald-100 text-emerald-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">Leroy Merlin España</span>
+                        <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
                     </div>
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-red-100 text-red-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">MediaMarkt España</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${mediaMarktEsUrl}" target="_blank" rel="noopener" class="bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Ver Ofertas <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
+                    <a href="${leroyEsUrl}" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Ver Tienda <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
+                </div>
+                <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
+                    <div class="min-w-0 flex-1 pr-2">
+                        <span class="text-[9px] bg-red-100 text-red-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">MediaMarkt España</span>
+                        <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
                     </div>
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-emerald-800 text-white font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">El Corte Inglés</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${elCorteEsUrl}" target="_blank" rel="noopener" class="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Ver Producto <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
-                    </div>`;
-                } else {
-                    html = `
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-emerald-100 text-emerald-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">Leroy Merlin España</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${leroyEsUrl}" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Ver Tienda <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
+                    <a href="${mediaMarktEsUrl}" target="_blank" rel="noopener" class="bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Ver Ofertas <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
+                </div>
+                <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
+                    <div class="min-w-0 flex-1 pr-2">
+                        <span class="text-[9px] bg-emerald-800 text-white font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">El Corte Inglés</span>
+                        <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
                     </div>
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-emerald-800 text-white font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">El Corte Inglés</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${elCorteEsUrl}" target="_blank" rel="noopener" class="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Ver Producto <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
-                    </div>`;
-                }
-
+                    <a href="${elCorteEsUrl}" target="_blank" rel="noopener" class="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Ver Producto <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
+                </div>`;
             } else {
-                let leroyItUrl = `https://www.leroymerlin.it/ricerca?q=${encodedStandard}`;
-                let mediaWorldItUrl = `https://www.mediaworld.it/it/search.html?query=${encodedStandard}`;
-                let ebayItUrl = `https://www.ebay.it/sch/i.html?_nkw=${encodedStandard}`;
-                let climamarketItUrl = `https://www.climamarket.it/search?q=${encodedStandard}`;
-
-                if (kategoriTuru === 'klima') {
-                    html = `
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-emerald-100 text-emerald-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">Leroy Merlin Italia</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${leroyItUrl}" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Vedi Negozio <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
+                html = `
+                <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
+                    <div class="min-w-0 flex-1 pr-2">
+                        <span class="text-[9px] bg-emerald-100 text-emerald-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">Leroy Merlin España</span>
+                        <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
                     </div>
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-red-100 text-red-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">MediaWorld Italia</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${mediaWorldItUrl}" target="_blank" rel="noopener" class="bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Vedi Offerte <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
+                    <a href="${leroyEsUrl}" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Ver Tienda <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
+                </div>
+                <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
+                    <div class="min-w-0 flex-1 pr-2">
+                        <span class="text-[9px] bg-emerald-800 text-white font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">El Corte Inglés</span>
+                        <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
                     </div>
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-cyan-100 text-cyan-900 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">Climamarket Italia</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${climamarketItUrl}" target="_blank" rel="noopener" class="bg-cyan-700 hover:bg-cyan-800 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Vedi Prodotti <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
-                    </div>
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-blue-100 text-blue-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">eBay Italia</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${ebayItUrl}" target="_blank" rel="noopener" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Vedi Prezzi <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
-                    </div>`;
-                } else {
-                    html = `
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-emerald-100 text-emerald-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">Leroy Merlin Italia</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${leroyItUrl}" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Vedi Negozio <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
-                    </div>
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-cyan-100 text-cyan-900 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">Climamarket Italia</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${climamarketItUrl}" target="_blank" rel="noopener" class="bg-cyan-700 hover:bg-cyan-800 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Vedi Prodotti <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
-                    </div>
-                    <div class="p-2.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition flex items-center justify-between shadow-2xs w-full overflow-hidden">
-                        <div class="min-w-0 flex-1 pr-2">
-                            <span class="text-[9px] bg-blue-100 text-blue-800 font-extrabold px-1.5 py-0.5 rounded mb-0.5 inline-block">eBay Italia</span>
-                            <h4 class="font-bold text-slate-800 text-[11px] truncate">${baslikMetni}</h4>
-                        </div>
-                        <a href="${ebayItUrl}" target="_blank" rel="noopener" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Vedi Prezzi <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
-                    </div>`;
-                }
+                    <a href="${elCorteEsUrl}" target="_blank" rel="noopener" class="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-[11px] py-1.5 px-2.5 rounded-lg transition shrink-0 flex items-center gap-1 cursor-pointer">Ver Producto <i class="fa-solid fa-cart-shopping text-[10px]"></i></a>
+                </div>`;
             }
 
             container.innerHTML = html;
@@ -1793,18 +1421,12 @@
 
         function renderVarsayilanPazaryeri(mod) {
             const container = document.getElementById("pazaryeriListesi");
-            let pazaryeriIsimleri = "";
-            
-            if (mevcudDil === 'es') {
-                pazaryeriIsimleri = mod === 'klima' ? 'Leroy Merlin, MediaMarkt y El Corte Inglés' : 'Leroy Merlin y El Corte Inglés';
-            } else {
-                pazaryeriIsimleri = mod === 'klima' ? 'Leroy Merlin, MediaWorld, Climamarket ed eBay' : 'Leroy Merlin, Climamarket ed eBay';
-            }
+            let pazaryeriIsimleri = mod === 'klima' ? 'Leroy Merlin, MediaMarkt y El Corte Inglés' : 'Leroy Merlin y El Corte Inglés';
 
             container.innerHTML = `
                 <div class="text-center py-6 text-slate-400 text-xs italic">
                     <i class="fa-solid ${mod === 'klima' ? 'fa-snowflake text-blue-300' : 'fa-fire text-orange-300'} block text-2xl mb-2"></i>
-                    ${mevcudDil === 'es' ? 'Introduzca los datos para ver las ofertas exactas en ' : 'Inserisci i dati per vedere le offerte esatte su '} ${pazaryeriIsimleri}.
+                    Introduzca los datos para ver las ofertas exactas en ${pazaryeriIsimleri}.
                 </div>`;
         }
 
@@ -1827,7 +1449,7 @@
         }
 
         function sifirlaPratik() {
-            const t = i18n[mevcudDil];
+            const t = i18n['es'];
             document.getElementById("pratikForm").reset();
             pratikFonksiyonDegisti();
             document.getElementById("lblWatt").innerText = "0";
@@ -1838,7 +1460,7 @@
         }
 
         function sifirlaKlima() {
-            const t = i18n[mevcudDil];
+            const t = i18n['es'];
             document.getElementById("ts825Form").reset();
             if(document.getElementById("raporMahalNo")) document.getElementById("raporMahalNo").value = t.defMahalNo;
             if(document.getElementById("raporMahalAdi")) document.getElementById("raporMahalAdi").value = t.defMahalAdi;
@@ -1868,13 +1490,13 @@
             document.getElementById("lblFrigoria").innerText = "0";
             document.getElementById("lblBTU").innerText = "0";
             document.getElementById("lblOnerilenSegment").innerText = t.txtOnerilenHesapla;
-            if (document.getElementById("printBTUDeger")) document.getElementById("printBTUDeger").innerText = mevcudDil === 'es' ? "0 fg/h (0 BTU/h)" : "0.0 kW (0 BTU/h)";
+            if (document.getElementById("printBTUDeger")) document.getElementById("printBTUDeger").innerText = "0 fg/h (0 BTU/h)";
             if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = t.txtPrintBekleniyor;
             renderVarsayilanPazaryeri('klima');
         }
 
         function sifirlaIsitma() {
-            const t = i18n[mevcudDil];
+            const t = i18n['es'];
             document.getElementById("isitmaForm").reset();
             document.getElementById("kisiIsitma").value = "1";
             document.getElementById("tavanIsitma").value = "2.8";
@@ -1917,11 +1539,11 @@
                 document.getElementById("lblWatt").innerText = "0";
                 document.getElementById("lblFrigoria").innerText = "0";
                 document.getElementById("lblBTU").innerText = "0";
-                document.getElementById("lblOnerilenSegment").innerText = mevcudDil === 'es' ? "Por favor introduzca una superficie válida." : "Si prega di inserire una superficie valida.";
+                document.getElementById("lblOnerilenSegment").innerText = "Por favor introduzca una superficie válida.";
                 return;
             }
 
-            let baseWattM2 = bolge === 1 ? 115 : (bolge === 2 ? 90 : (bolge === 3 ? 80 : 75));
+            let baseWattM2 = bolge === 1 ? 125 : (bolge === 2 ? 105 : (bolge === 3 ? 80 : 75));
             let yalitimCarpanPratik = yalitimP === "cok_iyi" ? 0.85 : (yalitimP === "zayif" ? 1.12 : 1.00);
 
             let duvarSolarCarpan = yonSolarKatsayi(duvarYon);
@@ -1957,30 +1579,23 @@
             let toplamWatt = temelYuk + ekstraPencereYukW + insanGucWatt + ekGucWatt; 
             let toplamBTU = toplamWatt * 3.4121;
             let toplamFrigoria = toplamWatt * 0.8598;
-            let toplamKw = toplamWatt / 1000;
 
-            document.getElementById("lblWatt").innerText = Math.round(toplamWatt).toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
-            
-            if (mevcudDil === 'es') {
-                document.getElementById("lblFrigoria").innerText = Math.round(toplamFrigoria).toLocaleString('es-ES');
-            } else {
-                document.getElementById("lblFrigoria").innerText = toplamKw.toFixed(2).replace('.', ',');
-            }
+            document.getElementById("lblWatt").innerText = Math.round(toplamWatt).toLocaleString('es-ES');
+            document.getElementById("lblFrigoria").innerText = Math.round(toplamFrigoria).toLocaleString('es-ES');
+            document.getElementById("lblBTU").innerText = Math.round(toplamBTU).toLocaleString('es-ES');
 
-            document.getElementById("lblBTU").innerText = Math.round(toplamBTU).toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
-
-            let baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 2200 Frigorías 2.5 kW" : "Climatizzatore Split 2.5 kW (9000 BTU)";
+            let baslik = "Aire Acondicionado Split 2200 Frigorías 2.5 kW";
             if (toplamBTU > 9000 && toplamBTU <= 12000) { 
-                baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 3000 Frigorías 3.5 kW" : "Climatizzatore Split 3.5 kW (12000 BTU)"; 
+                baslik = "Aire Acondicionado Split 3000 Frigorías 3.5 kW"; 
             } else if (toplamBTU > 12000 && toplamBTU <= 18000) { 
-                baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 4500 Frigorías 5.0 kW" : "Climatizzatore Split 5.0 kW (18000 BTU)"; 
+                baslik = "Aire Acondicionado Split 4500 Frigorías 5.0 kW"; 
             } else if (toplamBTU > 18000 && toplamBTU <= 24000) { 
-                baslik = mevcudDil === 'es' ? "Aire Acondicionado Split 6000 Frigorías 7.1 kW" : "Climatizzatore Split 7.1 kW (24000 BTU)"; 
+                baslik = "Aire Acondicionado Split 6000 Frigorías 7.1 kW"; 
             } else if (toplamBTU > 24000) { 
                 if (fonks === "Ofis" || fonks === "Dükkan") {
-                    baslik = mevcudDil === 'es' ? "Aire Acondicionado Conductos / Cassette / Columna 8000 Frigorías" : "Climatizzatore Canalizzato / Cassetta / Colonna 8.0 kW (30000 BTU)";
+                    baslik = "Aire Acondicionado Conductos / Cassette / Columna 8000 Frigorías";
                 } else {
-                    baslik = mevcudDil === 'es' ? "Aire Acondicionado Conductos / Cassette 8000 Frigorías" : "Climatizzatore Canalizzato / Cassetta 8.0 kW (30000 BTU)"; 
+                    baslik = "Aire Acondicionado Conductos / Cassette 8000 Frigorías"; 
                 }
             }
 
@@ -1992,70 +1607,50 @@
         function yapiTipiDegisti() {
             const yapiTipi = document.getElementById("yapiTipi").value;
             const boxKatKonum = document.getElementById("boxKatKonumIsitma");
-            const tavanInput = document.getElementById("tavanIsitma");
             const boxKatAlanlari = document.getElementById("boxKatAlanlari");
             const netAlanInput = document.getElementById("netAlanIsitma");
-            const lblNetAlanBaslik = document.getElementById("lblNetAlanBaslik");
             const cepheSelect = document.getElementById("cepheSayisi");
+            
+            const opt4 = document.getElementById("cepheOpt4");
 
             boxKatAlanlari.classList.add("hidden");
             netAlanInput.readOnly = false;
             netAlanInput.value = "0.0";
             netAlanInput.className = "w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500";
-            lblNetAlanBaslik.innerText = "Superficie Útil (m²)";
-
-            tavanInput.readOnly = false;
-            tavanInput.className = "w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500";
+            
+            cepheSelect.disabled = false;
+            opt4.disabled = false;
+            opt4.hidden = false;
 
             if (yapiTipi === "daire" || yapiTipi === "ofis") {
                 boxKatKonum.classList.remove("opacity-40", "pointer-events-none");
-
-                cepheSelect.innerHTML = mevcudDil === 'es' ? `
-                    <option value="1">1 Fachada Exterior</option>
-                    <option value="2" selected>2 Fachadas Exteriores (Esquina)</option>
-                    <option value="3">3 Fachadas Exteriores</option>
-                    <option value="4" disabled class="text-slate-400">4 Fachadas (Solo Chalet / Unifamiliar)</option>` : `
-                    <option value="1">1 Facciata Esterna</option>
-                    <option value="2" selected>2 Facciate Esterne (Angolare)</option>
-                    <option value="3">3 Facciate Esterne</option>
-                    <option value="4" disabled class="text-slate-400">4 Facciate (Solo Villa Indipendente)</option>`;
                 cepheSelect.value = "2";
-                cepheSelect.disabled = false;
-                cepheSelect.className = "w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500";
+                opt4.disabled = true;
+                opt4.hidden = true;
+                if (cepheSelect.value === "4") cepheSelect.value = "3";
             } else if (yapiTipi === "dubleks") {
                 boxKatKonum.classList.remove("opacity-40", "pointer-events-none");
                 boxKatAlanlari.classList.remove("hidden");
                 netAlanInput.readOnly = true;
                 netAlanInput.className = "w-full bg-slate-200 cursor-not-allowed border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none";
-                lblNetAlanBaslik.innerText = "Superficie Útil (m²)";
-
-                cepheSelect.innerHTML = mevcudDil === 'es' ? `
-                    <option value="1">1 Fachada Exterior</option>
-                    <option value="2" selected>2 Fachadas Exteriores (Esquina)</option>
-                    <option value="3">3 Fachadas Exteriores</option>
-                    <option value="4" disabled class="text-slate-400">4 Fachadas (No válido para Dúplex)</option>` : `
-                    <option value="1">1 Facciata Esterna</option>
-                    <option value="2" selected>2 Facciate Esterne (Angolare)</option>
-                    <option value="3">3 Facciate Esterne</option>
-                    <option value="4" disabled class="text-slate-400">4 Facciate (Non valido per DUPLEX)</option>`;
                 cepheSelect.value = "2";
-                cepheSelect.disabled = false;
-                cepheSelect.className = "w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none focus:border-orange-500";
-            } else if (yapiTipi === "mustakil" || yapiTipi === "villa") {
+                opt4.disabled = true;
+                opt4.hidden = true;
+                if (cepheSelect.value === "4") cepheSelect.value = "3";
+            } else if (yapiTipi === "mustakil") {
                 boxKatKonum.classList.add("opacity-40", "pointer-events-none");
-                if (yapiTipi === "villa") {
-                    boxKatAlanlari.classList.remove("hidden");
-                    netAlanInput.readOnly = true;
-                    netAlanInput.className = "w-full bg-slate-200 cursor-not-allowed border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none";
-                    lblNetAlanBaslik.innerText = "Superficie Útil (m²)";
-                }
-
-                cepheSelect.innerHTML = mevcudDil === 'es' ? `
-                    <option value="4" selected>4 Fachadas (Chalet / Unifamiliar Independiente)</option>` : `
-                    <option value="4" selected>4 Facciate (Villa Indipendente / Villetta)</option>`;
-                cepheSelect.value = "4";
+                cepheSelect.value = "3";
+                opt4.disabled = false;
+                opt4.hidden = false;
+            } else if (yapiTipi === "villa") {
+                boxKatKonum.classList.add("opacity-40", "pointer-events-none");
+                boxKatAlanlari.classList.remove("hidden");
+                netAlanInput.readOnly = true;
+                netAlanInput.className = "w-full bg-slate-200 cursor-not-allowed border border-slate-200 rounded-lg p-2.5 text-xs font-bold focus:outline-none";
+                cepheSelect.value = "4"; 
+                opt4.disabled = false;
+                opt4.hidden = false;
                 cepheSelect.disabled = true;
-                cepheSelect.className = "w-full bg-slate-200 cursor-not-allowed border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-500 focus:outline-none";
             }
         }
 
@@ -2080,7 +1675,7 @@
                 document.getElementById("lblWatt").innerText = "0";
                 document.getElementById("lblFrigoria").innerText = "0";
                 document.getElementById("lblBTU").innerText = "0";
-                document.getElementById("lblOnerilenSegment").innerText = mevcudDil === 'es' ? "Por favor introduzca una superficie válida." : "Si prega di inserire una superficie valida.";
+                document.getElementById("lblOnerilenSegment").innerText = "Por favor introduzca una superficie válida.";
                 return;
             }
 
@@ -2109,19 +1704,13 @@
             const btuGucu = kwGucu * 3412.1;
 
             document.getElementById("lblWatt").innerText = kwGucu.toFixed(1);
-            
-            if (mevcudDil === 'es') {
-                document.getElementById("lblFrigoria").innerText = Math.round(kcalGucu).toLocaleString('es-ES');
-            } else {
-                document.getElementById("lblFrigoria").innerText = Math.round(kcalGucu).toLocaleString('it-IT');
-            }
+            document.getElementById("lblFrigoria").innerText = Math.round(kcalGucu).toLocaleString('es-ES');
+            document.getElementById("lblBTU").innerText = Math.round(btuGucu).toLocaleString('es-ES');
 
-            document.getElementById("lblBTU").innerText = Math.round(btuGucu).toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
-
-            let boylerHacmiMetin = mevcudDil === 'es' ? "Acumulador Monovalente de 200 Litros" : "Accumulo Monovalente da 200 Litri";
-            if (kisiSayisi <= 2) boylerHacmiMetin = mevcudDil === 'es' ? "Acumulador de 100 - 160 Litros" : "Accumulo da 100 - 160 Litri";
-            else if (kisiSayisi > 4 && kisiSayisi <= 6) boylerHacmiMetin = mevcudDil === 'es' ? "Acumulador Monovalente de 300 Litros" : "Accumulo Monovalente da 300 Litri";
-            else if (kisiSayisi > 6) boylerHacmiMetin = mevcudDil === 'es' ? "Acumulador Monovalente de 400 - 500 Litros" : "Accumulo Monovalente da 400 - 500 Litri";
+            let boylerHacmiMetin = "Acumulador Monovalente de 200 Litros";
+            if (kisiSayisi <= 2) boylerHacmiMetin = "Acumulador de 100 - 160 Litros";
+            else if (kisiSayisi > 4 && kisiSayisi <= 6) boylerHacmiMetin = "Acumulador Monovalente de 300 Litros";
+            else if (kisiSayisi > 6) boylerHacmiMetin = "Acumulador Monovalente de 400 - 500 Litros";
 
             if ((isiticiTuru === "isipompasi_monobloc" || isiticiTuru === "isipompasi_split") && sicakSuVarmi === "evet") {
                 document.getElementById("boylerRaporu").classList.remove("hidden");
@@ -2147,7 +1736,7 @@
                 }
                 if (document.getElementById("divMonoblocNotu")) document.getElementById("divMonoblocNotu").classList.remove("hidden");
 
-                sistemEtiket = mevcudDil === 'es' ? `Aerotermia Monobloc ${hpKw} kW` : `Pompa di Calore Monoblocco ${hpKw} kW`;
+                sistemEtiket = `Aerotermia Monobloc ${hpKw} kW`;
             } else if (isiticiTuru === "isipompasi_split") {
                 let hpKw = 8;
                 if (kwGucu <= 8) hpKw = 8;
@@ -2159,16 +1748,16 @@
                 if (hpKw >= 12 || kwGucu >= 12) {
                     if (document.getElementById("divTrifazeNotu")) document.getElementById("divTrifazeNotu").classList.remove("hidden");
                 }
-                sistemEtiket = mevcudDil === 'es' ? `Aerotermia Split ${hpKw} kW` : `Pompa di Calore Split ${hpKw} kW`;
+                sistemEtiket = `Aerotermia Split ${hpKw} kW`;
             } else {
                 if ((yapiTuru === "daire" || yapiTuru === "ofis") && netAlan < 100) {
-                    sistemEtiket = mevcudDil === 'es' ? `Caldera Condensacion Gas 20 - 24 kW` : `Caldaia Condensazione Gas 20 - 24 kW`;
+                    sistemEtiket = `Caldera Condensacion Gas 20 - 24 kW`;
                 } else {
                     let kombiKw = kwGucu <= 16 ? 24 : (kwGucu <= 22 ? 28 : 35);
                     if (yapiTuru === "villa" || yapiTuru === "mustakil" || yapiTuru === "dubleks") {
                         if (kombiKw < 24) kombiKw = 24;
                     }
-                    sistemEtiket = mevcudDil === 'es' ? `Caldera Condensacion Gas ${kombiKw} kW` : `Caldaia Condensazione Gas ${kombiKw} kW`;
+                    sistemEtiket = `Caldera Condensacion Gas ${kombiKw} kW`;
                 }
             }
 
@@ -2264,14 +1853,14 @@
 
         function hesaplaTS825() {
             let alan = parseTrFloat(document.getElementById("mahalAlani").value);
-            const t = i18n[mevcudDil];
+            const t = i18n['es'];
 
             if (alan <= 0) {
                 document.getElementById("lblWatt").innerText = "0";
                 document.getElementById("lblFrigoria").innerText = "0";
                 document.getElementById("lblBTU").innerText = "0";
-                document.getElementById("lblOnerilenSegment").innerText = mevcudDil === 'es' ? "Por favor introduzca una superficie válida." : "Si prega di inserire una superficie valida.";
-                if (document.getElementById("printBTUDeger")) document.getElementById("printBTUDeger").innerText = mevcudDil === 'es' ? "0 fg/h (0 BTU/h)" : "0.0 kW (0 BTU/h)";
+                document.getElementById("lblOnerilenSegment").innerText = "Por favor introduzca una superficie válida.";
+                if (document.getElementById("printBTUDeger")) document.getElementById("printBTUDeger").innerText = "0 fg/h (0 BTU/h)";
                 if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = t.txtPrintBekleniyor;
                 return;
             }
@@ -2286,16 +1875,17 @@
             const insan = parseInt(document.getElementById("insanSayisi").value) || 0;
 
             let tDisPik = 38;
-            if (["Sevilla", "Cordoba", "Palermo"].includes(sehir)) tDisPik = 42;
+            if (["Sevilla", "Cordoba"].includes(sehir)) tDisPik = 42;
             else if (["Badajoz"].includes(sehir)) tDisPik = 41;
             else if (["Murcia"].includes(sehir)) tDisPik = 40;
-            else if (["Zaragoza", "Toledo", "Firenze"].includes(sehir)) tDisPik = 39;
-            else if (["Madrid", "Roma", "Cagliari"].includes(sehir)) tDisPik = 38;
-            else if (["Almeria", "Malaga", "Alicante", "Milano", "Napoli"].includes(sehir)) tDisPik = 36;
-            else if (["Valencia", "Torino", "Bologna", "Ancona"].includes(sehir)) tDisPik = 35;
-            else if (["Barcelona", "Leon", "Burgos", "Venezia"].includes(sehir)) tDisPik = 33;
-            else if (["Bilbao", "Soria", "Avila"].includes(sehir)) tDisPik = 32;
-            else if (["A Coruna", "Santander"].includes(sehir)) tDisPik = 28;
+            else if (["Zaragoza", "Toledo"].includes(sehir)) tDisPik = 39;
+            else if (["Madrid"].includes(sehir)) tDisPik = 38;
+            else if (["Almeria", "Malaga", "Alicante"].includes(sehir)) tDisPik = 36;
+            else if (["Valencia", "Bilbao"].includes(sehir)) tDisPik = 35;
+            else if (["Barcelona", "Leon", "Burgos"].includes(sehir)) tDisPik = 33;
+            else if (["Soria", "Avila"].includes(sehir)) tDisPik = 32;
+            else if (["Santander"].includes(sehir)) tDisPik = 29;
+            else if (["A Coruna"].includes(sehir)) tDisPik = 28;
 
             const deltaT = Math.max(6, tDisPik - 24);
 
@@ -2382,48 +1972,23 @@
             const toplamWatt = netToplamWatt * 1.22; 
             const toplamBTU = Math.round(toplamWatt * 3.4121);
             const toplamFrigoria = Math.round(toplamWatt * 0.8598);
-            const toplamKw = toplamWatt / 1000;
 
-            document.getElementById("lblWatt").innerText = Math.round(toplamWatt).toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
-            if (mevcudDil === 'es') {
-                document.getElementById("lblFrigoria").innerText = toplamFrigoria.toLocaleString('es-ES');
-            } else {
-                document.getElementById("lblFrigoria").innerText = toplamKw.toFixed(2).replace('.', ',');
-            }
-            document.getElementById("lblBTU").innerText = toplamBTU.toLocaleString(mevcudDil === 'es' ? 'es-ES' : 'it-IT');
+            document.getElementById("lblWatt").innerText = Math.round(toplamWatt).toLocaleString('es-ES');
+            document.getElementById("lblFrigoria").innerText = toplamFrigoria.toLocaleString('es-ES');
+            document.getElementById("lblBTU").innerText = toplamBTU.toLocaleString('es-ES');
             
-            let baslik = "";
-            if (mevcudDil === 'es') {
-                if (toplamBTU <= 9500) {
-                    baslik = "Aire Acondicionado Split 2200 Frigorías 2.5 kW";
-                } else if (toplamBTU > 9500 && toplamBTU <= 12000) {
-                    baslik = "Aire Acondicionado Split 3000 Frigorías 3.5 kW";
-                } else if (toplamBTU > 12000 && toplamBTU <= 18000) {
-                    baslik = "Aire Acondicionado Split 4500 Frigorías 5.0 kW";
-                } else if (toplamBTU > 18000 && toplamBTU <= 24000) {
-                    baslik = "Aire Acondicionado Split 6000 Frigorías 7.1 kW";
+            let baslik = "Aire Acondicionado Split 2200 Frigorías 2.5 kW";
+            if (toplamBTU > 9500 && toplamBTU <= 12000) {
+                baslik = "Aire Acondicionado Split 3000 Frigorías 3.5 kW";
+            } else if (toplamBTU > 12000 && toplamBTU <= 18000) {
+                baslik = "Aire Acondicionado Split 4500 Frigorías 5.0 kW";
+            } else if (toplamBTU > 18000 && toplamBTU <= 24000) {
+                baslik = "Aire Acondicionado Split 6000 Frigorías 7.1 kW";
+            } else if (toplamBTU > 24000) {
+                if (mahalFonks === "İşyeri - Ofis" || mahalFonks === "İşyeri - Dükkan") {
+                    baslik = "Aire Acondicionado Conductos / Cassette / Columna 8000 Frigorías";
                 } else {
-                    if (mahalFonks === "İşyeri - Ofis" || mahalFonks === "İşyeri - Dükkan") {
-                        baslik = "Aire Acondicionado Conductos / Cassette / Columna 8000 Frigorías";
-                    } else {
-                        baslik = "Aire Acondicionado Conductos / Cassette 8000 Frigorías";
-                    }
-                }
-            } else {
-                if (toplamBTU <= 9500) {
-                    baslik = "Climatizzatore Split 2.5 kW (9000 BTU)";
-                } else if (toplamBTU > 9500 && toplamBTU <= 12000) {
-                    baslik = "Climatizzatore Split 3.5 kW (12000 BTU)";
-                } else if (toplamBTU > 12000 && toplamBTU <= 18000) {
-                    baslik = "Climatizzatore Split 5.0 kW (18000 BTU)";
-                } else if (toplamBTU > 18000 && toplamBTU <= 24000) {
-                    baslik = "Climatizzatore Split 7.1 kW (24000 BTU)";
-                } else {
-                    if (mahalFonks === "İşyeri - Ofis" || mahalFonks === "İşyeri - Dükkan") {
-                        baslik = "Climatizzatore Canalizzato / Cassetta / Colonna 8.0 kW (30000 BTU)";
-                    } else {
-                        baslik = "Climatizzatore Canalizzato / Cassetta 8.0 kW (30000 BTU)";
-                    }
+                    baslik = "Aire Acondicionado Conductos / Cassette 8000 Frigorías";
                 }
             }
 
@@ -2433,10 +1998,10 @@
 
             const mahalNo = document.getElementById("raporMahalNo") ? document.getElementById("raporMahalNo").value : t.defMahalNo;
             const mahalAdi = document.getElementById("raporMahalAdi") ? document.getElementById("raporMahalAdi").value : t.defMahalAdi;
-            if (document.getElementById("printMahalBilgi")) document.getElementById("printMahalBilgi").innerText = mevcudDil === 'es' ? `Estancia: ${mahalNo} - ${mahalAdi}` : `Stanza: ${mahalNo} - ${mahalAdi}`;
+            if (document.getElementById("printMahalBilgi")) document.getElementById("printMahalBilgi").innerText = `Estancia: ${mahalNo} - ${mahalAdi}`;
             
             if (document.getElementById("printBTUDeger")) {
-                document.getElementById("printBTUDeger").innerText = mevcudDil === 'es' ? `${toplamFrigoria.toLocaleString('es-ES')} fg/h (${toplamBTU.toLocaleString('es-ES')} BTU/h)` : `${toplamKw.toFixed(2).replace('.', ',')} kW (${toplamBTU.toLocaleString('it-IT')} BTU/h)`;
+                document.getElementById("printBTUDeger").innerText = `${toplamFrigoria.toLocaleString('es-ES')} fg/h (${toplamBTU.toLocaleString('es-ES')} BTU/h)`;
             }
             if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = baslik;
         }
@@ -2468,20 +2033,20 @@
                 btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-blue-600 text-white shadow-xs cursor-pointer";
                 btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-orange-600 cursor-pointer";
                 demoBilgiKutusu.className = "bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-2";
-                demoBaslik.innerHTML = mevcudDil === 'es' ? `<i class="fa-solid fa-snowflake text-blue-600"></i> Análisis Ciclo de Refrigeración` : `<i class="fa-solid fa-snowflake text-blue-600"></i> Analisi Ciclo di Refrigerazione`;
-                demoAciklama.innerHTML = mevcudDil === 'es' ? "En modo frío, la unidad interior impulsa <strong>aire frío (azul)</strong> absorbiendo el calor del recinto. El calor transportado por el circuito frigorífico se expulsa al exterior como <strong>aire caliente (rojo)</strong>." : "In modalità freddo, l'unità interna immette <strong>aria fredda (blu)</strong> assorbendo calore dall'ambiente. Il calore viene espulso all'esterno come <strong>aria calda (rossa)</strong>.";
-                txt4YolDurum.innerText = mevcudDil === 'es' ? "Flujo Directo (Modo Frío)" : "Flusso Diretto (Modo Freddo)";
+                demoBaslik.innerHTML = `<i class="fa-solid fa-snowflake text-blue-600"></i> Análisis Ciclo de Refrigeración`;
+                demoAciklama.innerHTML = "En modo frío, la unidad interior impulsa <strong>aire frío (azul)</strong> absorbiendo el calor del recinto. El calor transportado por el circuito frigorífico se expulsa al exterior como <strong>aire caliente (rojo)</strong>.";
+                txt4YolDurum.innerText = "Flujo Directo (Modo Frío)";
                 txtHavaDurum.className = "text-blue-600 font-bold";
-                txtHavaDurum.innerText = mevcudDil === 'es' ? "Interior: Frío / Exterior: Calor" : "Interno: Freddo / Esterno: Caldo";
+                txtHavaDurum.innerText = "Interior: Frío / Exterior: Calor";
             } else {
                 btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-orange-600 text-white shadow-xs cursor-pointer";
                 btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-blue-600 cursor-pointer";
                 demoBilgiKutusu.className = "bg-orange-50 border border-orange-200 rounded-xl p-4 space-y-2";
-                demoBaslik.innerHTML = mevcudDil === 'es' ? `<i class="fa-solid fa-fire text-orange-600"></i> Análisis Aerotermia (Bomba de Calor) Inviernos` : `<i class="fa-solid fa-fire text-orange-600"></i> Analisi Pompa di Calore Inverno`;
-                demoAciklama.innerHTML = mevcudDil === 'es' ? "En modo calor, la válvula de 4 vías invierte el flujo. La unidad interior expulsa <strong>aire caliente (rojo)</strong> al recinto mientras la exterior absorbe energía del aire externo expulsando <strong>aire frío (azul)</strong>." : "In modalità caldo, la valvola a 4 vie inverte il flusso. L'unità interna immette <strong>aria calda (rossa)</strong> nell'ambiente mentre l'esterna assorbe calore espellendo <strong>aria fredda (blu)</strong>.";
-                txt4YolDurum.innerText = mevcudDil === 'es' ? "Invertida (Modo Calor)" : "Invertita (Modo Caldo)";
+                demoBaslik.innerHTML = `<i class="fa-solid fa-fire text-orange-600"></i> Análisis Aerotermia (Bomba de Calor) Inviernos`;
+                demoAciklama.innerHTML = "En modo calor, la válvula de 4 vías invierte el flujo. La unidad interior expulsa <strong>aire caliente (rojo)</strong> al recinto mientras la exterior absorbe energía del aire externo expulsando <strong>aire frío (azul)</strong>.";
+                txt4YolDurum.innerText = "Invertida (Modo Calor)";
                 txtHavaDurum.className = "text-red-600 font-bold";
-                txtHavaDurum.innerText = mevcudDil === 'es' ? "Interior: Calor / Exterior: Frío" : "Interno: Caldo / Esterno: Freddo";
+                txtHavaDurum.innerText = "Interior: Calor / Exterior: Frío";
             }
         }
 
@@ -2494,10 +2059,10 @@
             ctx.strokeStyle = '#334155'; ctx.lineWidth = 2; ctx.setLineDash([6, 6]);
             ctx.strokeRect(40, 40, 200, 320);
             ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 12px Segoe UI'; ctx.textAlign = 'center';
-            ctx.fillText(mevcudDil === 'es' ? "UNIDAD INTERIOR" : "UNITÀ INTERNA", 140, 65);
+            ctx.fillText("UNIDAD INTERIOR", 140, 65);
 
             ctx.strokeRect(460, 40, 200, 320);
-            ctx.fillText(mevcudDil === 'es' ? "UNIDAD EXTERIOR" : "UNITÀ ESTERNA", 560, 65);
+            ctx.fillText("UNIDAD EXTERIOR", 560, 65);
             ctx.setLineDash([]);
 
             ctx.strokeStyle = '#475569'; ctx.lineWidth = 8;
