@@ -1315,8 +1315,8 @@
         else if (art.tagColor === "rose") colorClass = "rose";
         else if (art.tagColor === "cyan") colorClass = "cyan";
 
-        // Her makale için es klasöründeki ayrı HTML dosyasına yönlendirme linki (örn: makale-1.html)
-        let dosyaYolu = `makale-${art.id}.html`;
+        // BURAYI es/makale-X.html OLARAK DÜZENLEYİN:
+        let dosyaYolu = `es/makale-${art.id}.html`;
 
         html += `
         <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between hover:border-${colorClass}-400 hover:shadow-md transition">
