@@ -588,58 +588,58 @@
 
     </main>
 
-    <!-- DEMO CANVASI -->
-    <section class="no-print max-w-7xl mx-auto w-full px-4 mb-8">
-        <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm space-y-6">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b pb-4 border-slate-100">
-                <div>
-                    <span id="lblDemoSub" class="text-xs font-extrabold text-blue-600 uppercase tracking-wider block mb-1">Demostración Termodinámica Interactiva</span>
-                    <h3 id="lblDemoMainTitle" class="text-xl md:text-2xl font-black text-slate-900">Demostración del Ciclo de Aire Acondicionado / Aerotermia Reversible</h3>
-                </div>
-                <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200 self-start md:self-auto">
-                    <button id="btnModSogutma" onclick="cevrimaModuDegistir('sogutma')" class="px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-blue-600 text-white shadow-xs cursor-pointer">
-                        <i class="fa-solid fa-snowflake"></i> <span id="txtBtnFrio">Modo Frío / Refrigeración</span>
-                    </button>
-                    <button id="btnModIsitma" onclick="cevrimaModuDegistir('isitma')" class="px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-orange-600 cursor-pointer">
-                        <i class="fa-solid fa-fire"></i> <span id="txtBtnCalor">Modo Calor (Válvula de 4 Vías)</span>
-                    </button>
-                </div>
+   <!-- DEMO CANVASI -->
+<section class="no-print max-w-7xl mx-auto w-full px-4 mb-8">
+    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b pb-4 border-slate-100">
+            <div>
+                <span id="lblDemoSub" class="text-xs font-extrabold text-blue-600 uppercase tracking-wider block mb-1">Demostración Termodinámica Interactiva</span>
+                <h3 id="lblDemoMainTitle" class="text-xl md:text-2xl font-black text-slate-900">Demostración del Ciclo de Aire Acondicionado / Aerotermia Reversible</h3>
             </div>
+            <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200 self-start md:self-auto">
+                <button id="btnModSogutma" onclick="cevrimaModuDegistir('sogutma')" class="px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-blue-600 text-white shadow-xs cursor-pointer">
+                    <i class="fa-solid fa-snowflake"></i> <span id="txtBtnFrio">Modo Frío / Refrigeración</span>
+                </button>
+                <button id="btnModIsitma" onclick="cevrimaModuDegistir('isitma')" class="px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-orange-600 cursor-pointer">
+                    <i class="fa-solid fa-fire"></i> <span id="txtBtnCalor">Modo Calor (Válvula de 4 Vías)</span>
+                </button>
+            </div>
+        </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                <div class="lg:col-span-8 bg-slate-950 rounded-2xl p-4 shadow-inner relative overflow-hidden flex justify-center items-center">
-                    <canvas id="klimaCanvas" width="700" height="400" class="w-full h-auto max-w-full rounded-xl"></canvas>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-8 bg-slate-950 rounded-2xl p-4 shadow-inner relative overflow-hidden flex justify-center items-center">
+                <canvas id="klimaCanvas" width="700" height="400" class="w-full h-auto max-w-full rounded-xl"></canvas>
+            </div>
+            <div class="lg:col-span-4 space-y-4">
+                <div id="demoBilgiKutusu" class="bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-2">
+                    <h4 id="demoBaslik" class="font-bold text-sm text-blue-950 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-blue-600"></i> Análisis Ciclo de Refrigeración
+                    </h4>
+                    <p id="demoAciklama" class="text-xs text-slate-700 leading-relaxed"></p>
                 </div>
-                <div class="lg:col-span-4 space-y-4">
-                    <div id="demoBilgiKutusu" class="bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-2">
-                        <h4 id="demoBaslik" class="font-bold text-sm text-blue-950 flex items-center gap-2">
-                            <i class="fa-solid fa-circle-info text-blue-600"></i> Análisis Ciclo de Refrigeración
-                        </h4>
-                        <p id="demoAciklama" class="text-xs text-slate-700 leading-relaxed"></p>
-                    </div>
 
-                    <div class="space-y-2 text-xs font-semibold text-slate-600 border-t pt-3 border-slate-100">
-                        <div class="flex items-center justify-between">
-                            <span id="lblCompresor" class="flex items-center gap-2"><i class="fa-solid fa-compress text-slate-800"></i> Compresor Inverter:</span>
-                            <span id="lblCompresorVal" class="text-slate-900 font-bold">Compresión Alta Presión</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span id="lblValvula4" class="flex items-center gap-2"><i class="fa-solid fa-shuffle text-purple-600"></i> Válvula de 4 Vías:</span>
-                            <span id="txt4YolDurum" class="text-purple-700 font-bold">Flujo Directo (Modo Frío)</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span id="lblEEV" class="flex items-center gap-2"><i class="fa-solid fa-filter-circle-xmark text-amber-600"></i> Válvula Expansión (EEV):</span>
-                            <span id="lblEEVVal" class="text-slate-900 font-bold">Laminación / Expansión</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span id="lblTransfAire" class="flex items-center gap-2"><i class="fa-solid fa-wind text-blue-500"></i> Transferencia de Aire:</span>
-                            <span id="txtHavaDurum" class="text-blue-600 font-bold">Interior: Frío / Exterior: Calor</span>
-                        </div>
+                <div class="space-y-2 text-xs font-semibold text-slate-600 border-t pt-3 border-slate-100">
+                    <div class="flex items-center justify-between">
+                        <span id="lblCompresor" class="flex items-center gap-2"><i class="fa-solid fa-compress text-slate-800"></i> Compresor Inverter:</span>
+                        <span id="lblCompresorVal" class="text-slate-900 font-bold">Compresión Alta Presión</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span id="lblValvula4" class="flex items-center gap-2"><i class="fa-solid fa-shuffle text-purple-600"></i> Válvula de 4 Vías:</span>
+                        <span id="txt4YolDurum" class="text-purple-700 font-bold">Flujo Directo (Modo Frío)</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span id="lblEEV" class="flex items-center gap-2"><i class="fa-solid fa-filter-circle-xmark text-amber-600"></i> Válvula Expansión (EEV):</span>
+                        <span id="lblEEVVal" class="text-slate-900 font-bold">Laminación / Expansión</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span id="lblTransfAire" class="flex items-center gap-2"><i class="fa-solid fa-wind text-blue-500"></i> Transferencia de Aire:</span>
+                        <span id="txtHavaDurum" class="text-blue-600 font-bold">Interior: Frío / Exterior: Calor</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Guías de Ingeniería y Climatización (20 Artículos) -->
 <section id="blogBolumu" class="no-print max-w-7xl mx-auto w-full px-4 mb-12 scroll-mt-24">
@@ -2111,118 +2111,139 @@
             if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = baslik;
         }
 
-        /* CANVAS TERMODINÁMICO */
-        let pipeParticles = [];
-        const pipeParticleCount = 28;
-        for (let i = 0; i < pipeParticleCount; i++) pipeParticles.push({ progress: i / pipeParticleCount });
+       /* CANVAS TERMODINÁMICO */
+let pipeParticles = [];
+const pipeParticleCount = 28;
+for (let i = 0; i < pipeParticleCount; i++) {
+    pipeParticles.push({ progress: i / pipeParticleCount });
+}
 
-        let indoorAirParticles = [];
-        let outdoorAirParticles = [];
+let indoorAirParticles = [];
+let outdoorAirParticles = [];
 
-        for (let i = 0; i < 30; i++) {
-            indoorAirParticles.push({ x: 140, y: 190 + (Math.random() * 80 - 40), vx: - (1.2 + Math.random() * 1.5), vy: (Math.random() * 0.8 - 0.4), size: 3 + Math.random() * 4, alpha: 0.2 + Math.random() * 0.7 });
-            outdoorAirParticles.push({ x: 560, y: 160 + (Math.random() * 80 - 40), vx: (1.2 + Math.random() * 1.5), vy: (Math.random() * 0.8 - 0.4), size: 3 + Math.random() * 4, alpha: 0.2 + Math.random() * 0.7 });
+for (let i = 0; i < 30; i++) {
+    indoorAirParticles.push({
+        x: 140, y: 190 + (Math.random() * 80 - 40),
+        vx: - (1.2 + Math.random() * 1.5),
+        vy: (Math.random() * 0.8 - 0.4),
+        size: 3 + Math.random() * 4,
+        alpha: 0.2 + Math.random() * 0.7
+    });
+    outdoorAirParticles.push({
+        x: 560, y: 160 + (Math.random() * 80 - 40),
+        vx: (1.2 + Math.random() * 1.5),
+        vy: (Math.random() * 0.8 - 0.4),
+        size: 3 + Math.random() * 4,
+        alpha: 0.2 + Math.random() * 0.7
+    });
+}
+
+function cevrimaModuDegistir(mod) {
+    mevcutCevrimModu = mod;
+    const btnSogutma = document.getElementById('btnModSogutma');
+    const btnIsitma = document.getElementById('btnModIsitma');
+    const demoBaslik = document.getElementById('demoBaslik');
+    const demoAciklama = document.getElementById('demoAciklama');
+    const txt4YolDurum = document.getElementById('txt4YolDurum');
+    const txtHavaDurum = document.getElementById('txtHavaDurum');
+    const demoBilgiKutusu = document.getElementById('demoBilgiKutusu');
+
+    if (!btnSogutma || !btnIsitma) return;
+
+    if (mod === 'sogutma') {
+        btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-blue-600 text-white shadow-xs cursor-pointer";
+        btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-orange-600 cursor-pointer";
+        if (demoBilgiKutusu) demoBilgiKutusu.className = "bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-2";
+        if (demoBaslik) demoBaslik.innerHTML = `<i class="fa-solid fa-snowflake text-blue-600"></i> Análisis Ciclo de Refrigeración`;
+        if (demoAciklama) demoAciklama.innerHTML = "En modo frío, la unidad interior impulsa <strong>aire frío (azul)</strong> absorbiendo el calor del recinto. El calor transportado por el circuito frigorífico se expulsa al exterior como <strong>aire caliente (rojo)</strong>.";
+        if (txt4YolDurum) txt4YolDurum.innerText = "Flujo Directo (Modo Frío)";
+        if (txtHavaDurum) {
+            txtHavaDurum.className = "text-blue-600 font-bold";
+            txtHavaDurum.innerText = "Interior: Frío / Exterior: Calor";
         }
-
-        function cevrimaModuDegistir(mod) {
-            mevcutCevrimModu = mod;
-            const btnSogutma = document.getElementById('btnModSogutma');
-            const btnIsitma = document.getElementById('btnModIsitma');
-            const demoBaslik = document.getElementById('demoBaslik');
-            const demoAciklama = document.getElementById('demoAciklama');
-            const txt4YolDurum = document.getElementById('txt4YolDurum');
-            const txtHavaDurum = document.getElementById('txtHavaDurum');
-            const demoBilgiKutusu = document.getElementById('demoBilgiKutusu');
-
-            if (mod === 'sogutma') {
-                btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-blue-600 text-white shadow-xs cursor-pointer";
-                btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-orange-600 cursor-pointer";
-                demoBilgiKutusu.className = "bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-2";
-                demoBaslik.innerHTML = `<i class="fa-solid fa-snowflake text-blue-600"></i> Análisis Ciclo de Refrigeración`;
-                demoAciklama.innerHTML = "En modo frío, la unidad interior impulsa <strong>aire frío (azul)</strong> absorbiendo el calor del recinto. El calor transportado por el circuito frigorífico se expulsa al exterior como <strong>aire caliente (rojo)</strong>.";
-                txt4YolDurum.innerText = "Flujo Directo (Modo Frío)";
-                txtHavaDurum.className = "text-blue-600 font-bold";
-                txtHavaDurum.innerText = "Interior: Frío / Exterior: Calor";
-            } else {
-                btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-orange-600 text-white shadow-xs cursor-pointer";
-                btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-blue-600 cursor-pointer";
-                demoBilgiKutusu.className = "bg-orange-50 border border-orange-200 rounded-xl p-4 space-y-2";
-                demoBaslik.innerHTML = `<i class="fa-solid fa-fire text-orange-600"></i> Análisis Aerotermia (Bomba de Calor) Inviernos`;
-                demoAciklama.innerHTML = "En modo calor, la válvula de 4 vías invierte el flujo. La unidad interior expulsa <strong>aire caliente (rojo)</strong> al recinto mientras la exterior absorbe energía del aire externo expulsando <strong>aire frío (azul)</strong>.";
-                txt4YolDurum.innerText = "Invertida (Modo Calor)";
-                txtHavaDurum.className = "text-red-600 font-bold";
-                txtHavaDurum.innerText = "Interior: Calor / Exterior: Frío";
-            }
+    } else {
+        btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-orange-600 text-white shadow-xs cursor-pointer";
+        btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-blue-600 cursor-pointer";
+        if (demoBilgiKutusu) demoBilgiKutusu.className = "bg-orange-50 border border-orange-200 rounded-xl p-4 space-y-2";
+        if (demoBaslik) demoBaslik.innerHTML = `<i class="fa-solid fa-fire text-orange-600"></i> Análisis Aerotermia (Bomba de Calor) Inviernos`;
+        if (demoAciklama) demoAciklama.innerHTML = "En modo calor, la válvula de 4 vías invierte el flujo. La unidad interior expulsa <strong>aire caliente (rojo)</strong> al recinto mientras la exterior absorbe energía del aire externo expulsando <strong>aire frío (azul)</strong>.";
+        if (txt4YolDurum) txt4YolDurum.innerText = "Invertida (Modo Calor)";
+        if (txtHavaDurum) {
+            txtHavaDurum.className = "text-red-600 font-bold";
+            txtHavaDurum.innerText = "Interior: Calor / Exterior: Frío";
         }
+    }
+}
 
-        function drawSystem() {
-            const canvas = document.getElementById('klimaCanvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+function drawSystem() {
+    const canvas = document.getElementById('klimaCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-            ctx.strokeStyle = '#334155'; ctx.lineWidth = 2; ctx.setLineDash([6, 6]);
-            ctx.strokeRect(40, 40, 200, 320);
-            ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 12px Segoe UI'; ctx.textAlign = 'center';
-            ctx.fillText("UNIDAD INTERIOR", 140, 65);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            ctx.strokeRect(460, 40, 200, 320);
-            ctx.fillText("UNIDAD EXTERIOR", 560, 65);
-            ctx.setLineDash([]);
+    ctx.strokeStyle = '#334155'; ctx.lineWidth = 2; ctx.setLineDash([6, 6]);
+    ctx.strokeRect(40, 40, 200, 320);
+    ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 12px Segoe UI'; ctx.textAlign = 'center';
+    ctx.fillText("UNIDAD INTERIOR", 140, 65);
 
-            ctx.strokeStyle = '#475569'; ctx.lineWidth = 8;
-            ctx.beginPath(); ctx.moveTo(140, 100); ctx.lineTo(560, 100); ctx.lineTo(560, 300); ctx.lineTo(140, 300); ctx.closePath(); ctx.stroke();
+    ctx.strokeRect(460, 40, 200, 320);
+    ctx.fillText("UNIDAD EXTERIOR", 560, 65);
+    ctx.setLineDash([]);
 
-            ctx.fillStyle = '#1e293b'; ctx.beginPath(); ctx.arc(560, 250, 26, 0, Math.PI * 2); ctx.fill();
-            ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 3; ctx.stroke();
-            ctx.fillStyle = '#ffffff'; ctx.font = 'bold 10px Segoe UI'; ctx.fillText("COMP.", 560, 254);
+    ctx.strokeStyle = '#475569'; ctx.lineWidth = 8;
+    ctx.beginPath(); ctx.moveTo(140, 100); ctx.lineTo(560, 100); ctx.lineTo(560, 300); ctx.lineTo(140, 300); ctx.closePath(); ctx.stroke();
 
-            ctx.fillStyle = '#d97706'; ctx.fillRect(330, 288, 40, 24);
-            ctx.fillStyle = '#ffffff'; ctx.fillText("EEV", 350, 303);
+    ctx.fillStyle = '#1e293b'; ctx.beginPath(); ctx.arc(560, 250, 26, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 3; ctx.stroke();
+    ctx.fillStyle = '#ffffff'; ctx.font = 'bold 10px Segoe UI'; ctx.fillText("COMP.", 560, 254);
 
-            ctx.fillStyle = '#7c3aed'; ctx.fillRect(330, 88, 40, 24);
-            ctx.fillStyle = '#ffffff'; ctx.fillText("4-VIE", 350, 103);
+    ctx.fillStyle = '#d97706'; ctx.fillRect(330, 288, 40, 24);
+    ctx.fillStyle = '#ffffff'; ctx.fillText("EEV", 350, 303);
 
-            let icRenk = mevcutCevrimModu === 'sogutma' ? '#3b82f6' : '#ef4444';
-            let disRenk = mevcutCevrimModu === 'sogutma' ? '#ef4444' : '#3b82f6';
+    ctx.fillStyle = '#7c3aed'; ctx.fillRect(330, 88, 40, 24);
+    ctx.fillStyle = '#ffffff'; ctx.fillText("4-VIE", 350, 103);
 
-            ctx.fillStyle = icRenk; ctx.fillRect(130, 130, 20, 120);
-            ctx.fillStyle = '#ffffff'; ctx.fillText(mevcutCevrimModu === 'sogutma' ? 'Evap' : 'Cond', 140, 195);
+    let icRenk = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? '#3b82f6' : '#ef4444';
+    let disRenk = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? '#ef4444' : '#3b82f6';
 
-            ctx.fillStyle = disRenk; ctx.fillRect(550, 110, 20, 100);
-            ctx.fillStyle = '#ffffff'; ctx.fillText(mevcutCevrimModu === 'sogutma' ? 'Cond' : 'Evap', 560, 165);
+    ctx.fillStyle = icRenk; ctx.fillRect(130, 130, 20, 120);
+    ctx.fillStyle = '#ffffff'; ctx.fillText((typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'Evap' : 'Cond', 140, 195);
 
-            let icHavaRengi = mevcutCevrimModu === 'sogutma' ? 'rgba(56, 189, 248, ' : 'rgba(239, 68, 68, ';
-            let disHavaRengi = mevcutCevrimModu === 'sogutma' ? 'rgba(239, 68, 68, ' : 'rgba(56, 189, 248, ';
+    ctx.fillStyle = disRenk; ctx.fillRect(550, 110, 20, 100);
+    ctx.fillStyle = '#ffffff'; ctx.fillText((typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'Cond' : 'Evap', 560, 165);
 
-            indoorAirParticles.forEach(p => {
-                p.x += p.vx; p.y += p.vy;
-                if (p.x < 50) { p.x = 130; p.y = 190 + (Math.random() * 80 - 40); }
-                ctx.fillStyle = icHavaRengi + p.alpha + ')'; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
-            });
+    let icHavaRengi = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'rgba(56, 189, 248, ' : 'rgba(239, 68, 68, ';
+    let disHavaRengi = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'rgba(239, 68, 68, ' : 'rgba(56, 189, 248, ';
 
-            outdoorAirParticles.forEach(p => {
-                p.x += p.vx; p.y += p.vy;
-                if (p.x > 650) { p.x = 570; p.y = 160 + (Math.random() * 80 - 40); }
-                ctx.fillStyle = disHavaRengi + p.alpha + ')'; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
-            });
+    indoorAirParticles.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 50) { p.x = 130; p.y = 190 + (Math.random() * 80 - 40); }
+        ctx.fillStyle = icHavaRengi + p.alpha + ')'; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+    });
 
-            pipeParticles.forEach(p => {
-                p.progress += 0.003; if (p.progress > 1) p.progress = 0;
-                let x, y, color;
-                let effProg = mevcutCevrimModu === 'sogutma' ? p.progress : (1 - p.progress);
+    outdoorAirParticles.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x > 650) { p.x = 570; p.y = 160 + (Math.random() * 80 - 40); }
+        ctx.fillStyle = disHavaRengi + p.alpha + ')'; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+    });
 
-                if (effProg < 0.35) { x = 140 + (effProg / 0.35) * 420; y = 100; color = '#ef4444'; }
-                else if (effProg < 0.5) { x = 560; y = 100 + ((effProg - 0.35) / 0.15) * 200; color = mevcutCevrimModu === 'sogutma' ? '#ef4444' : '#3b82f6'; }
-                else if (effProg < 0.85) { x = 560 - ((effProg - 0.5) / 0.35) * 420; y = 300; color = x > 350 ? '#ef4444' : '#3b82f6'; }
-                else { x = 140; y = 300 - ((effProg - 0.85) / 0.15) * 200; color = '#3b82f6'; }
+    pipeParticles.forEach(p => {
+        p.progress += 0.003; if (p.progress > 1) p.progress = 0;
+        let x, y, color;
+        let effProg = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? p.progress : (1 - p.progress);
 
-                ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();
-            });
+        if (effProg < 0.35) { x = 140 + (effProg / 0.35) * 420; y = 100; color = '#ef4444'; }
+        else if (effProg < 0.5) { x = 560; y = 100 + ((effProg - 0.35) / 0.15) * 200; color = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? '#ef4444' : '#3b82f6'; }
+        else if (effProg < 0.85) { x = 560 - ((effProg - 0.5) / 0.35) * 420; y = 300; color = x > 350 ? '#ef4444' : '#3b82f6'; }
+        else { x = 140; y = 300 - ((effProg - 0.85) / 0.15) * 200; color = '#3b82f6'; }
 
-            requestAnimationFrame(drawSystem);
-        }
+        ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();
+    });
 
+    requestAnimationFrame(drawSystem);
+}
         window.onload = function() {
             dilDegistir('es');
             yapiTipiDegisti();
