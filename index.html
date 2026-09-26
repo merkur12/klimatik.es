@@ -589,175 +589,175 @@
     </main>
 
    <!-- DEMO CANVASI -->
-<section class="no-print max-w-7xl mx-auto w-full px-4 mb-8">
-    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm space-y-6">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b pb-4 border-slate-100">
-            <div>
-                <span id="lblDemoSub" class="text-xs font-extrabold text-blue-600 uppercase tracking-wider block mb-1">Demostración Termodinámica Interactiva</span>
-                <h3 id="lblDemoMainTitle" class="text-xl md:text-2xl font-black text-slate-900">Demostración del Ciclo de Aire Acondicionado / Aerotermia Reversible</h3>
-            </div>
-            <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200 self-start md:self-auto">
-                <button id="btnModSogutma" onclick="cevrimaModuDegistir('sogutma')" class="px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-blue-600 text-white shadow-xs cursor-pointer">
-                    <i class="fa-solid fa-snowflake"></i> <span id="txtBtnFrio">Modo Frío / Refrigeración</span>
-                </button>
-                <button id="btnModIsitma" onclick="cevrimaModuDegistir('isitma')" class="px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-orange-600 cursor-pointer">
-                    <i class="fa-solid fa-fire"></i> <span id="txtBtnCalor">Modo Calor (Válvula de 4 Vías)</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            <div class="lg:col-span-8 bg-slate-950 rounded-2xl p-4 shadow-inner relative overflow-hidden flex justify-center items-center">
-                <canvas id="klimaCanvas" width="700" height="400" class="w-full h-auto max-w-full rounded-xl"></canvas>
-            </div>
-            <div class="lg:col-span-4 space-y-4">
-                <div id="demoBilgiKutusu" class="bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-2">
-                    <h4 id="demoBaslik" class="font-bold text-sm text-blue-950 flex items-center gap-2">
-                        <i class="fa-solid fa-circle-info text-blue-600"></i> Análisis Ciclo de Refrigeración
-                    </h4>
-                    <p id="demoAciklama" class="text-xs text-slate-700 leading-relaxed"></p>
+   <section class="no-print max-w-7xl mx-auto w-full px-4 mb-8">
+        <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b pb-4 border-slate-100">
+                <div>
+                    <span id="lblDemoSub" class="text-xs font-extrabold text-blue-600 uppercase tracking-wider block mb-1">Demostración Termodinámica Interactiva</span>
+                    <h3 id="lblDemoMainTitle" class="text-xl md:text-2xl font-black text-slate-900">Demostración del Ciclo de Aire Acondicionado / Aerotermia Reversible</h3>
                 </div>
-
-                <div class="space-y-2 text-xs font-semibold text-slate-600 border-t pt-3 border-slate-100">
-                    <div class="flex items-center justify-between">
-                        <span id="lblCompresor" class="flex items-center gap-2"><i class="fa-solid fa-compress text-slate-800"></i> Compresor Inverter:</span>
-                        <span id="lblCompresorVal" class="text-slate-900 font-bold">Compresión Alta Presión</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <span id="lblValvula4" class="flex items-center gap-2"><i class="fa-solid fa-shuffle text-purple-600"></i> Válvula de 4 Vías:</span>
-                        <span id="txt4YolDurum" class="text-purple-700 font-bold">Flujo Directo (Modo Frío)</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <span id="lblEEV" class="flex items-center gap-2"><i class="fa-solid fa-filter-circle-xmark text-amber-600"></i> Válvula Expansión (EEV):</span>
-                        <span id="lblEEVVal" class="text-slate-900 font-bold">Laminación / Expansión</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <span id="lblTransfAire" class="flex items-center gap-2"><i class="fa-solid fa-wind text-blue-500"></i> Transferencia de Aire:</span>
-                        <span id="txtHavaDurum" class="text-blue-600 font-bold">Interior: Frío / Exterior: Calor</span>
-                    </div>
+                <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200 self-start md:self-auto">
+                    <button id="btnModSogutma" onclick="cevrimaModuDegistir('sogutma')" class="px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-blue-600 text-white shadow-xs cursor-pointer">
+                        <i class="fa-solid fa-snowflake"></i> <span id="txtBtnFrio">Modo Frío / Refrigeración</span>
+                    </button>
+                    <button id="btnModIsitma" onclick="cevrimaModuDegistir('isitma')" class="px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-orange-600 cursor-pointer">
+                        <i class="fa-solid fa-fire"></i> <span id="txtBtnCalor">Modo Calor (Válvula de 4 Vías)</span>
+                    </button>
                 </div>
             </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div class="lg:col-span-8 bg-slate-950 rounded-2xl p-4 shadow-inner relative overflow-hidden flex justify-center items-center">
+                    <canvas id="klimaCanvas" width="700" height="400" class="w-full h-auto max-w-full rounded-xl"></canvas>
+                </div>
+                <div class="lg:col-span-4 space-y-4">
+                    <div id="demoBilgiKutusu" class="bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-2">
+                        <h4 id="demoBaslik" class="font-bold text-sm text-blue-950 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info text-blue-600"></i> Análisis Ciclo de Refrigeración
+                        </h4>
+                        <p id="demoAciklama" class="text-xs text-slate-700 leading-relaxed"></p>
+                    </div>
+
+                    <div class="space-y-2 text-xs font-semibold text-slate-600 border-t pt-3 border-slate-100">
+                        <div class="flex items-center justify-between">
+                            <span id="lblCompresor" class="flex items-center gap-2"><i class="fa-solid fa-compress text-slate-800"></i> Compresor Inverter:</span>
+                            <span id="lblCompresorVal" class="text-slate-900 font-bold">Compresión Alta Presión</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span id="lblValvula4" class="flex items-center gap-2"><i class="fa-solid fa-shuffle text-purple-600"></i> Válvula de 4 Vías:</span>
+                            <span id="txt4YolDurum" class="text-purple-700 font-bold">Flujo Directo (Modo Frío)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span id="lblEEV" class="flex items-center gap-2"><i class="fa-solid fa-filter-circle-xmark text-amber-600"></i> Válvula Expansión (EEV):</span>
+                            <span id="lblEEVVal" class="text-slate-900 font-bold">Laminación / Expansión</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span id="lblTransfAire" class="flex items-center gap-2"><i class="fa-solid fa-wind text-blue-500"></i> Transferencia de Aire:</span>
+                            <span id="txtHavaDurum" class="text-blue-600 font-bold">Interior: Frío / Exterior: Calor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Guías de Ingeniería y Climatización (20 Artículos) -->
-<section id="blogBolumu" class="no-print max-w-7xl mx-auto w-full px-4 mb-12 scroll-mt-24">
-    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm space-y-6">
-        <div class="border-b pb-4 border-slate-100">
-            <span class="text-xs font-extrabold text-blue-600 uppercase tracking-wider block mb-1">Base de Conocimiento Técnico y Guía de Ingeniería</span>
-            <h3 class="text-xl md:text-2xl font-black text-slate-900">Guías de Climatización e Ingeniería (20 Artículos)</h3>
-            <p class="text-slate-600 mt-2 text-sm">
-                Guías técnicas sobre aislamiento térmico, normativa CTE, aire acondicionado, calderas, bombas de calor y diseño de instalaciones:
-            </p>
+    <section id="blogBolumu" class="no-print max-w-7xl mx-auto w-full px-4 mb-12 scroll-mt-24">
+        <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm space-y-6">
+            <div class="border-b pb-4 border-slate-100">
+                <span class="text-xs font-extrabold text-blue-600 uppercase tracking-wider block mb-1">Base de Conocimiento Técnico y Guía de Ingeniería</span>
+                <h3 class="text-xl md:text-2xl font-black text-slate-900">Guías de Climatización e Ingeniería (20 Artículos)</h3>
+                <p class="text-slate-600 mt-2 text-sm">
+                    Guías técnicas sobre aislamiento térmico, normativa CTE, aire acondicionado, calderas, bombas de calor y diseño de instalaciones:
+                </p>
+            </div>
+
+            <!-- 20 Artículik İç Bağlantı Grid Alanı -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                
+                <a href="makale-1.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">1. Normativa de Aislamiento Térmico y Eficiencia Energética en Edificios</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Guía completa de ingeniería sobre normas de aislamiento térmico, el Código Técnico de la Edificación (CTE) y eficiencia energética.</p>
+                </a>
+
+                <a href="makale-2.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">2. Principios Básicos del Reglamento de Eficiencia Energética en Edificios</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Guía técnica sobre el Código Técnico de la Edificación (CTE), Certificación Energética (CEE) y normativa RITE.</p>
+                </a>
+
+                <a href="makale-3.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">3. Normativa de Aislamiento Térmico CTE-HE: Principios Básicos</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Guía sobre el Código Técnico de la Edificación (CTE-HE), zonas climáticas en España y optimización de la envolvente.</p>
+                </a>
+
+                <a href="makale-4.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">4. ¿Qué es la Transferencia de Calor? Principios Básicos y Tipos</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Guía de ingeniería sobre mecanismos de conducción, convección y radiación en sistemas de climatización.</p>
+                </a>
+
+                <a href="makale-5.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">5. Leyes de la Termodinámica (0ª, 1ª y 2ª Ley) y su Relación Energética</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Leyes fundamentales de la termodinámica, conservación de la energía y su relación con aires acondicionados y bombas de calor.</p>
+                </a>
+
+                <a href="makale-6.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">6. El Sector de la Climatización y Bombas de Calor en España y a Escala Global</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Análisis de mercado sobre aires acondicionados, bombas de calor y tendencias de la industria HVAC.</p>
+                </a>
+
+                <a href="makale-7.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">7. Comparativa: Bomba de Calor Inverter vs. Caldera de Condensación</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Comparativa de coeficientes COP, costes de combustible y selección de sistemas de calefacción según la infraestructura.</p>
+                </a>
+
+                <a href="makale-8.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">8. Radiación Solar y el Factor de Fachada en la Carga de Refrigeración</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Impacto de la radiación solar en fachadas oeste y sur, vidrios de control solar Low-E y cálculo de cargas.</p>
+                </a>
+
+                <a href="makale-9.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">9. ¿Qué se debe tener en cuenta al elegir un aire acondicionado?</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Cálculo de carga térmica, tecnología DC Inverter, eficiencia energética y criterios para la selección de equipos.</p>
+                </a>
+
+                <a href="makale-10.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">10. ¿Cuáles son los Criterios de Selección de Calderas de Condensación?</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Relaciones de modulación, materiales del intercambiador y cálculo de pérdida de calor para calderas de gas.</p>
+                </a>
+
+                <a href="makale-11.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">11. ¿Bomba de Calor o Caldera Eléctrica?</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Guía comparativa sobre eficiencia termodinámica, consumo eléctrico y selección de calefacción sin gas.</p>
+                </a>
+
+                <a href="makale-12.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">12. Uso Correcto del Aire Acondicionado y Salud</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Prevención de choque térmico, diferencia ideal de temperatura, dirección del flujo de aire e higiene de filtros.</p>
+                </a>
+
+                <a href="makale-13.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">13. Métodos Prácticos para Reducir las Pérdidas de Calor</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Sellado de filtraciones en ventanas, uso de válvulas termostáticas y medidas prácticas de aislamiento.</p>
+                </a>
+
+                <a href="makale-14.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">14. ¿Cómo Funciona un Aire Acondicionado Split? Principio de Operación</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Fases del ciclo de refrigeración por compresión de vapor (compresor, condensador, EEV y evaporador).</p>
+                </a>
+
+                <a href="makale-15.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">15. ¿Cómo se Calcula el Espesor de Aislamiento en los Hogares?</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Cálculo de espesor bajo el Código Técnico de la Edificación (CTE), resistencias y plazo de amortización.</p>
+                </a>
+
+                <a href="makale-16.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">16. Factores que Afectan la Eficiencia de la Bomba de Calor (COP y EER)</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Coeficientes COP y EER, impacto de la temperatura exterior y combinación con suelo radiante.</p>
+                </a>
+
+                <a href="makale-17.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">17. El Papel de las Ventanas en las Pérdidas de Calor y Selección de Vidrios</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Tecnología de doble acristalamiento con gas argón, vidrios con capa Low-E y prevención de puentes térmicos.</p>
+                </a>
+
+                <a href="makale-18.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">18. Prevención de Condensaciones en Climatización Invisible</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Control del punto de rocío en suelo y techo radiante, sondas de humedad y aislamiento de tuberías.</p>
+                </a>
+
+                <a href="makale-19.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">19. Uso Correcto del Termostato de Ambiente y Métodos de Ahorro</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Termostatos digitales programables, regulación de temperatura y optimización del consumo de combustible.</p>
+                </a>
+
+                <a href="makale-20.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
+                    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">20. Importancia de los Cálculos de Ingeniería en Proyectos de Instalaciones Mecánicas</h4>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Selección científica de capacidades, cálculos de pérdidas/ganancias de calor y nivel de confort edilicio.</p>
+                </a>
+
+            </div>
         </div>
-
-        <!-- 20 Artículik İç Bağlantı Grid Alanı -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            
-            <a href="makale-1.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">1. Normativa de Aislamiento Térmico y Eficiencia Energética en Edificios</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Guía completa de ingeniería sobre normas de aislamiento térmico, el Código Técnico de la Edificación (CTE) y eficiencia energética.</p>
-            </a>
-
-            <a href="makale-2.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">2. Principios Básicos del Reglamento de Eficiencia Energética en Edificios</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Guía técnica sobre el Código Técnico de la Edificación (CTE), Certificación Energética (CEE) y normativa RITE.</p>
-            </a>
-
-            <a href="makale-3.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">3. Normativa de Aislamiento Térmico CTE-HE: Principios Básicos</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Guía sobre el Código Técnico de la Edificación (CTE-HE), zonas climáticas en España y optimización de la envolvente.</p>
-            </a>
-
-            <a href="makale-4.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">4. ¿Qué es la Transferencia de Calor? Principios Básicos y Tipos</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Guía de ingeniería sobre mecanismos de conducción, convección y radiación en sistemas de climatización.</p>
-            </a>
-
-            <a href="makale-5.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">5. Leyes de la Termodinámica (0ª, 1ª y 2ª Ley) y su Relación Energética</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Leyes fundamentales de la termodinámica, conservación de la energía y su relación con aires acondicionados y bombas de calor.</p>
-            </a>
-
-            <a href="makale-6.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">6. El Sector de la Climatización y Bombas de Calor en España y a Escala Global</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Análisis de mercado sobre aires acondicionados, bombas de calor y tendencias de la industria HVAC.</p>
-            </a>
-
-            <a href="makale-7.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">7. Comparativa: Bomba de Calor Inverter vs. Caldera de Condensación</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Comparativa de coeficientes COP, costes de combustible y selección de sistemas de calefacción según la infraestructura.</p>
-            </a>
-
-            <a href="makale-8.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">8. Radiación Solar y el Factor de Fachada en la Carga de Refrigeración</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Impacto de la radiación solar en fachadas oeste y sur, vidrios de control solar Low-E y cálculo de cargas.</p>
-            </a>
-
-            <a href="makale-9.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">9. ¿Qué se debe tener en cuenta al elegir un aire acondicionado?</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Cálculo de carga térmica, tecnología DC Inverter, eficiencia energética y criterios para la selección de equipos.</p>
-            </a>
-
-            <a href="makale-10.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">10. ¿Cuáles son los Criterios de Selección de Calderas de Condensación?</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Relaciones de modulación, materiales del intercambiador y cálculo de pérdida de calor para calderas de gas.</p>
-            </a>
-
-            <a href="makale-11.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">11. ¿Bomba de Calor o Caldera Eléctrica?</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Guía comparativa sobre eficiencia termodinámica, consumo eléctrico y selección de calefacción sin gas.</p>
-            </a>
-
-            <a href="makale-12.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">12. Uso Correcto del Aire Acondicionado y Salud</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Prevención de choque térmico, diferencia ideal de temperatura, dirección del flujo de aire e higiene de filtros.</p>
-            </a>
-
-            <a href="makale-13.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">13. Métodos Prácticos para Reducir las Pérdidas de Calor</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Sellado de filtraciones en ventanas, uso de válvulas termostáticas y medidas prácticas de aislamiento.</p>
-            </a>
-
-            <a href="makale-14.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">14. ¿Cómo Funciona un Aire Acondicionado Split? Principio de Operación</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Fases del ciclo de refrigeración por compresión de vapor (compresor, condensador, EEV y evaporador).</p>
-            </a>
-
-            <a href="makale-15.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">15. ¿Cómo se Calcula el Espesor de Aislamiento en los Hogares?</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Cálculo de espesor bajo el Código Técnico de la Edificación (CTE), resistencias y plazo de amortización.</p>
-            </a>
-
-            <a href="makale-16.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">16. Factores que Afectan la Eficiencia de la Bomba de Calor (COP y EER)</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Coeficientes COP y EER, impacto de la temperatura exterior y combinación con suelo radiante.</p>
-            </a>
-
-            <a href="makale-17.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">17. El Papel de las Ventanas en las Pérdidas de Calor y Selección de Vidrios</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Tecnología de doble acristalamiento con gas argón, vidrios con capa Low-E y prevención de puentes térmicos.</p>
-            </a>
-
-            <a href="makale-18.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">18. Prevención de Condensaciones en Climatización Invisible</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Control del punto de rocío en suelo y techo radiante, sondas de humedad y aislamiento de tuberías.</p>
-            </a>
-
-            <a href="makale-19.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">19. Uso Correcto del Termostato de Ambiente y Métodos de Ahorro</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Termostatos digitales programables, regulación de temperatura y optimización del consumo de combustible.</p>
-            </a>
-
-            <a href="makale-20.html" class="p-4 border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition bg-white block group">
-                <h4 class="font-semibold text-slate-800 group-hover:text-blue-600 text-sm">20. Importancia de los Cálculos de Ingeniería en Proyectos de Instalaciones Mecánicas</h4>
-                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Selección científica de capacidades, cálculos de pérdidas/ganancias de calor y nivel de confort edilicio.</p>
-            </a>
-
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- FOOTER -->
     <footer class="bg-white border-t border-slate-100 py-6 text-center text-xs text-slate-400 space-y-3 no-print px-4">
@@ -881,8 +881,6 @@
                 lblEEV: '<i class="fa-solid fa-filter-circle-xmark text-amber-600"></i> Válvula Expansión (EEV):',
                 lblEEVVal: 'Laminación / Expansión',
                 lblTransfAire: '<i class="fa-solid fa-wind text-blue-500"></i> Transferencia de Aire:',
-                lblBlogSubTitle: 'Base de Conocimiento Técnico y Guía de Ingeniería',
-                lblBlogMainTitle: 'Artículos Técnicos de Climatización y Aerotermia',
                 btnFooterAbout: 'Contacto y Sobre Nosotros',
                 btnFooterPrivacy: 'Política de Privacidad',
                 btnFooterTerms: 'Términos y Condiciones',
@@ -1112,31 +1110,6 @@
             }
         };
 
-        const blogArticlesData = {
-    es: [
-        { id: 1, tag: "Normativa Térmica", tagColor: "blue", title: "Normativa de Aislamiento Térmico y Eficiencia Energética en Edificios", desc: "Guía completa de ingeniería sobre normas de aislamiento térmico, el Código Técnico de la Edificación (CTE), eficiencia energética y reglamentación climática." },
-        { id: 2, tag: "Normativa y CTE", tagColor: "blue", title: "Principios Básicos del Reglamento de Eficiencia Energética en Edificios", desc: "Guía técnica sobre el Código Técnico de la Edificación (CTE), eficiencia energética, certificación y normativa de instalaciones." },
-        { id: 3, tag: "Estándares CTE", tagColor: "blue", title: "Normativa de Aislamiento Térmico CTE-HE: Principios Básicos", desc: "Guía sobre el Código Técnico de la Edificación (CTE), zonas climáticas en España, ahorro energético y optimización de la envolvente." },
-        { id: 4, tag: "Termodinámica", tagColor: "cyan", title: "¿Qué es la Transferencia de Calor? Principios Básicos y Tipos", desc: "Guía de ingeniería sobre mecanismos de conducción, convección y radiación, aislamiento y relación con instalaciones térmicas." },
-        { id: 5, tag: "Física y Energía", tagColor: "cyan", title: "Leyes de la Termodinámica (0ª, 1ª y 2ª Ley) y su Relación Energética", desc: "Guía sobre las leyes de la termodinámica, conservación de la energía y su relación con los sistemas de climatización." },
-        { id: 6, tag: "Análisis Sectorial", tagColor: "orange", title: "El Sector de la Climatización y Bombas de Calor en España y a Escala Global", desc: "Análisis de mercado sobre aires acondicionados, bombas de calor y calderas, volúmenes de venta y tendencias futuras de climatización." },
-        { id: 7, tag: "Comparativa", tagColor: "orange", title: "Comparativa: Bomba de Calor Inverter vs. Caldera de Condensación", desc: "Comparativa de coeficientes COP, costes de combustible y selección de sistemas de calefacción según zonas climáticas." },
-        { id: 8, tag: "Análisis Solar", tagColor: "amber", title: "Radiación Solar y el Factor de Fachada en la Carga de Refrigeración", desc: "Guía sobre el impacto de la radiación solar en fachadas orientadas al oeste y sur, vidrios de control solar y ganancia térmica." },
-        { id: 9, tag: "Selección de Equipos", tagColor: "blue", title: "¿Qué se debe tener en cuenta al elegir un aire acondicionado?", desc: "Guía sobre cálculo de carga térmica, tecnología Inverter, eficiencia energética y selección correcta de equipos de climatización." },
-        { id: 10, tag: "Calefacción", tagColor: "orange", title: "¿Cuáles son los Criterios de Selección de Calderas de Condensación?", desc: "Guía completa de ingeniería sobre normas de aislamiento térmico, CTE, eficiencia energética y selección de calderas de condensación." },
-        { id: 11, tag: "Comparativa Eléctrica", tagColor: "orange", title: "¿Bomba de Calor o Caldera Eléctrica?", desc: "Guía comparativa sobre eficiencia termodinámica, consumo eléctrico y selección de sistemas de calefacción para viviendas sin gas." },
-        { id: 12, tag: "Salud", tagColor: "emerald", title: "Uso Correcto del Aire Acondicionado y Salud", desc: "Guía sobre prevención de choque térmico, diferencia ideal de temperatura, flujo de aire e higiene de filtros de aire acondicionado." },
-        { id: 13, tag: "Ahorro Energético", tagColor: "rose", title: "Métodos Prácticos para Reducir las Pérdidas de Calor", desc: "Guía sobre sellado de ventanas, válvulas termostáticas, optimización del aislamiento y ahorro energético en invierno." },
-        { id: 14, tag: "Principio de Operación", tagColor: "cyan", title: "¿Cómo Funciona un Aire Acondicionado Split? Principio de Operación", desc: "Guía técnica sobre el ciclo de refrigeración por compresión de vapor, unidades split y principios de termodinámica aplicada." },
-        { id: 15, tag: "Cálculo de Aislamiento", tagColor: "blue", title: "¿Cómo se Calcula el Espesor de Aislamiento en los Hogares?", desc: "Guía sobre cálculo de espesor de aislamiento térmico bajo el Código Técnico de la Edificación (CTE), resistencia y optimización." },
-        { id: 16, tag: "Eficiencia", tagColor: "emerald", title: "Factores que Afectan la Eficiencia de la Bomba de Calor (COP y EER)", desc: "Guía técnica sobre coeficientes COP y EER en bombas de calor, impacto de la temperatura exterior y suelo radiante." },
-        { id: 17, tag: "Ventanas", tagColor: "blue", title: "El Papel de las Ventanas en las Pérdidas de Calor y Selección de Vidrios", desc: "Guía sobre el papel de las ventanas en el aislamiento térmico, tecnología Low-E y optimización energética en la edificación." },
-        { id: 18, tag: "Patologías Constructivas", tagColor: "blue", title: "Prevención de Condensaciones en Climatización Invisible", desc: "Punto de rocío en techos refrigerados y aislamiento de tuberías de agua fría." },
-        { id: 19, tag: "Termostatos", tagColor: "cyan", title: "Uso Correcto del Termostato de Ambiente y Métodos de Ahorro", desc: "Guía sobre termostatos de ambiente inteligentes, regulación térmica y optimización del consumo energético en calderas y bombas de calor." },
-        { id: 20, tag: "Diseño de Instalaciones", tagColor: "purple", title: "Importancia de los Cálculos de Ingeniería en Proyectos de Instalaciones Mecánicas", desc: "Guía sobre la importancia de los cálculos de instalaciones mecánicas, calefacción, ventilación y optimización de proyectos." }
-    ]
-};
-
         function dilDegistir(lang) {
             mevcudDil = 'es';
             const t = i18n['es'];
@@ -1203,8 +1176,6 @@
             document.getElementById('lblEEV').innerHTML = t.lblEEV;
             document.getElementById('lblEEVVal').innerText = t.lblEEVVal;
             document.getElementById('lblTransfAire').innerHTML = t.lblTransfAire;
-            document.getElementById('lblBlogSubTitle').innerText = t.lblBlogSubTitle;
-            document.getElementById('lblBlogMainTitle').innerText = t.lblBlogMainTitle;
             document.getElementById('btnFooterAbout').innerText = t.btnFooterAbout;
             document.getElementById('btnFooterPrivacy').innerText = t.btnFooterPrivacy;
             document.getElementById('btnFooterTerms').innerText = t.btnFooterTerms;
@@ -1285,7 +1256,6 @@
             if (document.getElementById("raporMahalNo")) document.getElementById("raporMahalNo").value = t.defMahalNo;
             if (document.getElementById("raporMahalAdi")) document.getElementById("raporMahalAdi").value = t.defMahalAdi;
 
-            renderBlogArticles();
             cevrimaModuDegistir(mevcutCevrimModu);
             sekmeDegistir(mevcutMod);
         }
@@ -1404,55 +1374,6 @@
             if (mod === 'klima') {
                 manuelBaslik.innerHTML = `<i class="fa-solid fa-book-open text-blue-600"></i> ¿Cómo utilizar el Motor de Cálculo?`;
                 manuelIcerik.innerHTML = t.manualKlimaText;
-            }
-        }
-
-        function renderBlogArticles() {
-    const container = document.getElementById("blogGridContainer");
-    const articles = blogArticlesData['es'];
-    let html = "";
-
-    articles.forEach(art => {
-        let colorClass = "blue";
-        if (art.tagColor === "orange") colorClass = "orange";
-        else if (art.tagColor === "amber") colorClass = "amber";
-        else if (art.tagColor === "purple") colorClass = "purple";
-        else if (art.tagColor === "emerald") colorClass = "emerald";
-        else if (art.tagColor === "rose") colorClass = "rose";
-        else if (art.tagColor === "cyan") colorClass = "cyan";
-
-        // BURAYI es/makale-X.html OLARAK DÜZENLEYİN:
-       let dosyaYolu = `makale-${art.id}.html`;
-
-        html += `
-        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between hover:border-${colorClass}-400 hover:shadow-md transition">
-            <div class="space-y-2">
-                <span class="text-[10px] font-bold bg-${colorClass}-100 text-${colorClass}-800 px-2 py-0.5 rounded">${art.tag}</span>
-                <h4 class="font-extrabold text-slate-800 text-sm md:text-base leading-snug">${art.title}</h4>
-                <p class="text-xs text-slate-600 leading-relaxed">${art.desc}</p>
-            </div>
-            <a href="${dosyaYolu}" class="text-xs font-bold text-${colorClass}-600 flex items-center gap-1 pt-2 cursor-pointer hover:underline">
-                Leer Artículo <i class="fa-solid fa-arrow-right text-[10px]"></i>
-            </a>
-        </div>`;
-    });
-
-    container.innerHTML = html;
-}
-
-        function blogToggle(id) {
-            const content = document.getElementById(`blogContent${id}`);
-            const btnText = document.getElementById(`blogBtnText${id}`);
-            const card = document.getElementById(`blogCard${id}`);
-
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                btnText.classList.add('hidden');
-                card.classList.add('ring-2', 'ring-blue-500', 'bg-blue-50/20');
-            } else {
-                content.classList.add('hidden');
-                btnText.classList.remove('hidden');
-                card.classList.remove('ring-2', 'ring-blue-500', 'bg-blue-50/20');
             }
         }
 
@@ -2111,146 +2032,147 @@
             if (document.getElementById("printKlimaOneri")) document.getElementById("printKlimaOneri").innerText = baslik;
         }
 
-       /* CANVAS TERMODINÁMICO */
-let pipeParticles = [];
-const pipeParticleCount = 28;
-for (let i = 0; i < pipeParticleCount; i++) {
-    pipeParticles.push({ progress: i / pipeParticleCount });
-}
-
-let indoorAirParticles = [];
-let outdoorAirParticles = [];
-
-for (let i = 0; i < 30; i++) {
-    indoorAirParticles.push({
-        x: 140, y: 190 + (Math.random() * 80 - 40),
-        vx: - (1.2 + Math.random() * 1.5),
-        vy: (Math.random() * 0.8 - 0.4),
-        size: 3 + Math.random() * 4,
-        alpha: 0.2 + Math.random() * 0.7
-    });
-    outdoorAirParticles.push({
-        x: 560, y: 160 + (Math.random() * 80 - 40),
-        vx: (1.2 + Math.random() * 1.5),
-        vy: (Math.random() * 0.8 - 0.4),
-        size: 3 + Math.random() * 4,
-        alpha: 0.2 + Math.random() * 0.7
-    });
-}
-
-function cevrimaModuDegistir(mod) {
-    mevcutCevrimModu = mod;
-    const btnSogutma = document.getElementById('btnModSogutma');
-    const btnIsitma = document.getElementById('btnModIsitma');
-    const demoBaslik = document.getElementById('demoBaslik');
-    const demoAciklama = document.getElementById('demoAciklama');
-    const txt4YolDurum = document.getElementById('txt4YolDurum');
-    const txtHavaDurum = document.getElementById('txtHavaDurum');
-    const demoBilgiKutusu = document.getElementById('demoBilgiKutusu');
-
-    if (!btnSogutma || !btnIsitma) return;
-
-    if (mod === 'sogutma') {
-        btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-blue-600 text-white shadow-xs cursor-pointer";
-        btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-orange-600 cursor-pointer";
-        if (demoBilgiKutusu) demoBilgiKutusu.className = "bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-2";
-        if (demoBaslik) demoBaslik.innerHTML = `<i class="fa-solid fa-snowflake text-blue-600"></i> Análisis Ciclo de Refrigeración`;
-        if (demoAciklama) demoAciklama.innerHTML = "En modo frío, la unidad interior impulsa <strong>aire frío (azul)</strong> absorbiendo el calor del recinto. El calor transportado por el circuito frigorífico se expulsa al exterior como <strong>aire caliente (rojo)</strong>.";
-        if (txt4YolDurum) txt4YolDurum.innerText = "Flujo Directo (Modo Frío)";
-        if (txtHavaDurum) {
-            txtHavaDurum.className = "text-blue-600 font-bold";
-            txtHavaDurum.innerText = "Interior: Frío / Exterior: Calor";
+        /* CANVAS TERMODINÁMICO */
+        let pipeParticles = [];
+        const pipeParticleCount = 28;
+        for (let i = 0; i < pipeParticleCount; i++) {
+            pipeParticles.push({ progress: i / pipeParticleCount });
         }
-    } else {
-        btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-orange-600 text-white shadow-xs cursor-pointer";
-        btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-blue-600 cursor-pointer";
-        if (demoBilgiKutusu) demoBilgiKutusu.className = "bg-orange-50 border border-orange-200 rounded-xl p-4 space-y-2";
-        if (demoBaslik) demoBaslik.innerHTML = `<i class="fa-solid fa-fire text-orange-600"></i> Análisis Aerotermia (Bomba de Calor) Inviernos`;
-        if (demoAciklama) demoAciklama.innerHTML = "En modo calor, la válvula de 4 vías invierte el flujo. La unidad interior expulsa <strong>aire caliente (rojo)</strong> al recinto mientras la exterior absorbe energía del aire externo expulsando <strong>aire frío (azul)</strong>.";
-        if (txt4YolDurum) txt4YolDurum.innerText = "Invertida (Modo Calor)";
-        if (txtHavaDurum) {
-            txtHavaDurum.className = "text-red-600 font-bold";
-            txtHavaDurum.innerText = "Interior: Calor / Exterior: Frío";
+
+        let indoorAirParticles = [];
+        let outdoorAirParticles = [];
+
+        for (let i = 0; i < 30; i++) {
+            indoorAirParticles.push({
+                x: 140, y: 190 + (Math.random() * 80 - 40),
+                vx: - (1.2 + Math.random() * 1.5),
+                vy: (Math.random() * 0.8 - 0.4),
+                size: 3 + Math.random() * 4,
+                alpha: 0.2 + Math.random() * 0.7
+            });
+            outdoorAirParticles.push({
+                x: 560, y: 160 + (Math.random() * 80 - 40),
+                vx: (1.2 + Math.random() * 1.5),
+                vy: (Math.random() * 0.8 - 0.4),
+                size: 3 + Math.random() * 4,
+                alpha: 0.2 + Math.random() * 0.7
+            });
         }
-    }
-}
 
-function drawSystem() {
-    const canvas = document.getElementById('klimaCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+        function cevrimaModuDegistir(mod) {
+            mevcutCevrimModu = mod;
+            const btnSogutma = document.getElementById('btnModSogutma');
+            const btnIsitma = document.getElementById('btnModIsitma');
+            const demoBaslik = document.getElementById('demoBaslik');
+            const demoAciklama = document.getElementById('demoAciklama');
+            const txt4YolDurum = document.getElementById('txt4YolDurum');
+            const txtHavaDurum = document.getElementById('txtHavaDurum');
+            const demoBilgiKutusu = document.getElementById('demoBilgiKutusu');
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (!btnSogutma || !btnIsitma) return;
 
-    ctx.strokeStyle = '#334155'; ctx.lineWidth = 2; ctx.setLineDash([6, 6]);
-    ctx.strokeRect(40, 40, 200, 320);
-    ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 12px Segoe UI'; ctx.textAlign = 'center';
-    ctx.fillText("UNIDAD INTERIOR", 140, 65);
+            if (mod === 'sogutma') {
+                btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-blue-600 text-white shadow-xs cursor-pointer";
+                btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-orange-600 cursor-pointer";
+                if (demoBilgiKutusu) demoBilgiKutusu.className = "bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-2";
+                if (demoBaslik) demoBaslik.innerHTML = `<i class="fa-solid fa-snowflake text-blue-600"></i> Análisis Ciclo de Refrigeración`;
+                if (demoAciklama) demoAciklama.innerHTML = "En modo frío, la unidad interior impulsa <strong>aire frío (azul)</strong> absorbiendo el calor del recinto. El calor transportado por el circuito frigorífico se expulsa al exterior como <strong>aire caliente (rojo)</strong>.";
+                if (txt4YolDurum) txt4YolDurum.innerText = "Flujo Directo (Modo Frío)";
+                if (txtHavaDurum) {
+                    txtHavaDurum.className = "text-blue-600 font-bold";
+                    txtHavaDurum.innerText = "Interior: Frío / Exterior: Calor";
+                }
+            } else {
+                btnIsitma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 bg-orange-600 text-white shadow-xs cursor-pointer";
+                btnSogutma.className = "px-4 py-2 rounded-lg font-bold text-xs transition flex items-center gap-1.5 text-slate-600 hover:text-blue-600 cursor-pointer";
+                if (demoBilgiKutusu) demoBilgiKutusu.className = "bg-orange-50 border border-orange-200 rounded-xl p-4 space-y-2";
+                if (demoBaslik) demoBaslik.innerHTML = `<i class="fa-solid fa-fire text-orange-600"></i> Análisis Aerotermia (Bomba de Calor) Inviernos`;
+                if (demoAciklama) demoAciklama.innerHTML = "En modo calor, la válvula de 4 vías invierte el flujo. La unidad interior expulsa <strong>aire caliente (rojo)</strong> al recinto mientras la exterior absorbe energía del aire externo expulsando <strong>aire frío (azul)</strong>.";
+                if (txt4YolDurum) txt4YolDurum.innerText = "Invertida (Modo Calor)";
+                if (txtHavaDurum) {
+                    txtHavaDurum.className = "text-red-600 font-bold";
+                    txtHavaDurum.innerText = "Interior: Calor / Exterior: Frío";
+                }
+            }
+        }
 
-    ctx.strokeRect(460, 40, 200, 320);
-    ctx.fillText("UNIDAD EXTERIOR", 560, 65);
-    ctx.setLineDash([]);
+        function drawSystem() {
+            const canvas = document.getElementById('klimaCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
 
-    ctx.strokeStyle = '#475569'; ctx.lineWidth = 8;
-    ctx.beginPath(); ctx.moveTo(140, 100); ctx.lineTo(560, 100); ctx.lineTo(560, 300); ctx.lineTo(140, 300); ctx.closePath(); ctx.stroke();
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = '#1e293b'; ctx.beginPath(); ctx.arc(560, 250, 26, 0, Math.PI * 2); ctx.fill();
-    ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 3; ctx.stroke();
-    ctx.fillStyle = '#ffffff'; ctx.font = 'bold 10px Segoe UI'; ctx.fillText("COMP.", 560, 254);
+            ctx.strokeStyle = '#334155'; ctx.lineWidth = 2; ctx.setLineDash([6, 6]);
+            ctx.strokeRect(40, 40, 200, 320);
+            ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 12px Segoe UI'; ctx.textAlign = 'center';
+            ctx.fillText("UNIDAD INTERIOR", 140, 65);
 
-    ctx.fillStyle = '#d97706'; ctx.fillRect(330, 288, 40, 24);
-    ctx.fillStyle = '#ffffff'; ctx.fillText("EEV", 350, 303);
+            ctx.strokeRect(460, 40, 200, 320);
+            ctx.fillText("UNIDAD EXTERIOR", 560, 65);
+            ctx.setLineDash([]);
 
-    ctx.fillStyle = '#7c3aed'; ctx.fillRect(330, 88, 40, 24);
-    ctx.fillStyle = '#ffffff'; ctx.fillText("4-VIE", 350, 103);
+            ctx.strokeStyle = '#475569'; ctx.lineWidth = 8;
+            ctx.beginPath(); ctx.moveTo(140, 100); ctx.lineTo(560, 100); ctx.lineTo(560, 300); ctx.lineTo(140, 300); ctx.closePath(); ctx.stroke();
 
-    let icRenk = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? '#3b82f6' : '#ef4444';
-    let disRenk = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? '#ef4444' : '#3b82f6';
+            ctx.fillStyle = '#1e293b'; ctx.beginPath(); ctx.arc(560, 250, 26, 0, Math.PI * 2); ctx.fill();
+            ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 3; ctx.stroke();
+            ctx.fillStyle = '#ffffff'; ctx.font = 'bold 10px Segoe UI'; ctx.fillText("COMP.", 560, 254);
 
-    ctx.fillStyle = icRenk; ctx.fillRect(130, 130, 20, 120);
-    ctx.fillStyle = '#ffffff'; ctx.fillText((typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'Evap' : 'Cond', 140, 195);
+            ctx.fillStyle = '#d97706'; ctx.fillRect(330, 288, 40, 24);
+            ctx.fillStyle = '#ffffff'; ctx.fillText("EEV", 350, 303);
 
-    ctx.fillStyle = disRenk; ctx.fillRect(550, 110, 20, 100);
-    ctx.fillStyle = '#ffffff'; ctx.fillText((typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'Cond' : 'Evap', 560, 165);
+            ctx.fillStyle = '#7c3aed'; ctx.fillRect(330, 88, 40, 24);
+            ctx.fillStyle = '#ffffff'; ctx.fillText("4-VIE", 350, 103);
 
-    let icHavaRengi = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'rgba(56, 189, 248, ' : 'rgba(239, 68, 68, ';
-    let disHavaRengi = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'rgba(239, 68, 68, ' : 'rgba(56, 189, 248, ';
+            let icRenk = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? '#3b82f6' : '#ef4444';
+            let disRenk = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? '#ef4444' : '#3b82f6';
 
-    indoorAirParticles.forEach(p => {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 50) { p.x = 130; p.y = 190 + (Math.random() * 80 - 40); }
-        ctx.fillStyle = icHavaRengi + p.alpha + ')'; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
-    });
+            ctx.fillStyle = icRenk; ctx.fillRect(130, 130, 20, 120);
+            ctx.fillStyle = '#ffffff'; ctx.fillText((typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'Evap' : 'Cond', 140, 195);
 
-    outdoorAirParticles.forEach(p => {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x > 650) { p.x = 570; p.y = 160 + (Math.random() * 80 - 40); }
-        ctx.fillStyle = disHavaRengi + p.alpha + ')'; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
-    });
+            ctx.fillStyle = disRenk; ctx.fillRect(550, 110, 20, 100);
+            ctx.fillStyle = '#ffffff'; ctx.fillText((typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'Cond' : 'Evap', 560, 165);
 
-    pipeParticles.forEach(p => {
-        p.progress += 0.003; if (p.progress > 1) p.progress = 0;
-        let x, y, color;
-        let effProg = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? p.progress : (1 - p.progress);
+            let icHavaRengi = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'rgba(56, 189, 248, ' : 'rgba(239, 68, 68, ';
+            let disHavaRengi = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? 'rgba(239, 68, 68, ' : 'rgba(56, 189, 248, ';
 
-        if (effProg < 0.35) { x = 140 + (effProg / 0.35) * 420; y = 100; color = '#ef4444'; }
-        else if (effProg < 0.5) { x = 560; y = 100 + ((effProg - 0.35) / 0.15) * 200; color = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? '#ef4444' : '#3b82f6'; }
-        else if (effProg < 0.85) { x = 560 - ((effProg - 0.5) / 0.35) * 420; y = 300; color = x > 350 ? '#ef4444' : '#3b82f6'; }
-        else { x = 140; y = 300 - ((effProg - 0.85) / 0.15) * 200; color = '#3b82f6'; }
+            indoorAirParticles.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 50) { p.x = 130; p.y = 190 + (Math.random() * 80 - 40); }
+                ctx.fillStyle = icHavaRengi + p.alpha + ')'; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+            });
 
-        ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();
-    });
+            outdoorAirParticles.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x > 650) { p.x = 570; p.y = 160 + (Math.random() * 80 - 40); }
+                ctx.fillStyle = disHavaRengi + p.alpha + ')'; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+            });
 
-    requestAnimationFrame(drawSystem);
-}
-       window.onload = function() {
-    dilDegistir('es');
-    yapiTipiDegisti();
-    isiticiCihazDegisti();
-    cevrimaModuDegistir('sogutma');
-    drawSystem();
-};
+            pipeParticles.forEach(p => {
+                p.progress += 0.003; if (p.progress > 1) p.progress = 0;
+                let x, y, color;
+                let effProg = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? p.progress : (1 - p.progress);
+
+                if (effProg < 0.35) { x = 140 + (effProg / 0.35) * 420; y = 100; color = '#ef4444'; }
+                else if (effProg < 0.5) { x = 560; y = 100 + ((effProg - 0.35) / 0.15) * 200; color = (typeof mevcutCevrimModu !== 'undefined' && mevcutCevrimModu === 'sogutma') ? '#ef4444' : '#3b82f6'; }
+                else if (effProg < 0.85) { x = 560 - ((effProg - 0.5) / 0.35) * 420; y = 300; color = x > 350 ? '#ef4444' : '#3b82f6'; }
+                else { x = 140; y = 300 - ((effProg - 0.85) / 0.15) * 200; color = '#3b82f6'; }
+
+                ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();
+            });
+
+            requestAnimationFrame(drawSystem);
+        }
+
+        window.onload = function() {
+            dilDegistir('es');
+            yapiTipiDegisti();
+            isiticiCihazDegisti();
+            cevrimaModuDegistir('sogutma');
+            drawSystem();
+        };
     </script>
 </body>
 </html>
